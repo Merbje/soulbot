@@ -16,7 +16,6 @@ let commands = ['!addsoul [mob] [amount]', '!deletesoul [all:mob] [OPT: amount]'
 let config = {
     host: "remotemysql.com",
     user: "EaRxbcwve0",
-    // port: process.env.PORT,
     password: "NjMCKdAbZ3",
     database: "EaRxbcwve0"
 };
@@ -30,65 +29,65 @@ client.on('ready', () => {
 client.on('message', msg => {
     let user = msg.author.username;
     let args = msg.content.substring(1).split(' ');
+    switch(args[1]) {
+        case 'rat' :
+            args[1] = 'milirat';
+            break;
+        case 'beaz' :
+            args[1] = 'beaztinga';
+            break;
+        case 'holy' :
+            args[1] = 'holybambooto';
+            break;
+        case 'weir' :
+            args[1] = 'weirbwork';
+            break;
+        case 'krider' :
+            args[1] = 'koalakrider';
+            break;
+        case 'kmaster' :
+            args[1] = 'koalakmaster';
+            break;
+        case 'wild' :
+            args[1] = 'wildkoalak';
+            break;
+        case 'kili' :
+            args[1] = 'kilibriss';
+            break;
+        case 'croma' :
+            args[1] = 'cromagmunk';
+            break;
+        case 'mopy' :
+            args[1] = 'mopyking';
+            break;
+        case 'watcha' :
+            args[1] = 'watchamatrich';
+            break;
+        case 'zmaster' :
+            args[1] = 'zothmaster';
+            break;
+        case 'zwar' :
+            args[1] = 'zothwarrior';
+            break;
+        case 'zdisc' :
+            args[1] = 'zothdisciple';
+            break;
+        case 'bulbig':
+            args[2] = 'holybambooto';
+            break;
+    }
     if (msg.content.startsWith('!') && msg.channel.id === '681167201855864843') {
         switch (args[0]) {
     //===================================================================//
             case 'addsoul':
                 let check = args[2].split(',');
-                switch(args[1]){
-                    case 'rat' :
-                        args[1] = 'milirat';
-                        break;
-                    case 'beaz' :
-                        args[1] = 'beaztinga';
-                        break;
-                    case 'holy' :
-                        args[1] = 'holybambooto';
-                        break;
-                    case 'weir' :
-                        args[1] = 'weirbwork';
-                        break;
-                    case 'krider' :
-                        args[1] = 'koalakrider';
-                        break;
-                    case 'kmaster' :
-                        args[1] = 'koalakmaster';
-                        break;
-                    case 'wild' :
-                        args[1] = 'wildkoalak';
-                        break;
-                    case 'kili' :
-                        args[1] = 'kilibriss';
-                        break;
-                    case 'croma' :
-                        args[1] = 'cromagmunk';
-                        break;
-                    case 'mopy' :
-                        args[1] = 'mopyking';
-                        break;
-                    case 'watcha' :
-                        args[1] = 'watchamatrich';
-                        break;
-                    case 'zmaster' :
-                        args[1] = 'zothmaster';
-                        break;
-                    case 'zwar' :
-                        args[1] = 'zothwarrior';
-                        break;
-                    case 'zdisc' :
-                        args[1] = 'zothdisciple';
-                        break;
-                    case 'bulbig':
-                        args[2] = 'holybambooto';
-                        break;
-                }
                 args[2] = check[0];
                 if (verifyMob(args[1]) && verifyAmount(args[2])){
                     connectDB();
                     getSoulsPerUser(user,function(result){
                         let dubbel = false;
-                        for(let resul in result) {
-                            if (result[resul]['soulmob'] === args[1]){
+                        for(let i = 0; i < result.length; i++) {
+                            if (result[i]['soulmob'] === args[1]){
                                 dubbel = true;
                             }
                         }
