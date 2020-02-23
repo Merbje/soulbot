@@ -94,7 +94,7 @@ client.on('message', msg => {
                         }
                         if(dubbel === false) {
                         postSoulsPerUser(user, args[1], args[2]);
-                        msg.reply.then("soul is added.");
+                        msg.reply("soul is added.").then();
                         }else {
                             updateSoulByUser(user,args[1],args[2]);
                             msg.reply('soul amount is updated.').then();
