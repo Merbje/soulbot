@@ -228,7 +228,7 @@ function disconnectDB() {
         setTimeout(function(){
             console.log("disconnected");
             con.destroy();
-        }, 1000);
+        }, 4000);
     }
 
 function verifyMob(mob) {
