@@ -220,13 +220,11 @@ client.on('message', msg => {
 
 function connectDB() {
         con = mysql.createConnection(config);
-        console.log("connected");
         con.connect();
     }
 
 function disconnectDB() {
         setTimeout(function(){
-            console.log("disconnected");
             con.destroy();
         }, 2000);
     }
