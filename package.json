@@ -1,6 +1,4 @@
 {
-  "name": "soulBotForDofus",
-  "version": "1.0.0",
   "scripts": {
     "start": "node bot.js"
   },
@@ -16,5 +14,20 @@
     "discord.js": "^11.5.1",
     "dotenv": "^8.2.0",
     "mysql": "^2.18.1"
-  }
+  },
+  "name": "soulbothosted",
+  "version": "1.0.0",
+  "description": "makes managing souls easy",
+  "main": "bot.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Merbje/soulbot.git"
+  },
+  "author": "Schapenherder",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Merbje/soulbot/issues"
+  },
+  "homepage": "https://github.com/Merbje/soulbot#readme"
 }

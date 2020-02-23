@@ -2,25 +2,25 @@ require('dotenv').config();
 const mysql = require('mysql');
 const Discord = require('discord.js');
 const client = new Discord.Client();
-var soulmobs = ['milirat', 'crab', 'beaztinga', 'holybambooto', 'bulbig',
+let soulmobs = ['milirat', 'crab', 'beaztinga', 'holybambooto', 'bulbig',
     'weirbwork', 'koalakrider', 'koalakmaster', 'wildkoalak', 'kilibriss',
     'cromagmunk', 'mopyking', 'watchamatrich', 'zothmaster', 'zothwarrior',
     'zothdisciple'];
-var mobs = 'the following mobs are allowed, between () is the shorter input:\n' +
+let mobs = 'the following mobs are allowed, between () is the shorter input:\n' +
     '| **milirat** (rat) | **crab** | **beaztinga** (beaz) | **holybambooto** (holy) |' +
     ' **bulbig** | **weirbwork** (weir) | **koalakrider** (krider) ' +
     '| **koalakmaster** (kmaster) | **wildkoalak** (wild) | **kilibriss** (kili) ' +
     '| **cromagmunk** (croma) | **mopyking** (mopy) | **watchamatrich** (watcha) ' +
     '| **zothmaster** (zmaster) | **zothwarrior** (zwar) | **zothdisciple** (zdisc) |';
-var commands = ['!addsoul [mob] [amount]', '!deletesoul [all:mob] [OPT: amount]', '!mysouls', '!allsouls', '!moblist', '!buyin [small] [average] [big] [gigantic]'];
-var config = {
+let commands = ['!addsoul [mob] [amount]', '!deletesoul [all:mob] [OPT: amount]', '!mysouls', '!allsouls', '!moblist', '!buyin [small] [average] [big] [gigantic]'];
+let config = {
     host: "remotemysql.com",
     user: "EaRxbcwve0",
     password: "hf09Ekp150",
     database: "EaRxbcwve0"
 };
 
-var con = mysql.createConnection(config);
+let con = mysql.createConnection(config);
 
 client.on('ready', () => {
     console.log('Logged in as soulBotForDofus!');
@@ -93,63 +93,64 @@ client.on('message', msg => {
                         }
                         if(dubbel === false) {
                         postSoulsPerUser(user, args[1], args[2]);
-                        msg.reply("soul is added.");
+                        msg.reply.then("soul is added.");
                         }else {
                             updateSoulByUser(user,args[1],args[2]);
-                            msg.reply('soul amount is updated.');
+                            msg.reply('soul amount is updated.').then();
                         }
                     });
                     disconnectDB();
                 } else {
-                    msg.reply("soul is not valid, please consult !help.")
+                    msg.reply("soul is not valid, please consult !help.").then();
                 }
                 break;
     //===================================================================//
             case 'mysouls':
                 connectDB();
                 getSoulsPerUser(user, function (result) {
-                    var bericht = 'you have the following souls:\n';
-                    for(var i = 0; i < result.length; i++) {
+                    let bericht = 'you have the following souls:\n';
+                    for(let i = 0; i < result.length; i++) {
                         if (i === 0) {
                             bericht += '| '
                         }
-                        var mob = '**' + result[i]['soulmob'] + '**';
-                        var amount = result[i]['amount'];
+                        let mob = '**' + result[i]['soulmob'] + '**';
+                        let amount = result[i]['amount'];
                         bericht += mob + ' - ' + amount + ' | ';
                     }
-                    msg.reply(bericht);
+                    msg.reply(bericht).then();
                     disconnectDB();
                 });
                 break;
     //===================================================================//
             case 'deletesoul':
                 connectDB();
-                var mob = args[1];
+                let mob = args[1];
+                let amount = 0;
                 try {
-                    var amount = -parseInt(args[2]);
+                    amount = -parseInt(args[2]);
                 }
                 catch (TypeError) {
-                    msg.reply('amount has to be a number');
+                    msg.reply('amount has to be a number').then();
                 }
                 if (mob.toLowerCase() === 'all'){
                     deleteAllSoulsByUser(user);
-                    msg.reply('all souls deleted');
+                    msg.reply('all souls deleted').then();
                 } else if (verifyMob(mob) && !Number.isNaN(amount)) {
                     updateSoulByUser(user,mob,amount);
-                        msg.reply(mob + ' souls deleted');
+                        msg.reply(mob + ' souls deleted').then();
                 } else if (verifyMob(mob)) {
                     deleteSoulByUser(user, mob);
-                        msg.reply('all your ' + mob + ' souls are deleted.')
-                } else if (parseInt(amount) === 0){
-                    msg.reply("it's not possible to delete 0 souls");
+                        msg.reply('all your ' + mob + ' souls are deleted.').then();
+                } else if (amount === 0){
+                    msg.reply("it's not possible to delete 0 souls").then();
                 } else {
-                    msg.reply('wrong use of command, please consult !help for more info');
+                    msg.reply('wrong use of command, please consult !help for more info').then();
                 }
                 disconnectDB();
             break;
     //===================================================================//
             case 'moblist':
-                msg.reply(mobs);
+                msg.reply(mobs).then();
                 break;
     //===================================================================//
             case 'buyin':
@@ -169,54 +170,48 @@ client.on('message', msg => {
                             }
                         }
                         buyin = buyin / 8;
-                        msg.reply(buyin);
+                        msg.reply(buyin).then();
                     });
                     disconnectDB();
                 } else {
-                    msg.reply('wrong use of command, please consult !help');
+                    msg.reply('wrong use of command, please consult !help').then();
                 }
                 break;
         }
     } else if (msg.content.startsWith('!') && msg.channel.id === '681167234495676417') {
-        switch (args[0]) {
-    //===================================================================//
-            case 'allsouls':
-                connectDB();
-                getAllSouls(function(result){
-                    var bericht = 'these souls are available:\n';
-                    for(var i = 0; i < result.length; i++) {
-                        var mob = result[i]['soulmob'][0].toUpperCase() + result[i]['soulmob'].substring(1, result[i]['soulmob'].length);
-                        var amount = ' - ' + result[i]['amount'];
-                        var soulowner =  '**' + result[i]['username'] + '**';
-                        var updatemessage = soulowner + amount + ' | ';
-                        if(i !== 0) {
-                            if (mob.toLowerCase() !== result[i-1]['soulmob']) {
-                                bericht += '\n\n__**' + mob + ':**__\n| ';
-                            }
-                            bericht += updatemessage;
-                        } else {
-                            bericht += '__**' + mob + ':**__\n| ';
-                            bericht += updatemessage;
+        if (args[0] === 'allsouls') {
+            connectDB();
+            getAllSouls(function(result){
+                let bericht = 'these souls are available:\n';
+                for(let i = 0; i < result.length; i++) {
+                    let mob = result[i]['soulmob'][0].toUpperCase() + result[i]['soulmob'].substring(1, result[i]['soulmob'].length);
+                    let amount = ' - ' + result[i]['amount'];
+                    let soulowner =  '**' + result[i]['username'] + '**';
+                    let updatemessage = soulowner + amount + ' | ';
+                    if(i !== 0) {
+                        if (mob.toLowerCase() !== result[i-1]['soulmob']) {
+                            bericht += '\n\n__**' + mob + ':**__\n| ';
                         }
+                        bericht += updatemessage;
+                    } else {
+                        bericht += '__**' + mob + ':**__\n| ';
+                        bericht += updatemessage;
                     }
-                    msg.reply(bericht);
-                    disconnectDB();
-                });
-                break;
+                }
+                msg.reply(bericht).then();
+                disconnectDB();
+            });
         }
     }
     if (msg.content.startsWith('!') && (msg.channel.id === '681167234495676417' || msg.channel.id === '681167201855864843')) {
-        switch (args[0]) {
-    //===================================================================//
-            case 'help':
-                msg.reply("list of commands:\n**" +
-                    commands[0] + "** adds a soul or updates an already existing soul\n**" +
-                    commands[1] + "** deletes souls\n**" +
-                    commands[2] + "** displays all your registered souls\n**" +
-                    commands[3] + "** displays all registered souls *(soulviewing channel only!)*\n**" +
-                    commands[4] + "** displays the list of all the mobs we soul\n**" +
-                    commands[5] + "** calculates your buy in based on your souls (you must enter 4 prices)");
-                break;
+        if (args[0] === 'help') {
+            msg.reply("list of commands:\n**" +
+                commands[0] + "** adds a soul or updates an already existing soul\n**" +
+                commands[1] + "** deletes souls\n**" +
+                commands[2] + "** displays all your registered souls\n**" +
+                commands[3] + "** displays all registered souls *(soulviewing channel only!)*\n**" +
+                commands[4] + "** displays the list of all the mobs we soul\n**" +
+                commands[5] + "** calculates your buy in based on your souls (you must enter 4 prices)").then();
         }
     }
 
@@ -246,7 +241,8 @@ function verifyAmount(amount) {
                 return true;
             }
         } catch (TypeError) {
-            return false;
+            throw "not valid";
+
         }
     }
 
@@ -266,7 +262,7 @@ function queryRun(query, callback) {
 }
 
 function postSoulsPerUser(user, mob, amount) {
-        var stone;
+        let stone;
         if (mob === 'mopyking') {
             stone = 'gigantic'
         } else if (mob === 'crab' || mob === 'milirat') {
@@ -277,7 +273,7 @@ function postSoulsPerUser(user, mob, amount) {
             stone = 'big';
         }
     queryRun("INSERT INTO userssouls VALUES ('"+user+"','"+mob+"',"+amount+",'"+stone+"')", function (result){
-        return true;
+        return result;
     });
 }
 
@@ -291,13 +287,12 @@ function getSoulsPerUser(user, callback) {
 function deleteAllSoulsByUser(user) {
         const sql = "DELETE FROM userssouls where username = '" + user + "'";
         queryRun(sql,function (result){
-            return true;
+            return result;
     });
 }
 
 function deleteSoulByUser(user, mob) {
-        let sql = '';
-        sql = "DELETE FROM userssouls WHERE username = '" + user + "' AND soulmob= '" + mob + "'";
+        let sql = "DELETE FROM userssouls WHERE username = '" + user + "' AND soulmob= '" + mob + "'";
         queryRun(sql, function (result) {});
 }
 
@@ -327,4 +322,4 @@ function getAllSouls(callback) {
             });
 }
 
-client.login(process.env.DISCORD_TOKEN);
+client.login(process.env.DISCORD_TOKEN).then();
