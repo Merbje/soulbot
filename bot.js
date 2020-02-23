@@ -16,6 +16,7 @@ let commands = ['!addsoul [mob] [amount]', '!deletesoul [all:mob] [OPT: amount]'
 let config = {
     host: "remotemysql.com",
     user: "EaRxbcwve0",
+    port: process.env.PORT,
     password: "hf09Ekp150",
     database: "EaRxbcwve0"
 };
