@@ -1,4 +1,3 @@
-// Run dotenv
 require('dotenv').config();
 const mysql = require('mysql');
 const Discord = require('discord.js');
