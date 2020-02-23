@@ -17,7 +17,7 @@ let config = {
     host: "remotemysql.com",
     user: "EaRxbcwve0",
     // port: process.env.PORT,
-    password: "hf09Ekp150",
+    password: "NjMCKdAbZ3",
     database: "EaRxbcwve0"
 };
 
