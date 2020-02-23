@@ -2,6 +2,7 @@ require('dotenv').config();
 const mysql = require('mysql');
 const Discord = require('discord.js');
 const client = new Discord.Client();
+const PORT = process.env.PORT || 3000;
 let soulmobs = ['milirat', 'crab', 'beaztinga', 'holybambooto', 'bulbig',
     'weirbwork', 'koalakrider', 'koalakmaster', 'wildkoalak', 'kilibriss',
     'cromagmunk', 'mopyking', 'watchamatrich', 'zothmaster', 'zothwarrior',
@@ -26,6 +27,8 @@ let con = mysql.createConnection(config);
 client.on('ready', () => {
     console.log('Logged in as soulBotForDofus!');
 });
+
+client.
 
 client.on('message', msg => {
     let user = msg.author.username;
