@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "start": "node bot.js"
+    "start": "node bot.js -p $PORT"
   },
   "compilerOptions": {
     "module": "commonjs",
