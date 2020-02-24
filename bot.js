@@ -100,7 +100,10 @@ client.on('message', msg => {
                         }
                     });
                     disconnectDB();
-                } else {
+                } else if (verifyAmount(args[2])){
+                    msg.reply('amount is not valid, please make sure it numbers only and not higher than 9999999').then();
+                }
+                else {
                     msg.reply("soul is not valid, please consult !help.").then();
                 }
                 break;
@@ -206,7 +209,7 @@ client.on('message', msg => {
     if (msg.content.startsWith('!') && (msg.channel.id === '681167234495676417' || msg.channel.id === '681167201855864843')) {
         if (args[0] === 'help') {
             msg.reply("list of commands:\n**" +
-                commands[0] + "** adds a soul or updates an already existing soul\n**" +
+                commands[0] + "** adds a soul or updates an already existing soul.\n**" +
                 commands[1] + "** deletes souls\n**" +
                 commands[2] + "** displays all your registered souls\n**" +
                 commands[3] + "** displays all registered souls *(soulviewing channel only!)*\n**" +
