@@ -237,7 +237,7 @@ function verifyMob(mob) {
 function verifyAmount(amount) {
         try {
             let isNumber = parseInt(amount);
-            if (isNumber > 0) {
+            if (isNumber > 0 && amount.length < 8) {
                 return true;
             }
         } catch (TypeError) {
