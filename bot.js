@@ -80,9 +80,9 @@ client.on('message', msg => {
         switch (args[0]) {
     //===================================================================//
             case 'addsoul':
-                let check = args[2].split(',');
-                args[2] = check[0];
                 if (verifyMob(args[1]) && verifyAmount(args[2])){
+                    let check = args[2].split(',');
+                    args[2] = check[0];
                     connectDB();
                     getSoulsPerUser(user,function(result){
                         let dubbel = false;
@@ -256,7 +256,6 @@ function getAmountOfStones(user, callback) {
 function queryRun(query, callback) {
     con.query(query,function (err, result){
         if (err) throw err;
-        //console.log(result);
         return callback(result);
     });
 }
