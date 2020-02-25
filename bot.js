@@ -27,7 +27,7 @@ client.on('ready', () => {
 });
 
 client.on('message', msg => {
-    console.log(msg.author);
+    console.log(msg.author.lastMessage.member.nickname);
     let user = msg.author.username;
     let args = msg.content.substring(1).split(' ');
     switch(args[1]) {
