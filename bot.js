@@ -328,9 +328,11 @@ function deleteSoulByUser(user, mob) {
 }
 
 function updateSoulByUser(user, mob, amount){
+    getSoulsPerUser(user, function (result) {
+            console.log(result);
+    });
         getSoulAmountByUser(user, mob, function(result){
             let nieuw = parseInt(result) + parseInt(amount);
-            console.log('nieuw ' + nieuw);
             if (nieuw > 0) {
                 let sql = "UPDATE userssouls SET amount = " + nieuw + " WHERE username = '" + user + "' AND soulmob = '" + mob + "'";
                 queryRun(sql, function (result) {});
