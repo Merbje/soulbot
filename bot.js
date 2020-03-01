@@ -147,13 +147,13 @@ client.on('message', msg => {
                         for (let i = 0; i < result.length; i++) {
                             if(result[i]['soulmob'] === mob){
                                 waar = true;
-                                console.log(result[i]['soulmob']);
                             }
-                            console.log(waar);
                         }
                         if (waar === true) {
                             updateSoulByUser(user,mob,amount);
                             msg.reply(mob + ' souls deleted').then();
+                        } else {
+                            msg.reply("you can't delete a soul you don't have").then();
                         }
                     });
                 } else if (verifyMob(mob)) {
