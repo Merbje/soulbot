@@ -142,9 +142,14 @@ client.on('message', msg => {
                     deleteAllSoulsByUser(user);
                     msg.reply('all souls deleted').then();
                 } else if (verifyMob(mob) && !Number.isNaN(amount)) {
+                    console.log('updatesoulbyuser');
                     updateSoulByUser(user,mob,amount);
                         msg.reply(mob + ' souls deleted').then();
                 } else if (verifyMob(mob)) {
+                    console.log('deletesoulbyuser');
+                    // getSoulsPerUser(user, function (result) {
+                    //
+                    // });
                     deleteSoulByUser(user, mob);
                         msg.reply('all your ' + mob + ' souls are deleted.').then();
                 } else if (amount === 0){
