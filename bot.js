@@ -142,11 +142,9 @@ client.on('message', msg => {
                     deleteAllSoulsByUser(user);
                     msg.reply('all souls deleted').then();
                 } else if (verifyMob(mob) && !Number.isNaN(amount)) {
-                    console.log('updatesoulbyuser');
                     updateSoulByUser(user,mob,amount);
                         msg.reply(mob + ' souls deleted').then();
                 } else if (verifyMob(mob)) {
-                    console.log('deletesoulbyuser');
                     // getSoulsPerUser(user, function (result) {
                     //
                     // });
@@ -332,6 +330,7 @@ function deleteSoulByUser(user, mob) {
 function updateSoulByUser(user, mob, amount){
         getSoulAmountByUser(user, mob, function(result){
             let nieuw = parseInt(result) + parseInt(amount);
+            console.log('nieuw ' + nieuw);
             if (nieuw > 0) {
                 let sql = "UPDATE userssouls SET amount = " + nieuw + " WHERE username = '" + user + "' AND soulmob = '" + mob + "'";
                 queryRun(sql, function (result) {});
