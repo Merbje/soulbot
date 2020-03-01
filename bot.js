@@ -32,7 +32,7 @@ client.on('message', msg => {
         user = msg.author.lastMessage.member.nickname;
     }
     let args = msg.content.substring(1).split(' ');
-    switch(args[1].toLowerCase()) {
+    switch(args[1]) {
         case 'rat' :
             args[1] = 'milirat';
             break;
