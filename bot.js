@@ -212,12 +212,6 @@ client.on('message', msg => {
                     msg.reply('wrong use of command, please consult !help').then();
                 }
                 break;
-
-            case 'truncate':
-                connectDB();
-                queryRun('TRUNCATE TABLE userssouls', function (result) {});
-                disconnectDB();
-                break;
         }
     } else if (msg.content.startsWith('!') && msg.channel.id === '681167234495676417') {
         if (args[0] === 'allsouls') {
