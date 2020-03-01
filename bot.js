@@ -156,6 +156,23 @@ client.on('message', msg => {
                 msg.reply(mobs).then();
                 break;
     //===================================================================//
+            case 'viewsouls':
+                connectDB();
+                getSoulsPerUser(args[2], function (result) {
+                    let bericht = args[2] + ' has the following souls:\n';
+                    for(let i = 0; i < result.length; i++) {
+                        if (i === 0) {
+                            bericht += '| '
+                        }
+                        let mob = '**' + result[i]['soulmob'] + '**';
+                        let amount = result[i]['amount'];
+                        bericht += mob + ' - ' + amount + ' | ';
+                    }
+                    msg.reply(bericht).then();
+                    disconnectDB();
+                });
+                break;
+    //===================================================================//
             case 'buyin':
                 if (args.length === 5) {
                     let buyin = 0;
