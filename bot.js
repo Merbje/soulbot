@@ -32,7 +32,7 @@ client.on('message', msg => {
         user = msg.author.lastMessage.member.nickname;
     }
     let args = msg.content.substring(1).split(' ');
-    switch(args[1]) {
+    switch(args[1].toLowerCase()) {
         case 'rat' :
             args[1] = 'milirat';
             break;
@@ -145,9 +145,16 @@ client.on('message', msg => {
                     updateSoulByUser(user,mob,amount);
                         msg.reply(mob + ' souls deleted').then();
                 } else if (verifyMob(mob)) {
-                    // getSoulsPerUser(user, function (result) {
-                    //
-                    // });
+                    getSoulsPerUser(user, function (result) {
+                        let waar = false;
+                        for (let i = 0; i < result.length; i++) {
+                            if(result[i][mob] === mob){
+                                waar = true;
+                            }
+                            console.log(waar);
+                        }
+
+                    });
                     deleteSoulByUser(user, mob);
                         msg.reply('all your ' + mob + ' souls are deleted.').then();
                 } else if (amount === 0){
@@ -328,9 +335,6 @@ function deleteSoulByUser(user, mob) {
 }
 
 function updateSoulByUser(user, mob, amount){
-    getSoulsPerUser(user, function (result) {
-            console.log(result);
-    });
         getSoulAmountByUser(user, mob, function(result){
             let nieuw = parseInt(result) + parseInt(amount);
             if (nieuw > 0) {
