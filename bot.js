@@ -142,9 +142,6 @@ client.on('message', msg => {
                     deleteAllSoulsByUser(user);
                     msg.reply('all souls deleted').then();
                 } else if (verifyMob(mob) && !Number.isNaN(amount)) {
-                    updateSoulByUser(user,mob,amount);
-                        msg.reply(mob + ' souls deleted').then();
-                } else if (verifyMob(mob)) {
                     getSoulsPerUser(user, function (result) {
                         let waar = false;
                         for (let i = 0; i < result.length; i++) {
@@ -154,8 +151,12 @@ client.on('message', msg => {
                             }
                             console.log(waar);
                         }
-
+                        if (waar === true) {
+                            updateSoulByUser(user,mob,amount);
+                            msg.reply(mob + ' souls deleted').then();
+                        }
                     });
+                } else if (verifyMob(mob)) {
                     deleteSoulByUser(user, mob);
                         msg.reply('all your ' + mob + ' souls are deleted.').then();
                 } else if (amount === 0){
