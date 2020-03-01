@@ -158,8 +158,8 @@ client.on('message', msg => {
     //===================================================================//
             case 'viewsouls':
                 connectDB();
-                getSoulsPerUser(args[2], function (result) {
-                    let bericht = args[2] + ' has the following souls:\n';
+                getSoulsPerUser(args[1], function (result) {
+                    let bericht = args[1] + ' has the following souls:\n';
                     for(let i = 0; i < result.length; i++) {
                         if (i === 0) {
                             bericht += '| '
