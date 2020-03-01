@@ -27,7 +27,10 @@ client.on('ready', () => {
 });
 
 client.on('message', msg => {
-    let user = msg.author.lastMessage.member.nickname;
+    let user = msg.author.username;
+    if (msg.author.lastMessage.member.nickname !== null) {
+        user = msg.author.lastMessage.member.nickname;
+    }
     let args = msg.content.substring(1).split(' ');
     switch(args[1]) {
         case 'rat' :
@@ -196,6 +199,12 @@ client.on('message', msg => {
                 } else {
                     msg.reply('wrong use of command, please consult !help').then();
                 }
+                break;
+
+            case 'truncate':
+                connectDB();
+                queryRun('TRUNCATE TABLE userssouls', function (result) {});
+                disconnectDB();
                 break;
         }
     } else if (msg.content.startsWith('!') && msg.channel.id === '681167234495676417') {
