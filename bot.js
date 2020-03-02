@@ -1,3 +1,4 @@
+// Thanks for the reminder @dontsend :P
 require('dotenv').config();
 const mysql = require('mysql');
 const Discord = require('discord.js');
@@ -14,10 +15,10 @@ let mobs = 'the following mobs are allowed, between () is the shorter input:\n' 
     '| **zothmaster** (zmaster) | **zothwarrior** (zwar) | **zothdisciple** (zdisc) |';
 let commands = ['!addsoul [mob] [amount]', '!deletesoul [all:mob] [OPT: amount]', '!mysouls', '!allsouls', '!moblist', '!buyin [small] [average] [big] [gigantic]'];
 let config = {
-    host: "remotemysql.com",
-    user: "EaRxbcwve0",
-    password: "NjMCKdAbZ3",
-    database: "EaRxbcwve0"
+    host: process.env.HOST,
+    user: process.env.USER,
+    password: process.env.PASSWORD,
+    database: process.env.DATABASE
 };
 
 let con = mysql.createConnection(config);
