@@ -311,8 +311,7 @@ function postSoulsPerUser(user, mob, amount) {
 }
 
 function getSoulsPerUser(user, callback) {
-        //const sql = "select soulmob, amount from userssouls where username = '" + user + "' order by soulmob";
-        const sql = "truncate table userssouls";
+        const sql = "select soulmob, amount from userssouls where username = '" + user + "' order by soulmob";
         queryRun(sql, function(result){
             return callback(result);
         });
