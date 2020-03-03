@@ -216,6 +216,15 @@ client.on('message', msg => {
                         msg.reply('wrong use of command, please consult !help').then();
                     }
                     break;
+                //===================================================================//
+                case 'help' :
+                        msg.reply("list of commands:\n**" +
+                            commands[0] + "** adds a soul or updates an already existing soul.\n**" +
+                            commands[1] + "** deletes souls\n**" +
+                            commands[2] + "** displays all your registered souls\n**" +
+                            commands[5] + "** displays the list of all the mobs we soul\n**" +
+                            commands[6] + "** calculates your buy in based on your souls (you must enter 4 prices)").then();
+                        break;
             }
         } else if (msg.channel.id === '675785176667783179') {
             if (args[0] === 'allsouls') {
@@ -255,18 +264,11 @@ client.on('message', msg => {
                     msg.reply(bericht).then();
                     disconnectDB();
                 });
-            }
-        }
-        if ((msg.channel.id === '684386504377892885' || msg.channel.id === '675785176667783179')) {
-            if (args[0] === 'help') {
-                msg.reply("list of commands:\n**" +
-                    commands[0] + "** adds a soul or updates an already existing soul.\n**" +
-                    commands[1] + "** deletes souls\n**" +
-                    commands[2] + "** displays all your registered souls\n**" +
-                    commands[3] + "** displays all registered souls *(soulviewing channel only!)*\n**" +
-                    commands[4] + "** displays another users souls *(soulviewing channel only!)*\n**" +
-                    commands[5] + "** displays the list of all the mobs we soul\n**" +
-                    commands[6] + "** calculates your buy in based on your souls (you must enter 4 prices)").then();
+            } else if (args[0] === 'help') {
+                msg.reply( "list of MOD/ADMIN commands:\n**" +
+                commands[3] + "** displays all registered souls *(soulviewing channel only!)*\n**" +
+                commands[4] + "** displays another users souls *(soulviewing channel only!)*\n**"
+                );
             }
         }
     }
