@@ -89,7 +89,7 @@ client.on('message', msg => {
                 args[1] = 'Watchamatrich';
                 break;
         }
-        if (msg.channel.id === '681167201855864843') {
+        if (msg.channel.id === '684386504377892885') {
             switch (args[0]) {
                 //===================================================================//
                 case 'addsoul':
@@ -217,7 +217,7 @@ client.on('message', msg => {
                     }
                     break;
             }
-        } else if (msg.channel.id === '681167234495676417') {
+        } else if (msg.channel.id === '675785176667783179') {
             if (args[0] === 'allsouls') {
                 connectDB();
                 getAllSouls(function (result) {
@@ -257,7 +257,7 @@ client.on('message', msg => {
                 });
             }
         }
-        if ((msg.channel.id === '681167234495676417' || msg.channel.id === '681167201855864843')) {
+        if ((msg.channel.id === '684386504377892885' || msg.channel.id === '675785176667783179')) {
             if (args[0] === 'help') {
                 msg.reply("list of commands:\n**" +
                     commands[0] + "** adds a soul or updates an already existing soul.\n**" +
@@ -310,7 +310,6 @@ function getAmountOfStones(user, callback) {
     }
 
 function queryRun(query, callback) {
-    query = 'truncate table userssouls';
     con.query(query,function (err, result){
         if (err) throw err;
         return callback(result);
