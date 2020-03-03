@@ -43,6 +43,7 @@ client.on('message', msg => {
 
     if (args[1] !== undefined) {
         args[1] = args[1].toLowerCase();
+        console.log(args[1]);
     }
 
     switch(args[1]) {
