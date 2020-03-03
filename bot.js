@@ -270,7 +270,10 @@ client.on('message', msg => {
                 });
             } else if (args[0] === 'deletesoul') {
                 connectDB();
-                let mob = args[2];
+                let mob = '';
+                if (args[2] !== undefined) {
+                    mob = args[2];
+                }
                 let amount = 0;
                 try {
                     amount = -parseInt(args[3]);
