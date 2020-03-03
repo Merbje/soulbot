@@ -226,6 +226,8 @@ client.on('message', msg => {
                         break;
             }
         } else if (msg.channel.id === '675785176667783179') {
+            user = args[1];
+            let userreply = '**'+ user[0].toUpperCase() + user.substring(1, user.length) +'**';
             if (args[0] === 'allsouls') {
                 connectDB();
                 getAllSouls(function (result) {
@@ -267,7 +269,6 @@ client.on('message', msg => {
                 connectDB();
                 let mob = args[2];
                 let amount = 0;
-                user = args[1];
                 try {
                     amount = -parseInt(args[3]);
                 } catch (TypeError) {
@@ -304,7 +305,7 @@ client.on('message', msg => {
                     if (mob === "Agony V''Helley") {
                         mob = "Agony V'Helley";
                     }
-                    msg.reply('all **' + user + '** their ' + mob + ' souls are deleted.').then();
+                    msg.reply('all ' + userreply + ' their ' + mob + ' souls are deleted.').then();
                 } else if (amount === 0) {
                     msg.reply("it's not possible to delete 0 souls.").then();
                 } else {
@@ -312,7 +313,6 @@ client.on('message', msg => {
                 }
                 disconnectDB();
             } else if(args[0] === 'addsoul') {
-                user = args[1];
                 let mob = args[2];
                 let amount = args[3];
                 if (verifyMob(mob) && verifyAmount(amount)) {
@@ -332,10 +332,10 @@ client.on('message', msg => {
                         }
                         if (dubbel === false) {
                             postSoulsPerUser(user, mob, amount);
-                            msg.reply("soul is added for **"+ user +"**.").then();
+                            msg.reply("soul is added for "+ userreply +".").then();
                         } else {
                             updateSoulByUser(user, mob, amount);
-                            msg.reply('soul amount is updated for **'+ user +'**.').then();
+                            msg.reply('soul amount is updated for '+ userreply +'.').then();
                         }
                     });
                     disconnectDB();
