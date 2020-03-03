@@ -30,7 +30,9 @@ client.on('message', msg => {
     }
     let args = msg.content.substring(1).split(' ');
     console.log(args[1]);
-    if (args[1])
+    if (args[1] === undefined) {
+        msg.reply('undefined')
+    }
     switch(args[1]) {
         case 'rat' :
             args[1] = 'milirat';
