@@ -297,7 +297,7 @@ client.on('message', msg => {
 
                             msg.reply(mob + ' souls deleted').then();
                         } else {
-                            msg.reply("you can't delete a soul you don't have").then();
+                            msg.reply("you can't delete a soul you don't have.").then();
                         }
                     });
                 } else if (verifyMob(mob)) {
@@ -307,11 +307,42 @@ client.on('message', msg => {
                     }
                     msg.reply('all your ' + mob + ' souls are deleted.').then();
                 } else if (amount === 0) {
-                    msg.reply("it's not possible to delete 0 souls").then();
+                    msg.reply("it's not possible to delete 0 souls.").then();
                 } else {
-                    msg.reply('wrong use of command, please consult !help for more info').then();
+                    msg.reply('wrong use of command, please consult !help for more info.').then();
                 }
                 disconnectDB();
+            } else if(args[0] === 'addsoul') {
+                user = args[1];
+                let mob = args[2];
+                let amount = args[3];
+                if (verifyMob(mob) && verifyAmount(amount)) {
+                    let check = amount.split(',');
+                    amount = check[0];
+                    connectDB();
+                    getSoulsPerUser(user, function (result) {
+                        let dubbel = false;
+                        for (let i = 0; i < result.length; i++) {
+                            if (result[i]['soulmob'] === "Agony V'Helley") {
+                                result[i]['soulmob'] = "Agony V''Helley";
+                            }
+
+                            if (result[i]['soulmob'] === args[1]) {
+                                dubbel = true;
+                            }
+                        }
+                        if (dubbel === false) {
+                            postSoulsPerUser(user, mob, amount);
+                            msg.reply("soul is added for "+ user +".").then();
+                        } else {
+                            updateSoulByUser(user, mob, amount);
+                            msg.reply('soul amount is updated for'+ user +'.').then();
+                        }
+                    });
+                    disconnectDB();
+                }  else {
+                    msg.reply("soul is not valid, please consult !help.").then();
+                }
             } else if (args[0] === 'help') {
                 msg.reply( "list of MOD/ADMIN commands:\n**" +
                 commands[3] + "** displays all registered souls\n**" +
