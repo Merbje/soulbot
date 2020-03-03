@@ -140,7 +140,10 @@ client.on('message', msg => {
                 //===================================================================//
                 case 'deletesoul':
                     connectDB();
-                    let mob = args[1];
+                    let mob = '';
+                    if (args[1] !== undefined) {
+                        mob = args[1];
+                    }
                     let amount = 0;
                     try {
                         amount = -parseInt(args[2]);
