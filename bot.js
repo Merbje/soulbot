@@ -1,4 +1,3 @@
-// Thanks for the reminder @dontsend :P
 require('dotenv').config();
 const mysql = require('mysql');
 const Discord = require('discord.js');
@@ -7,7 +6,7 @@ const soulmobs = ['Crab', 'Beaztinga', 'Pandala Forest',
     'Weirbwork', 'Primitive Cemetery', "Agony V''Helley", 'Kilibriss',
     'Cromagmunk', 'Mopy King', 'Watchamatrich'];
 const mobs = 'the following mobs are allowed, between () is the shorter input:\n' +
-    '| **Crab** | **Beaztinga** (beaz) | **Pandala Forest** (pandala) | **Weirbwork** (weir) | **Primitive Cemetery** (cemetery) | **Agony V\'Helley** (agony) | **Kilibriss** (kili) ' +
+    '| **Crab** (crab) | **Beaztinga** (beaz) | **Pandala Forest** (pandala) | **Weirbwork** (weir) | **Primitive Cemetery** (cemetery) | **Agony V\'Helley** (agony) | **Kilibriss** (kili) ' +
     '| **Cromagmunk** (croma) | **Mopy King** (mopy) | **Watchamatrich** (watcha) |';
 const commands = ['!addsoul [mob] [amount]', '!deletesoul [all:mob] [OPT: amount]', '!mysouls', '!allsouls', '!viewsouls [name]', '!moblist', '!buyin [small] [average] [big] [gigantic]'];
 let config = {
