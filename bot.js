@@ -154,6 +154,10 @@ client.on('message', msg => {
                     getSoulsPerUser(user, function (result) {
                         let waar = false;
                         for (let i = 0; i < result.length; i++) {
+                            if (result[i]['soulmob'] === "Agony V'Helley"){
+                                result[i]['soulmob'] = "Agony V''Helley";
+                            }
+
                             if(result[i]['soulmob'] === mob){
                                 waar = true;
                             }
