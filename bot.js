@@ -253,7 +253,7 @@ client.on('message', msg => {
             } else if (args[0] === 'viewsouls') {
                 connectDB();
                 getSoulsPerUser(args[1], function (result) {
-                    let bericht = args[1] + ' has the following souls:\n';
+                    let bericht = userreply + ' has the following souls:\n';
                     for (let i = 0; i < result.length; i++) {
                         if (i === 0) {
                             bericht += '| '
