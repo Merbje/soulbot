@@ -84,6 +84,7 @@ client.on('message', msg => {
             break;
     }
     if (msg.content.startsWith('!') && msg.channel.id === '681167201855864843') {
+        console.log(args[1]);
         switch (args[0]) {
     //===================================================================//
             case 'addsoul':
