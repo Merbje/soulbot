@@ -279,7 +279,7 @@ client.on('message', msg => {
                 }
                 if (mob.toLowerCase() === 'all') {
                     deleteAllSoulsByUser(user);
-                    msg.reply('all souls deleted').then();
+                    msg.reply('all of ' + userreply + '\'s souls deleted').then();
                 } else if (verifyMob(mob) && !Number.isNaN(amount)) {
                     getSoulsPerUser(user, function (result) {
                         let waar = false;
