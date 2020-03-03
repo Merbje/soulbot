@@ -301,6 +301,7 @@ function verifyAmount(amount) {
             throw "not valid";
 
         }
+        return false;
     }
 
 function getAmountOfStones(user, callback) {
