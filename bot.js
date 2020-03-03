@@ -25,6 +25,7 @@ client.on('ready', () => {
 
 client.on('message', msg => {
     if (msg.content.startsWith('!')) {
+        console.log(msg.channel.id);
         let user = msg.author.username;
         if (msg.author.lastMessage.member.nickname !== null) {
             user = msg.author.lastMessage.member.nickname;
