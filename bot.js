@@ -227,7 +227,10 @@ client.on('message', msg => {
             }
         } else if (msg.channel.id === '675785176667783179') {
             user = args[1];
-            let userreply = '**'+ user[0].toUpperCase() + user.substring(1, user.length) +'**';
+            let userreply = '';
+            if (args[1] !== undefined) {
+                userreply = '**' + user[0].toUpperCase() + user.substring(1, user.length) + '**';
+            }
             if (args[0] === 'allsouls') {
                 connectDB();
                 getAllSouls(function (result) {
