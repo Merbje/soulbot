@@ -296,12 +296,13 @@ function verifyAmount(amount) {
             let isNumber = parseInt(amount);
             if (isNumber > 0 && amount.length < 8) {
                 return true;
+            } else {
+                return false;
             }
         } catch (TypeError) {
             throw "not valid";
 
         }
-        return false;
     }
 
 function getAmountOfStones(user, callback) {
