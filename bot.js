@@ -164,6 +164,10 @@ client.on('message', msg => {
                         }
                         if (waar === true) {
                             updateSoulByUser(user,mob,amount);
+                            if (mob === "Agony V''Helley"){
+                                mob = "Agony V'Helley";
+                            }
+
                             msg.reply(mob + ' souls deleted').then();
                         } else {
                             msg.reply("you can't delete a soul you don't have").then();
