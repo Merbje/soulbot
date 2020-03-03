@@ -29,19 +29,29 @@ client.on('message', msg => {
         user = msg.author.lastMessage.member.nickname;
     }
     let args = msg.content.substring(1).split(' ');
-    console.log(args[1]);
-    if (args[1] === undefined) {
-        msg.reply('undefined')
+    switch(args[2]){
+        case 'Forest':
+        case 'Cemetery':
+        case "V'Helley":
+        case 'King':
+            args[1] = args[1] + ' ' + args[2];
+            for (let i = 2; i < args.length; i++) {
+                args[i] = args[i + 1];
+            }
+    }
+
+    if (args[1] !== undefined) {
+        args[1] = args[1].toLowerCase();
+        msg.reply(args[1]);
     }
     switch(args[1]) {
-        case 'rat' :
-            args[1] = 'milirat';
-            break;
         case 'beaz' :
-            args[1] = 'beaztinga';
+        case 'beaztinga' :
+            args[1] = 'Beaztinga';
             break;
-        case 'holy' :
-            args[1] = 'holybambooto';
+        case 'pandala' :
+        case 'pandala forest' :
+            args[1] = 'Pandala Forest';
             break;
         case 'weir' :
             args[1] = 'weirbwork';
