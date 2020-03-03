@@ -118,7 +118,7 @@ client.on('message', msg => {
                         disconnectDB();
                     }  else if (!soulmobs.includes(args[1])) {
                         msg.reply("soul is not valid, please consult !help.").then();
-                    } else if (verifyAmount(args[2])) {
+                    } else if (args[2].length < 8) {
                     msg.reply('amount is not valid, please make sure it numbers only and not higher than 9999999').then();
                 }
                     break;
@@ -296,8 +296,6 @@ function verifyAmount(amount) {
             let isNumber = parseInt(amount);
             if (isNumber > 0 && amount.length < 8) {
                 return true;
-            } else {
-                return false;
             }
         } catch (TypeError) {
             throw "not valid";
