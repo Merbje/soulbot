@@ -224,7 +224,7 @@ client.on('message', msg => {
                 getAllSouls(function (result) {
                     let bericht = 'these souls are available:\n';
                     for (let i = 0; i < result.length; i++) {
-                        let mob = args[1];
+                        let mob = result[i]['soulmob'];
                         let amount = ' - ' + result[i]['amount'];
                         let soulowner = '**' + result[i]['username'] + '**';
                         let updatemessage = soulowner + amount + ' | ';
