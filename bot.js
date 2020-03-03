@@ -263,10 +263,59 @@ client.on('message', msg => {
                     msg.reply(bericht).then();
                     disconnectDB();
                 });
+            } else if (args[0] === 'deletesoul') {
+                connectDB();
+                let mob = args[2];
+                let amount = 0;
+                user = args[1];
+                try {
+                    amount = -parseInt(args[3]);
+                } catch (TypeError) {
+                    msg.reply('amount has to be a number').then();
+                }
+                if (mob.toLowerCase() === 'all') {
+                    deleteAllSoulsByUser(user);
+                    msg.reply('all souls deleted').then();
+                } else if (verifyMob(mob) && !Number.isNaN(amount)) {
+                    getSoulsPerUser(user, function (result) {
+                        let waar = false;
+                        for (let i = 0; i < result.length; i++) {
+                            if (result[i]['soulmob'] === "Agony V'Helley") {
+                                result[i]['soulmob'] = "Agony V''Helley";
+                            }
+
+                            if (result[i]['soulmob'] === mob) {
+                                waar = true;
+                            }
+                        }
+                        if (waar === true) {
+                            updateSoulByUser(user, mob, amount);
+                            if (mob === "Agony V''Helley") {
+                                mob = "Agony V'Helley";
+                            }
+
+                            msg.reply(mob + ' souls deleted').then();
+                        } else {
+                            msg.reply("you can't delete a soul you don't have").then();
+                        }
+                    });
+                } else if (verifyMob(mob)) {
+                    deleteSoulByUser(user, mob);
+                    if (mob === "Agony V''Helley") {
+                        mob = "Agony V'Helley";
+                    }
+                    msg.reply('all your ' + mob + ' souls are deleted.').then();
+                } else if (amount === 0) {
+                    msg.reply("it's not possible to delete 0 souls").then();
+                } else {
+                    msg.reply('wrong use of command, please consult !help for more info').then();
+                }
+                disconnectDB();
             } else if (args[0] === 'help') {
                 msg.reply( "list of MOD/ADMIN commands:\n**" +
-                commands[3] + "** displays all registered souls *(soulviewing channel only!)*\n**" +
-                commands[4] + "** displays another users souls *(soulviewing channel only!)*\n**"
+                commands[3] + "** displays all registered souls\n**" +
+                commands[4] + "** displays another users souls\n**" +
+                "!deletesoul [user] [all:mob] [OPT: amount]** deletes a soul from another user"
                 );
             }
         }
