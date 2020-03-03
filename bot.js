@@ -296,7 +296,7 @@ client.on('message', msg => {
 
                             msg.reply(mob + ' souls deleted').then();
                         } else {
-                            msg.reply("you can't delete a soul you don't have.").then();
+                            msg.reply("you can't delete a soul they don't have.").then();
                         }
                     });
                 } else if (verifyMob(mob)) {
@@ -304,7 +304,7 @@ client.on('message', msg => {
                     if (mob === "Agony V''Helley") {
                         mob = "Agony V'Helley";
                     }
-                    msg.reply('all your ' + mob + ' souls are deleted.').then();
+                    msg.reply('all **' + user + '** their ' + mob + ' souls are deleted.').then();
                 } else if (amount === 0) {
                     msg.reply("it's not possible to delete 0 souls.").then();
                 } else {
@@ -332,10 +332,10 @@ client.on('message', msg => {
                         }
                         if (dubbel === false) {
                             postSoulsPerUser(user, mob, amount);
-                            msg.reply("soul is added for "+ user +".").then();
+                            msg.reply("soul is added for **"+ user +"**.").then();
                         } else {
                             updateSoulByUser(user, mob, amount);
-                            msg.reply('soul amount is updated for '+ user +'.').then();
+                            msg.reply('soul amount is updated for **'+ user +'**.').then();
                         }
                     });
                     disconnectDB();
@@ -346,7 +346,8 @@ client.on('message', msg => {
                 msg.reply( "list of MOD/ADMIN commands:\n**" +
                 commands[3] + "** displays all registered souls\n**" +
                 commands[4] + "** displays another users souls\n**" +
-                "!deletesoul [user] [all:mob] [OPT: amount]** deletes a soul from another user"
+                "!deletesoul [user] [all:mob] [OPT: amount]** deletes a soul from another user\n**" +
+                "!addsoul [user] [mob] [amount]** adds or updates a soul from another user"
                 );
             }
         }
