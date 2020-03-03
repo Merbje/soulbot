@@ -42,7 +42,7 @@ client.on('message', msg => {
 
     if (args[1] !== undefined) {
         args[1] = args[1].toLowerCase();
-        msg.reply(args[1]);
+        console.log(args[1]);
     }
     switch(args[1]) {
         case 'beaz' :
