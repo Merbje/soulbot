@@ -46,47 +46,48 @@ client.on('message', msg => {
         if (args[1] !== undefined) {
             args[1] = args[1].toLowerCase();
         }
-
-        switch (args[1]) {
-            case 'crab' :
-                args[1] = 'Crab';
-                break;
-            case 'beaz' :
-            case 'beaztinga' :
-                args[1] = 'Beaztinga';
-                break;
-            case 'pandala' :
-            case 'pandala forest' :
-                args[1] = 'Pandala Forest';
-                break;
-            case 'weir' :
-            case 'weirbwork' :
-                args[1] = 'Weirbwork';
-                break;
-            case 'cemetery' :
-            case 'primitive cemetery':
-                args[1] = 'Primitive Cemetery';
-                break;
-            case 'agony' :
-            case "agony v'helley" :
-                args[1] = "Agony V''Helley";
-                break;
-            case 'kili' :
-            case 'kilibriss' :
-                args[1] = 'Kilibriss';
-                break;
-            case 'croma' :
-            case 'cromagmunk' :
-                args[1] = 'Cromagmunk';
-                break;
-            case 'mopy' :
-            case 'mopy king' :
-                args[1] = 'Mopy King';
-                break;
-            case 'watcha' :
-            case 'watchamatrich' :
-                args[1] = 'Watchamatrich';
-                break;
+        for (let i = 1; i < args.length; i++) {
+            switch (args[i]) {
+                case 'crab' :
+                    args[i] = 'Crab';
+                    break;
+                case 'beaz' :
+                case 'beaztinga' :
+                    args[i] = 'Beaztinga';
+                    break;
+                case 'pandala' :
+                case 'pandala forest' :
+                    args[i] = 'Pandala Forest';
+                    break;
+                case 'weir' :
+                case 'weirbwork' :
+                    args[i] = 'Weirbwork';
+                    break;
+                case 'cemetery' :
+                case 'primitive cemetery':
+                    args[i] = 'Primitive Cemetery';
+                    break;
+                case 'agony' :
+                case "agony v'helley" :
+                    args[i] = "Agony V''Helley";
+                    break;
+                case 'kili' :
+                case 'kilibriss' :
+                    args[i] = 'Kilibriss';
+                    break;
+                case 'croma' :
+                case 'cromagmunk' :
+                    args[i] = 'Cromagmunk';
+                    break;
+                case 'mopy' :
+                case 'mopy king' :
+                    args[i] = 'Mopy King';
+                    break;
+                case 'watcha' :
+                case 'watchamatrich' :
+                    args[i] = 'Watchamatrich';
+                    break;
+            }
         }
         if (msg.channel.id === '684386504377892885') {
             switch (args[0]) {

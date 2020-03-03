@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="e42c046e-9ff0-450a-a738-52dfa8574f55" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bot.js" beforeDir="false" afterPath="$PROJECT_DIR$/bot.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,14 +67,7 @@
       <workItem from="1583140688622" duration="801000" />
       <workItem from="1583233955847" duration="8143000" />
       <workItem from="1583244719625" duration="68000" />
-      <workItem from="1583245116986" duration="318000" />
-    </task>
-    <task id="LOCAL-00016" summary="bot online">
-      <created>1582536496623</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1582536496623</updated>
+      <workItem from="1583245116986" duration="611000" />
     </task>
     <task id="LOCAL-00017" summary="bot online">
       <created>1582538595838</created>
@@ -413,7 +405,14 @@
       <option name="project" value="LOCAL" />
       <updated>1583244736497</updated>
     </task>
-    <option name="localTasksCounter" value="65" />
+    <task id="LOCAL-00065" summary="bot online">
+      <created>1583245470992</created>
+      <option name="number" value="00065" />
+      <option name="presentableId" value="LOCAL-00065" />
+      <option name="project" value="LOCAL" />
+      <updated>1583245470992</updated>
+    </task>
+    <option name="localTasksCounter" value="66" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -429,16 +428,16 @@
       <screen x="0" y="23" width="1920" height="1057" />
     </state>
     <state x="1193" y="361" key="#com.intellij.fileTypes.FileTypeChooser/0.23.1920.1057@0.23.1920.1057" timestamp="1582483939191" />
-    <state x="46" y="143" key="CommitChangelistDialog2" timestamp="1583244736201">
+    <state x="46" y="143" key="CommitChangelistDialog2" timestamp="1583245470839">
       <screen x="0" y="23" width="1680" height="1027" />
     </state>
-    <state x="46" y="143" key="CommitChangelistDialog2/0.23.1680.1027@0.23.1680.1027" timestamp="1583244736201" />
+    <state x="46" y="143" key="CommitChangelistDialog2/0.23.1680.1027@0.23.1680.1027" timestamp="1583245470839" />
     <state x="53" y="146" key="CommitChangelistDialog2/0.23.1920.1057/1920.23.1366.1001@0.23.1920.1057" timestamp="1583101626495" />
     <state x="53" y="146" key="CommitChangelistDialog2/0.23.1920.1057@0.23.1920.1057" timestamp="1583141516234" />
-    <state x="266" y="283" key="Vcs.Push.Dialog.v2" timestamp="1583244738394">
+    <state x="266" y="283" key="Vcs.Push.Dialog.v2" timestamp="1583245472296">
       <screen x="0" y="23" width="1680" height="1027" />
     </state>
-    <state x="266" y="283" key="Vcs.Push.Dialog.v2/0.23.1680.1027@0.23.1680.1027" timestamp="1583244738394" />
+    <state x="266" y="283" key="Vcs.Push.Dialog.v2/0.23.1680.1027@0.23.1680.1027" timestamp="1583245472296" />
     <state x="304" y="291" key="Vcs.Push.Dialog.v2/0.23.1920.1057/1920.23.1366.1001@0.23.1920.1057" timestamp="1583101628660" />
     <state x="304" y="291" key="Vcs.Push.Dialog.v2/0.23.1920.1057@0.23.1920.1057" timestamp="1583141517863" />
     <state x="264" y="250" width="670" height="676" key="search.everywhere.popup" timestamp="1583235175110">
