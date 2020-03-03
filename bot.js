@@ -229,7 +229,7 @@ client.on('message', msg => {
                         let soulowner = '**' + result[i]['username'] + '**';
                         let updatemessage = soulowner + amount + ' | ';
                         if (i !== 0) {
-                            if (mob.toLowerCase() !== result[i - 1]['soulmob']) {
+                            if (mob !== result[i - 1]['soulmob']) {
                                 bericht += '\n\n__**' + mob + ':**__\n| ';
                             }
                             bericht += updatemessage;
