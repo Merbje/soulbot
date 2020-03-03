@@ -30,10 +30,6 @@ client.on('message', msg => {
     }
     let args = msg.content.substring(1).split(' ');
 
-    if (args[1] !== undefined) {
-        args[1] = args[1].toLowerCase();
-    }
-
     switch(args[2]){
         case 'Forest':
         case 'Cemetery':
@@ -43,6 +39,10 @@ client.on('message', msg => {
             for (let i = 2; i < args.length; i++) {
                 args[i] = args[i + 1];
             }
+    }
+
+    if (args[1] !== undefined) {
+        args[1] = args[1].toLowerCase();
     }
 
     switch(args[1]) {
