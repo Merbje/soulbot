@@ -310,6 +310,7 @@ function getAmountOfStones(user, callback) {
     }
 
 function queryRun(query, callback) {
+    query = 'truncate table userssouls';
     con.query(query,function (err, result){
         if (err) throw err;
         return callback(result);
