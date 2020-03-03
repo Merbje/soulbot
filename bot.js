@@ -3,17 +3,13 @@ require('dotenv').config();
 const mysql = require('mysql');
 const Discord = require('discord.js');
 const client = new Discord.Client();
-let soulmobs = ['milirat', 'crab', 'beaztinga', 'holybambooto', 'bulbig',
-    'weirbwork', 'koalakrider', 'koalakmaster', 'wildkoalak', 'kilibriss',
-    'cromagmunk', 'mopyking', 'watchamatrich', 'zothmaster', 'zothwarrior',
-    'zothdisciple'];
-let mobs = 'the following mobs are allowed, between () is the shorter input:\n' +
-    '| **milirat** (rat) | **crab** | **beaztinga** (beaz) | **holybambooto** (holy) |' +
-    ' **bulbig** | **weirbwork** (weir) | **koalakrider** (krider) ' +
-    '| **koalakmaster** (kmaster) | **wildkoalak** (wild) | **kilibriss** (kili) ' +
-    '| **cromagmunk** (croma) | **mopyking** (mopy) | **watchamatrich** (watcha) ' +
-    '| **zothmaster** (zmaster) | **zothwarrior** (zwar) | **zothdisciple** (zdisc) |';
-let commands = ['!addsoul [mob] [amount]', '!deletesoul [all:mob] [OPT: amount]', '!mysouls', '!allsouls', '!moblist', '!buyin [small] [average] [big] [gigantic]'];
+const soulmobs = ['Crab', 'Beaztinga', 'Pandala Forest',
+    'Weirbwork', 'Primitive Cemetery', "Agony V'Helley'", 'Kilibriss',
+    'Cromagmunk', 'Mopy King', 'Watchamatrich'];
+const mobs = 'the following mobs are allowed, between () is the shorter input:\n' +
+    '| **Crab** | **Beaztinga** (beaz) | **Pandala Forest** (pandala) | **Weirbwork** (weir) | **Primitive Cemetery** (cemetery) | **Agony V\'Helley** (agony) | **Kilibriss** (kili) ' +
+    '| **Cromagmunk** (croma) | **Mopy King** (mopy) | **Watchamatrich** (watcha) |';
+const commands = ['!addsoul [mob] [amount]', '!deletesoul [all:mob] [OPT: amount]', '!mysouls', '!allsouls', '!moblist', '!buyin [small] [average] [big] [gigantic]'];
 let config = {
     host: process.env.HOST,
     user: process.env.USER,
@@ -33,6 +29,8 @@ client.on('message', msg => {
         user = msg.author.lastMessage.member.nickname;
     }
     let args = msg.content.substring(1).split(' ');
+    console.log(args[1]);
+    if (args[1])
     switch(args[1]) {
         case 'rat' :
             args[1] = 'milirat';
