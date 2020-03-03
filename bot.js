@@ -9,7 +9,7 @@ const soulmobs = ['Crab', 'Beaztinga', 'Pandala Forest',
 const mobs = 'the following mobs are allowed, between () is the shorter input:\n' +
     '| **Crab** | **Beaztinga** (beaz) | **Pandala Forest** (pandala) | **Weirbwork** (weir) | **Primitive Cemetery** (cemetery) | **Agony V\'Helley** (agony) | **Kilibriss** (kili) ' +
     '| **Cromagmunk** (croma) | **Mopy King** (mopy) | **Watchamatrich** (watcha) |';
-const commands = ['!addsoul [mob] [amount]', '!deletesoul [all:mob] [OPT: amount]', '!mysouls', '!allsouls', '!moblist', '!buyin [small] [average] [big] [gigantic]'];
+const commands = ['!addsoul [mob] [amount]', '!deletesoul [all:mob] [OPT: amount]', '!mysouls', '!allsouls', '!viewsouls [name]', '!moblist', '!buyin [small] [average] [big] [gigantic]'];
 let config = {
     host: process.env.HOST,
     user: process.env.USER,
@@ -265,8 +265,9 @@ client.on('message', msg => {
                     commands[1] + "** deletes souls\n**" +
                     commands[2] + "** displays all your registered souls\n**" +
                     commands[3] + "** displays all registered souls *(soulviewing channel only!)*\n**" +
-                    commands[4] + "** displays the list of all the mobs we soul\n**" +
-                    commands[5] + "** calculates your buy in based on your souls (you must enter 4 prices)").then();
+                    commands[4] + "** displays another users souls *(soulviewing channel only!)*\n**" +
+                    commands[5] + "** displays the list of all the mobs we soul\n**" +
+                    commands[6] + "** calculates your buy in based on your souls (you must enter 4 prices)").then();
             }
         }
     }
