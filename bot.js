@@ -29,6 +29,11 @@ client.on('message', msg => {
         user = msg.author.lastMessage.member.nickname;
     }
     let args = msg.content.substring(1).split(' ');
+
+    if (args[1] !== undefined) {
+        args[1] = args[1].toLowerCase();
+    }
+
     switch(args[2]){
         case 'Forest':
         case 'Cemetery':
@@ -40,10 +45,6 @@ client.on('message', msg => {
             }
     }
 
-    if (args[1] !== undefined) {
-        args[1] = args[1].toLowerCase();
-        console.log(args[1]);
-    }
     switch(args[1]) {
         case 'beaz' :
         case 'beaztinga' :
@@ -54,40 +55,31 @@ client.on('message', msg => {
             args[1] = 'Pandala Forest';
             break;
         case 'weir' :
-            args[1] = 'weirbwork';
+            args[1] = 'Weirbwork';
             break;
-        case 'krider' :
-            args[1] = 'koalakrider';
+        case 'cemetery' :
+        case 'primitive cemetery':
+            args[1] = 'Primitive Cemetery';
             break;
-        case 'kmaster' :
-            args[1] = 'koalakmaster';
-            break;
-        case 'wild' :
-            args[1] = 'wildkoalak';
+        case 'agony' :
+        case "agony v'helley" :
+            args[1] = "Agony V'Helley";
             break;
         case 'kili' :
-            args[1] = 'kilibriss';
+        case 'kilibriss' :
+            args[1] = 'Kilibriss';
             break;
         case 'croma' :
-            args[1] = 'cromagmunk';
+        case 'cromagmunk' :
+            args[1] = 'Cromagmunk';
             break;
         case 'mopy' :
-            args[1] = 'mopyking';
+        case 'mopy king' :
+            args[1] = 'Mopy King';
             break;
         case 'watcha' :
-            args[1] = 'watchamatrich';
-            break;
-        case 'zmaster' :
-            args[1] = 'zothmaster';
-            break;
-        case 'zwar' :
-            args[1] = 'zothwarrior';
-            break;
-        case 'zdisc' :
-            args[1] = 'zothdisciple';
-            break;
-        case 'bulbig':
-            args[2] = 'holybambooto';
+        case 'watchamatrich' :
+            args[1] = 'Watchamatrich';
             break;
     }
     if (msg.content.startsWith('!') && msg.channel.id === '681167201855864843') {
