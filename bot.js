@@ -60,6 +60,7 @@ client.on('message', msg => {
                 args[1] = 'Pandala Forest';
                 break;
             case 'weir' :
+            case 'weirbwork' :
                 args[1] = 'Weirbwork';
                 break;
             case 'cemetery' :
@@ -88,7 +89,6 @@ client.on('message', msg => {
                 break;
         }
         if (msg.channel.id === '681167201855864843') {
-            console.log(args[1]);
             switch (args[0]) {
                 //===================================================================//
                 case 'addsoul':
