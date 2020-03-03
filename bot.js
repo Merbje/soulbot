@@ -327,7 +327,7 @@ client.on('message', msg => {
                                 result[i]['soulmob'] = "Agony V''Helley";
                             }
 
-                            if (result[i]['soulmob'] === args[1]) {
+                            if (result[i]['soulmob'] === mob) {
                                 dubbel = true;
                             }
                         }
