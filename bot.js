@@ -24,7 +24,6 @@ client.on('ready', () => {
 
 client.on('message', msg => {
     if (msg.content.startsWith('!')) {
-        console.log(msg.channel.id);
         let user = msg.author.username;
         if (msg.author.lastMessage.member.nickname !== null) {
             user = msg.author.lastMessage.member.nickname;
@@ -89,7 +88,7 @@ client.on('message', msg => {
                     break;
             }
         }
-        if (msg.channel.id === '684386504377892885') {
+        if (msg.channel.id === '677524777992323072') {
             switch (args[0]) {
                 //===================================================================//
                 case 'addsoul':
