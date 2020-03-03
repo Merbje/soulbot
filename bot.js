@@ -116,11 +116,11 @@ client.on('message', msg => {
                             }
                         });
                         disconnectDB();
-                    } else if (verifyAmount(args[2])) {
-                        msg.reply('amount is not valid, please make sure it numbers only and not higher than 9999999').then();
-                    } else {
+                    }  else if (!soulmobs.includes(args[1])) {
                         msg.reply("soul is not valid, please consult !help.").then();
-                    }
+                    } else if (verifyAmount(args[2])) {
+                    msg.reply('amount is not valid, please make sure it numbers only and not higher than 9999999').then();
+                }
                     break;
                 //===================================================================//
                 case 'mysouls':
