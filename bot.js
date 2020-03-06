@@ -377,7 +377,8 @@ client.on('message', msg => {
                 commands[3] + "** displays all registered souls\n**" +
                 commands[4] + "** displays another users souls\n**" +
                 "!deletesoul [user] [all:mob] [OPT: amount]** deletes a soul from another user\n**" +
-                "!addsoul [user] [mob] [amount]** adds or updates a soul from another user"
+                "!addsoul [user] [mob] [amount]** adds or updates a soul from another user\n**" +
+                "!soulsperuser** displays all registered souls per user"
                 );
             }
         }
