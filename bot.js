@@ -229,15 +229,34 @@ client.on('message', msg => {
                         break;
             }
         } else if (msg.channel.id === '675785176667783179') {
+            let bericht = 'these souls are available:\n';
             user = args[1];
             let userreply = '';
             if (args[1] !== undefined) {
                 userreply = '**' + user[0].toUpperCase() + user.substring(1, user.length) + '**';
             }
-            if (args[0] === 'allsouls') {
+            if (args[0] === 'soulsperuser') {
                 connectDB();
-                getAllSouls(function (result) {
-                    let bericht = 'these souls are available:\n';
+                getAllSouls("SELECT * FROM userssouls ORDER BY username, soulmob",function (result) {
+                    for (let i = 0; i < result.length; i++) {
+                        let mob = result[i]['soulmob'];
+                        let amount = ' - ' + result[i]['amount'];
+                        let soulowner = result[i]['username'];
+                        let updatemessage = mob + amount + ' | ';
+                        if (i !== 0) {
+                            if (soulowner !== result[i - 1]['username']) {
+                                bericht += '\n\n__**' + soulowner + ':**__\n| ';
+                            }
+                            bericht += updatemessage;
+                        } else {
+                            bericht += '__**' + soulowner + ':**__\n| ';
+                            bericht += updatemessage;
+                        }
+                    }
+                })
+            } else if (args[0] === 'allsouls') {
+                connectDB();
+                getAllSouls("SELECT * FROM userssouls ORDER BY soulmob, username",function (result) {
                     for (let i = 0; i < result.length; i++) {
                         let mob = result[i]['soulmob'];
                         let amount = ' - ' + result[i]['amount'];
@@ -461,9 +480,8 @@ function getSoulAmountByUser(user, mob, callback){
             });
 }
 
-function getAllSouls(callback) {
-        const sql = "SELECT * FROM userssouls ORDER BY soulmob, username";
-            queryRun(sql, function(result) {
+function getAllSouls(query, callback) {
+            queryRun(query, function(result) {
                 return callback(result);
             });
 }
