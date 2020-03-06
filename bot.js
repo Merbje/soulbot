@@ -253,7 +253,9 @@ client.on('message', msg => {
                             bericht += updatemessage;
                         }
                     }
-                })
+                    msg.reply(bericht).then();
+                    disconnectDB();
+                });
             } else if (args[0] === 'allsouls') {
                 connectDB();
                 getAllSouls("SELECT * FROM userssouls ORDER BY soulmob, username",function (result) {
