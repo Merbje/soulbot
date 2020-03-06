@@ -16,8 +16,6 @@ let config = {
     database: process.env.DATABASE
 };
 
-let newtable = 'create table userssouls ( username VARCHAR(50) not null, soulmob VARCHAR(30) not null, amount NUMERIC(10,0) not null, soulstone VARCHAR(15))';
-
 let con = mysql.createConnection(config);
 
 client.on('ready', () => {
@@ -190,10 +188,6 @@ client.on('message', msg => {
                         msg.reply('wrong use of command, please consult !help for more info').then();
                     }
                     disconnectDB();
-                    break;
-                case 'create':
-                    queryRun(newtable, function () {});
-                    msg.reply('succes').then();
                     break;
                 //===================================================================//
                 case 'moblist':
