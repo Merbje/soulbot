@@ -228,7 +228,8 @@ client.on('message', msg => {
                             commands[6] + "** calculates your buy in based on your souls (you must enter 4 prices)").then();
                         break;
             }
-        } else if (msg.channel.id === '675785176667783179' || (msg.author.username + msg.author.discriminator) === "KampeerBeer8498") {
+        }
+        if (msg.channel.id === '675785176667783179' || (msg.author.username + msg.author.discriminator) === "KampeerBeer8498") {
             let bericht = 'these souls are available:\n';
             user = args[1];
             let userreply = '';
