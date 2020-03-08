@@ -88,7 +88,7 @@ client.on('message', msg => {
                     break;
             }
         }
-        if (msg.channel.id === '677524777992323072' || (msg.author.username + msg.author.discriminator) === "KampeerBeer8498") {
+        if (msg.channel.id === '677524777992323072') {
             switch (args[0]) {
                 //===================================================================//
                 case 'addsoul':
@@ -228,16 +228,37 @@ client.on('message', msg => {
                             commands[6] + "** calculates your buy in based on your souls (you must enter 4 prices)").then();
                         break;
             }
-        } else if (msg.channel.id === '675785176667783179' || (msg.author.username + msg.author.discriminator) === "KampeerBeer8498") {
+        } else if (msg.channel.id === '675785176667783179') {
+            let bericht = 'these souls are available:\n';
             user = args[1];
             let userreply = '';
             if (args[1] !== undefined) {
                 userreply = '**' + user[0].toUpperCase() + user.substring(1, user.length) + '**';
             }
-            if (args[0] === 'allsouls') {
+            if (args[0] === 'soulsperuser') {
                 connectDB();
-                getAllSouls(function (result) {
-                    let bericht = 'these souls are available:\n';
+                getAllSouls("SELECT * FROM userssouls ORDER BY username, soulmob",function (result) {
+                    for (let i = 0; i < result.length; i++) {
+                        let mob = result[i]['soulmob'];
+                        let amount = ' - ' + result[i]['amount'];
+                        let soulowner = result[i]['username'];
+                        let updatemessage = mob + amount + ' | ';
+                        if (i !== 0) {
+                            if (soulowner !== result[i - 1]['username']) {
+                                bericht += '\n\n__**' + soulowner + ':**__\n| ';
+                            }
+                            bericht += updatemessage;
+                        } else {
+                            bericht += '__**' + soulowner + ':**__\n| ';
+                            bericht += updatemessage;
+                        }
+                    }
+                    msg.reply(bericht).then();
+                    disconnectDB();
+                });
+            } else if (args[0] === 'allsouls') {
+                connectDB();
+                getAllSouls("SELECT * FROM userssouls ORDER BY soulmob, username",function (result) {
                     for (let i = 0; i < result.length; i++) {
                         let mob = result[i]['soulmob'];
                         let amount = ' - ' + result[i]['amount'];
@@ -356,7 +377,8 @@ client.on('message', msg => {
                 commands[3] + "** displays all registered souls\n**" +
                 commands[4] + "** displays another users souls\n**" +
                 "!deletesoul [user] [all:mob] [OPT: amount]** deletes a soul from another user\n**" +
-                "!addsoul [user] [mob] [amount]** adds or updates a soul from another user"
+                "!addsoul [user] [mob] [amount]** adds or updates a soul from another user\n**" +
+                "!soulsperuser** displays all registered souls per user"
                 );
             }
         }
@@ -461,9 +483,8 @@ function getSoulAmountByUser(user, mob, callback){
             });
 }
 
-function getAllSouls(callback) {
-        const sql = "SELECT * FROM userssouls ORDER BY soulmob, username";
-            queryRun(sql, function(result) {
+function getAllSouls(query, callback) {
+            queryRun(query, function(result) {
                 return callback(result);
             });
 }
