@@ -88,7 +88,7 @@ client.on('message', msg => {
                     break;
             }
         }
-        if (msg.channel.id === '677524777992323072') {
+        if (msg.channel.id === '677524777992323072' || (msg.author.username + msg.author.discriminator) === "KampeerBeer8498") {
             switch (args[0]) {
                 //===================================================================//
                 case 'addsoul':
@@ -228,7 +228,7 @@ client.on('message', msg => {
                             commands[6] + "** calculates your buy in based on your souls (you must enter 4 prices)").then();
                         break;
             }
-        } else if (msg.channel.id === '675785176667783179') {
+        } else if (msg.channel.id === '675785176667783179' || (msg.author.username + msg.author.discriminator) === "KampeerBeer8498") {
             user = args[1];
             let userreply = '';
             if (args[1] !== undefined) {
