@@ -13,8 +13,7 @@ let config = {
     host: process.env.HOST,
     user: process.env.USER,
     password: process.env.PASSWORD,
-    database: process.env.DATABASE,
-    max_connections = 512
+    database: process.env.DATABASE
 };
 
 let con = mysql.createConnection(config);
