@@ -88,7 +88,8 @@ client.on('message', msg => {
                     break;
             }
         }
-        if (msg.channel.id === '677524777992323072' || (msg.author.username + msg.author.discriminator) === "KampeerBeer8498") {
+        console.log(msg.channel.id);
+        if (msg.channel.id === '677524777992323072') {
             switch (args[0]) {
                 //===================================================================//
                 case 'addsoul':
