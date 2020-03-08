@@ -88,8 +88,7 @@ client.on('message', msg => {
                     break;
             }
         }
-        console.log(msg.channel.id);
-        if (msg.channel.id === '677524777992323072') {
+        if (msg.channel.id === '677524777992323072' || msg.channel.id === '685481875858522134') {
             switch (args[0]) {
                 //===================================================================//
                 case 'addsoul':
