@@ -248,7 +248,7 @@ discord.on('message', msg => {
         }
         if (msg.channel.id === '675785176667783179'  || msg.channel.id === '685481875858522134') {
             let bericht = 'these souls are available:\n';
-            user = args[1];
+            user = args[1][0].toUpperCase() + args[1].substring(1,args[1].length);
             let userreply = '';
             if (args[1] !== undefined) {
                 userreply = '**' + user[0].toUpperCase() + user.substring(1, user.length) + '**';
