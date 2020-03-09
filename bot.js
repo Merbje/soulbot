@@ -443,6 +443,7 @@ function getAmountOfStones(user, callback) {
 function queryRun(query, callback) {
     client.query(query,function (err, result){
         if (err) throw err;
+        console.log(result);
         return callback(result);
     });
 }
