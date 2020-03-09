@@ -19,6 +19,7 @@ const commands = ['!addsoul [mob] [amount]', '!deletesoul [all:mob] [OPT: amount
 //
 // let con = mysql.createConnection(config);
 const conString = process.env.APITOKEN;
+console.log(conString);
 let con = new pg.Client(conString);
 con.connect(function(err) {
     if(err) {
