@@ -411,7 +411,7 @@ function connectDB() {
 
 function disconnectDB() {
         setTimeout(function(){
-            client.destroy();
+            client.end();
         }, 2000);
     }
 
