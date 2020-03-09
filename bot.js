@@ -116,11 +116,11 @@ discord.on('message', msg => {
                         getSoulsPerUser(user, function (result) {
                             let dubbel = false;
                             for (let i = 0; i < result.length; i++) {
-                                if (result['rows'][i]['soulmob'] === "Agony V'Helley") {
-                                    result['rows'][i]['soulmob'] = "Agony V''Helley";
+                                if (result[i]['soulmob'] === "Agony V'Helley") {
+                                    result[i]['soulmob'] = "Agony V''Helley";
                                 }
 
-                                if (result['rows'][i]['soulmob'] === args[1]) {
+                                if (result[i]['soulmob'] === args[1]) {
                                     dubbel = true;
                                 }
                             }
@@ -141,13 +141,13 @@ discord.on('message', msg => {
                 case 'mysouls':
                     connectDB();
                     getSoulsPerUser(user, function (result) {
-                        console.log(result['rows'][0]['soulmob']);
+                        console.log(result[0]['soulmob']);
                         let bericht = 'you have the following souls:\n';
                         for (let i = 0; i < result.length; i++) {
                             if (i === 0) {
                                 bericht += '| '
                             }
-                            let mob = '**' + result['rows'][i]['soulmob'] + '**';
+                            let mob = '**' + result[i]['soulmob'] + '**';
                             let amount = result[i]['amount'];
                             bericht += mob + ' - ' + amount + ' | ';
                         }
@@ -175,11 +175,11 @@ discord.on('message', msg => {
                         getSoulsPerUser(user, function (result) {
                             let waar = false;
                             for (let i = 0; i < result.length; i++) {
-                                if (result['rows'][i]['soulmob'] === "Agony V'Helley") {
-                                    result['rows'][i]['soulmob'] = "Agony V''Helley";
+                                if (result[i]['soulmob'] === "Agony V'Helley") {
+                                    result[i]['soulmob'] = "Agony V''Helley";
                                 }
 
-                                if (result['rows'][i]['soulmob'] === mob) {
+                                if (result[i]['soulmob'] === mob) {
                                     waar = true;
                                 }
                             }
@@ -258,7 +258,7 @@ discord.on('message', msg => {
                 connectDB();
                 getAllSouls("SELECT * FROM userssouls ORDER BY username, soulmob",function (result) {
                     for (let i = 0; i < result.length; i++) {
-                        let mob = result['rows'][i]['soulmob'];
+                        let mob = result[i]['soulmob'];
                         let amount = ' - ' + result[i]['amount'];
                         let soulowner = result[i]['username'];
                         let updatemessage = mob + amount + ' | ';
@@ -279,7 +279,7 @@ discord.on('message', msg => {
                 connectDB();
                 getAllSouls("SELECT * FROM userssouls ORDER BY soulmob, username",function (result) {
                     for (let i = 0; i < result.length; i++) {
-                        let mob = result['rows'][i]['soulmob'];
+                        let mob = result[i]['soulmob'];
                         let amount = ' - ' + result[i]['amount'];
                         let soulowner = '**' + result[i]['username'] + '**';
                         let updatemessage = soulowner + amount + ' | ';
@@ -304,7 +304,7 @@ discord.on('message', msg => {
                         if (i === 0) {
                             bericht += '| '
                         }
-                        let mob = '**' + result['rows'][i]['soulmob'] + '**';
+                        let mob = '**' + result[i]['soulmob'] + '**';
                         let amount = result[i]['amount'];
                         bericht += mob + ' - ' + amount + ' | ';
                     }
@@ -330,11 +330,11 @@ discord.on('message', msg => {
                     getSoulsPerUser(user, function (result) {
                         let waar = false;
                         for (let i = 0; i < result.length; i++) {
-                            if (result['rows'][i]['soulmob'] === "Agony V'Helley") {
-                                result['rows'][i]['soulmob'] = "Agony V''Helley";
+                            if (result[i]['soulmob'] === "Agony V'Helley") {
+                                result[i]['soulmob'] = "Agony V''Helley";
                             }
 
-                            if (result['rows'][i]['soulmob'] === mob) {
+                            if (result[i]['soulmob'] === mob) {
                                 waar = true;
                             }
                         }
@@ -371,11 +371,11 @@ discord.on('message', msg => {
                     getSoulsPerUser(user, function (result) {
                         let dubbel = false;
                         for (let i = 0; i < result.length; i++) {
-                            if (result['rows'][i]['soulmob'] === "Agony V'Helley") {
-                                result['rows'][i]['soulmob'] = "Agony V''Helley";
+                            if (result[i]['soulmob'] === "Agony V'Helley") {
+                                result[i]['soulmob'] = "Agony V''Helley";
                             }
 
-                            if (result['rows'][i]['soulmob'] === mob) {
+                            if (result[i]['soulmob'] === mob) {
                                 dubbel = true;
                             }
                         }
@@ -444,8 +444,7 @@ function getAmountOfStones(user, callback) {
 function queryRun(query, callback) {
     client.query(query,function (err, result){
         if (err) throw err;
-        console.log(result);
-        return callback(result);
+        return callback(result['rows']);
     });
 }
 
