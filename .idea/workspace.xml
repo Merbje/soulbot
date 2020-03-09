@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="e42c046e-9ff0-450a-a738-52dfa8574f55" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bot.js" beforeDir="false" afterPath="$PROJECT_DIR$/bot.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,21 +73,7 @@
       <workItem from="1583477811868" duration="461000" />
       <workItem from="1583479377913" duration="919000" />
       <workItem from="1583501450253" duration="752000" />
-      <workItem from="1583742800683" duration="4396000" />
-    </task>
-    <task id="LOCAL-00047" summary="bot online">
-      <created>1583237625309</created>
-      <option name="number" value="00047" />
-      <option name="presentableId" value="LOCAL-00047" />
-      <option name="project" value="LOCAL" />
-      <updated>1583237625309</updated>
-    </task>
-    <task id="LOCAL-00048" summary="bot online">
-      <created>1583237966877</created>
-      <option name="number" value="00048" />
-      <option name="presentableId" value="LOCAL-00048" />
-      <option name="project" value="LOCAL" />
-      <updated>1583237966877</updated>
+      <workItem from="1583742800683" duration="4694000" />
     </task>
     <task id="LOCAL-00049" summary="bot online">
       <created>1583238161247</created>
@@ -419,7 +404,21 @@
       <option name="project" value="LOCAL" />
       <updated>1583747360555</updated>
     </task>
-    <option name="localTasksCounter" value="96" />
+    <task id="LOCAL-00096" summary="bot online">
+      <created>1583747617732</created>
+      <option name="number" value="00096" />
+      <option name="presentableId" value="LOCAL-00096" />
+      <option name="project" value="LOCAL" />
+      <updated>1583747617732</updated>
+    </task>
+    <task id="LOCAL-00097" summary="bot online">
+      <created>1583747826539</created>
+      <option name="number" value="00097" />
+      <option name="presentableId" value="LOCAL-00097" />
+      <option name="project" value="LOCAL" />
+      <updated>1583747826539</updated>
+    </task>
+    <option name="localTasksCounter" value="98" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -435,18 +434,18 @@
       <screen x="0" y="23" width="1920" height="1057" />
     </state>
     <state x="1193" y="361" key="#com.intellij.fileTypes.FileTypeChooser/0.23.1920.1057@0.23.1920.1057" timestamp="1582483939191" />
-    <state x="53" y="146" key="CommitChangelistDialog2" timestamp="1583747617564">
+    <state x="53" y="146" key="CommitChangelistDialog2" timestamp="1583747826370">
       <screen x="0" y="23" width="1920" height="1057" />
     </state>
     <state x="46" y="143" key="CommitChangelistDialog2/0.23.1680.1027@0.23.1680.1027" timestamp="1583502093218" />
     <state x="53" y="146" key="CommitChangelistDialog2/0.23.1920.1057/1920.23.1366.1001@0.23.1920.1057" timestamp="1583101626495" />
-    <state x="53" y="146" key="CommitChangelistDialog2/0.23.1920.1057@0.23.1920.1057" timestamp="1583747617564" />
-    <state x="304" y="291" key="Vcs.Push.Dialog.v2" timestamp="1583747619167">
+    <state x="53" y="146" key="CommitChangelistDialog2/0.23.1920.1057@0.23.1920.1057" timestamp="1583747826370" />
+    <state x="304" y="291" key="Vcs.Push.Dialog.v2" timestamp="1583747833398">
       <screen x="0" y="23" width="1920" height="1057" />
     </state>
     <state x="266" y="283" key="Vcs.Push.Dialog.v2/0.23.1680.1027@0.23.1680.1027" timestamp="1583502094725" />
     <state x="304" y="291" key="Vcs.Push.Dialog.v2/0.23.1920.1057/1920.23.1366.1001@0.23.1920.1057" timestamp="1583101628660" />
-    <state x="304" y="291" key="Vcs.Push.Dialog.v2/0.23.1920.1057@0.23.1920.1057" timestamp="1583747619167" />
+    <state x="304" y="291" key="Vcs.Push.Dialog.v2/0.23.1920.1057@0.23.1920.1057" timestamp="1583747833398" />
     <state x="1245" y="475" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1583742803738">
       <screen x="0" y="23" width="1920" height="1057" />
     </state>
