@@ -10,13 +10,13 @@ const mobs = 'the following mobs are allowed, between () is the shorter input:\n
     '| **Crab** (crab) | **Beaztinga** (beaz) | **Pandala Forest** (pandala) | **Weirbwork** (weir) | **Primitive Cemetery** (cemetery) | **Agony V\'Helley** (agony) | **Kilibriss** (kili) ' +
     '| **Cromagmunk** (croma) | **Mopy King** (mopy) | **Watchamatrich** (watcha) |';
 const commands = ['!addsoul [mob] [amount]', '!deletesoul [all:mob] [OPT: amount]', '!mysouls', '!allsouls', '!viewsouls [name]', '!moblist', '!buyin [small] [average] [big] [gigantic]'];
-let config = {
-    host: process.env.HOST,
-    user: process.env.USER,
-    password: process.env.PASSWORD,
-    database: process.env.DATABASE,
-    port: 5432
-};
+// let config = {
+//     host: process.env.HOST,
+//     user: process.env.USER,
+//     password: process.env.PASSWORD,
+//     database: process.env.DATABASE,
+//     port: 5432
+// };
 const conString = process.env.APITOKEN;
 
 let client = new pg.Client(conString);
@@ -116,11 +116,11 @@ discord.on('message', msg => {
                         getSoulsPerUser(user, function (result) {
                             let dubbel = false;
                             for (let i = 0; i < result.length; i++) {
-                                if (result[i]['soulmob'] === "Agony V'Helley") {
-                                    result[i]['soulmob'] = "Agony V''Helley";
+                                if (result['rows'][i]['soulmob'] === "Agony V'Helley") {
+                                    result['rows'][i]['soulmob'] = "Agony V''Helley";
                                 }
 
-                                if (result[i]['soulmob'] === args[1]) {
+                                if (result['rows'][i]['soulmob'] === args[1]) {
                                     dubbel = true;
                                 }
                             }
@@ -146,7 +146,7 @@ discord.on('message', msg => {
                             if (i === 0) {
                                 bericht += '| '
                             }
-                            let mob = '**' + result[i]['soulmob'] + '**';
+                            let mob = '**' + result['rows'][i]['soulmob'] + '**';
                             let amount = result[i]['amount'];
                             bericht += mob + ' - ' + amount + ' | ';
                         }
@@ -174,11 +174,11 @@ discord.on('message', msg => {
                         getSoulsPerUser(user, function (result) {
                             let waar = false;
                             for (let i = 0; i < result.length; i++) {
-                                if (result[i]['soulmob'] === "Agony V'Helley") {
-                                    result[i]['soulmob'] = "Agony V''Helley";
+                                if (result['rows'][i]['soulmob'] === "Agony V'Helley") {
+                                    result['rows'][i]['soulmob'] = "Agony V''Helley";
                                 }
 
-                                if (result[i]['soulmob'] === mob) {
+                                if (result['rows'][i]['soulmob'] === mob) {
                                     waar = true;
                                 }
                             }
@@ -257,7 +257,7 @@ discord.on('message', msg => {
                 connectDB();
                 getAllSouls("SELECT * FROM userssouls ORDER BY username, soulmob",function (result) {
                     for (let i = 0; i < result.length; i++) {
-                        let mob = result[i]['soulmob'];
+                        let mob = result['rows'][i]['soulmob'];
                         let amount = ' - ' + result[i]['amount'];
                         let soulowner = result[i]['username'];
                         let updatemessage = mob + amount + ' | ';
@@ -278,7 +278,7 @@ discord.on('message', msg => {
                 connectDB();
                 getAllSouls("SELECT * FROM userssouls ORDER BY soulmob, username",function (result) {
                     for (let i = 0; i < result.length; i++) {
-                        let mob = result[i]['soulmob'];
+                        let mob = result['rows'][i]['soulmob'];
                         let amount = ' - ' + result[i]['amount'];
                         let soulowner = '**' + result[i]['username'] + '**';
                         let updatemessage = soulowner + amount + ' | ';
@@ -303,7 +303,7 @@ discord.on('message', msg => {
                         if (i === 0) {
                             bericht += '| '
                         }
-                        let mob = '**' + result[i]['soulmob'] + '**';
+                        let mob = '**' + result['rows'][i]['soulmob'] + '**';
                         let amount = result[i]['amount'];
                         bericht += mob + ' - ' + amount + ' | ';
                     }
@@ -329,11 +329,11 @@ discord.on('message', msg => {
                     getSoulsPerUser(user, function (result) {
                         let waar = false;
                         for (let i = 0; i < result.length; i++) {
-                            if (result[i]['soulmob'] === "Agony V'Helley") {
-                                result[i]['soulmob'] = "Agony V''Helley";
+                            if (result['rows'][i]['soulmob'] === "Agony V'Helley") {
+                                result['rows'][i]['soulmob'] = "Agony V''Helley";
                             }
 
-                            if (result[i]['soulmob'] === mob) {
+                            if (result['rows'][i]['soulmob'] === mob) {
                                 waar = true;
                             }
                         }
@@ -370,11 +370,11 @@ discord.on('message', msg => {
                     getSoulsPerUser(user, function (result) {
                         let dubbel = false;
                         for (let i = 0; i < result.length; i++) {
-                            if (result[i]['soulmob'] === "Agony V'Helley") {
-                                result[i]['soulmob'] = "Agony V''Helley";
+                            if (result['rows'][i]['soulmob'] === "Agony V'Helley") {
+                                result['rows'][i]['soulmob'] = "Agony V''Helley";
                             }
 
-                            if (result[i]['soulmob'] === mob) {
+                            if (result['rows'][i]['soulmob'] === mob) {
                                 dubbel = true;
                             }
                         }
