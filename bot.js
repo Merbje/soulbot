@@ -1,6 +1,6 @@
 require('dotenv').config();
 const pg = require('pg');
-const mysql = require('mysql');
+//const mysql = require('mysql');
 const Discord = require('discord.js');
 const client = new Discord.Client();
 const soulmobs = ['Crab', 'Beaztinga', 'Pandala Forest',
@@ -10,30 +10,29 @@ const mobs = 'the following mobs are allowed, between () is the shorter input:\n
     '| **Crab** (crab) | **Beaztinga** (beaz) | **Pandala Forest** (pandala) | **Weirbwork** (weir) | **Primitive Cemetery** (cemetery) | **Agony V\'Helley** (agony) | **Kilibriss** (kili) ' +
     '| **Cromagmunk** (croma) | **Mopy King** (mopy) | **Watchamatrich** (watcha) |';
 const commands = ['!addsoul [mob] [amount]', '!deletesoul [all:mob] [OPT: amount]', '!mysouls', '!allsouls', '!viewsouls [name]', '!moblist', '!buyin [small] [average] [big] [gigantic]'];
-// let config = {
-//     host: process.env.HOST,
-//     user: process.env.USER,
-//     password: process.env.PASSWORD,
-//     database: process.env.DATABASE
-// };
-//
-// let con = mysql.createConnection(config);
+let config = {
+    host: process.env.HOST,
+    user: process.env.USER,
+    password: process.env.PASSWORD,
+    database: process.env.DATABASE
+};
 const conString = process.env.APITOKEN;
 console.log(conString);
 let con = new pg.Client(conString);
-con.connect(function(err) {
-    if(err) {
-        return console.error('could not connect to postgres', err);
-    }
-    con.query('SELECT NOW() AS "theTime"', function(err, result) {
-        if(err) {
-            return console.error('error running query', err);
-        }
-        console.log(result.rows[0].theTime);
-        // >> output: 2018-08-23T14:02:57.117Z
-        con.end();
-    });
-});
+con.createConnection(config);
+// con.connect(function(err) {
+//     if(err) {
+//         return console.error('could not connect to postgres', err);
+//     }
+//     con.query('SELECT NOW() AS "theTime"', function(err, result) {
+//         if(err) {
+//             return console.error('error running query', err);
+//         }
+//         console.log(result.rows[0].theTime);
+//         // >> output: 2018-08-23T14:02:57.117Z
+//         con.end();
+//     });
+// });
 
 
 client.on('ready', () => {
@@ -406,7 +405,7 @@ client.on('message', msg => {
 
 
 function connectDB() {
-        con = mysql.createConnection(config);
+        con.createConnection(config);
         con.connect();
     }
 
