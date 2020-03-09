@@ -1,5 +1,5 @@
 require('dotenv').config();
-const pg = require('pg');
+const {Pool,Client} = require('pg');
 //const mysql = require('mysql');
 const Discord = require('discord.js');
 const client = new Discord.Client();
@@ -10,16 +10,27 @@ const mobs = 'the following mobs are allowed, between () is the shorter input:\n
     '| **Crab** (crab) | **Beaztinga** (beaz) | **Pandala Forest** (pandala) | **Weirbwork** (weir) | **Primitive Cemetery** (cemetery) | **Agony V\'Helley** (agony) | **Kilibriss** (kili) ' +
     '| **Cromagmunk** (croma) | **Mopy King** (mopy) | **Watchamatrich** (watcha) |';
 const commands = ['!addsoul [mob] [amount]', '!deletesoul [all:mob] [OPT: amount]', '!mysouls', '!allsouls', '!viewsouls [name]', '!moblist', '!buyin [small] [average] [big] [gigantic]'];
-let config = {
-    host: process.env.HOST,
-    user: process.env.USER,
-    password: process.env.PASSWORD,
-    database: process.env.DATABASE
-};
+// let config = {
+//     host: process.env.HOST,
+//     user: process.env.USER,
+//     password: process.env.PASSWORD,
+//     database: process.env.DATABASE
+// };
 const conString = process.env.APITOKEN;
-console.log(conString);
-let con = new pg.Client(conString);
-con.createConnection(config);
+
+const con =  new Client({
+    connectionString:conString
+});
+
+con.connect();
+
+con.query('SELECT * FROM userssouls', (err,res)=>{
+    console.log(err,res);
+    con.end();
+});
+//console.log(conString);
+//let con = new pg.Client(conString);
+//con.createConnection(config);
 // con.connect(function(err) {
 //     if(err) {
 //         return console.error('could not connect to postgres', err);
