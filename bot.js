@@ -105,7 +105,7 @@ discord.on('message', msg => {
                     break;
             }
         }
-        if (msg.channel.id === '677524777992323072' || msg.channel.id === '685481875858522134') {
+        if (msg.channel.id === '677524777992323072') {
             switch (args[0]) {
                 //===================================================================//
                 case 'addsoul':
@@ -247,7 +247,7 @@ discord.on('message', msg => {
                         break;
             }
         }
-        if (msg.channel.id === '675785176667783179') {
+        if (msg.channel.id === '675785176667783179'  || msg.channel.id === '685481875858522134') {
             let bericht = 'these souls are available:\n';
             user = args[1];
             let userreply = '';
