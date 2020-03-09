@@ -412,7 +412,7 @@ function connectDB() {
 function disconnectDB() {
         setTimeout(function(){
             client.end();
-        }, 2000);
+        }, 6000);
     }
 
 function verifyMob(mob) {
