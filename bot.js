@@ -1,8 +1,8 @@
 require('dotenv').config();
-const {Pool,Client} = require('pg');
+const pg = require('pg');
 //const mysql = require('mysql');
 const Discord = require('discord.js');
-const client = new Discord.Client();
+const discord = new Discord.Client();
 const soulmobs = ['Crab', 'Beaztinga', 'Pandala Forest',
     'Weirbwork', 'Primitive Cemetery', "Agony V''Helley", 'Kilibriss',
     'Cromagmunk', 'Mopy King', 'Watchamatrich'];
@@ -18,39 +18,27 @@ const commands = ['!addsoul [mob] [amount]', '!deletesoul [all:mob] [OPT: amount
 // };
 const conString = process.env.APITOKEN;
 
-const con =  new Client({
-    connectionString:conString
+let client = new pg.Client(conString);
+client.connect(function(err) {
+    if(err) {
+        return console.error('could not connect to postgres', err);
+    }
+    client.query('SELECT NOW() AS "theTime"', function(err, result) {
+        if(err) {
+            return console.error('error running query', err);
+        }
+        console.log(result.rows[0].theTime);
+        // >> output: 2018-08-23T14:02:57.117Z
+        client.end();
+    });
 });
 
-con.connect();
 
-con.query('SELECT * FROM userssouls', (err,res)=>{
-    console.log(err,res);
-    con.end();
-});
-//console.log(conString);
-//let con = new pg.Client(conString);
-//con.createConnection(config);
-// con.connect(function(err) {
-//     if(err) {
-//         return console.error('could not connect to postgres', err);
-//     }
-//     con.query('SELECT NOW() AS "theTime"', function(err, result) {
-//         if(err) {
-//             return console.error('error running query', err);
-//         }
-//         console.log(result.rows[0].theTime);
-//         // >> output: 2018-08-23T14:02:57.117Z
-//         con.end();
-//     });
-// });
-
-
-client.on('ready', () => {
+discord.on('ready', () => {
     console.log('Logged in as soulBotForDofus!');
 });
 
-client.on('message', msg => {
+discord.on('message', msg => {
     if (msg.content.startsWith('!')) {
         let user = msg.author.username;
         if (msg.author.lastMessage.member.nickname !== null) {
@@ -518,4 +506,4 @@ function getAllSouls(query, callback) {
             });
 }
 
-client.login(process.env.DISCORD_TOKEN).then();
+discord.login(process.env.DISCORD_TOKEN).then();
