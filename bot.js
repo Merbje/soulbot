@@ -246,7 +246,7 @@ discord.on('message', msg => {
                         break;
             }
         }
-        if (msg.channel.id === '675785176667783179' || (msg.author.username + msg.author.discriminator) === "KampeerBeer8498") {
+        if (msg.channel.id === '675785176667783179') {
             let bericht = 'these souls are available:\n';
             user = args[1];
             let userreply = '';
