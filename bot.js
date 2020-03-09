@@ -405,14 +405,13 @@ discord.on('message', msg => {
 
 
 function connectDB() {
+    client = new pg.Client(conString);
     client.connect();
-        // con.createConnection(config);
-        // con.connect();
     }
 
 function disconnectDB() {
         setTimeout(function(){
-            client.end();
+            client.destroy();
         }, 2000);
     }
 
