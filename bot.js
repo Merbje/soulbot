@@ -442,7 +442,7 @@ function getAmountOfStones(user, callback) {
     }
 
 function queryRun(query, callback) {
-    con.query(query,function (err, result){
+    client.query(query,function (err, result){
         if (err) throw err;
         return callback(result);
     });
