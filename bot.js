@@ -141,7 +141,7 @@ discord.on('message', msg => {
                 case 'mysouls':
                     connectDB();
                     getSoulsPerUser(user, function (result) {
-                        console.log(result['rows']);
+                        console.log(result['rows'][0]['soulmob']);
                         let bericht = 'you have the following souls:\n';
                         for (let i = 0; i < result.length; i++) {
                             if (i === 0) {
