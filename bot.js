@@ -2,6 +2,7 @@ require('dotenv').config();
 const pg = require('pg');
 //const mysql = require('mysql');
 const Discord = require('discord.js');
+let oneconnect = false;
 const discord = new Discord.Client();
 const soulmobs = ['Crab', 'Beaztinga', 'Pandala Forest',
     'Weirbwork', 'Primitive Cemetery', "Agony V''Helley", 'Kilibriss',
@@ -40,7 +41,11 @@ discord.on('ready', () => {
 });
 
 discord.on('message', msg => {
-    if (msg.content.startsWith('!')) {
+    if (msg.content.startsWith('!') && oneconnect === false) {
+        oneconnect = true;
+        setTimeout(function(){
+            oneconnect = false;
+        }, 2500);
         let user = msg.author.username;
         if (msg.author.lastMessage.member.nickname !== null) {
             user = msg.author.lastMessage.member.nickname;
