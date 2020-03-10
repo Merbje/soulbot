@@ -3,6 +3,7 @@ const pg = require('pg');
 //const mysql = require('mysql');
 const Discord = require('discord.js');
 let oneconnect = false;
+let nodbconnect = false;
 const discord = new Discord.Client();
 const soulmobs = ['Crab', 'Beaztinga', 'Pandala Forest',
     'Weirbwork', 'Primitive Cemetery', "Agony V''Helley", 'Kilibriss',
@@ -420,6 +421,7 @@ function connectDB() {
 
 function disconnectDB() {
         setTimeout(function(){
+            nodbconnect = false;
             client.end();
         }, 1250);
     }
@@ -450,8 +452,11 @@ function getAmountOfStones(user, callback) {
     }
 
 function queryRun(query, callback) {
-    connectDB();
-    disconnectDB();
+    if (nodbconnect === false) {
+        nodbconnect = true;
+        connectDB();
+        disconnectDB();
+    }
     client.query(query,function (err, result){
         if (err) throw err;
         return callback(result['rows']);
