@@ -420,7 +420,7 @@ function connectDB() {
 
 function disconnectDB() {
         setTimeout(function(){
-            client.terminate();
+            client.quit();
         }, 1250);
     }
 
