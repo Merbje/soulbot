@@ -420,8 +420,8 @@ function connectDB() {
 
 function disconnectDB() {
         setTimeout(function(){
-            client.end();
-        }, 2000);
+            client.terminate();
+        }, 1250);
     }
 
 function verifyMob(mob) {
