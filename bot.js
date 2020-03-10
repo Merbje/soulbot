@@ -406,6 +406,9 @@ discord.on('message', msg => {
             }
         }
     }
+    else {
+        msg.reply('There is a 2.5 second cooldown between commands').then();
+    }
 });
 
 
