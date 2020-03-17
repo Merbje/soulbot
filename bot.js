@@ -251,8 +251,10 @@ discord.on('message', msg => {
                             commands[5] + "** displays the list of all the mobs we soul\n**" +
                             commands[6] + "** calculates your buy in based on your souls (you must enter 4 prices)").then();
                         break;
+                    default:
+                        msg.reply('Unknown command, please consult !help');
                 }
-                msg.reply('Unknown command, please consult !help');
+
             }
             if (msg.channel.id === '675785176667783179' || msg.channel.id === '685481875858522134') {
                 let bericht = 'these souls are available:\n';
