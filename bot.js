@@ -252,6 +252,7 @@ discord.on('message', msg => {
                             commands[6] + "** calculates your buy in based on your souls (you must enter 4 prices)").then();
                         break;
                 }
+                msg.reply('Unknown command, please consult !help');
             }
             if (msg.channel.id === '675785176667783179' || msg.channel.id === '685481875858522134') {
                 let bericht = 'these souls are available:\n';
@@ -465,11 +466,11 @@ function queryRun(query, callback) {
 
 function postSoulsPerUser(user, mob, amount) {
         let stone;
-        if (mob === 'mopyking') {
+        if (mob === 'Mopy King') {
             stone = 'gigantic'
-        } else if (mob === 'crab' || mob === 'milirat') {
+        } else if (mob === 'Crab') {
             stone = 'small';
-        } else if (mob === 'beaztinga' || mob === 'holy' || mob === 'weirbwork' || mob === 'bulbig') {
+        } else if (mob === 'Beaztinga' || mob === 'Pandala Forest' || mob === 'Weirbwork') {
             stone = 'average';
         } else {
             stone = 'big';

@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e42c046e-9ff0-450a-a738-52dfa8574f55" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bot.js" beforeDir="false" afterPath="$PROJECT_DIR$/bot.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -447,10 +446,10 @@
     <state x="266" y="283" key="Vcs.Push.Dialog.v2/0.23.1680.1027@0.23.1680.1027" timestamp="1583863650609" />
     <state x="304" y="291" key="Vcs.Push.Dialog.v2/0.23.1920.1057/1920.23.1366.1001@0.23.1920.1057" timestamp="1583101628660" />
     <state x="304" y="291" key="Vcs.Push.Dialog.v2/0.23.1920.1057@0.23.1920.1057" timestamp="1583749915686" />
-    <state x="1245" y="475" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1583742803738">
+    <state x="1245" y="475" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1584464746966">
       <screen x="0" y="23" width="1920" height="1057" />
     </state>
-    <state x="1245" y="475" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.23.1920.1057@0.23.1920.1057" timestamp="1583742803738" />
+    <state x="1245" y="475" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.23.1920.1057@0.23.1920.1057" timestamp="1584464746966" />
     <state x="1168" y="350" key="git4idea.merge.GitPullDialog" timestamp="1583742814882">
       <screen x="0" y="23" width="1920" height="1057" />
     </state>
