@@ -162,6 +162,12 @@ discord.on('message', msg => {
                         });
                         break;
                     //===================================================================//
+                    case 'tangoplease':
+                        msg.reply('UHMM, CAN SOMEONE SPARE ME ONE TANGO PlEASE');
+                        break;
+                    case 'sven':
+                        msg.reply('SVEEEEENNNNNNN');
+                        break;
                     case 'deletesoul':
                         //connectDB();
                         let mob = '';
