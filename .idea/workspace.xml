@@ -82,28 +82,7 @@
       <workItem from="1583742800683" duration="6335000" />
       <workItem from="1584464742974" duration="251000" />
       <workItem from="1586550850219" duration="195000" />
-      <workItem from="1586595079448" duration="366000" />
-    </task>
-    <task id="LOCAL-00065" summary="bot online">
-      <created>1583245470992</created>
-      <option name="number" value="00065" />
-      <option name="presentableId" value="LOCAL-00065" />
-      <option name="project" value="LOCAL" />
-      <updated>1583245470992</updated>
-    </task>
-    <task id="LOCAL-00066" summary="bot online">
-      <created>1583252354073</created>
-      <option name="number" value="00066" />
-      <option name="presentableId" value="LOCAL-00066" />
-      <option name="project" value="LOCAL" />
-      <updated>1583252354073</updated>
-    </task>
-    <task id="LOCAL-00067" summary="bot online">
-      <created>1583252572167</created>
-      <option name="number" value="00067" />
-      <option name="presentableId" value="LOCAL-00067" />
-      <option name="project" value="LOCAL" />
-      <updated>1583252572167</updated>
+      <workItem from="1586595079448" duration="754000" />
     </task>
     <task id="LOCAL-00068" summary="bot online">
       <created>1583252657060</created>
@@ -427,7 +406,28 @@
       <option name="project" value="LOCAL" />
       <updated>1586595176481</updated>
     </task>
-    <option name="localTasksCounter" value="114" />
+    <task id="LOCAL-00114" summary="bot online">
+      <created>1586595448988</created>
+      <option name="number" value="00114" />
+      <option name="presentableId" value="LOCAL-00114" />
+      <option name="project" value="LOCAL" />
+      <updated>1586595448988</updated>
+    </task>
+    <task id="LOCAL-00115" summary="bot online">
+      <created>1586595588078</created>
+      <option name="number" value="00115" />
+      <option name="presentableId" value="LOCAL-00115" />
+      <option name="project" value="LOCAL" />
+      <updated>1586595588078</updated>
+    </task>
+    <task id="LOCAL-00116" summary="bot online">
+      <created>1586595730948</created>
+      <option name="number" value="00116" />
+      <option name="presentableId" value="LOCAL-00116" />
+      <option name="project" value="LOCAL" />
+      <updated>1586595730948</updated>
+    </task>
+    <option name="localTasksCounter" value="117" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

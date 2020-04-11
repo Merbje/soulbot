@@ -225,13 +225,13 @@ discord.on('message', msg => {
                             getAmountOfStones(user, function (result) {
                                 for (let i = 0; i < result.length; i++) {
                                     if (result[i]['stone'] === 'small') {
-                                        buyin += result[i]['sum(amount)'] * args[1];
+                                        buyin += result[i]['sum'] * args[1];
                                     } else if (result[i]['stone'] === 'average') {
-                                        buyin += result[i]['sum(amount)'] * args[2];
+                                        buyin += result[i]['sum'] * args[2];
                                     } else if (result[i]['stone'] === 'big') {
-                                        buyin += result[i]['sum(amount)'] * args[3];
+                                        buyin += result[i]['sum'] * args[3];
                                     } else if (result[i]['stone'] === 'gigantic') {
-                                        buyin += result[i]['sum(amount)'] * args[4];
+                                        buyin += result[i]['sum'] * args[4];
                                     }
                                 }
                                 buyin = buyin / 8;
