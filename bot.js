@@ -448,7 +448,7 @@ function verifyAmount(amount) {
     }
 
 function getAmountOfStones(user, callback) {
-        const sql = "select soulstone, sum(amount) from userssouls where username = '" + user + "' group by soulstone";
+        const sql = "select stone, sum(amount) from userssouls where username = '" + user + "' group by stone";
         queryRun(sql, function (result) {
             return callback(result);
         });
