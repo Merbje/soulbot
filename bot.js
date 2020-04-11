@@ -308,7 +308,7 @@ discord.on('message', msg => {
                     });
                 } else if (args[0] === 'viewsouls') {
                     //connectDB();
-                    getSoulsPerUser(msg.author.username, function (result) {
+                    getSoulsPerUser(args[1], function (result) {
                         console.log(result);
                         let bericht = userreply + ' has the following souls:\n';
                         for (let i = 0; i < result.length; i++) {
