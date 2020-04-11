@@ -20,6 +20,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e42c046e-9ff0-450a-a738-52dfa8574f55" name="Default Changelist" comment="bot online">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bot.js" beforeDir="false" afterPath="$PROJECT_DIR$/bot.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -82,14 +83,7 @@
       <workItem from="1583742800683" duration="6335000" />
       <workItem from="1584464742974" duration="251000" />
       <workItem from="1586550850219" duration="195000" />
-      <workItem from="1586595079448" duration="754000" />
-    </task>
-    <task id="LOCAL-00068" summary="bot online">
-      <created>1583252657060</created>
-      <option name="number" value="00068" />
-      <option name="presentableId" value="LOCAL-00068" />
-      <option name="project" value="LOCAL" />
-      <updated>1583252657060</updated>
+      <workItem from="1586595079448" duration="1122000" />
     </task>
     <task id="LOCAL-00069" summary="bot online">
       <created>1583253175883</created>
@@ -427,7 +421,14 @@
       <option name="project" value="LOCAL" />
       <updated>1586595730948</updated>
     </task>
-    <option name="localTasksCounter" value="117" />
+    <task id="LOCAL-00117" summary="bot online">
+      <created>1586595836992</created>
+      <option name="number" value="00117" />
+      <option name="presentableId" value="LOCAL-00117" />
+      <option name="project" value="LOCAL" />
+      <updated>1586595836992</updated>
+    </task>
+    <option name="localTasksCounter" value="118" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -461,10 +462,10 @@
     <state x="46" y="143" key="CommitChangelistDialog2/0.23.1680.1027@0.23.1680.1027" timestamp="1583863646961" />
     <state x="53" y="146" key="CommitChangelistDialog2/0.23.1920.1057/1920.23.1366.1001@0.23.1920.1057" timestamp="1583101626495" />
     <state x="53" y="146" key="CommitChangelistDialog2/0.23.1920.1057@0.23.1920.1057" timestamp="1584464845647" />
-    <state x="304" y="264" key="Vcs.Push.Dialog.v2" timestamp="1586595450052">
+    <state x="304" y="264" key="Vcs.Push.Dialog.v2" timestamp="1586595838094">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="304" y="264" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1586595450052" />
+    <state x="304" y="264" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1586595838094" />
     <state x="266" y="283" key="Vcs.Push.Dialog.v2/0.23.1680.1027@0.23.1680.1027" timestamp="1583863650609" />
     <state x="304" y="291" key="Vcs.Push.Dialog.v2/0.23.1920.1057/1920.23.1366.1001@0.23.1920.1057" timestamp="1583101628660" />
     <state x="304" y="291" key="Vcs.Push.Dialog.v2/0.23.1920.1057@0.23.1920.1057" timestamp="1584464855095" />
