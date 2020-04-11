@@ -66,9 +66,10 @@ discord.on('message', msg => {
                     break;
             }
 
-            if (args[1] !== undefined) {
+            if (args[1] !== undefined && args[0] !== 'viewsouls' && (args[0] !== 'deletesoul' && msg.channel.id !== '675785176667783179') && (args[0] !== 'addsoul' && msg.channel.id !== '675785176667783179')) {
                 args[1] = args[1].toLowerCase();
             }
+
             for (let i = 1; i < args.length; i++) {
                 switch (args[i]) {
                     case 'crab' :
@@ -307,7 +308,7 @@ discord.on('message', msg => {
                     });
                 } else if (args[0] === 'viewsouls') {
                     //connectDB();
-                    getSoulsPerUser(args[1], function (result) {
+                    getSoulsPerUser(msg.author.username, function (result) {
                         console.log(result);
                         let bericht = userreply + ' has the following souls:\n';
                         for (let i = 0; i < result.length; i++) {
