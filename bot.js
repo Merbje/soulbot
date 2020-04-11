@@ -309,7 +309,6 @@ discord.on('message', msg => {
                 } else if (args[0] === 'viewsouls') {
                     //connectDB();
                     getSoulsPerUser(args[1], function (result) {
-                        console.log(result);
                         let bericht = userreply + ' has the following souls:\n';
                         for (let i = 0; i < result.length; i++) {
                             if (i === 0) {
@@ -485,7 +484,6 @@ function postSoulsPerUser(user, mob, amount) {
 }
 
 function getSoulsPerUser(user, callback) {
-        console.log(user);
         const sql = "select soulmob, amount from userssouls where username = '" + user + "' order by soulmob";
         queryRun(sql, function(result){
             return callback(result);
