@@ -450,6 +450,7 @@ function verifyAmount(amount) {
 function getAmountOfStones(user, callback) {
         const sql = "select stone, sum(amount) from userssouls where username = '" + user + "' group by stone";
         queryRun(sql, function (result) {
+            console.log(result)
             return callback(result);
         });
     }
