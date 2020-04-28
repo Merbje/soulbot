@@ -258,7 +258,6 @@ discord.on('message', msg => {
                         break;
                     //===================================================================//
                     case 'help' :
-                        msg.react("674593230402224148").then();
                         msg.author.send("list of commands:\n**" +
                             commands[0] + "** adds a soul or updates an already existing soul.\n**" +
                             commands[1] + "** deletes souls\n**" +
@@ -269,6 +268,7 @@ discord.on('message', msg => {
                                 "./end.png"
                             ]
                         }).then();
+                        msg.react("674593230402224148").then();
                         break;
                     default:
                         msg.react("❓").then();
