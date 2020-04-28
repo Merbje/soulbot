@@ -75,7 +75,6 @@ discord.on('message', msg => {
             }
 
             for (let i = 1; i < args.length; i++) {
-                console.log(args[i]);
                 switch (args[i]) {
                     case 'zoth':
                     case 'canopy village':
@@ -346,11 +345,13 @@ discord.on('message', msg => {
                     try {
                         amount = -parseInt(args[3]);
                     } catch (TypeError) {
-                        msg.reply('amount has to be a number').then();
+                        msg.react("674593603787554841").then();
+                        //msg.reply('amount has to be a number').then();
                     }
                     if (mob.toLowerCase() === 'all') {
                         deleteAllSoulsByUser(user);
-                        msg.reply('all of ' + userreply + '\'s souls deleted').then();
+                        msg.react("674593230402224148").then();
+                        //msg.reply('all of ' + userreply + '\'s souls deleted').then();
                     } else if (verifyMob(mob) && !Number.isNaN(amount)) {
                         getSoulsPerUser(user, function (result) {
                             let waar = false;
@@ -368,10 +369,11 @@ discord.on('message', msg => {
                                 if (mob === "Agony V''Helley") {
                                     mob = "Agony V'Helley";
                                 }
-
-                                msg.reply(mob + ' souls deleted').then();
+                                msg.react("674593230402224148").then();
+                                //msg.reply(mob + ' souls deleted').then();
                             } else {
-                                msg.reply("you can't delete a soul they don't have.").then();
+                                msg.react("674593603787554841").then();
+                                //msg.reply("you can't delete a soul they don't have.").then();
                             }
                         });
                     } else if (verifyMob(mob)) {
@@ -379,11 +381,14 @@ discord.on('message', msg => {
                         if (mob === "Agony V''Helley") {
                             mob = "Agony V'Helley";
                         }
-                        msg.reply('all ' + userreply + ' their ' + mob + ' souls are deleted.').then();
+                        msg.react("674593230402224148").then();
+                        //msg.reply('all ' + userreply + ' their ' + mob + ' souls are deleted.').then();
                     } else if (amount === 0) {
-                        msg.reply("it's not possible to delete 0 souls.").then();
+                        msg.react("674593603787554841").then();
+                        //msg.reply("it's not possible to delete 0 souls.").then();
                     } else {
-                        msg.reply('wrong use of command, please consult !help for more info.').then();
+                        msg.react("674593603787554841").then();
+                        //msg.reply('wrong use of command, please consult !help for more info.').then();
                     }
                 } else if (args[0] === 'addsoul') {
                     let mob = args[2];
@@ -404,14 +409,17 @@ discord.on('message', msg => {
                             }
                             if (dubbel === false) {
                                 postSoulsPerUser(user, mob, amount);
-                                msg.reply("soul is added for " + userreply + ".").then();
+                                msg.react("674593230402224148").then();
+                                //msg.reply("soul is added for " + userreply + ".").then();
                             } else {
                                 updateSoulByUser(user, mob, amount);
-                                msg.reply('soul amount is updated for ' + userreply + '.').then();
+                                msg.react("674593230402224148").then();
+                                //msg.reply('soul amount is updated for ' + userreply + '.').then();
                             }
                         });
                     } else {
-                        msg.reply("soul is not valid, please consult !help.").then();
+                        msg.react("674593603787554841").then();
+                        //msg.reply("soul is not valid, please consult !help.").then();
                     }
                 } else if (args[0] === 'help') {
                     msg.reply("list of MOD/ADMIN commands:\n**" +
