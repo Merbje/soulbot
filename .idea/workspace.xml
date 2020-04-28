@@ -19,7 +19,10 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e42c046e-9ff0-450a-a738-52dfa8574f55" name="Default Changelist" comment="Working on a kick PM" />
+    <list default="true" id="e42c046e-9ff0-450a-a738-52dfa8574f55" name="Default Changelist" comment="Working on a kick PM">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bot.js" beforeDir="false" afterPath="$PROJECT_DIR$/bot.js" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -83,21 +86,7 @@
       <workItem from="1586595079448" duration="2052000" />
       <workItem from="1586687432104" duration="36000" />
       <workItem from="1586687477270" duration="636000" />
-      <workItem from="1588067186430" duration="673000" />
-    </task>
-    <task id="LOCAL-00075" summary="bot online">
-      <created>1583264989270</created>
-      <option name="number" value="00075" />
-      <option name="presentableId" value="LOCAL-00075" />
-      <option name="project" value="LOCAL" />
-      <updated>1583264989270</updated>
-    </task>
-    <task id="LOCAL-00076" summary="bot online">
-      <created>1583479479110</created>
-      <option name="number" value="00076" />
-      <option name="presentableId" value="LOCAL-00076" />
-      <option name="project" value="LOCAL" />
-      <updated>1583479479111</updated>
+      <workItem from="1588067186430" duration="1859000" />
     </task>
     <task id="LOCAL-00077" summary="bot online">
       <created>1583481554625</created>
@@ -428,7 +417,21 @@
       <option name="project" value="LOCAL" />
       <updated>1588067645961</updated>
     </task>
-    <option name="localTasksCounter" value="124" />
+    <task id="LOCAL-00124" summary="Working on a kick PM">
+      <created>1588067920154</created>
+      <option name="number" value="00124" />
+      <option name="presentableId" value="LOCAL-00124" />
+      <option name="project" value="LOCAL" />
+      <updated>1588067920154</updated>
+    </task>
+    <task id="LOCAL-00125" summary="Working on a kick PM">
+      <created>1588068028929</created>
+      <option name="number" value="00125" />
+      <option name="presentableId" value="LOCAL-00125" />
+      <option name="project" value="LOCAL" />
+      <updated>1588068028929</updated>
+    </task>
+    <option name="localTasksCounter" value="126" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -467,10 +470,11 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="987" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1586687446270" />
-    <state x="304" y="264" key="Vcs.Push.Dialog.v2" timestamp="1586597099379">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="304" y="267" key="Vcs.Push.Dialog.v2" timestamp="1588068030083">
+      <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="304" y="264" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1586597099379" />
+    <state x="304" y="267" key="Vcs.Push.Dialog.v2/0.0.1920.1050@0.0.1920.1050" timestamp="1588068030083" />
     <state x="266" y="283" key="Vcs.Push.Dialog.v2/0.23.1680.1027@0.23.1680.1027" timestamp="1583863650609" />
     <state x="304" y="291" key="Vcs.Push.Dialog.v2/0.23.1920.1057/1920.23.1366.1001@0.23.1920.1057" timestamp="1583101628660" />
     <state x="304" y="291" key="Vcs.Push.Dialog.v2/0.23.1920.1057@0.23.1920.1057" timestamp="1584464855095" />
