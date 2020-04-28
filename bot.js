@@ -11,7 +11,7 @@ const soulmobs = ['Crab', 'Beaztinga', 'Pandala Forest',
 const mobs = 'the following mobs are allowed, between () is the shorter input:\n' +
     '| **Crab** (crab) | **Beaztinga** (beaz) | **Pandala Forest** (pandala) | **Weirbwork** (weir) | **Primitive Cemetery** (cemetery) | **Agony V\'Helley** (agony) | **Kilibriss** (kili) ' +
     '| **Cromagmunk** (croma) | **Mopy King** (mopy) | **Watchamatrich** (watcha) |';
-const commands = ['!addsoul [mob] [amount]', '!deletesoul [all:mob] [OPT: amount]', '!mysouls', '!allsouls', '!viewsouls [name]', '!moblist', '!buyin [small] [average] [big] [gigantic]'];
+const commands = ['!addsoul [mob] [amount]', '!deletesoul [all:mob] [OPT: amount]', '!mysouls', '!allsouls', '!viewsouls [user]', '!moblist', '!buyin [small] [average] [big] [gigantic]'];
 // let config = {
 //     host: process.env.HOST,
 //     user: process.env.USER,
@@ -120,7 +120,6 @@ discord.on('message', msg => {
                         if (verifyMob(args[1]) && verifyAmount(args[2])) {
                             let check = args[2].split(',');
                             args[2] = check[0];
-                            //connectDB();
                             getSoulsPerUser(user, function (result) {
                                 let dubbel = false;
                                 for (let i = 0; i < result.length; i++) {
@@ -138,17 +137,17 @@ discord.on('message', msg => {
                                     msg.react("674593230402224148").then();
                                 } else {
                                     updateSoulByUser(user, args[1], args[2]);
-                                    msg.reply('soul amount is updated.').then();
+                                    msg.react("674593230402224148").then();
+                                    //msg.reply('soul amount is updated.').then();
                                 }
                             });
-                            //dis//connectDB();
                         } else {
-                            msg.reply("soul is not valid, please consult !help.").then();
+                            msg.react("674593603787554841").then();
+                            //msg.reply("soul is not valid, please consult !help.").then();
                         }
                         break;
                     //===================================================================//
                     case 'mysouls':
-                        //connectDB();
                         getSoulsPerUser(user, function (result) {
                             let bericht = 'you have the following souls:\n';
                             for (let i = 0; i < result.length; i++) {
@@ -160,12 +159,10 @@ discord.on('message', msg => {
                                 bericht += mob + ' - ' + amount + ' | ';
                             }
                             msg.reply(bericht).then();
-                            //dis//connectDB();
                         });
                         break;
                     //===================================================================//
                     case 'deletesoul':
-                        //connectDB();
                         let mob = '';
                         if (args[1] !== undefined) {
                             mob = args[1];
@@ -174,11 +171,13 @@ discord.on('message', msg => {
                         try {
                             amount = -parseInt(args[2]);
                         } catch (TypeError) {
-                            msg.reply('amount has to be a number').then();
+                            //msg.reply('amount has to be a number').then();
+                            msg.react("674593603787554841").then();
                         }
                         if (mob.toLowerCase() === 'all') {
                             deleteAllSoulsByUser(user);
-                            msg.reply('all souls deleted').then();
+                            msg.react("674593230402224148").then();
+                            //msg.reply('all souls deleted').then();
                         } else if (verifyMob(mob) && !Number.isNaN(amount)) {
                             getSoulsPerUser(user, function (result) {
                                 let waar = false;
@@ -196,10 +195,11 @@ discord.on('message', msg => {
                                     if (mob === "Agony V''Helley") {
                                         mob = "Agony V'Helley";
                                     }
-
-                                    msg.reply(mob + ' souls deleted').then();
+                                    msg.react("674593230402224148").then();
+                                    //msg.reply(mob + ' souls deleted').then();
                                 } else {
-                                    msg.reply("you can't delete a soul you don't have").then();
+                                    msg.react("674593603787554841").then();
+                                    //msg.reply("you can't delete a soul you don't have").then();
                                 }
                             });
                         } else if (verifyMob(mob)) {
@@ -207,11 +207,14 @@ discord.on('message', msg => {
                             if (mob === "Agony V''Helley") {
                                 mob = "Agony V'Helley";
                             }
-                            msg.reply('all your ' + mob + ' souls are deleted.').then();
+                            msg.react("674593230402224148").then();
+                            //msg.reply('all your ' + mob + ' souls are deleted.').then();
                         } else if (amount === 0) {
-                            msg.reply("it's not possible to delete 0 souls").then();
+                            msg.react("674593603787554841").then();
+                            //msg.reply("it's not possible to delete 0 souls").then();
                         } else {
-                            msg.reply('wrong use of command, please consult !help for more info').then();
+                            msg.react("674593603787554841").then();
+                            //msg.reply('wrong use of command, please consult !help for more info').then();
                         }
                         //dis//connectDB();
                         break;
@@ -246,7 +249,7 @@ discord.on('message', msg => {
                         break;
                     //===================================================================//
                     case 'help' :
-                        msg.reply("list of commands:\n**" +
+                        msg.author.send("list of commands:\n**" +
                             commands[0] + "** adds a soul or updates an already existing soul.\n**" +
                             commands[1] + "** deletes souls\n**" +
                             commands[2] + "** displays all your registered souls\n**" +
@@ -254,7 +257,8 @@ discord.on('message', msg => {
                             commands[6] + "** calculates your buy in based on your souls (you must enter 4 prices)").then();
                         break;
                     default:
-                        msg.reply('Unknown command, please consult !help');
+                        msg.react("❓").then();
+                        //msg.reply('Unknown command, please consult !help').then();
                 }
 
             }
