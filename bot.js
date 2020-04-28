@@ -254,7 +254,11 @@ discord.on('message', msg => {
                             commands[1] + "** deletes souls\n**" +
                             commands[2] + "** displays all your registered souls\n**" +
                             commands[5] + "** displays the list of all the mobs we soul\n**" +
-                            commands[6] + "** calculates your buy in based on your souls (you must enter 4 prices)").then();
+                            commands[6] + "** calculates your buy in based on your souls (you must enter 4 prices)", {
+                            files: [
+                                "./end.png"
+                            ]
+                        }).then();
                         break;
                     default:
                         msg.react("❓").then();
@@ -270,7 +274,6 @@ discord.on('message', msg => {
                     userreply = '**' + user[0].toUpperCase() + user.substring(1, user.length) + '**';
                 }
                 if (args[0] === 'soulsperuser') {
-                    //connectDB();
                     getAllSouls("SELECT * FROM userssouls ORDER BY username, soulmob", function (result) {
                         for (let i = 0; i < result.length; i++) {
                             let mob = result[i]['soulmob'];
@@ -288,10 +291,8 @@ discord.on('message', msg => {
                             }
                         }
                         msg.reply(bericht).then();
-                        //dis//connectDB();
                     });
                 } else if (args[0] === 'allsouls') {
-                    //connectDB();
                     getAllSouls("SELECT * FROM userssouls ORDER BY soulmob, username", function (result) {
                         for (let i = 0; i < result.length; i++) {
                             let mob = result[i]['soulmob'];
@@ -309,10 +310,8 @@ discord.on('message', msg => {
                             }
                         }
                         msg.reply(bericht).then();
-                        //dis//connectDB();
                     });
                 } else if (args[0] === 'viewsouls') {
-                    //connectDB();
                     getSoulsPerUser(args[1], function (result) {
                         let bericht = userreply + ' has the following souls:\n';
                         for (let i = 0; i < result.length; i++) {
@@ -324,10 +323,8 @@ discord.on('message', msg => {
                             bericht += mob + ' - ' + amount + ' | ';
                         }
                         msg.reply(bericht).then();
-                        //dis//connectDB();
                     });
                 } else if (args[0] === 'deletesoul') {
-                    //connectDB();
                     let mob = '';
                     if (args[2] !== undefined) {
                         mob = args[2];
@@ -375,14 +372,12 @@ discord.on('message', msg => {
                     } else {
                         msg.reply('wrong use of command, please consult !help for more info.').then();
                     }
-                    //dis//connectDB();
                 } else if (args[0] === 'addsoul') {
                     let mob = args[2];
                     let amount = args[3];
                     if (verifyMob(mob) && verifyAmount(amount)) {
                         let check = amount.split(',');
                         amount = check[0];
-                        //connectDB();
                         getSoulsPerUser(user, function (result) {
                             let dubbel = false;
                             for (let i = 0; i < result.length; i++) {
@@ -402,7 +397,6 @@ discord.on('message', msg => {
                                 msg.reply('soul amount is updated for ' + userreply + '.').then();
                             }
                         });
-                        //dis//connectDB();
                     } else {
                         msg.reply("soul is not valid, please consult !help.").then();
                     }
