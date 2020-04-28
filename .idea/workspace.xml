@@ -19,10 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e42c046e-9ff0-450a-a738-52dfa8574f55" name="Default Changelist" comment="bot online">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bot.js" beforeDir="false" afterPath="$PROJECT_DIR$/bot.js" afterDir="false" />
-    </list>
+    <list default="true" id="e42c046e-9ff0-450a-a738-52dfa8574f55" name="Default Changelist" comment="Working on a kick PM" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -86,14 +83,7 @@
       <workItem from="1586595079448" duration="2052000" />
       <workItem from="1586687432104" duration="36000" />
       <workItem from="1586687477270" duration="636000" />
-      <workItem from="1588067186430" duration="334000" />
-    </task>
-    <task id="LOCAL-00074" summary="bot online">
-      <created>1583264839150</created>
-      <option name="number" value="00074" />
-      <option name="presentableId" value="LOCAL-00074" />
-      <option name="project" value="LOCAL" />
-      <updated>1583264839150</updated>
+      <workItem from="1588067186430" duration="673000" />
     </task>
     <task id="LOCAL-00075" summary="bot online">
       <created>1583264989270</created>
@@ -431,7 +421,14 @@
       <option name="project" value="LOCAL" />
       <updated>1586597095877</updated>
     </task>
-    <option name="localTasksCounter" value="123" />
+    <task id="LOCAL-00123" summary="Working on a kick PM">
+      <created>1588067645961</created>
+      <option name="number" value="00123" />
+      <option name="presentableId" value="LOCAL-00123" />
+      <option name="project" value="LOCAL" />
+      <updated>1588067645961</updated>
+    </task>
+    <option name="localTasksCounter" value="124" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -452,7 +449,8 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="bot online" />
-    <option name="LAST_COMMIT_MESSAGE" value="bot online" />
+    <MESSAGE value="Working on a kick PM" />
+    <option name="LAST_COMMIT_MESSAGE" value="Working on a kick PM" />
   </component>
   <component name="WindowStateProjectService">
     <state x="1193" y="361" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1582483939191">

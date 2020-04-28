@@ -411,7 +411,7 @@ discord.on('message', msg => {
                     );
                 } else if (args[0] === 'removed') {
                     let privatemsg = msg.mentions.users.first();
-                    let pm = ("testingggggg")
+                    let pm = ("testingggggg");
                     privatemsg.send(pm).then();
                 }
             }
