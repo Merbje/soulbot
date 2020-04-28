@@ -54,18 +54,20 @@ discord.on('message', msg => {
             }
             let args = msg.content.substring(1).split(' ');
 
-            switch (args[2]) {
-                case 'Forest':
-                case 'Cemetery':
-                case "V'Helley":
-                case 'Village':
-                case 'Beach':
-                case 'King':
-                    args[1] = args[1] + ' ' + args[2];
-                    for (let i = 2; i < args.length; i++) {
-                        args[i] = args[i + 1];
-                    }
-                    break;
+            if (args[2] !== undefined) {
+                switch (args[2].toLocaleLowerCase()) {
+                    case 'forest':
+                    case 'cemetery':
+                    case "v'helley":
+                    case 'village':
+                    case 'beach':
+                    case 'king':
+                        args[1] = args[1] + ' ' + args[2];
+                        for (let i = 2; i < args.length; i++) {
+                            args[i] = args[i + 1];
+                        }
+                        break;
+                }
             }
 
             if (args[1] !== undefined && args[0] !== 'viewsouls' && (args[0] !== 'deletesoul' && msg.channel.id !== '675785176667783179') && (args[0] !== 'addsoul' && msg.channel.id !== '675785176667783179')) {
