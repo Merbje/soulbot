@@ -228,7 +228,6 @@ discord.on('message', msg => {
                             msg.react("674593603787554841").then();
                             //msg.reply('wrong use of command, please consult !help for more info').then();
                         }
-                        //dis//connectDB();
                         break;
                     //===================================================================//
                     case 'moblist':
@@ -238,7 +237,6 @@ discord.on('message', msg => {
                     case 'buyin':
                         if (args.length === 5) {
                             let buyin = 0;
-                            //connectDB();
                             getAmountOfStones(user, function (result) {
                                 for (let i = 0; i < result.length; i++) {
                                     if (result[i]['stone'] === 'small') {
@@ -254,13 +252,13 @@ discord.on('message', msg => {
                                 buyin = buyin / 8;
                                 msg.reply(buyin).then();
                             });
-                            //dis//connectDB();
                         } else {
                             msg.reply('wrong use of command, please consult !help').then();
                         }
                         break;
                     //===================================================================//
                     case 'help' :
+                        msg.react("674593230402224148").then();
                         msg.author.send("list of commands:\n**" +
                             commands[0] + "** adds a soul or updates an already existing soul.\n**" +
                             commands[1] + "** deletes souls\n**" +
