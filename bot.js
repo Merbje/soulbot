@@ -135,7 +135,7 @@ discord.on('message', msg => {
                                 if (dubbel === false) {
                                     postSoulsPerUser(user, args[1], args[2]);
                                     //msg.reply("soul is added.").then();
-                                    msg.react(":check:").then();
+                                    msg.react("674593230402224148").then();
                                 } else {
                                     updateSoulByUser(user, args[1], args[2]);
                                     msg.reply('soul amount is updated.').then();
