@@ -409,6 +409,10 @@ discord.on('message', msg => {
                         "!addsoul [user] [mob] [amount]** adds or updates a soul from another user\n**" +
                         "!soulsperuser** displays all registered souls per user"
                     );
+                } else if (args[0] === 'removed') {
+                    let privatemsg = msg.mentions.users.first();
+                    let pm = ("testingggggg")
+                    privatemsg.send(pm).then();
                 }
             }
         } else {
