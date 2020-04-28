@@ -411,12 +411,10 @@ discord.on('message', msg => {
                     );
                 } else if (args[0] === 'removed') {
                     let privatemsg = msg.mentions.users.first();
-                    console.log(privatemsg);
                     let pm = ("Hey " + privatemsg + ", \n\nwe have noticed that you have been inactive for a while. " +
-                        "Since have members inactive for a long time doesn't look good for new members, we have decided to kick you." +
-                        "When you decide to be play again, feel free to message us for a invite.\n\nKind regards\nBona Fide staff");
+                        "Since have members inactive for a long time doesn't look good for new members, we have decided to kick you. " +
+                        "When you decide to be play again, feel free to message us for a invite.\n\nKind regards,\nBona Fide staff");
                     privatemsg.send(pm).then();
-                    console.log("still here!");
                 }
             }
         } else {
