@@ -414,7 +414,11 @@ discord.on('message', msg => {
                     let pm = ("Hey " + privatemsg + ", \n\nwe have noticed that you have been inactive for a while. " +
                         "Since have members inactive for a long time doesn't look good for new members, we have decided to kick you. " +
                         "When you decide to be play again, feel free to message us for a invite.\n\nKind regards,\nBona Fide staff");
-                    privatemsg.send(pm).then();
+                    privatemsg.send(pm, {
+                        files: [
+                            "./end.png"
+                        ]
+                    }).then();
                 }
             }
         } else {
