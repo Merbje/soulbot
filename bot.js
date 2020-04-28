@@ -448,6 +448,7 @@ discord.on('message', msg => {
 });
 
 
+
 function connectDB() {
     client = new pg.Client(conString);
     client.connect();
