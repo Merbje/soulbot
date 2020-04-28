@@ -70,11 +70,12 @@ discord.on('message', msg => {
                 }
             }
 
-            if (args[1] !== undefined && args[0] !== 'viewsouls' && (args[0] !== 'deletesoul' && msg.channel.id !== '675785176667783179') && (args[0] !== 'addsoul' && msg.channel.id !== '675785176667783179')) {
+            if (args[1] !== undefined && args[0] !== 'viewsouls' && (args[0] !== 'deletesoul' || msg.channel.id !== '675785176667783179') && (args[0] !== 'addsoul' || msg.channel.id !== '675785176667783179')) {
                 args[1] = args[1].toLowerCase();
             }
 
             for (let i = 1; i < args.length; i++) {
+                console.log(args[i]);
                 switch (args[i]) {
                     case 'zoth':
                     case 'canopy village':

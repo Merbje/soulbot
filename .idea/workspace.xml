@@ -19,7 +19,9 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e42c046e-9ff0-450a-a738-52dfa8574f55" name="Default Changelist" comment="Working on a kick PM" />
+    <list default="true" id="e42c046e-9ff0-450a-a738-52dfa8574f55" name="Default Changelist" comment="Working on a kick PM">
+      <change beforePath="$PROJECT_DIR$/bot.js" beforeDir="false" afterPath="$PROJECT_DIR$/bot.js" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -90,14 +92,7 @@
       <workItem from="1586687477270" duration="636000" />
       <workItem from="1588067186430" duration="3949000" />
       <workItem from="1588095360549" duration="1526000" />
-      <workItem from="1588101658949" duration="359000" />
-    </task>
-    <task id="LOCAL-00088" summary="bot online">
-      <created>1583744930516</created>
-      <option name="number" value="00088" />
-      <option name="presentableId" value="LOCAL-00088" />
-      <option name="project" value="LOCAL" />
-      <updated>1583744930516</updated>
+      <workItem from="1588101658949" duration="735000" />
     </task>
     <task id="LOCAL-00089" summary="bot online">
       <created>1583746211179</created>
@@ -435,7 +430,14 @@
       <option name="project" value="LOCAL" />
       <updated>1588101842176</updated>
     </task>
-    <option name="localTasksCounter" value="137" />
+    <task id="LOCAL-00137" summary="Working on a kick PM">
+      <created>1588102263883</created>
+      <option name="number" value="00137" />
+      <option name="presentableId" value="LOCAL-00137" />
+      <option name="project" value="LOCAL" />
+      <updated>1588102263883</updated>
+    </task>
+    <option name="localTasksCounter" value="138" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
