@@ -6,10 +6,10 @@ let oneconnect = false;
 let nodbconnect = false;
 const discord = new Discord.Client();
 const soulmobs = ['Crab', 'Beaztinga', 'Pandala Forest',
-    'Weirbwork', 'Primitive Cemetery', "Agony V''Helley", 'Kilibriss',
+    'Weirbwork', 'Primitive Cemetery', "Agony V''Helley",
     'Cromagmunk', 'Mopy King', 'Watchamatrich', 'Coral Beach', 'Canopy Village'];
 const mobs = 'the following mobs are allowed, between () is the shorter input:\n' +
-    '| **Crab** (crab) | **Beaztinga** (beaz) | **Pandala Forest** (pandala) | **Weirbwork** (weir) | **Primitive Cemetery** (cemetery) | **Agony V\'Helley** (agony) | **Kilibriss** (kili) ' +
+    '| **Crab** (crab) | **Beaztinga** (beaz) | **Pandala Forest** (pandala) | **Weirbwork** (weir) | **Primitive Cemetery** (cemetery) | **Agony V\'Helley** (agony) ' +
     '| **Cromagmunk** (croma) | **Mopy King** (mopy) | **Watchamatrich** (watcha) | **Canopy Village** (zoth) | **Coral Beach** (craboral)';
 const commands = ['!addsoul [mob] [amount]', '!deletesoul [all:mob] [OPT: amount]', '!mysouls', '!allsouls', '!viewsouls [user]', '!moblist', '!buyin [small] [average] [big] [gigantic]'];
 // let config = {
@@ -107,10 +107,10 @@ discord.on('message', msg => {
                     case "agony v'helley" :
                         args[i] = "Agony V''Helley";
                         break;
-                    case 'kili' :
-                    case 'kilibriss' :
-                        args[i] = 'Kilibriss';
-                        break;
+                    // case 'kili' :
+                    // case 'kilibriss' :
+                    //     args[i] = 'Kilibriss';
+                    //    break;
                     case 'croma' :
                     case 'cromagmunk' :
                         args[i] = 'Cromagmunk';

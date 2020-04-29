@@ -19,7 +19,10 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e42c046e-9ff0-450a-a738-52dfa8574f55" name="Default Changelist" comment="Added new reactions to keep a clean chat" />
+    <list default="true" id="e42c046e-9ff0-450a-a738-52dfa8574f55" name="Default Changelist" comment="Added new reactions to keep a clean chat">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bot.js" beforeDir="false" afterPath="$PROJECT_DIR$/bot.js" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -91,20 +94,8 @@
       <workItem from="1588067186430" duration="3949000" />
       <workItem from="1588095360549" duration="1526000" />
       <workItem from="1588101658949" duration="1930000" />
-    </task>
-    <task id="LOCAL-00092" summary="bot online">
-      <created>1583746707307</created>
-      <option name="number" value="00092" />
-      <option name="presentableId" value="LOCAL-00092" />
-      <option name="project" value="LOCAL" />
-      <updated>1583746707308</updated>
-    </task>
-    <task id="LOCAL-00093" summary="bot online">
-      <created>1583746785090</created>
-      <option name="number" value="00093" />
-      <option name="presentableId" value="LOCAL-00093" />
-      <option name="project" value="LOCAL" />
-      <updated>1583746785091</updated>
+      <workItem from="1588107120036" duration="338000" />
+      <workItem from="1588186642147" duration="704000" />
     </task>
     <task id="LOCAL-00094" summary="bot online">
       <created>1583746936107</created>
@@ -435,7 +426,21 @@
       <option name="project" value="LOCAL" />
       <updated>1588102986317</updated>
     </task>
-    <option name="localTasksCounter" value="141" />
+    <task id="LOCAL-00141" summary="Added new reactions to keep a clean chat">
+      <created>1588107195398</created>
+      <option name="number" value="00141" />
+      <option name="presentableId" value="LOCAL-00141" />
+      <option name="project" value="LOCAL" />
+      <updated>1588107195398</updated>
+    </task>
+    <task id="LOCAL-00142" summary="Added new reactions to keep a clean chat">
+      <created>1588107378303</created>
+      <option name="number" value="00142" />
+      <option name="presentableId" value="LOCAL-00142" />
+      <option name="project" value="LOCAL" />
+      <updated>1588107378303</updated>
+    </task>
+    <option name="localTasksCounter" value="143" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -475,11 +480,11 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="987" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1586687446270" />
-    <state x="304" y="267" key="Vcs.Push.Dialog.v2" timestamp="1588102989539">
+    <state x="304" y="267" key="Vcs.Push.Dialog.v2" timestamp="1588107379961">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="304" y="264" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1586597099379" />
-    <state x="304" y="267" key="Vcs.Push.Dialog.v2/0.0.1920.1050@0.0.1920.1050" timestamp="1588102989539" />
+    <state x="304" y="267" key="Vcs.Push.Dialog.v2/0.0.1920.1050@0.0.1920.1050" timestamp="1588107379961" />
     <state x="266" y="283" key="Vcs.Push.Dialog.v2/0.23.1680.1027@0.23.1680.1027" timestamp="1583863650609" />
     <state x="304" y="291" key="Vcs.Push.Dialog.v2/0.23.1920.1057/1920.23.1366.1001@0.23.1920.1057" timestamp="1583101628660" />
     <state x="304" y="291" key="Vcs.Push.Dialog.v2/0.23.1920.1057@0.23.1920.1057" timestamp="1584464855095" />
