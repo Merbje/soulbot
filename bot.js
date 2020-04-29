@@ -346,47 +346,51 @@ discord.on('message', msg => {
                         msg.react("674593603787554841").then();
                         //msg.reply('amount has to be a number').then();
                     }
-                    if (mob.toLowerCase() === 'all') {
-                        deleteAllSoulsByUser(user);
-                        msg.react("674593230402224148").then();
-                        //msg.reply('all of ' + userreply + '\'s souls deleted').then();
-                    } else if (verifyMob(mob) && !Number.isNaN(amount)) {
-                        getSoulsPerUser(user, function (result) {
-                            let waar = false;
-                            for (let i = 0; i < result.length; i++) {
-                                if (result[i]['soulmob'] === "Agony V'Helley") {
-                                    result[i]['soulmob'] = "Agony V''Helley";
-                                }
+                    if (mob.toLowerCase() !== 'pola') {
+                        if (mob.toLowerCase() === 'all') {
+                            deleteAllSoulsByUser(user);
+                            msg.react("674593230402224148").then();
+                            //msg.reply('all of ' + userreply + '\'s souls deleted').then();
+                        } else if (verifyMob(mob) && !Number.isNaN(amount)) {
+                            getSoulsPerUser(user, function (result) {
+                                let waar = false;
+                                for (let i = 0; i < result.length; i++) {
+                                    if (result[i]['soulmob'] === "Agony V'Helley") {
+                                        result[i]['soulmob'] = "Agony V''Helley";
+                                    }
 
-                                if (result[i]['soulmob'] === mob) {
-                                    waar = true;
+                                    if (result[i]['soulmob'] === mob) {
+                                        waar = true;
+                                    }
                                 }
-                            }
-                            if (waar === true) {
-                                updateSoulByUser(user, mob, amount);
-                                if (mob === "Agony V''Helley") {
-                                    mob = "Agony V'Helley";
+                                if (waar === true) {
+                                    updateSoulByUser(user, mob, amount);
+                                    if (mob === "Agony V''Helley") {
+                                        mob = "Agony V'Helley";
+                                    }
+                                    msg.react("674593230402224148").then();
+                                    //msg.reply(mob + ' souls deleted').then();
+                                } else {
+                                    msg.react("674593603787554841").then();
+                                    //msg.reply("you can't delete a soul they don't have.").then();
                                 }
-                                msg.react("674593230402224148").then();
-                                //msg.reply(mob + ' souls deleted').then();
-                            } else {
-                                msg.react("674593603787554841").then();
-                                //msg.reply("you can't delete a soul they don't have.").then();
+                            });
+                        } else if (verifyMob(mob)) {
+                            deleteSoulByUser(user, mob);
+                            if (mob === "Agony V''Helley") {
+                                mob = "Agony V'Helley";
                             }
-                        });
-                    } else if (verifyMob(mob)) {
-                        deleteSoulByUser(user, mob);
-                        if (mob === "Agony V''Helley") {
-                            mob = "Agony V'Helley";
+                            msg.react("674593230402224148").then();
+                            //msg.reply('all ' + userreply + ' their ' + mob + ' souls are deleted.').then();
+                        } else if (amount === 0) {
+                            msg.react("674593603787554841").then();
+                            //msg.reply("it's not possible to delete 0 souls.").then();
+                        } else {
+                            msg.react("674593603787554841").then();
+                            //msg.reply('wrong use of command, please consult !help for more info.').then();
                         }
-                        msg.react("674593230402224148").then();
-                        //msg.reply('all ' + userreply + ' their ' + mob + ' souls are deleted.').then();
-                    } else if (amount === 0) {
-                        msg.react("674593603787554841").then();
-                        //msg.reply("it's not possible to delete 0 souls.").then();
                     } else {
-                        msg.react("674593603787554841").then();
-                        //msg.reply('wrong use of command, please consult !help for more info.').then();
+                        msg.reply("As Pola is being removed from the guild, Pandabear rising to the top!").then();
                     }
                 } else if (args[0] === 'addsoul') {
                     let mob = args[2];
