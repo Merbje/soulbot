@@ -20,7 +20,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e42c046e-9ff0-450a-a738-52dfa8574f55" name="Default Changelist" comment="Removed kili">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bot.js" beforeDir="false" afterPath="$PROJECT_DIR$/bot.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -98,13 +98,7 @@
       <workItem from="1588328484700" duration="61000" />
       <workItem from="1588669310637" duration="3083000" />
       <workItem from="1588672607945" duration="617000" />
-    </task>
-    <task id="LOCAL-00105" summary="bot online">
-      <created>1583861853629</created>
-      <option name="number" value="00105" />
-      <option name="presentableId" value="LOCAL-00105" />
-      <option name="project" value="LOCAL" />
-      <updated>1583861853630</updated>
+      <workItem from="1588699369897" duration="324000" />
     </task>
     <task id="LOCAL-00106" summary="bot online">
       <created>1583862129608</created>
@@ -442,7 +436,14 @@
       <option name="project" value="LOCAL" />
       <updated>1588671793982</updated>
     </task>
-    <option name="localTasksCounter" value="154" />
+    <task id="LOCAL-00154" summary="Removed kili">
+      <created>1588699539093</created>
+      <option name="number" value="00154" />
+      <option name="presentableId" value="LOCAL-00154" />
+      <option name="project" value="LOCAL" />
+      <updated>1588699539094</updated>
+    </task>
+    <option name="localTasksCounter" value="155" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
