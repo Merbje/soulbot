@@ -42,6 +42,7 @@ discord.on('ready', () => {
 });
 
 discord.on('message', msg => {
+    console.log(msg.channel);
     if (msg.content.startsWith('!')) {
         if (oneconnect === false) {
             oneconnect = true;
