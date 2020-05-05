@@ -1,11 +1,15 @@
 require('dotenv').config();
 const pg = require('pg');
-//const mysql = require('mysql');
 const Discord = require('discord.js');
 let oneconnect = false;
 let nodbconnect = false;
+//Channels
 const jazzlounge = '675785176667783179';
 const soulchannel = '677524777992323072';
+const farm = '704750408471412757';
+const requirements = '707158336876838913';
+
+//Emotes
 const vinkje = '674593230402224148';
 const cross = '674593603787554841';
 const discord = new Discord.Client();
@@ -16,30 +20,9 @@ const mobs = 'the following mobs are allowed, between () is the shorter input:\n
     '| **Crab** (crab) | **Beaztinga** (beaz) | **Pandala Forest** (pandala) | **Weirbwork** (weir) | **Primitive Cemetery** (cemetery) | **Agony V\'Helley** (agony) ' +
     '| **Cromagmunk** (croma) | **Mopy King** (mopy) | **Watchamatrich** (watcha) | **Canopy Village** (zoth) | **Coral Beach** (craboral)';
 const commands = ['!addsoul [mob] [amount]', '!deletesoul [all:mob] [OPT: amount]', '!mysouls', '!allsouls', '!viewsouls [user]', '!moblist', '!buyin [small] [average] [big] [gigantic]'];
-// let config = {
-//     host: process.env.HOST,
-//     user: process.env.USER,
-//     password: process.env.PASSWORD,
-//     database: process.env.DATABASE,
-//     port: 5432
-// };
 const conString = process.env.APITOKEN;
 
 let client = new pg.Client(conString);
-// client.connect(function(err) {
-//     if(err) {
-//         return console.error('could not connect to postgres', err);
-//     }
-//     client.query('SELECT NOW() AS "theTime"', function(err, result) {
-//         if(err) {
-//             return console.error('error running query', err);
-//         }
-//         console.log(result.rows[0].theTime);
-//         // >> output: 2018-08-23T14:02:57.117Z
-//         client.end();
-//     });
-// });
-
 
 discord.on('ready', () => {
     console.log('Logged in as soulBotForDofus!');
@@ -112,10 +95,6 @@ discord.on('message', msg => {
                     case "agony v'helley" :
                         args[i] = "Agony V''Helley";
                         break;
-                    // case 'kili' :
-                    // case 'kilibriss' :
-                    //     args[i] = 'Kilibriss';
-                    //    break;
                     case 'croma' :
                     case 'cromagmunk' :
                         args[i] = 'Cromagmunk';
@@ -150,18 +129,15 @@ discord.on('message', msg => {
                                 }
                                 if (dubbel === false) {
                                     postSoulsPerUser(user, args[1], args[2]);
-                                    //msg.reply("soul is added.").then();
                                     msg.react(vinkje).then();
                                 } else {
                                     updateSoulByUser(user, args[1], args[2]);
                                     msg.react(vinkje).then();
-                                    //msg.reply('soul amount is updated.').then();
                                 }
                             });
                         } else {
                             msg.react(cross).then();
-                            //msg.reply("soul is not valid, please consult !help.").then();
-                        }
+                                                    }
                         break;
                     //===================================================================//
                     case 'mysouls':
@@ -276,7 +252,6 @@ discord.on('message', msg => {
                     default:
                         msg.react("❓").then();
                 }
-
             }
             if (msg.channel.id === jazzlounge) {
                 let voorheteindebericht = 'these souls are available:\n';
@@ -306,43 +281,44 @@ discord.on('message', msg => {
                         bericht = voorheteindebericht + '```' + bericht + '```';
                         msg.reply(bericht).then();
                     });
-                } else if (args[0] === 'allsouls') {
+                }
+                else if (args[0] === 'allsouls') {
                     getAllSouls("SELECT * FROM userssouls ORDER BY soulmob, username", function (result) {
                         for (let i = 0; i < result.length; i++) {
                             let mob = result[i]['soulmob'];
                             let amount = ' - ' + result[i]['amount'];
-                            //let soulowner = '**' + result[i]['username'] + '**';
                             let soulowner = result[i]['username'];
                             let updatemessage = soulowner + amount + ' | ';
                             if (i !== 0) {
                                 if (mob !== result[i - 1]['soulmob']) {
-                                    //bericht += '\n\n__**' + mob + ':**__\n| ';
                                     bericht += '\n\n' + mob + ':\n| ';
                                 }
                                 bericht += updatemessage;
                             } else {
-                                //bericht += '__**' + mob + ':**__\n| ';
-                                bericht += mob + '\n| ';
+                                bericht += mob + ':\n| ';
                                 bericht += updatemessage;
                             }
                         }
                         bericht = voorheteindebericht + '```' + bericht + '```';
                         msg.reply(bericht).then();
                     });
-                } else if (args[0] === 'viewsouls') {
+                }
+                else if (args[0] === 'viewsouls') {
                     getSoulsPerUser(args[1], function (result) {
                         let bericht = userreply + ' has the following souls:\n';
                         for (let i = 0; i < result.length; i++) {
                             if (i === 0) {
-                                bericht += '| '
+                                bericht += '```| '
                             }
                             let mob = '**' + result[i]['soulmob'] + '**';
                             let amount = result[i]['amount'];
                             bericht += mob + ' - ' + amount + ' | ';
                         }
+                        bericht += '```';
                         msg.reply(bericht).then();
                     });
-                } else if (args[0] === 'deletesoul') {
+                }
+                else if (args[0] === 'deletesoul') {
                     let mob = '';
                     if (args[2] !== undefined) {
                         mob = args[2];
@@ -351,8 +327,7 @@ discord.on('message', msg => {
                     try {
                         amount = -parseInt(args[3]);
                     } catch (TypeError) {
-                        msg.react("674593603787554841").then();
-                        //msg.reply('amount has to be a number').then();
+                        msg.react(cross).then();
                     }
                         if (mob.toLowerCase() === 'all') {
                             deleteAllSoulsByUser(user);
@@ -396,7 +371,8 @@ discord.on('message', msg => {
                             msg.react("674593603787554841").then();
                             //msg.reply('wrong use of command, please consult !help for more info.').then();
                         }
-                } else if (args[0] === 'addsoul') {
+                }
+                else if (args[0] === 'addsoul') {
                     let mob = args[2];
                     let amount = args[3];
                     if (verifyMob(mob) && verifyAmount(amount)) {
@@ -408,24 +384,20 @@ discord.on('message', msg => {
                                 if (result[i]['soulmob'] === "Agony V'Helley") {
                                     result[i]['soulmob'] = "Agony V''Helley";
                                 }
-
                                 if (result[i]['soulmob'] === mob) {
                                     dubbel = true;
                                 }
                             }
                             if (dubbel === false) {
                                 postSoulsPerUser(user, mob, amount);
-                                msg.react("674593230402224148").then();
-                                //msg.reply("soul is added for " + userreply + ".").then();
+                                msg.react(vinkje).then();
                             } else {
                                 updateSoulByUser(user, mob, amount);
-                                msg.react("674593230402224148").then();
-                                //msg.reply('soul amount is updated for ' + userreply + '.').then();
+                                msg.react(vinkje).then();
                             }
                         });
                     } else {
-                        msg.react("674593603787554841").then();
-                        //msg.reply("soul is not valid, please consult !help.").then();
+                        msg.react(cross).then();
                     }
                 } else if (args[0] === 'help') {
                     msg.reply("list of MOD/ADMIN commands:\n**" +
@@ -434,7 +406,7 @@ discord.on('message', msg => {
                         "!deletesoul [user] [all:mob] [OPT: amount]** deletes a soul from another user\n**" +
                         "!addsoul [user] [mob] [amount]** adds or updates a soul from another user\n**" +
                         "!soulsperuser** displays all registered souls per user"
-                    );
+                    ).then();
                 } else if (args[0] === 'removed') {
                     let privatemsg = msg.mentions.users.first();
                     let pm = ("Hey " + privatemsg + ", \n\nwe have noticed that you have been inactive for a while. " +
