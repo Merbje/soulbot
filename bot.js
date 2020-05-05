@@ -29,7 +29,6 @@ discord.on('ready', () => {
 });
 
 discord.on('message', msg => {
-    console.log(msg.channel.id);
     if (msg.content.startsWith('!')) {
         if (oneconnect === false) {
             oneconnect = true;
@@ -305,12 +304,12 @@ discord.on('message', msg => {
                 }
                 else if (args[0] === 'viewsouls') {
                     getSoulsPerUser(args[1], function (result) {
-                        let bericht = userreply + ' has the following souls:\n';
+                        let bericht = userreply + ' has the following souls:\n```';
                         for (let i = 0; i < result.length; i++) {
                             if (i === 0) {
-                                bericht += '```| '
+                                bericht += '| '
                             }
-                            let mob = '**' + result[i]['soulmob'] + '**';
+                            let mob = result[i]['soulmob'];
                             let amount = result[i]['amount'];
                             bericht += mob + ' - ' + amount + ' | ';
                         }
@@ -399,7 +398,8 @@ discord.on('message', msg => {
                     } else {
                         msg.react(cross).then();
                     }
-                } else if (args[0] === 'help') {
+                }
+                else if (args[0] === 'help') {
                     msg.reply("list of MOD/ADMIN commands:\n**" +
                         commands[3] + "** displays all registered souls\n**" +
                         commands[4] + "** displays another users souls\n**" +
@@ -407,7 +407,8 @@ discord.on('message', msg => {
                         "!addsoul [user] [mob] [amount]** adds or updates a soul from another user\n**" +
                         "!soulsperuser** displays all registered souls per user"
                     ).then();
-                } else if (args[0] === 'removed') {
+                }
+                else if (args[0] === 'removed') {
                     let privatemsg = msg.mentions.users.first();
                     let pm = ("Hey " + privatemsg + ", \n\nwe have noticed that you have been inactive for a while. " +
                         "Since have members inactive for a long time doesn't look good for new members, we have decided to kick you. " +
