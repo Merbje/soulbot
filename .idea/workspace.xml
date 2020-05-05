@@ -19,9 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e42c046e-9ff0-450a-a738-52dfa8574f55" name="Default Changelist" comment="Removed kili">
-      <change beforePath="$PROJECT_DIR$/bot.js" beforeDir="false" afterPath="$PROJECT_DIR$/bot.js" afterDir="false" />
-    </list>
+    <list default="true" id="e42c046e-9ff0-450a-a738-52dfa8574f55" name="Default Changelist" comment="Removed kili" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -98,14 +96,7 @@
       <workItem from="1588328484700" duration="61000" />
       <workItem from="1588669310637" duration="3083000" />
       <workItem from="1588672607945" duration="617000" />
-      <workItem from="1588699369897" duration="2360000" />
-    </task>
-    <task id="LOCAL-00109" summary="bot online">
-      <created>1583863103539</created>
-      <option name="number" value="00109" />
-      <option name="presentableId" value="LOCAL-00109" />
-      <option name="project" value="LOCAL" />
-      <updated>1583863103539</updated>
+      <workItem from="1588699369897" duration="2755000" />
     </task>
     <task id="LOCAL-00110" summary="bot online">
       <created>1583863647231</created>
@@ -443,7 +434,14 @@
       <option name="project" value="LOCAL" />
       <updated>1588701585057</updated>
     </task>
-    <option name="localTasksCounter" value="158" />
+    <task id="LOCAL-00158" summary="Removed kili">
+      <created>1588701813365</created>
+      <option name="number" value="00158" />
+      <option name="presentableId" value="LOCAL-00158" />
+      <option name="project" value="LOCAL" />
+      <updated>1588701813365</updated>
+    </task>
+    <option name="localTasksCounter" value="159" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -484,11 +482,11 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="987" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1586687446270" />
-    <state x="304" y="267" key="Vcs.Push.Dialog.v2" timestamp="1588701586190">
+    <state x="304" y="267" key="Vcs.Push.Dialog.v2" timestamp="1588701815223">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="304" y="264" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1586597099379" />
-    <state x="304" y="267" key="Vcs.Push.Dialog.v2/0.0.1920.1050@0.0.1920.1050" timestamp="1588701586190" />
+    <state x="304" y="267" key="Vcs.Push.Dialog.v2/0.0.1920.1050@0.0.1920.1050" timestamp="1588701815223" />
     <state x="266" y="283" key="Vcs.Push.Dialog.v2/0.23.1680.1027@0.23.1680.1027" timestamp="1583863650609" />
     <state x="304" y="291" key="Vcs.Push.Dialog.v2/0.23.1920.1057/1920.23.1366.1001@0.23.1920.1057" timestamp="1583101628660" />
     <state x="304" y="291" key="Vcs.Push.Dialog.v2/0.23.1920.1057@0.23.1920.1057" timestamp="1584464855095" />
