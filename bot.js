@@ -313,15 +313,18 @@ discord.on('message', msg => {
                         for (let i = 0; i < result.length; i++) {
                             let mob = result[i]['soulmob'];
                             let amount = ' - ' + result[i]['amount'];
-                            let soulowner = '**' + result[i]['username'] + '**';
+                            //let soulowner = '**' + result[i]['username'] + '**';
+                            let soulowner = result[i]['username'];
                             let updatemessage = soulowner + amount + ' | ';
                             if (i !== 0) {
                                 if (mob !== result[i - 1]['soulmob']) {
-                                    bericht += '\n\n__**' + mob + ':**__\n| ';
+                                    //bericht += '\n\n__**' + mob + ':**__\n| ';
+                                    bericht += '\n\n' + mob + ':\n| ';
                                 }
                                 bericht += updatemessage;
                             } else {
-                                bericht += '__**' + mob + ':**__\n| ';
+                                //bericht += '__**' + mob + ':**__\n| ';
+                                bericht += mob;
                                 bericht += updatemessage;
                             }
                         }
