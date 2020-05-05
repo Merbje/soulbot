@@ -418,6 +418,12 @@ discord.on('message', msg => {
                     }).then();
                 }
             }
+            if (msg.channel.id === requirements) {
+                msg.reply("Im alive in requirements").then();
+            }
+            if (msg.channel.id === farm) {
+                msg.reply("Im alive in farm").then();
+            }
         } else {
             msg.reply('There is a 2.5 second cooldown between commands').then();
         }
