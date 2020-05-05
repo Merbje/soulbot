@@ -325,6 +325,7 @@ discord.on('message', msg => {
                                 bericht += updatemessage;
                             }
                         }
+                        bericht = '```'+bericht+'```';
                         msg.reply(bericht).then();
                     });
                 } else if (args[0] === 'viewsouls') {

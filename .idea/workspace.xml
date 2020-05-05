@@ -19,9 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e42c046e-9ff0-450a-a738-52dfa8574f55" name="Default Changelist" comment="Removed kili">
-      <change beforePath="$PROJECT_DIR$/bot.js" beforeDir="false" afterPath="$PROJECT_DIR$/bot.js" afterDir="false" />
-    </list>
+    <list default="true" id="e42c046e-9ff0-450a-a738-52dfa8574f55" name="Default Changelist" comment="Removed kili" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -96,28 +94,7 @@
       <workItem from="1588107120036" duration="338000" />
       <workItem from="1588186642147" duration="2488000" />
       <workItem from="1588328484700" duration="61000" />
-      <workItem from="1588669310637" duration="772000" />
-    </task>
-    <task id="LOCAL-00099" summary="bot online">
-      <created>1583748164603</created>
-      <option name="number" value="00099" />
-      <option name="presentableId" value="LOCAL-00099" />
-      <option name="project" value="LOCAL" />
-      <updated>1583748164603</updated>
-    </task>
-    <task id="LOCAL-00100" summary="bot online">
-      <created>1583748317775</created>
-      <option name="number" value="00100" />
-      <option name="presentableId" value="LOCAL-00100" />
-      <option name="project" value="LOCAL" />
-      <updated>1583748317775</updated>
-    </task>
-    <task id="LOCAL-00101" summary="bot online">
-      <created>1583748451381</created>
-      <option name="number" value="00101" />
-      <option name="presentableId" value="LOCAL-00101" />
-      <option name="project" value="LOCAL" />
-      <updated>1583748451382</updated>
+      <workItem from="1588669310637" duration="1282000" />
     </task>
     <task id="LOCAL-00102" summary="bot online">
       <created>1583749066363</created>
@@ -441,7 +418,28 @@
       <option name="project" value="LOCAL" />
       <updated>1588670004479</updated>
     </task>
-    <option name="localTasksCounter" value="148" />
+    <task id="LOCAL-00148" summary="Removed kili">
+      <created>1588670086872</created>
+      <option name="number" value="00148" />
+      <option name="presentableId" value="LOCAL-00148" />
+      <option name="project" value="LOCAL" />
+      <updated>1588670086872</updated>
+    </task>
+    <task id="LOCAL-00149" summary="Removed kili">
+      <created>1588670235374</created>
+      <option name="number" value="00149" />
+      <option name="presentableId" value="LOCAL-00149" />
+      <option name="project" value="LOCAL" />
+      <updated>1588670235374</updated>
+    </task>
+    <task id="LOCAL-00150" summary="Removed kili">
+      <created>1588670311437</created>
+      <option name="number" value="00150" />
+      <option name="presentableId" value="LOCAL-00150" />
+      <option name="project" value="LOCAL" />
+      <updated>1588670311438</updated>
+    </task>
+    <option name="localTasksCounter" value="151" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -482,11 +480,11 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="987" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1586687446270" />
-    <state x="304" y="267" key="Vcs.Push.Dialog.v2" timestamp="1588670088047">
+    <state x="304" y="267" key="Vcs.Push.Dialog.v2" timestamp="1588670312662">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="304" y="264" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1586597099379" />
-    <state x="304" y="267" key="Vcs.Push.Dialog.v2/0.0.1920.1050@0.0.1920.1050" timestamp="1588670088047" />
+    <state x="304" y="267" key="Vcs.Push.Dialog.v2/0.0.1920.1050@0.0.1920.1050" timestamp="1588670312662" />
     <state x="266" y="283" key="Vcs.Push.Dialog.v2/0.23.1680.1027@0.23.1680.1027" timestamp="1583863650609" />
     <state x="304" y="291" key="Vcs.Push.Dialog.v2/0.23.1920.1057/1920.23.1366.1001@0.23.1920.1057" timestamp="1583101628660" />
     <state x="304" y="291" key="Vcs.Push.Dialog.v2/0.23.1920.1057@0.23.1920.1057" timestamp="1584464855095" />
