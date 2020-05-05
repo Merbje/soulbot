@@ -42,7 +42,7 @@ discord.on('ready', () => {
 });
 
 discord.on('message', msg => {
-    console.log(msg.channel[0]);
+    console.log(msg.channel);
     if (msg.content.startsWith('!')) {
         if (oneconnect === false) {
             oneconnect = true;
@@ -324,7 +324,7 @@ discord.on('message', msg => {
                                 bericht += updatemessage;
                             } else {
                                 //bericht += '__**' + mob + ':**__\n| ';
-                                bericht += mob;
+                                bericht += mob + '\n| ';
                                 bericht += updatemessage;
                             }
                         }
