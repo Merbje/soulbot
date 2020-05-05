@@ -410,7 +410,7 @@ discord.on('message', msg => {
                 }
                 else if (args[0] === 'removed') {
                     let privatemsg = msg.mentions.users.first();
-                    let pm = ("Hey " + privatemsg + ",\n\nDue to you recent inactivity your have been removed from the guild as part of our policy. Your discord rank has been adjusted. If you plan on being more active and want to rejoin the guild feel free free to send an administrator or a recruitment officer a private message through discord.\n\nKind regards,\n\nBona Fide staff");
+                    let pm = ("Hey " + privatemsg + ",\n\nDue to your recent inactivity you have been removed from the guild as part of our policy. Your discord rank has been adjusted. If you plan on being more active and want to rejoin the guild feel free free to send an administrator or a recruitment officer a private message through discord.\n\nKind regards,\n\nBona Fide staff");
                     privatemsg.send(pm, {
                         files: [
                             "./end.png"
