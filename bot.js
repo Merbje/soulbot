@@ -492,6 +492,7 @@ discord.on('message', msg => {
                     // }
                     break;
                 case "done" :
+                    console.log(previousComment);
                     if (previousComment === 'session') {
                         sessionTime = args[1];
                         msg.client.channels.get(farm).send("Also this worked");
@@ -511,7 +512,6 @@ discord.on('message', msg => {
 function resetSession() {
     sessionTime = '';
     sessionDesc = '';
-
 }
 
 function connectDB() {
