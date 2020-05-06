@@ -14,6 +14,9 @@ const vinkje = '674593230402224148';
 const cross = '674593603787554841';
 const discord = new Discord.Client();
 
+//Ranks
+const ro = '686981702215663801'
+
 //Messages
 const farmmessage = 'To ease the organization of farming groups we have a dedicated' +
     ' discord channel where players can form parties and announce farming events' +
@@ -53,7 +56,6 @@ discord.on('ready', () => {
 });
 
 discord.on('message', msg => {
-    console.log(msg.guild.roles.find(r => r.name === "Recruiting Officer"));
     //msg.member.addRole()
     if (msg.content.startsWith('!')) {
         if (oneconnect === false) {
@@ -446,8 +448,10 @@ discord.on('message', msg => {
             }
             if (msg.channel.id === requirements) {
                 msg.reply("Im alive in requirements").then();
+                msg.member.removeRole(ro).then();
             }
             if (msg.channel.id === farm) {
+                msg.member.addRole(ro).then();
                 if (args[0] === "farm") {
                     msg.author.send(farmmessage, {
                         files: [
