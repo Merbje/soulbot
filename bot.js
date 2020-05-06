@@ -15,7 +15,7 @@ const cross = '674593603787554841';
 const discord = new Discord.Client();
 
 //Ranks
-const ro = '686981702215663801'
+const farmrole = '707642560990150666';
 
 //Messages
 const farmmessage = 'To ease the organization of farming groups we have a dedicated' +
@@ -56,8 +56,6 @@ discord.on('ready', () => {
 });
 
 discord.on('message', msg => {
-    let role = msg.guild.roles.find(r => r.name === "Farm");
-    console.log(role);
     if (msg.content.startsWith('!')) {
         if (oneconnect === false) {
             oneconnect = true;
@@ -448,11 +446,10 @@ discord.on('message', msg => {
                 }
             }
             if (msg.channel.id === requirements) {
-                msg.reply("Im alive in requirements").then();
-                msg.member.removeRole(ro).catch(console.error);
+                msg.member.removeRole(farmrole).catch(console.error);
             }
             if (msg.channel.id === farm) {
-                msg.member.addRole(ro).catch(console.error);
+                msg.member.addRole(farmrole).catch(console.error);
                 if (args[0] === "farm") {
                     msg.author.send(farmmessage, {
                         files: [
