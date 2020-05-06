@@ -464,9 +464,13 @@ discord.on('message', msg => {
                         msg.react("❓").then();
                 }
             }
+            else {
+                msg.reply('There is a 2.5 second cooldown between commands').then();
+            }
 
 
-        } else if (msg.channel.id === farm) {
+        }
+        if (msg.channel.id === farm) {
             msg.reply("here").catch(console.error);
             let args = msg.content.split(' ');
             switch (args[0]) {
@@ -498,9 +502,7 @@ discord.on('message', msg => {
                 default:
                     msg.react("❓").then();
             }
-        } else {
-                msg.reply('There is a 2.5 second cooldown between commands').then();
-            }
+        }
         }
 
 });
