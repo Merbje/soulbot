@@ -499,8 +499,6 @@ discord.on('message', msg => {
                     break;
                 case "no":
                     break;
-                default:
-                    msg.react("❓").then();
             }
         }
 
