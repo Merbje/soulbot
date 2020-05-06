@@ -451,7 +451,7 @@ discord.on('message', msg => {
                 msg.member.removeRole(ro).then();
             }
             if (msg.channel.id === farm) {
-                msg.member.addRole(ro).then();
+                msg.member.addRole(ro).catch(console.error);
                 console.log(msg.member.roles);
                 if (args[0] === "farm") {
                     msg.author.send(farmmessage, {
