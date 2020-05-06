@@ -56,6 +56,8 @@ discord.on('ready', () => {
 });
 
 discord.on('message', msg => {
+    let role = msg.guild.roles.find(r => r.name === "Farm");
+    console.log(role);
     if (msg.content.startsWith('!')) {
         if (oneconnect === false) {
             oneconnect = true;
