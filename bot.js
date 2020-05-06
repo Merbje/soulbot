@@ -13,6 +13,30 @@ const requirements = '707158336876838913';
 const vinkje = '674593230402224148';
 const cross = '674593603787554841';
 const discord = new Discord.Client();
+
+//Messages
+const farmmessage = 'To ease the organization of farming groups we have a dedicated' +
+    ' discord channel where players can form parties and announce farming events' +
+    ' to leechers using bot commands. In order to be acknowledged as a carry and' +
+    ' gain access to the farm channel you must meet one of the following criteria:\n\n' +
+    '1)\tHave an Enutrof with the following characteristics\n' +
+    '\t-\tLevel: 190\n' +
+    '\t-\tInitiative: 8000\n' +
+    '2)\tHave a Cra with the following characteristics:\n' +
+    '\t-\tLevel: 200\n' +
+    '\t-\tIntelligence + Power: 1400\n' +
+    '3)\tHave a Sram with the following characteristics\n' +
+    '\t-\tLevel: 120\n' +
+    '\t-\tInitiative: 5000\n' +
+    '4)\tHave a Sadida with the following characteristics\n' +
+    '\t-\tLevel: 198\n' +
+    '\t-\tStrength + Power: 1200\n' +
+    'A cumulative criterium is that you have selected your class in the #select-your-class channel.\n' +
+    '\n' +
+    'If you find yourself eligible you may respond with **!eligible** - the bonabot grant you access to the farm-channel';
+
+
+//Lists
 const soulmobs = ['Crab', 'Beaztinga', 'Pandala Forest',
     'Weirbwork', 'Primitive Cemetery', "Agony V''Helley",
     'Cromagmunk', 'Mopy King', 'Watchamatrich', 'Coral Beach', 'Canopy Village'];
@@ -422,7 +446,11 @@ discord.on('message', msg => {
                 msg.reply("Im alive in requirements").then();
             }
             if (msg.channel.id === farm) {
-                msg.reply("Im alive in farm").then();
+                msg.author.send(farmmessage, {
+                    files: [
+                        "./end.png"
+                    ]
+                }).then();
             }
         } else {
             msg.reply('There is a 2.5 second cooldown between commands').then();
