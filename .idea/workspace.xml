@@ -101,14 +101,7 @@
       <workItem from="1588672607945" duration="617000" />
       <workItem from="1588699369897" duration="4295000" />
       <workItem from="1588759621161" duration="65000" />
-      <workItem from="1588773798448" duration="369000" />
-    </task>
-    <task id="LOCAL-00114" summary="bot online">
-      <created>1586595448988</created>
-      <option name="number" value="00114" />
-      <option name="presentableId" value="LOCAL-00114" />
-      <option name="project" value="LOCAL" />
-      <updated>1586595448988</updated>
+      <workItem from="1588773798448" duration="670000" />
     </task>
     <task id="LOCAL-00115" summary="bot online">
       <created>1586595588078</created>
@@ -446,7 +439,14 @@
       <option name="project" value="LOCAL" />
       <updated>1588704245966</updated>
     </task>
-    <option name="localTasksCounter" value="163" />
+    <task id="LOCAL-00163" summary="Removed kili">
+      <created>1588774463796</created>
+      <option name="number" value="00163" />
+      <option name="presentableId" value="LOCAL-00163" />
+      <option name="project" value="LOCAL" />
+      <updated>1588774463797</updated>
+    </task>
+    <option name="localTasksCounter" value="164" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
