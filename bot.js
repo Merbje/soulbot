@@ -470,7 +470,6 @@ discord.on('message', msg => {
             }
         }
         if (msg.channel.id === farm) {
-            msg.reply("here").catch(console.error);
             let args = msg.content.split(' ');
             switch (args[0]) {
                 case "!session" :
