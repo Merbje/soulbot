@@ -463,10 +463,9 @@ discord.on('message', msg => {
                     default:
                         msg.react("❓").then();
                 }
-            } else {
-                msg.reply('There is a 2.5 second cooldown between commands').then();
             }
-
+        }else {
+                msg.reply('There is a 2.5 second cooldown between commands').then();
             }
         }
         if (msg.channel.id === farm) {
@@ -489,12 +488,15 @@ discord.on('message', msg => {
                     //     msg.react(cross).then();
                     // }
                     break;
-                case "done" :
+                case "time" :
                     console.log(previousComment);
                     if (previousComment === 'session') {
                         sessionTime = args[1];
                         msg.client.channels.get(farm).send("Also this worked");
                     }
+                    break;
+                case "description" :
+                    console.log();
                     break;
                 case "no":
                     break;
