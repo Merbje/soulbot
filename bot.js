@@ -53,7 +53,8 @@ discord.on('ready', () => {
 });
 
 discord.on('message', msg => {
-    console.log(msg.member);
+    console.log(msg.guild.roles);
+    //msg.member.addRole()
     if (msg.content.startsWith('!')) {
         if (oneconnect === false) {
             oneconnect = true;
