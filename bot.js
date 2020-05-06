@@ -53,7 +53,7 @@ discord.on('ready', () => {
 });
 
 discord.on('message', msg => {
-    console.log(msg.guild.roles);
+    console.log(msg.guild.roles.find(r => r.name === "Recruiting Officer"));
     //msg.member.addRole()
     if (msg.content.startsWith('!')) {
         if (oneconnect === false) {
