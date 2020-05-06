@@ -3,11 +3,16 @@ const pg = require('pg');
 const Discord = require('discord.js');
 let oneconnect = false;
 let nodbconnect = false;
+
 //Channels
 const jazzlounge = '675785176667783179';
 const soulchannel = '677524777992323072';
 const farm = '704750408471412757';
 const requirements = '707158336876838913';
+
+//Session
+let sessionTime = '';
+let sessionDesc = '';
 
 //Emotes
 const vinkje = '674593230402224148';
@@ -462,12 +467,21 @@ discord.on('message', msg => {
                     switch (args[0]) {
                         case "session" :
                             msg.client.channels.get(requirements).send("hello");
-                            //client.channels.get(requirements).send("hello");
 
                             if (args.length >= 3) {
-
+                                sessionTime = args[1];
+                                for (let i = 2; i < args.length; i++) {
+                                    sessionDesc += args[i];
+                                }
+                                msg.reply(sessionTime + ' ' + sessionDesc).then();
+                                msg.react(vinkje).then();
+                            } else {
+                                msg.react(cross).then();
                             }
-                            msg.react(vinkje).then();
+                            break;
+                        case "done" :
+                            break;
+                        case "no":
                             break;
                         default:
                             msg.react("❓").then();
