@@ -163,7 +163,7 @@ discord.on('message', msg => {
                             });
                         } else {
                             msg.react(cross).then();
-                                                    }
+                        }
                         break;
                     //===================================================================//
                     case 'mysouls':
@@ -307,8 +307,7 @@ discord.on('message', msg => {
                         bericht = voorheteindebericht + '```' + bericht + '```';
                         msg.reply(bericht).then();
                     });
-                }
-                else if (args[0] === 'allsouls') {
+                } else if (args[0] === 'allsouls') {
                     getAllSouls("SELECT * FROM userssouls ORDER BY soulmob, username", function (result) {
                         for (let i = 0; i < result.length; i++) {
                             let mob = result[i]['soulmob'];
@@ -328,8 +327,7 @@ discord.on('message', msg => {
                         bericht = voorheteindebericht + '```' + bericht + '```';
                         msg.reply(bericht).then();
                     });
-                }
-                else if (args[0] === 'viewsouls') {
+                } else if (args[0] === 'viewsouls') {
                     getSoulsPerUser(args[1], function (result) {
                         let bericht = userreply + ' has the following souls:\n```';
                         for (let i = 0; i < result.length; i++) {
@@ -343,8 +341,7 @@ discord.on('message', msg => {
                         bericht += '```';
                         msg.reply(bericht).then();
                     });
-                }
-                else if (args[0] === 'deletesoul') {
+                } else if (args[0] === 'deletesoul') {
                     let mob = '';
                     if (args[2] !== undefined) {
                         mob = args[2];
@@ -355,50 +352,49 @@ discord.on('message', msg => {
                     } catch (TypeError) {
                         msg.react(cross).then();
                     }
-                        if (mob.toLowerCase() === 'all') {
-                            deleteAllSoulsByUser(user);
-                            msg.react("674593230402224148").then();
-                            //msg.reply('all of ' + userreply + '\'s souls deleted').then();
-                        } else if (verifyMob(mob) && !Number.isNaN(amount)) {
-                            getSoulsPerUser(user, function (result) {
-                                let waar = false;
-                                for (let i = 0; i < result.length; i++) {
-                                    if (result[i]['soulmob'] === "Agony V'Helley") {
-                                        result[i]['soulmob'] = "Agony V''Helley";
-                                    }
+                    if (mob.toLowerCase() === 'all') {
+                        deleteAllSoulsByUser(user);
+                        msg.react("674593230402224148").then();
+                        //msg.reply('all of ' + userreply + '\'s souls deleted').then();
+                    } else if (verifyMob(mob) && !Number.isNaN(amount)) {
+                        getSoulsPerUser(user, function (result) {
+                            let waar = false;
+                            for (let i = 0; i < result.length; i++) {
+                                if (result[i]['soulmob'] === "Agony V'Helley") {
+                                    result[i]['soulmob'] = "Agony V''Helley";
+                                }
 
-                                    if (result[i]['soulmob'] === mob) {
-                                        waar = true;
-                                    }
+                                if (result[i]['soulmob'] === mob) {
+                                    waar = true;
                                 }
-                                if (waar === true) {
-                                    updateSoulByUser(user, mob, amount);
-                                    if (mob === "Agony V''Helley") {
-                                        mob = "Agony V'Helley";
-                                    }
-                                    msg.react("674593230402224148").then();
-                                    //msg.reply(mob + ' souls deleted').then();
-                                } else {
-                                    msg.react("674593603787554841").then();
-                                    //msg.reply("you can't delete a soul they don't have.").then();
-                                }
-                            });
-                        } else if (verifyMob(mob)) {
-                            deleteSoulByUser(user, mob);
-                            if (mob === "Agony V''Helley") {
-                                mob = "Agony V'Helley";
                             }
-                            msg.react("674593230402224148").then();
-                            //msg.reply('all ' + userreply + ' their ' + mob + ' souls are deleted.').then();
-                        } else if (amount === 0) {
-                            msg.react("674593603787554841").then();
-                            //msg.reply("it's not possible to delete 0 souls.").then();
-                        } else {
-                            msg.react("674593603787554841").then();
-                            //msg.reply('wrong use of command, please consult !help for more info.').then();
+                            if (waar === true) {
+                                updateSoulByUser(user, mob, amount);
+                                if (mob === "Agony V''Helley") {
+                                    mob = "Agony V'Helley";
+                                }
+                                msg.react("674593230402224148").then();
+                                //msg.reply(mob + ' souls deleted').then();
+                            } else {
+                                msg.react("674593603787554841").then();
+                                //msg.reply("you can't delete a soul they don't have.").then();
+                            }
+                        });
+                    } else if (verifyMob(mob)) {
+                        deleteSoulByUser(user, mob);
+                        if (mob === "Agony V''Helley") {
+                            mob = "Agony V'Helley";
                         }
-                }
-                else if (args[0] === 'addsoul') {
+                        msg.react("674593230402224148").then();
+                        //msg.reply('all ' + userreply + ' their ' + mob + ' souls are deleted.').then();
+                    } else if (amount === 0) {
+                        msg.react("674593603787554841").then();
+                        //msg.reply("it's not possible to delete 0 souls.").then();
+                    } else {
+                        msg.react("674593603787554841").then();
+                        //msg.reply('wrong use of command, please consult !help for more info.').then();
+                    }
+                } else if (args[0] === 'addsoul') {
                     let mob = args[2];
                     let amount = args[3];
                     if (verifyMob(mob) && verifyAmount(amount)) {
@@ -425,8 +421,7 @@ discord.on('message', msg => {
                     } else {
                         msg.react(cross).then();
                     }
-                }
-                else if (args[0] === 'help') {
+                } else if (args[0] === 'help') {
                     msg.reply("list of MOD/ADMIN commands:\n**" +
                         commands[3] + "** displays all registered souls\n**" +
                         commands[4] + "** displays another users souls\n**" +
@@ -434,8 +429,7 @@ discord.on('message', msg => {
                         "!addsoul [user] [mob] [amount]** adds or updates a soul from another user\n**" +
                         "!soulsperuser** displays all registered souls per user"
                     ).then();
-                }
-                else if (args[0] === 'removed') {
+                } else if (args[0] === 'removed') {
                     let privatemsg = msg.mentions.users.first();
                     let pm = ("Hey " + privatemsg + ",\n\nDue to your recent inactivity you have been removed from the guild as part of our policy. Your discord rank has been adjusted. If you plan on being more active and want to rejoin the guild feel free free to send an administrator or a recruitment officer a private message through discord.\n\nKind regards,\n\nBona Fide staff");
                     privatemsg.send(pm, {
@@ -447,19 +441,39 @@ discord.on('message', msg => {
             }
             if (msg.channel.id === requirements) {
                 msg.member.removeRole(farmrole).catch(console.error);
-            }
-            if (msg.channel.id === farm) {
-                msg.member.addRole(farmrole).catch(console.error);
-                if (args[0] === "farm") {
-                    msg.author.send(farmmessage, {
-                        files: [
-                            "./end.png"
-                        ]
-                    }).then();
+                switch (args[0]) {
+                    case "farm" :
+                        msg.react(vinkje).then();
+                        msg.author.send(farmmessage, {
+                            files: [
+                                "./end.png"
+                            ]
+                        }).then();
+                        break;
+                    case "eligible" :
+                        msg.member.addRole(farmrole).catch(console.error);
+                        msg.react(vinkje).then();
+                        break;
+                    default:
+                        msg.react("❓").then();
                 }
+                if (msg.channel.id === farm) {
+                    switch (args[0]) {
+                        case "session" :
+                            client.channels.get(requirements).send("hello");
+
+                            if (args.length >= 3) {
+
+                            }
+                            msg.react(vinkje).then();
+                            break;
+                        default:
+                            msg.react("❓").then();
+                    }
+                }
+            } else {
+                msg.reply('There is a 2.5 second cooldown between commands').then();
             }
-        } else {
-            msg.reply('There is a 2.5 second cooldown between commands').then();
         }
     }
 });
