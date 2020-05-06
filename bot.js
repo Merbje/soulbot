@@ -452,6 +452,7 @@ discord.on('message', msg => {
             }
             if (msg.channel.id === farm) {
                 msg.member.addRole(ro).then();
+                console.log(msg.member.roles);
                 if (args[0] === "farm") {
                     msg.author.send(farmmessage, {
                         files: [
