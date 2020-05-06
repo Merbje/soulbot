@@ -447,11 +447,13 @@ discord.on('message', msg => {
                 msg.reply("Im alive in requirements").then();
             }
             if (msg.channel.id === farm) {
-                msg.author.send(farmmessage, {
-                    files: [
-                        "./end.png"
-                    ]
-                }).then();
+                if (args[0] === "farm") {
+                    msg.author.send(farmmessage, {
+                        files: [
+                            "./end.png"
+                        ]
+                    }).then();
+                }
             }
         } else {
             msg.reply('There is a 2.5 second cooldown between commands').then();
