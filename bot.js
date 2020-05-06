@@ -461,7 +461,8 @@ discord.on('message', msg => {
             if (msg.channel.id === farm) {
                     switch (args[0]) {
                         case "session" :
-                            client.channels.get(requirements).send("hello");
+                            msg.client.channels.get(requirements).send("hello");
+                            //client.channels.get(requirements).send("hello");
 
                             if (args.length >= 3) {
 
