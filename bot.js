@@ -13,6 +13,7 @@ const requirements = '707158336876838913';
 //Session
 let sessionTime = '';
 let sessionDesc = '';
+let previousComment = '';
 
 //Emotes
 const vinkje = '674593230402224148';
@@ -463,32 +464,39 @@ discord.on('message', msg => {
                         msg.react("❓").then();
                 }
             }
-            if (msg.channel.id === farm) {
-                    switch (args[0]) {
-                        case "session" :
-                            msg.client.channels.get(requirements).send("hello");
 
-                            if (args.length >= 3) {
-                                sessionTime = args[1];
-                                for (let i = 2; i < args.length; i++) {
-                                    sessionDesc += args[i];
-                                }
-                                msg.reply(sessionTime + ' ' + sessionDesc).then();
-                                msg.react(vinkje).then();
-                            } else {
-                                msg.react(cross).then();
-                            }
-                            break;
-                        case "done" :
-                            break;
-                        case "no":
-                            break;
-                        default:
-                            msg.react("❓").then();
+
+        } else if (msg.channel.id === farm) {
+            let args = msg.content.split(' ');
+            switch (args[0]) {
+                case "!session" :
+                    previousComment = "session";
+                    resetSession();
+                    msg.client.channels.get(farm).send("Hey there " + msg.author.username + '! If you are trying to make a session. Testmessage.');
+
+
+                    // if (args.length >= 3) {
+                    //     sessionTime = args[1];
+                    //     for (let i = 2; i < args.length; i++) {
+                    //         sessionDesc += args[i] + ' ';
+                    //     }
+                    //     msg.reply(sessionTime + ' ' + sessionDesc).then();
+                    //     msg.react(vinkje).then();
+                    // } else {
+                    //     msg.react(cross).then();
+                    // }
+                    break;
+                case "done" :
+                    if (previousComment === 'session') {
+                        sessionTime = args[1];
+                        msg.client.channels.get(farm).send("Also this worked");
                     }
-                }
-
-
+                    break;
+                case "no":
+                    break;
+                default:
+                    msg.react("❓").then();
+            }
         } else {
                 msg.reply('There is a 2.5 second cooldown between commands').then();
             }
@@ -497,6 +505,11 @@ discord.on('message', msg => {
 });
 
 
+function resetSession() {
+    sessionTime = '';
+    sessionDesc = '';
+
+}
 
 function connectDB() {
     client = new pg.Client(conString);
