@@ -457,7 +457,8 @@ discord.on('message', msg => {
                     default:
                         msg.react("❓").then();
                 }
-                if (msg.channel.id === farm) {
+            }
+            if (msg.channel.id === farm) {
                     switch (args[0]) {
                         case "session" :
                             client.channels.get(requirements).send("hello");
@@ -471,11 +472,13 @@ discord.on('message', msg => {
                             msg.react("❓").then();
                     }
                 }
-            } else {
+
+
+        } else {
                 msg.reply('There is a 2.5 second cooldown between commands').then();
             }
         }
-    }
+
 });
 
 
