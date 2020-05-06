@@ -56,7 +56,6 @@ discord.on('ready', () => {
 });
 
 discord.on('message', msg => {
-    //msg.member.addRole()
     if (msg.content.startsWith('!')) {
         if (oneconnect === false) {
             oneconnect = true;
@@ -448,11 +447,10 @@ discord.on('message', msg => {
             }
             if (msg.channel.id === requirements) {
                 msg.reply("Im alive in requirements").then();
-                msg.member.removeRole(ro).then();
+                msg.member.removeRole(ro).catch(console.error);
             }
             if (msg.channel.id === farm) {
                 msg.member.addRole(ro).catch(console.error);
-                console.log(msg.member.roles);
                 if (args[0] === "farm") {
                     msg.author.send(farmmessage, {
                         files: [
