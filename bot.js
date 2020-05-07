@@ -360,8 +360,7 @@ discord.on('message', msg => {
                     }
                     if (mob.toLowerCase() === 'all') {
                         deleteAllSoulsByUser(user);
-                        msg.react("674593230402224148").then();
-                        //msg.reply('all of ' + userreply + '\'s souls deleted').then();
+                        msg.react(vinkje).then();
                     } else if (verifyMob(mob) && !Number.isNaN(amount)) {
                         getSoulsPerUser(user, function (result) {
                             let waar = false;
