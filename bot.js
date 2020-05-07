@@ -484,7 +484,7 @@ discord.on('message', msg => {
             } else if (args[0].startsWith("0") || args[0].startsWith("1") || args[0].startsWith("2")) {
                 if (previousComment === 'session') {
                     previousComment = 'time';
-                    sessionTime = args[1];
+                    sessionTime = args[0];
                     msg.client.channels.get(farm).send("The time is: " + sessionTime + "\n Please give a description");
                 }
             } else if (previousComment === 'time') {
