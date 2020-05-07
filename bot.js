@@ -465,40 +465,32 @@ discord.on('message', msg => {
         if (msg.channel.id === farm && !msg.author.bot) {
             let args = msg.content.split(' ');
             console.log(args);
-            switch (args[0]) {
-                case "!session" :
-                    previousComment = "session";
-                    resetSession();
-                    msg.client.channels.get(farm).send("Hey there " + msg.author.username + '! If you are trying to make a session. First of please let me know the time (EXAMPLE: 20:00):');
+            if (args[0] === '!session') {
+                previousComment = "session";
+                resetSession();
+                msg.client.channels.get(farm).send("Hey there " + msg.author.username + '! If you are trying to make a session. First of please let me know the time (EXAMPLE: 20:00):');
 
 
-                    // if (args.length >= 3) {
-                    //     sessionTime = args[1];
-                    //     for (let i = 2; i < args.length; i++) {
-                    //         sessionDesc += args[i] + ' ';
-                    //     }
-                    //     msg.reply(sessionTime + ' ' + sessionDesc).then();
-                    //     msg.react(vinkje).then();
-                    // } else {
-                    //     msg.react(cross).then();
-                    // }
-                    break;
-                case args[0].startsWith("0"):
-                case args[0].startsWith("1"):
-                case args[0].startsWith("2"):
-                    if (previousComment === 'session') {
-                        previousComment = 'time';
-                        sessionTime = args[1];
-                        msg.client.channels.get(farm).send("The time is: " + sessionTime + "\n Please give a description");
-                    }
-                    break;
-                case (previousComment === 'time') :
-                    for (let i = 0; i < args.length; i++) {
-                        sessionDesc += args[i] + ' ';
-                    }
-                    break;
-                case "no":
-                    break;
+                // if (args.length >= 3) {
+                //     sessionTime = args[1];
+                //     for (let i = 2; i < args.length; i++) {
+                //         sessionDesc += args[i] + ' ';
+                //     }
+                //     msg.reply(sessionTime + ' ' + sessionDesc).then();
+                //     msg.react(vinkje).then();
+                // } else {
+                //     msg.react(cross).then();
+                // }
+            } else if (args[0].startsWith("0") || args[0].startsWith("1") || args[0].startsWith("2")) {
+                if (previousComment === 'session') {
+                    previousComment = 'time';
+                    sessionTime = args[1];
+                    msg.client.channels.get(farm).send("The time is: " + sessionTime + "\n Please give a description");
+                }
+            } else if (previousComment === 'time') {
+                for (let i = 0; i < args.length; i++) {
+                    sessionDesc += args[i] + ' ';
+                }
             }
         }
 
