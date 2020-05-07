@@ -464,6 +464,7 @@ discord.on('message', msg => {
         }
         if (msg.channel.id === farm) {
             let args = msg.content.split(' ');
+            console.log(args);
             switch (args[0]) {
                 case "!session" :
                     previousComment = "session";
