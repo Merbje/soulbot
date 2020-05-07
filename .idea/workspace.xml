@@ -102,14 +102,7 @@
       <workItem from="1588759621161" duration="65000" />
       <workItem from="1588773798448" duration="15000000" />
       <workItem from="1588797519281" duration="162000" />
-      <workItem from="1588838518973" duration="2143000" />
-    </task>
-    <task id="LOCAL-00142" summary="Added new reactions to keep a clean chat">
-      <created>1588107378303</created>
-      <option name="number" value="00142" />
-      <option name="presentableId" value="LOCAL-00142" />
-      <option name="project" value="LOCAL" />
-      <updated>1588107378303</updated>
+      <workItem from="1588838518973" duration="2392000" />
     </task>
     <task id="LOCAL-00143" summary="Removed kili">
       <created>1588187729358</created>
@@ -447,7 +440,14 @@
       <option name="project" value="LOCAL" />
       <updated>1588840709535</updated>
     </task>
-    <option name="localTasksCounter" value="191" />
+    <task id="LOCAL-00191" summary="New features, session and farmrank.">
+      <created>1588840847795</created>
+      <option name="number" value="00191" />
+      <option name="presentableId" value="LOCAL-00191" />
+      <option name="project" value="LOCAL" />
+      <updated>1588840847795</updated>
+    </task>
+    <option name="localTasksCounter" value="192" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -489,11 +489,11 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="987" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1586687446270" />
-    <state x="304" y="267" key="Vcs.Push.Dialog.v2" timestamp="1588840717618">
+    <state x="304" y="267" key="Vcs.Push.Dialog.v2" timestamp="1588840879941">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="304" y="264" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1586597099379" />
-    <state x="304" y="267" key="Vcs.Push.Dialog.v2/0.0.1920.1050@0.0.1920.1050" timestamp="1588840717618" />
+    <state x="304" y="267" key="Vcs.Push.Dialog.v2/0.0.1920.1050@0.0.1920.1050" timestamp="1588840879941" />
     <state x="266" y="283" key="Vcs.Push.Dialog.v2/0.23.1680.1027@0.23.1680.1027" timestamp="1583863650609" />
     <state x="304" y="291" key="Vcs.Push.Dialog.v2/0.23.1920.1057/1920.23.1366.1001@0.23.1920.1057" timestamp="1583101628660" />
     <state x="304" y="291" key="Vcs.Push.Dialog.v2/0.23.1920.1057@0.23.1920.1057" timestamp="1584464855095" />

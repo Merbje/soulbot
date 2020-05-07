@@ -462,7 +462,7 @@ discord.on('message', msg => {
                 msg.reply('There is a 2.5 second cooldown between commands').then();
             }
         }
-        if (msg.channel.id === farm) {
+        if (msg.channel.id === farm && !msg.author.bot) {
             let args = msg.content.split(' ');
             console.log(args);
             switch (args[0]) {
