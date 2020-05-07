@@ -5,10 +5,10 @@ let oneconnect = false;
 let nodbconnect = false;
 
 //Channels
-const jazzlounge = '675785176667783179';
-const soulchannel = '677524777992323072';
-const farm = '704750408471412757';
-const requirements = '707158336876838913';
+const jazzlounge = process.env.JAZZLOUNGE;
+const soulchannel = process.env.SOULCHANNEL;
+const farm = process.env.FARM;
+const requirements = process.env.REQUIREMENTS;
 
 //Session
 let sessionTime = '';
@@ -16,12 +16,12 @@ let sessionDesc = '';
 let previousComment = '';
 
 //Emotes
-const vinkje = '674593230402224148';
-const cross = '674593603787554841';
+const vinkje = process.env.VINKJE;
+const cross = process.env.CROSS;
 const discord = new Discord.Client();
 
 //Ranks
-const farmrole = '707642560990150666';
+const farmrole = process.env.FARMROLE;
 
 //Messages
 const farmmessage = 'To ease the organization of farming groups we have a dedicated' +
@@ -379,11 +379,9 @@ discord.on('message', msg => {
                                 if (mob === "Agony V''Helley") {
                                     mob = "Agony V'Helley";
                                 }
-                                msg.react("674593230402224148").then();
-                                //msg.reply(mob + ' souls deleted').then();
+                                msg.react(vinkje).then();
                             } else {
-                                msg.react("674593603787554841").then();
-                                //msg.reply("you can't delete a soul they don't have.").then();
+                                msg.react(cross).then();
                             }
                         });
                     } else if (verifyMob(mob)) {
@@ -391,14 +389,11 @@ discord.on('message', msg => {
                         if (mob === "Agony V''Helley") {
                             mob = "Agony V'Helley";
                         }
-                        msg.react("674593230402224148").then();
-                        //msg.reply('all ' + userreply + ' their ' + mob + ' souls are deleted.').then();
+                        msg.react(vinkje).then();
                     } else if (amount === 0) {
-                        msg.react("674593603787554841").then();
-                        //msg.reply("it's not possible to delete 0 souls.").then();
+                        msg.react(cross).then();
                     } else {
-                        msg.react("674593603787554841").then();
-                        //msg.reply('wrong use of command, please consult !help for more info.').then();
+                        msg.react(cross).then();
                     }
                 } else if (args[0] === 'addsoul') {
                     let mob = args[2];
@@ -492,7 +487,7 @@ discord.on('message', msg => {
                     console.log(previousComment);
                     if (previousComment === 'session') {
                         sessionTime = args[1];
-                        msg.client.channels.get(farm).send("Also this worked");
+                        msg.client.channels.get(farm).send("Also this worked " + sessionTime);
                     }
                     break;
                 case "description" :
