@@ -468,7 +468,7 @@ discord.on('message', msg => {
                 case "!session" :
                     previousComment = "session";
                     resetSession();
-                    msg.client.channels.get(farm).send("Hey there " + msg.author.username + '! If you are trying to make a session. Testmessage.');
+                    msg.client.channels.get(farm).send("Hey there " + msg.author.username + '! If you are trying to make a session. First of please let me know the time (EXAMPLE: 20:00):');
 
 
                     // if (args.length >= 3) {
@@ -482,15 +482,19 @@ discord.on('message', msg => {
                     //     msg.react(cross).then();
                     // }
                     break;
-                case "time" :
-                    console.log(previousComment);
+                case args[0].startsWith("0"):
+                case args[0].startsWith("1"):
+                case args[0].startsWith("2"):
                     if (previousComment === 'session') {
+                        previousComment = 'time';
                         sessionTime = args[1];
-                        msg.client.channels.get(farm).send("Also this worked " + sessionTime);
+                        msg.client.channels.get(farm).send("The time is: " + sessionTime + "\n Please give a description");
                     }
                     break;
-                case "description" :
-                    console.log();
+                case (previousComment === 'time') :
+                    for (let i = 0; i < args.length; i++) {
+                        sessionDesc += args[i] + ' ';
+                    }
                     break;
                 case "no":
                     break;
@@ -499,6 +503,9 @@ discord.on('message', msg => {
 
 });
 
+// function sessionMessage() {
+//
+// }
 
 function resetSession() {
     sessionTime = '';
