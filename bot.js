@@ -468,7 +468,7 @@ discord.on('message', msg => {
             if (args[0] === '!session') {
                 previousComment = "session";
                 resetSession();
-                msg.client.channels.get(farm).send("Hey there " + msg.author.username + '! If you are trying to make a session. First of please let me know the time (EXAMPLE: 20:00):');
+                msg.client.channels.get(farm).send("Hey there " + msg.author.lastMessage.member.nickname + '! If you are trying to make a session. First of please let me know the time (EXAMPLE: 20:00):');
 
 
                 // if (args.length >= 3) {
@@ -485,12 +485,13 @@ discord.on('message', msg => {
                 if (previousComment === 'session') {
                     previousComment = 'time';
                     sessionTime = args[0];
-                    msg.client.channels.get(farm).send("The time is: " + sessionTime + "\n Please give a description");
+                    msg.client.channels.get(farm).send("The time is: " + sessionTime + "\nPlease give a description");
                 }
             } else if (previousComment === 'time') {
                 for (let i = 0; i < args.length; i++) {
                     sessionDesc += args[i] + ' ';
                 }
+                msg.client.channels.get(farm).send('**This is a preview message**\n\n@' + msg.author.lastMessage.member.nickname + ' is organizing a ' + sessionDesc + 'session at ' + sessionTime + '.\nRespond with a +1 if you would like to join.');
             }
         }
 
