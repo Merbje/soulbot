@@ -48,10 +48,10 @@ const farmmessage = 'To ease the organization of farming groups we have a dedica
 //Lists
 const soulmobs = ['Crab', 'Beaztinga', 'Pandala Forest',
     'Weirbwork', 'Primitive Cemetery', "Agony V''Helley",
-    'Cromagmunk', 'Mopy King', 'Watchamatrich', 'Coral Beach', 'Canopy Village'];
+    'Cromagmunk', 'Mopy King', 'Watchamatrich', 'Coral Beach', 'Canopy Village', 'Demonic Rose', 'Astrub Cemetery'];
 const mobs = 'the following mobs are allowed, between () is the shorter input:\n' +
     '| **Crab** (crab) | **Beaztinga** (beaz) | **Pandala Forest** (pandala) | **Weirbwork** (weir) | **Primitive Cemetery** (cemetery) | **Agony V\'Helley** (agony) ' +
-    '| **Cromagmunk** (croma) | **Mopy King** (mopy) | **Watchamatrich** (watcha) | **Canopy Village** (zoth) | **Coral Beach** (craboral)';
+    '| **Cromagmunk** (croma) | **Mopy King** (mopy) | **Watchamatrich** (watcha) | **Canopy Village** (zoth) | **Coral Beach** (craboral) | **Demonic Rose** (rose) | **Astrub Cemetery** (ouas) |';
 const commands = ['!addsoul [mob] [amount]', '!deletesoul [all:mob] [OPT: amount]', '!mysouls', '!allsouls', '!viewsouls [user]', '!moblist', '!buyin [small] [average] [big] [gigantic]'];
 const conString = process.env.APITOKEN;
 
@@ -75,7 +75,7 @@ discord.on('message', msg => {
             let args = msg.content.substring(1).split(' ');
 
             if (args[2] !== undefined) {
-                switch (args[2].toLocaleLowerCase()) {
+                switch (args[2].toLowerCase()) {
                     case 'forest':
                     case 'cemetery':
                     case "v'helley":
@@ -96,6 +96,14 @@ discord.on('message', msg => {
 
             for (let i = 1; i < args.length; i++) {
                 switch (args[i]) {
+                    case 'demonic rose':
+                    case 'rose':
+                        args[i] = 'Demonic Rose';
+                        break;
+                    case 'astrub cemetery':
+                    case 'ouas':
+                        args[i] = 'Astrub Cemetery';
+                        break;
                     case 'zoth':
                     case 'canopy village':
                         args[i] = 'Canopy Village';
