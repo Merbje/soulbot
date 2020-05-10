@@ -80,6 +80,7 @@ discord.on('message', msg => {
                     case 'cemetery':
                     case "v'helley":
                     case 'village':
+                    case 'rose':
                     case 'beach':
                     case 'king':
                         args[1] = args[1] + ' ' + args[2];
