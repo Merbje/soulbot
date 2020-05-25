@@ -154,6 +154,8 @@ discord.on('message', msg => {
                 switch (args[0]) {
                     //===================================================================//
                     case 'addsoul':
+                    case 'add':
+                    case 'addsouls':
                         if (verifyMob(args[1]) && verifyAmount(args[2])) {
                             let check = args[2].split(',');
                             args[2] = check[0];
@@ -197,6 +199,8 @@ discord.on('message', msg => {
                         break;
                     //===================================================================//
                     case 'deletesoul':
+                    case 'delete':
+                    case 'deletesouls':
                         let mob = '';
                         if (args[1] !== undefined) {
                             mob = args[1];
@@ -446,6 +450,9 @@ discord.on('message', msg => {
                             "./end.png"
                         ]
                     }).then();
+                    msg.react(vinkje).then();
+                } else if (args[0] === 'smallsouls') {
+
                 }
             }
             if (msg.channel.id === requirements) {
