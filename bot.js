@@ -65,7 +65,7 @@ discord.on('ready', () => {
         setInterval(function(){
             queryRun('select * from events', (events) => {
                 let date = new Date();
-                console.log('date ' + date);
+                console.log('date ' + date.toISOString());
                 for (let i = 0; i < events.length; i++) {
                     console.log(events[i]);
                     if (date.toISOString() > events[i].time) {
