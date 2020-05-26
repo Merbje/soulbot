@@ -64,7 +64,6 @@ discord.on('ready', () => {
         var dayMillseconds = 1000 * 5;
         setInterval(function(){
             queryRun('select * from events', (events) => {
-                console.log(events);
                 for (let i = 0; i < events.length; i++) {
                     console.log(events[i].messageid);
                     discord.channels.get(requirements).fetchMessage(events[i].messageid).then(msg => msg.delete());

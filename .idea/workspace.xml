@@ -20,7 +20,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e42c046e-9ff0-450a-a738-52dfa8574f55" name="Default Changelist" comment="Working on storycommands">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bot.js" beforeDir="false" afterPath="$PROJECT_DIR$/bot.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -109,21 +108,7 @@
       <workItem from="1589564815822" duration="173000" />
       <workItem from="1589803828234" duration="473000" />
       <workItem from="1590422886210" duration="245000" />
-      <workItem from="1590517894513" duration="8854000" />
-    </task>
-    <task id="LOCAL-00173" summary="Removed kili">
-      <created>1588785873920</created>
-      <option name="number" value="00173" />
-      <option name="presentableId" value="LOCAL-00173" />
-      <option name="project" value="LOCAL" />
-      <updated>1588785873920</updated>
-    </task>
-    <task id="LOCAL-00174" summary="Removed kili">
-      <created>1588786073258</created>
-      <option name="number" value="00174" />
-      <option name="presentableId" value="LOCAL-00174" />
-      <option name="project" value="LOCAL" />
-      <updated>1588786073258</updated>
+      <workItem from="1590517894513" duration="9029000" />
     </task>
     <task id="LOCAL-00175" summary="Removed kili">
       <created>1588787948293</created>
@@ -454,7 +439,21 @@
       <option name="project" value="LOCAL" />
       <updated>1590526622702</updated>
     </task>
-    <option name="localTasksCounter" value="222" />
+    <task id="LOCAL-00222" summary="Working on storycommands">
+      <created>1590526976273</created>
+      <option name="number" value="00222" />
+      <option name="presentableId" value="LOCAL-00222" />
+      <option name="project" value="LOCAL" />
+      <updated>1590526976273</updated>
+    </task>
+    <task id="LOCAL-00223" summary="Working on storycommands">
+      <created>1590527138095</created>
+      <option name="number" value="00223" />
+      <option name="presentableId" value="LOCAL-00223" />
+      <option name="project" value="LOCAL" />
+      <updated>1590527138095</updated>
+    </task>
+    <option name="localTasksCounter" value="224" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -497,11 +496,11 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="987" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1586687446270" />
-    <state x="954" y="29" key="Vcs.Push.Dialog.v2" timestamp="1590526623560">
+    <state x="954" y="29" key="Vcs.Push.Dialog.v2" timestamp="1590527140373">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="304" y="264" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1586597099379" />
-    <state x="954" y="29" key="Vcs.Push.Dialog.v2/0.0.1920.1050@0.0.1920.1050" timestamp="1590526623560" />
+    <state x="954" y="29" key="Vcs.Push.Dialog.v2/0.0.1920.1050@0.0.1920.1050" timestamp="1590527140373" />
     <state x="266" y="283" key="Vcs.Push.Dialog.v2/0.23.1680.1027@0.23.1680.1027" timestamp="1583863650609" />
     <state x="304" y="291" key="Vcs.Push.Dialog.v2/0.23.1920.1057/1920.23.1366.1001@0.23.1920.1057" timestamp="1583101628660" />
     <state x="304" y="291" key="Vcs.Push.Dialog.v2/0.23.1920.1057@0.23.1920.1057" timestamp="1584464855095" />
