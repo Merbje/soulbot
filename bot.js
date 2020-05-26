@@ -62,11 +62,12 @@ let client = new pg.Client(conString);
 discord.on('ready', () => {
     console.log('Logged in as soulBotForDofus!');
         var dayMillseconds = 1000 * 30;
-        setInterval(function(){ // repeat this every 24 hours
+        setInterval(function(){
             queryRun('select * from events', (events) => {
                 console.log(events);
                 for (let i = 0; i < events.length; i++) {
-                    requirements.fetchMessage(events[i]['messageid']).then(msg => msg.delete());
+                    console.log(events[i].messageID);
+                    // requirements.fetchMessage(events[i].messageid).then(msg => msg.delete());
                 }
             });
         }, dayMillseconds);
