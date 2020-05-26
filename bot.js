@@ -65,6 +65,9 @@ discord.on('ready', () => {
         setInterval(function(){ // repeat this every 24 hours
             queryRun('select * from events', (events) => {
                 console.log(events);
+                for (let i = 0; i < events.length; i++) {
+                    requirements.fetchMessage(events[i]['messageid']).then(msg => msg.delete());
+                }
             });
         }, dayMillseconds);
 });
