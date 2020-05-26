@@ -484,7 +484,7 @@ discord.on('message', msg => {
             if (args[0] === '!session') {
                 previousComment = "session";
                 resetSession();
-                msg.client.channels.get(farm).send("Hey there " + msg.author.lastMessage.member.nickname + '! If you are trying to make a session. First of please let me know the time (EXAMPLE: 20:00):');
+                msg.client.channels.get(farm).send("Hey there <@" + msg.author.id + '>! If you are trying to make a session. First of please let me know the time (EXAMPLE: 20:00):');
 
 
                 // if (args.length >= 3) {
@@ -497,17 +497,24 @@ discord.on('message', msg => {
                 // } else {
                 //     msg.react(cross).then();
                 // }
-            } else if (args[0].startsWith("0") || args[0].startsWith("1") || args[0].startsWith("2")) {
-                if (previousComment === 'session') {
+            } else if (previousComment === 'session' && (args[0].startsWith("0") || args[0].startsWith("1") || args[0].startsWith("2"))) {
                     previousComment = 'time';
                     sessionTime = args[0];
                     msg.client.channels.get(farm).send("The time is: " + sessionTime + "\nPlease give a description");
-                }
             } else if (previousComment === 'time') {
+                previousComment = 'description'
                 for (let i = 0; i < args.length; i++) {
                     sessionDesc += args[i] + ' ';
                 }
-                msg.client.channels.get(farm).send('**This is a preview message**\n\n<@' + msg.author.id + '> is organizing a ' + sessionDesc + 'session at ' + sessionTime + '.\nRespond with a +1 if you would like to join.');
+                msg.client.channels.get(farm).send('**This is a preview message**\n\n<@' + msg.author.id + '> is organizing a ' + sessionDesc + 'session at ' + sessionTime + '.\nRespond with a +1 if you would like to join.\n\n**Reply with send if you this is correct or delete if something is wrong.**');
+            } else if (previousComment === 'description') {
+                if (args[0].toLowerCase() === 'send') {
+                    msg.client.channels.get(requirements).send('<@' + msg.author.id + '> is organizing a ' + sessionDesc + 'session at ' + sessionTime + '.\nRespond with a +1 if you would like to join.');
+
+
+                } else if (args[0].toLowerCase() === 'delete') {
+                    resetSession();
+                }
             }
         }
 
