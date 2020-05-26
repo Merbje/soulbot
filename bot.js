@@ -521,7 +521,7 @@ discord.on('message', msg => {
             } else if (previousComment === 'description' && sessionHost === '<@' + msg.author.id + '>') {
                 if (args[0].toLowerCase() === 'send') {
                     msg.client.channels.get(requirements).send(sessionHost + ' is organizing a ' + sessionDesc + 'session at ' + sessionTime + '.\nRespond with a +1 if you would like to join.').then(reactions => { reactions.react(plusone).catch(); });
-
+                    insertNewEvent(`INSERT INTO events(messageID, time) VALUES ('${msg.id}', '${sessionTime}')`, () => {});
                 } else if (args[0].toLowerCase() === 'delete') {
                     resetSession();
                 }
@@ -642,6 +642,12 @@ function getSoulAmountByUser(user, mob, callback){
 }
 
 function getAllSouls(query, callback) {
+            queryRun(query, function(result) {
+                return callback(result);
+            });
+}
+
+function insertNewEvent(query, callback) {
             queryRun(query, function(result) {
                 return callback(result);
             });
