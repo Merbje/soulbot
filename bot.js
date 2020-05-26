@@ -480,7 +480,7 @@ discord.on('message', msg => {
         }
         if (msg.channel.id === farm && !msg.author.bot) {
             let args = msg.content.split(' ');
-            console.log(args);
+            console.log(previousComment);
             if (args[0] === '!session') {
                 previousComment = "session";
                 resetSession();
