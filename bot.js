@@ -64,10 +64,15 @@ discord.on('ready', () => {
         var dayMillseconds = 1000 * 5;
         setInterval(function(){
             queryRun('select * from events', (events) => {
+                let date = new Date();
                 for (let i = 0; i < events.length; i++) {
-                    console.log(events[i].messageid);
-                    discord.channels.get(requirements).fetchMessage(events[i].messageid).then(msg => msg.delete());
-                    queryRun(`DELETE FROM events WHERE messageid = '${events[i].messageid}'`, () => {});
+                    console.log(events[i]);
+                    if (date.toISOString() > events[i].time) {
+
+                        discord.channels.get(requirements).fetchMessage(events[i].messageid).then(msg => msg.delete());
+                        queryRun(`DELETE FROM events WHERE messageid = '${events[i].messageid}'`, () => {
+                        });
+                    }
                 }
             });
         }, dayMillseconds);
