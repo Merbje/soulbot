@@ -482,8 +482,8 @@ discord.on('message', msg => {
             let args = msg.content.split(' ');
             console.log(previousComment);
             if (args[0] === '!session') {
-                previousComment = "session";
                 resetSession();
+                previousComment = "session";
                 msg.client.channels.get(farm).send("Hey there <@" + msg.author.id + '>! If you are trying to make a session. First of please let me know the time (EXAMPLE: 20:00):');
 
 
