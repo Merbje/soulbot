@@ -67,7 +67,7 @@ discord.on('ready', () => {
                 console.log(events);
                 for (let i = 0; i < events.length; i++) {
                     console.log(events[i].messageid);
-                    requirements.fetchMessage(events[i].messageid).then(msg => msg.delete());
+                    discord.fetchMessage(events[i].messageid).then(msg => msg.delete());
                 }
             });
         }, dayMillseconds);
