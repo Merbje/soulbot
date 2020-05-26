@@ -509,7 +509,7 @@ discord.on('message', msg => {
                 msg.client.channels.get(farm).send('**This is a preview message**\n\n<@' + msg.author.id + '> is organizing a ' + sessionDesc + 'session at ' + sessionTime + '.\nRespond with a +1 if you would like to join.\n\n**Reply with send if you this is correct or delete if something is wrong.**');
             } else if (previousComment === 'description') {
                 if (args[0].toLowerCase() === 'send') {
-                    msg.client.channels.get(requirements).send('<@' + msg.author.id + '> is organizing a ' + sessionDesc + 'session at ' + sessionTime + '.\nRespond with a +1 if you would like to join.');
+                    msg.client.channels.get(requirements).send('<@' + msg.author.id + '> is organizing a ' + sessionDesc + 'session at ' + sessionTime + '.\nRespond with a +1 if you would like to join.').then(reactions => { reactions.react(vinkje).catch(); });
 
 
                 } else if (args[0].toLowerCase() === 'delete') {
