@@ -499,18 +499,7 @@ discord.on('message', msg => {
                 previousComment = "session";
                 msg.client.channels.get(farm).send('Hey there! Let\'s set up a farming event and make the announcement! First off, when should we shedule the event? Reply with **now** or tell me four digits with a : in the middle to setup a custom time (example: 21:30).');
 
-
-                // if (args.length >= 3) {
-                //     sessionTime = args[1];
-                //     for (let i = 2; i < args.length; i++) {
-                //         sessionDesc += args[i] + ' ';
-                //     }
-                //     msg.reply(sessionTime + ' ' + sessionDesc).then();
-                //     msg.react(vinkje).then();
-                // } else {
-                //     msg.react(cross).then();
-                // }
-            } else if ((previousComment === 'session' && (args[0].startsWith("0") || args[0].startsWith("1") || args[0].startsWith("2"))) && sessionHost === '<@' + msg.author.id + '>') {
+            } else if (previousComment === 'session' && args[0].match(/^\d\d:\d\d$/)) {
                     previousComment = 'time';
                     sessionTime = args[0];
                     msg.client.channels.get(farm).send('Got it. What would u like the description of the event to be?');
@@ -524,7 +513,7 @@ discord.on('message', msg => {
                 if (args[0].toLowerCase() === 'send') {
                     let date = new Date();
                     msg.client.channels.get(requirements).send(sessionHost + ' is organizing a ' + sessionDesc + 'session at ' + sessionTime + '.\nRespond with a +1 if you would like to join.').then(reactions => { reactions.react(plusone).catch();
-                        insertNewEvent(`INSERT INTO events(messageID, time) VALUES ('${reactions.id}', '${date.toISOString()}')`, () => {});
+                        insertNewEvent(`INSERT INTO events(messageID, time) VALUES ('${reactions.id}', '${date.toISOString().replace(/\d\d:\d\d:\d\d/, sessionTime +':00')}')`, () => {});
                     });
 
                 } else if (args[0].toLowerCase() === 'delete') {
@@ -534,10 +523,6 @@ discord.on('message', msg => {
         }
 
 });
-
-// function sessionMessage() {
-//
-// }
 
 function resetSession() {
     previousComment = '';
