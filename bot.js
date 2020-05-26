@@ -42,7 +42,7 @@ const farmmessage = 'To ease the organization of farming groups we have a dedica
     '\t-\tStrength + Power: 1200\n\n' +
     'A cumulative criterium is that you have selected your class in the #select-your-class channel.\n' +
     '\n' +
-    'If you find yourself eligible you may respond with **!eligible** - the bonabot grant you access to the farm-channel';
+    'If you find yourself eligible you may respond with **!eligible** - the Bonabot will grant you access to the farm-channel';
 
 
 //Lists
