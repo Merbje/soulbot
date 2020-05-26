@@ -3,6 +3,7 @@ const pg = require('pg');
 const Discord = require('discord.js');
 let oneconnect = false;
 let nodbconnect = false;
+const discord = new Discord.Client();
 
 //Channels
 const jazzlounge = process.env.JAZZLOUNGE;
@@ -18,7 +19,7 @@ let previousComment = '';
 //Emotes
 const vinkje = process.env.VINKJE;
 const cross = process.env.CROSS;
-const discord = new Discord.Client();
+const plusone = process.env.PLUSONE;
 
 //Ranks
 const farmrole = process.env.FARMROLE;
@@ -509,7 +510,7 @@ discord.on('message', msg => {
                 msg.client.channels.get(farm).send('**This is a preview message**\n\n<@' + msg.author.id + '> is organizing a ' + sessionDesc + 'session at ' + sessionTime + '.\nRespond with a +1 if you would like to join.\n\n**Reply with send if you this is correct or delete if something is wrong.**');
             } else if (previousComment === 'description') {
                 if (args[0].toLowerCase() === 'send') {
-                    msg.client.channels.get(requirements).send('<@' + msg.author.id + '> is organizing a ' + sessionDesc + 'session at ' + sessionTime + '.\nRespond with a +1 if you would like to join.').then(reactions => { reactions.react(vinkje).catch(); });
+                    msg.client.channels.get(requirements).send('<@' + msg.author.id + '> is organizing a ' + sessionDesc + 'session at ' + sessionTime + '.\nRespond with a +1 if you would like to join.').then(reactions => { reactions.react(plusone).catch(); });
 
 
                 } else if (args[0].toLowerCase() === 'delete') {
