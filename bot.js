@@ -507,7 +507,7 @@ discord.on('message', msg => {
                 for (let i = 0; i < args.length; i++) {
                     sessionDesc += args[i] + ' ';
                 }
-                msg.client.channels.get(farm).send('**This is a preview message**\n\n@' + msg.author.username + ' is organizing a ' + sessionDesc + 'session at ' + sessionTime + '.\nRespond with a +1 if you would like to join.');
+                msg.client.channels.get(farm).send('**This is a preview message**\n\n@' + msg.author.id + ' is organizing a ' + sessionDesc + 'session at ' + sessionTime + '.\nRespond with a +1 if you would like to join.');
             }
         }
 
