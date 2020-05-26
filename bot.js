@@ -61,13 +61,14 @@ let client = new pg.Client(conString);
 
 discord.on('ready', () => {
     console.log('Logged in as soulBotForDofus!');
-        var dayMillseconds = 1000 * 30;
+        var dayMillseconds = 1000 * 5;
         setInterval(function(){
             queryRun('select * from events', (events) => {
                 console.log(events);
                 for (let i = 0; i < events.length; i++) {
                     console.log(events[i].messageid);
-                    discord.channels.get(farm).fetchMessage(events[i].messageid).then(msg => msg.delete());
+                    discord.channels.get(requirements).fetchMessage(events[i].messageid).then(msg => msg.delete());
+                    queryRun(`DELETE FROM events WHERE messageid = '${events[i].messageid}' `);
                 }
             });
         }, dayMillseconds);
@@ -523,8 +524,10 @@ discord.on('message', msg => {
             } else if (previousComment === 'description' && sessionHost === '<@' + msg.author.id + '>') {
                 if (args[0].toLowerCase() === 'send') {
                     let date = new Date();
-                    msg.client.channels.get(requirements).send(sessionHost + ' is organizing a ' + sessionDesc + 'session at ' + sessionTime + '.\nRespond with a +1 if you would like to join.').then(reactions => { reactions.react(plusone).catch(); });
-                    insertNewEvent(`INSERT INTO events(messageID, time) VALUES ('${msg.id}', '${date.toISOString()}')`, () => {});
+                    msg.client.channels.get(requirements).send(sessionHost + ' is organizing a ' + sessionDesc + 'session at ' + sessionTime + '.\nRespond with a +1 if you would like to join.').then(reactions => { reactions.react(plusone).catch();
+                        insertNewEvent(`INSERT INTO events(messageID, time) VALUES ('${reactions.id}', '${date.toISOString()}')`, () => {});
+                    });
+
                 } else if (args[0].toLowerCase() === 'delete') {
                     resetSession();
                 }
