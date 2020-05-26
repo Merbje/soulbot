@@ -68,7 +68,7 @@ discord.on('ready', () => {
                 for (let i = 0; i < events.length; i++) {
                     console.log(events[i].messageid);
                     discord.channels.get(requirements).fetchMessage(events[i].messageid).then(msg => msg.delete());
-                    queryRun(`DELETE FROM events WHERE messageid = '${events[i].messageid}' `);
+                    queryRun(`DELETE FROM events WHERE messageid = '${events[i].messageid}'`, () => {});
                 }
             });
         }, dayMillseconds);
