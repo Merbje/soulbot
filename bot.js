@@ -520,8 +520,9 @@ discord.on('message', msg => {
                 msg.client.channels.get(farm).send('**This is a preview message**\n\n' + sessionHost + ' is organizing a ' + sessionDesc + 'session at ' + sessionTime + '.\nRespond with a +1 if you would like to join.\n\n**Reply with send if you this is correct or delete if something is wrong.**');
             } else if (previousComment === 'description' && sessionHost === '<@' + msg.author.id + '>') {
                 if (args[0].toLowerCase() === 'send') {
+                    let date = new Date();
                     msg.client.channels.get(requirements).send(sessionHost + ' is organizing a ' + sessionDesc + 'session at ' + sessionTime + '.\nRespond with a +1 if you would like to join.').then(reactions => { reactions.react(plusone).catch(); });
-                    insertNewEvent(`INSERT INTO events(messageID, time) VALUES ('${msg.id}', '${sessionTime}')`, () => {});
+                    insertNewEvent(`INSERT INTO events(messageID, time) VALUES ('${msg.id}', '${date.toISOString()}')`, () => {});
                 } else if (args[0].toLowerCase() === 'delete') {
                     resetSession();
                 }
