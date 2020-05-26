@@ -61,9 +61,17 @@ let client = new pg.Client(conString);
 
 discord.on('ready', () => {
     console.log('Logged in as soulBotForDofus!');
+    setInterval(function(){
+        sendMessage(); // send the message once
+        var dayMillseconds = 1000 * 60 * 60 * 24;
+        setInterval(function(){ // repeat this every 24 hours
+            sendMessage();
+        }, dayMillseconds)
+    })
 });
 
 discord.on('message', msg => {
+    console.log(msg.id);
     if (msg.content.startsWith('!')) {
         if (oneconnect === false) {
             oneconnect = true;
@@ -513,7 +521,6 @@ discord.on('message', msg => {
             } else if (previousComment === 'description' && sessionHost === '<@' + msg.author.id + '>') {
                 if (args[0].toLowerCase() === 'send') {
                     msg.client.channels.get(requirements).send(sessionHost + ' is organizing a ' + sessionDesc + 'session at ' + sessionTime + '.\nRespond with a +1 if you would like to join.').then(reactions => { reactions.react(plusone).catch(); });
-
 
                 } else if (args[0].toLowerCase() === 'delete') {
                     resetSession();
