@@ -525,8 +525,7 @@ discord.on('message', msg => {
 // }
 
 function resetSession() {
-    sessionTime = '';
-    sessionDesc = '';
+    previousComment = '';
 }
 
 function connectDB() {
