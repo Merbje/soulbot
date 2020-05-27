@@ -1,4 +1,5 @@
 require('dotenv').config();
+const moment = require('moment.js');
 const pg = require('pg');
 const Discord = require('discord.js');
 let oneconnect = false;
@@ -64,10 +65,12 @@ discord.on('ready', () => {
         var dayMillseconds = 1000 * 5;
         setInterval(function(){
             queryRun('select * from events', (events) => {
+                let test = moment.tz('2020-10-20 00:00:00', 'Europe/Paris').tz('UTC');
+                console.log("test" + test.format());
                 let date = new Date();
-                // console.log('date ' + date.toISOString());
+                console.log('date ' + date.toISOString());
                 for (let i = 0; i < events.length; i++) {
-                    // console.log(events[i]);
+                    console.log(events[i]);
                     if (date.toISOString() > events[i].time) {
 
                         discord.channels.get(requirements).fetchMessage(events[i].messageid).then(msg => msg.delete());
