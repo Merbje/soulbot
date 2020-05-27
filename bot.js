@@ -65,14 +65,10 @@ discord.on('ready', () => {
         var dayMillseconds = 1000 * 5;
         setInterval(function(){
             queryRun('select * from events', (events) => {
-                // let test = moment.tz('2020-10-20 00:00:00', 'Europe/Paris').tz('UTC');
-                // console.log("test" + test.format());
-                let date = new Date();
-                // console.log('date ' + date.toISOString());
+                let currentTime = moment.tz('UTC').subtract(2, 'hours');
                 for (let i = 0; i < events.length; i++) {
-                    // console.log(events[i]);
-                    if (date.toISOString() > events[i].time) {
-
+                    const eventTime = moment.tz(events[i].time, 'UTC');
+                    if (eventTime < currentTime) {
                         discord.channels.get(requirements).fetchMessage(events[i].messageid).then(msg => msg.delete());
                         queryRun(`DELETE FROM events WHERE messageid = '${events[i].messageid}'`, () => {
                         });
