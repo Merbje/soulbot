@@ -64,7 +64,9 @@ discord.on('ready', () => {
     console.log('Logged in as soulBotForDofus!');
         var dayMillseconds = 1000 * 5;
         setInterval(function(){
-            console.log(moment.tz('UTC').day());
+            if(moment.tz('UTC').day() === 3 && moment.tz('UTC').hour() === 14) {
+                console.log('correct');
+            }
             queryRun('select * from events', (events) => {
                 let currentTime = moment.tz('UTC').add(-4, 'hours');
                 for (let i = 0; i < events.length; i++) {
