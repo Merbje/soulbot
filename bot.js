@@ -522,10 +522,11 @@ discord.on('message', msg => {
                 if (args[0].toLowerCase() === 'send') {
                     let date = new Date();
                     const now = moment.tz('Europe/Paris');
-                    console.log(now.format('YYYY-MM-DD') + 'T' + sessionTime + ':00');
-                    // msg.client.channels.get(requirements).send(sessionHost + ' is organizing a ' + sessionDesc + 'session at ' + now.format('YYYY-MM-DD') + sessionTime + ':00' + '.\nRespond with a +1 if you would like to join.').then(reactions => { reactions.react(plusone).catch();
-                    //     insertNewEvent(`INSERT INTO events(messageID, time) VALUES ('${reactions.id}', '${date.toISOString().replace(/\d\d:\d\d:\d\d/, sessionTime +':00')}')`, () => {});
-                    // });
+                    let xxx = now.format('YYYY-MM-DD') + 'T' + sessionTime + ':00';
+                    const eventTime = moment.tz(xxx, 'Europe/Paris').tz('UTC').format('YYYY-MM-DD hh:mm:ss');
+                    msg.client.channels.get(requirements).send(sessionHost + ' is organizing a ' + sessionDesc + 'session at ' + sessionTime + '.\nRespond with a +1 if you would like to join.').then(reactions => { reactions.react(plusone).catch();
+                        insertNewEvent(`INSERT INTO events(messageID, time) VALUES ('${reactions.id}', '${eventTime}')`, () => {});
+                    });
 
                 } else if (args[0].toLowerCase() === 'delete') {
                     resetSession();
