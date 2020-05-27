@@ -66,6 +66,7 @@ discord.on('ready', () => {
         setInterval(function(){
             queryRun('select * from events', (events) => {
                 let currentTime = moment.tz('UTC');
+                moment.add(-2, 'hours');
                 for (let i = 0; i < events.length; i++) {
                     const eventTime = moment.tz(events[i].time, 'UTC');
                     console.log(`Eventtime ${eventTime.format()} and Currenttime ${currentTime.format()}`)
