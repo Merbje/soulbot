@@ -67,8 +67,6 @@ discord.on('ready', () => {
             console.log(moment.tz('Europe/Paris').hour() === 15);
             console.log(moment.tz('Europe/Paris').minute() < 10);
             //test
-            console.log(discord.guild.members.find(m => m.user.username === 'Reiss').user.id);
-            console.log(discord.guild.members.find(m => m.user.username === 'xani').user.id);
             if(moment.tz('UTC').day() === 3 && moment.tz('Europe/Paris').hour() === 15 && moment.tz('Europe/Paris').minute() < 15) {
                 msg.client.channels.get(requirements).send(`**Sheduled Event!**\n\n Instinct-Ultra and Chevulmi are organizing a Tynril farm session at  19:30 .\nRespond with a +1 if you would like to join.`).then(reactions => { reactions.react(plusone).catch();
                     insertNewEvent(`INSERT INTO events(messageID, time) VALUES ('${reactions.id}', '${eventTime}')`, () => {});
@@ -89,6 +87,8 @@ discord.on('ready', () => {
 });
 
 discord.on('message', msg => {
+    console.log(msg.guild.members.find(m => m.user.username === 'Reiss').user.id);
+    console.log(msg.guild.members.find(m => m.user.username === 'xani').user.id);
     if (msg.content.startsWith('!')) {
         if (oneconnect === false) {
             oneconnect = true;
