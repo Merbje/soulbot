@@ -65,7 +65,7 @@ discord.on('ready', () => {
         var dayMillseconds = 1000 * 5;
         setInterval(function(){
             queryRun('select * from events', (events) => {
-                let currentTime = moment.tz('UTC').subtract(2, 'hours');
+                let currentTime = moment.tz('UTC');
                 for (let i = 0; i < events.length; i++) {
                     const eventTime = moment.tz(events[i].time, 'UTC');
                     if (eventTime < currentTime) {
