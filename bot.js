@@ -66,7 +66,7 @@ discord.on('ready', () => {
         setInterval(function(){
             console.log(moment.tz('Europe/Paris').hour());
             console.log(moment.tz('UTC').add(-4, 'hours'))
-            if(moment.tz('UTC').day() === 3 && moment.tz('UTC').hour() === 14) {
+            if(moment.tz('UTC').day() === 3 && moment.tz('UTC').hour() === 15 && moment.tz('UTC').minute() < 5) {
                 console.log('correct');
             }
             queryRun('select * from events', (events) => {
