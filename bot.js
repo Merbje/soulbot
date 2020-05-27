@@ -64,8 +64,8 @@ discord.on('ready', () => {
     console.log('Logged in as soulBotForDofus!');
         var dayMillseconds = 1000 * 5;
         setInterval(function(){
-            console.log(moment.tz('Europe/Paris').hour());
-            console.log(moment.tz('UTC').add(-4, 'hours'))
+            console.log(moment.tz('Europe/Paris').hour() === 15);
+            console.log(moment.tz('Europe/Paris').minute() < 10)
             if(moment.tz('UTC').day() === 3 && moment.tz('UTC').hour() === 15 && moment.tz('UTC').minute() < 10) {
                 console.log('correct');
             }
