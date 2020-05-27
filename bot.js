@@ -67,7 +67,7 @@ let client = new pg.Client(conString);
 
 discord.on('ready', () => {
     console.log('Logged in as soulBotForDofus!');
-        var dayMillseconds = 1000 * 5;
+        var dayMillseconds = 1000 * 60 * 5;
         setInterval(function(){j
             if(moment.tz('UTC').day() === 1 && moment.tz('Europe/Paris').hour() === 10 && moment.tz('Europe/Paris').minute() < 5) {
                 const now = moment.tz('Europe/Paris');
