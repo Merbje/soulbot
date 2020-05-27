@@ -76,15 +76,15 @@ discord.on('ready', () => {
             if(moment.tz('UTC').day() === 1 && moment.tz('Europe/Paris').hour() === 10 && moment.tz('Europe/Paris').minute() < 5) {
                 const now = moment.tz('Europe/Paris');
                 let xxx = now.format('YYYY-MM-DD') + ' 19:30:00';
-                const eventTime = moment.tz(xxx, 'Europe/Paris').format('YYYY-MM-DD HH:mm:ss');
+                const eventTime = moment.tz(xxx, 'Europe/Paris').tz('UTC').format('YYYY-MM-DD HH:mm:ss');
                 discord.channels.get(requirements).send(`__**Sheduled Event**__\n<@${ultra}> and <@${chev}> are organizing a **Tynril dungeon farming session** from **19:30** till approximately **22:00** (dofus time). Everyone is welcome to join. Be sure to always have keys ready.  Participants may be replaced halfway throughout the event if there is high demand. \nRespond with a <:plusone:674594462726357012> if you would like to join.\n${memberrole}${friendrole}`).then(reactions => { reactions.react(plusone).catch();
                     insertNewEvent(`INSERT INTO events(messageID, time) VALUES ('${reactions.id}', '${eventTime}')`, () => {});
                 });
-            } else if(moment.tz('UTC').day() === 3 && moment.tz('Europe/Paris').hour() === 17 && moment.tz('Europe/Paris').minute() < 57) {
+            } else if(moment.tz('UTC').day() === 3 && moment.tz('Europe/Paris').hour() === 10 && moment.tz('Europe/Paris').minute() < 5) {
                 const now = moment.tz('Europe/Paris');
                 let xxx = now.format('YYYY-MM-DD') + ' 20:30:00';
                 console.log(xxx);
-                const eventTime = moment.tz(xxx, 'Europe/Paris').format('YYYY-MM-DD HH:mm:ss');
+                const eventTime = moment.tz(xxx, 'Europe/Paris').tz('UTC').format('YYYY-MM-DD HH:mm:ss');
                 console.log(eventTime);
                 discord.channels.get(requirements).send(`__**Sheduled Event!**__\n<@${panda}> is organizing a **small soul session** from **20:30**(dofus time) till all the souls are gone. People that meet the requirements shown in the souls document *"Low lvl souls"* will have priority in joining.\nRespond with a <:plusone:674594462726357012> if you would like to join.\n${memberrole}${friendrole}`).then(reactions => { reactions.react(plusone).catch();
                     insertNewEvent(`INSERT INTO events(messageID, time) VALUES ('${reactions.id}', '${eventTime}')`, () => {});
@@ -92,7 +92,7 @@ discord.on('ready', () => {
             } else if(moment.tz('UTC').day() === 5 && moment.tz('Europe/Paris').hour() === 10 && moment.tz('Europe/Paris').minute() < 5) {
                 const now = moment.tz('Europe/Paris');
                 let xxx = now.format('YYYY-MM-DD') + ' 20:00:00';
-                const eventTime = moment.tz(xxx, 'Europe/Paris').format('YYYY-MM-DD HH:mm:ss');
+                const eventTime = moment.tz(xxx, 'Europe/Paris').tz('UTC').format('YYYY-MM-DD HH:mm:ss');
                 discord.channels.get(requirements).send(`__**Sheduled Event!**__\n<@${ultra}>, <@${chev}> are organizing a **Tynril and BIG souls session** from **20:00** till approximately **22:00** (dofus time). People with souls that meet the requirements shown in the souls document *"Medium/Big souls"* will have priority in joining.\nRespond with a <:plusone:674594462726357012> if you would like to join.`).then(reactions => { reactions.react(plusone).catch();
                     insertNewEvent(`INSERT INTO events(messageID, time) VALUES ('${reactions.id}', '${eventTime}')`, () => {});
                 });
