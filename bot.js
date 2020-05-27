@@ -87,8 +87,7 @@ discord.on('ready', () => {
 });
 
 discord.on('message', msg => {
-    console.log(msg.guild.members.find(m => m.user.username === 'Reiss').user.id);
-    console.log(msg.guild.members.find(m => m.user.username === 'xani').user.id);
+   console.log(msg.author.id);
     if (msg.content.startsWith('!')) {
         if (oneconnect === false) {
             oneconnect = true;
