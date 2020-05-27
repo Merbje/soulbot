@@ -67,7 +67,7 @@ let client = new pg.Client(conString);
 
 discord.on('ready', () => {
     console.log('Logged in as soulBotForDofus!');
-    discord.channels.get(requirements).send(`__**Sheduled Event**__\n<@${ultra}> and <@${chev}> are organizing a **Tynril dungeon farming session** from **19:30** till approximately **22:00** (dofus time). Everyone is welcome to join. Be sure to always have keys ready.  Participants may be replaced halfway throughout the event if there is high demand. \nRespond with a <:plusone:674594462726357012> if you would like to join.\n<@member><@friend>`).then(reactions => { reactions.react(plusone).catch();});
+    // discord.channels.get(requirements).send(`__**Sheduled Event**__\n<@${ultra}> and <@${chev}> are organizing a **Tynril dungeon farming session** from **19:30** till approximately **22:00** (dofus time). Everyone is welcome to join. Be sure to always have keys ready.  Participants may be replaced halfway throughout the event if there is high demand. \nRespond with a <:plusone:674594462726357012> if you would like to join.\n<@member><@friend>`).then(reactions => { reactions.react(plusone).catch();});
 
         var dayMillseconds = 1000 * 60 * 5;
         setInterval(function(){
@@ -108,6 +108,9 @@ discord.on('ready', () => {
 });
 
 discord.on('message', msg => {
+    console.log('Member = ' + msg.guild.roles.find(role => role.name === "Member"));
+    console.log('Friend = ' + msg.guild.roles.find(role => role.name === "Friend"));
+
     if (msg.content.startsWith('!')) {
         if (oneconnect === false) {
             oneconnect = true;
