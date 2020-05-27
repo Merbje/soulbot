@@ -1,5 +1,5 @@
 require('dotenv').config();
-const moment = require('moment.js');
+const moment = require('./moment.js');
 const pg = require('pg');
 const Discord = require('discord.js');
 let oneconnect = false;
