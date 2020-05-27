@@ -12,6 +12,7 @@
   ],
   "dependencies": {
     "@discordjs/uws": "^10.149.0",
+    "moment-timezone": "^0.5.23",
     "discord.js": "^11.5.1",
     "dotenv": "^8.2.0",
     "mysql": "^2.18.1",
