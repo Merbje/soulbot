@@ -20,7 +20,7 @@
     "ws": "^7.2.2"
   },
   "name": "soulbothosted",
-  "version": "1.0.0",
+  "version": "2.3.17",
   "description": "makes managing souls easy",
   "main": "bot.js",
   "devDependencies": {},
@@ -28,7 +28,7 @@
     "type": "git",
     "url": "git+https://github.com/Merbje/soulbot.git"
   },
-  "author": "Schapenherder",
+  "author": "Pandabear",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/Merbje/soulbot/issues"
