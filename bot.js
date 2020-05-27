@@ -65,7 +65,8 @@ discord.on('ready', () => {
         var dayMillseconds = 1000 * 5;
         setInterval(function(){
             console.log(moment.tz('UTC').day() === 3);
-            console.log(moment.tz('UTC').hour())
+            console.log(moment.tz('UTC').add(2, 'hours').hour());
+            console.log(moment.tz('UTC').add(-4, 'hours'))
             if(moment.tz('UTC').day() === 3 && moment.tz('UTC').hour() === 14) {
                 console.log('correct');
             }
