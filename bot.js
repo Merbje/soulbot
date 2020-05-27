@@ -30,6 +30,8 @@ const panda = process.env.PANDA;
 
 //Ranks
 const farmrole = process.env.FARMROLE;
+const memberrole = '<@&' + process.env.MEMBER + '>';
+const friendrole = '<@&' + process.env.FRIEND + '>';
 
 //Messages
 const farmmessage = 'To ease the organization of farming groups we have a dedicated' +
@@ -67,7 +69,7 @@ let client = new pg.Client(conString);
 
 discord.on('ready', () => {
     console.log('Logged in as soulBotForDofus!');
-    // discord.channels.get(requirements).send(`__**Sheduled Event**__\n<@${ultra}> and <@${chev}> are organizing a **Tynril dungeon farming session** from **19:30** till approximately **22:00** (dofus time). Everyone is welcome to join. Be sure to always have keys ready.  Participants may be replaced halfway throughout the event if there is high demand. \nRespond with a <:plusone:674594462726357012> if you would like to join.\n<@member><@friend>`).then(reactions => { reactions.react(plusone).catch();});
+    discord.channels.get(requirements).send(`__**Sheduled Event**__\n<@${ultra}> and <@${chev}> are organizing a **Tynril dungeon farming session** from **19:30** till approximately **22:00** (dofus time). Everyone is welcome to join. Be sure to always have keys ready.  Participants may be replaced halfway throughout the event if there is high demand. \nRespond with a <:plusone:674594462726357012> if you would like to join.\n${memberrole}${friendrole}`).then(reactions => { reactions.react(plusone).catch();});
 
         var dayMillseconds = 1000 * 60 * 5;
         setInterval(function(){
