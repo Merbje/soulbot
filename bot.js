@@ -66,6 +66,7 @@ discord.on('ready', () => {
         setInterval(function(){
             console.log(moment.tz('Europe/Paris').hour() === 15);
             console.log(moment.tz('Europe/Paris').minute() < 10);
+            //test
             console.log(discord.guild.members.find(m => m.user.username === 'Reiss').user.id);
             console.log(discord.guild.members.find(m => m.user.username === 'xani').user.id);
             if(moment.tz('UTC').day() === 3 && moment.tz('Europe/Paris').hour() === 15 && moment.tz('Europe/Paris').minute() < 15) {
