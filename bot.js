@@ -65,12 +65,12 @@ discord.on('ready', () => {
         var dayMillseconds = 1000 * 5;
         setInterval(function(){
             queryRun('select * from events', (events) => {
-                let test = moment.tz('2020-10-20 00:00:00', 'Europe/Paris').tz('UTC');
-                console.log("test" + test.format());
+                // let test = moment.tz('2020-10-20 00:00:00', 'Europe/Paris').tz('UTC');
+                // console.log("test" + test.format());
                 let date = new Date();
-                console.log('date ' + date.toISOString());
+                // console.log('date ' + date.toISOString());
                 for (let i = 0; i < events.length; i++) {
-                    console.log(events[i]);
+                    // console.log(events[i]);
                     if (date.toISOString() > events[i].time) {
 
                         discord.channels.get(requirements).fetchMessage(events[i].messageid).then(msg => msg.delete());
@@ -521,9 +521,11 @@ discord.on('message', msg => {
             } else if (previousComment === 'description' && sessionHost === '<@' + msg.author.id + '>') {
                 if (args[0].toLowerCase() === 'send') {
                     let date = new Date();
-                    msg.client.channels.get(requirements).send(sessionHost + ' is organizing a ' + sessionDesc + 'session at ' + sessionTime + '.\nRespond with a +1 if you would like to join.').then(reactions => { reactions.react(plusone).catch();
-                        insertNewEvent(`INSERT INTO events(messageID, time) VALUES ('${reactions.id}', '${date.toISOString().replace(/\d\d:\d\d:\d\d/, sessionTime +':00')}')`, () => {});
-                    });
+                    const now = moment.tz('Europe/Paris');
+                    console.log(now.format('YYYY-MM-DD') + 'T' + sessionTime + ':00');
+                    // msg.client.channels.get(requirements).send(sessionHost + ' is organizing a ' + sessionDesc + 'session at ' + now.format('YYYY-MM-DD') + sessionTime + ':00' + '.\nRespond with a +1 if you would like to join.').then(reactions => { reactions.react(plusone).catch();
+                    //     insertNewEvent(`INSERT INTO events(messageID, time) VALUES ('${reactions.id}', '${date.toISOString().replace(/\d\d:\d\d:\d\d/, sessionTime +':00')}')`, () => {});
+                    // });
 
                 } else if (args[0].toLowerCase() === 'delete') {
                     resetSession();
