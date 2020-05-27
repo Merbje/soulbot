@@ -111,14 +111,7 @@
       <workItem from="1589803828234" duration="473000" />
       <workItem from="1590422886210" duration="245000" />
       <workItem from="1590517894513" duration="10284000" />
-      <workItem from="1590575953364" duration="3980000" />
-    </task>
-    <task id="LOCAL-00194" summary="New features, session and farmrank.">
-      <created>1588841466010</created>
-      <option name="number" value="00194" />
-      <option name="presentableId" value="LOCAL-00194" />
-      <option name="project" value="LOCAL" />
-      <updated>1588841466010</updated>
+      <workItem from="1590575953364" duration="4165000" />
     </task>
     <task id="LOCAL-00195" summary="New features, session and farmrank.">
       <created>1588842296875</created>
@@ -456,7 +449,14 @@
       <option name="project" value="LOCAL" />
       <updated>1590579017386</updated>
     </task>
-    <option name="localTasksCounter" value="243" />
+    <task id="LOCAL-00243" summary="Working on storycommands">
+      <created>1590583468473</created>
+      <option name="number" value="00243" />
+      <option name="presentableId" value="LOCAL-00243" />
+      <option name="project" value="LOCAL" />
+      <updated>1590583468473</updated>
+    </task>
+    <option name="localTasksCounter" value="244" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -499,11 +499,11 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="987" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1586687446270" />
-    <state x="954" y="29" key="Vcs.Push.Dialog.v2" timestamp="1590579018951">
+    <state x="954" y="29" key="Vcs.Push.Dialog.v2" timestamp="1590583469901">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="304" y="264" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1586597099379" />
-    <state x="954" y="29" key="Vcs.Push.Dialog.v2/0.0.1920.1050@0.0.1920.1050" timestamp="1590579018951" />
+    <state x="954" y="29" key="Vcs.Push.Dialog.v2/0.0.1920.1050@0.0.1920.1050" timestamp="1590583469901" />
     <state x="266" y="283" key="Vcs.Push.Dialog.v2/0.23.1680.1027@0.23.1680.1027" timestamp="1583863650609" />
     <state x="304" y="291" key="Vcs.Push.Dialog.v2/0.23.1920.1057/1920.23.1366.1001@0.23.1920.1057" timestamp="1583101628660" />
     <state x="304" y="291" key="Vcs.Push.Dialog.v2/0.23.1920.1057@0.23.1920.1057" timestamp="1584464855095" />

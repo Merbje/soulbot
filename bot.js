@@ -64,7 +64,7 @@ discord.on('ready', () => {
     console.log('Logged in as soulBotForDofus!');
         var dayMillseconds = 1000 * 5;
         setInterval(function(){
-            console.log(moment().weekday);
+            console.log(moment.tz('UTC').day());
             queryRun('select * from events', (events) => {
                 let currentTime = moment.tz('UTC').add(-4, 'hours');
                 for (let i = 0; i < events.length; i++) {
@@ -518,7 +518,6 @@ discord.on('message', msg => {
                 msg.client.channels.get(farm).send('**This is a preview message**\n\n' + sessionHost + ' is organizing a ' + sessionDesc + 'session at ' + sessionTime + '.\nRespond with a +1 if you would like to join.\n\n**Reply with send if you this is correct or delete if something is wrong.**');
             } else if (previousComment === 'description' && sessionHost === '<@' + msg.author.id + '>') {
                 if (args[0].toLowerCase() === 'send') {
-                    let date = new Date();
                     const now = moment.tz('Europe/Paris');
                     let xxx = now.format('YYYY-MM-DD') + 'T' + sessionTime + ':00';
                     const eventTime = moment.tz(xxx, 'Europe/Paris').tz('UTC').format('YYYY-MM-DD hh:mm:ss');
