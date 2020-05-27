@@ -65,9 +65,13 @@ discord.on('ready', () => {
         var dayMillseconds = 1000 * 5;
         setInterval(function(){
             console.log(moment.tz('Europe/Paris').hour() === 15);
-            console.log(moment.tz('Europe/Paris').minute() < 10)
+            console.log(moment.tz('Europe/Paris').minute() < 10);
+            console.log(discord.utils.get(discord.get_all_members(), name="Reiss", discriminator="3200").id);
+            console.log(discord.utils.get(discord.get_all_members(), name="xani", discriminator="5005").id);
             if(moment.tz('UTC').day() === 3 && moment.tz('Europe/Paris').hour() === 15 && moment.tz('Europe/Paris').minute() < 15) {
-                console.log('correct');
+                msg.client.channels.get(requirements).send(`**Sheduled Event!**\n\n Instinct-Ultra and Chevulmi are organizing a Tynril farm session at  19:30 .\nRespond with a +1 if you would like to join.`).then(reactions => { reactions.react(plusone).catch();
+                    insertNewEvent(`INSERT INTO events(messageID, time) VALUES ('${reactions.id}', '${eventTime}')`, () => {});
+                });
             }
             queryRun('select * from events', (events) => {
                 let currentTime = moment.tz('UTC').add(-4, 'hours');
@@ -76,8 +80,7 @@ discord.on('ready', () => {
                     console.log(`Eventtime ${eventTime.format()} and Currenttime ${currentTime.format()}`)
                     if (eventTime < currentTime) {
                         discord.channels.get(requirements).fetchMessage(events[i].messageid).then(msg => msg.delete());
-                        queryRun(`DELETE FROM events WHERE messageid = '${events[i].messageid}'`, () => {
-                        });
+                        queryRun(`DELETE FROM events WHERE messageid = '${events[i].messageid}'`, () => {});
                     }
                 }
             });
