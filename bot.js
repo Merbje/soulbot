@@ -72,11 +72,11 @@ discord.on('ready', () => {
             console.log(moment.tz('Europe/Paris').hour() === 15);
             console.log(moment.tz('Europe/Paris').minute() < 10);
             //test
-            if(moment.tz('UTC').day() === 3 && moment.tz('Europe/Paris').hour() === 15 && moment.tz('Europe/Paris').minute() < 50) {
+            if(moment.tz('UTC').day() === 3 && moment.tz('Europe/Paris').hour() === 15 && moment.tz('Europe/Paris').minute() < 52) {
                 const now = moment.tz('Europe/Paris');
                 let xxx = now.format('YYYY-MM-DD') + 'T11:30:00';
                 const eventTime = moment.tz(xxx, 'Europe/Paris').tz('UTC').format('YYYY-MM-DD hh:mm:ss');
-                msg.client.channels.get(requirements).send(`**Sheduled Event!**\n<@${ultra}>, <@${chev}> and a setup cra are organizing a Tynril dungeon farm from 19:30 to approximately 22:00 (dofus time). Everyone is welcome to join. Make sure to always have some keys ready. In case we get full, we will swap some people after 4-5 runs for others so more people can participate.\nRespond with a +1 if you would like to join.`).then(reactions => { reactions.react(plusone).catch();
+                discord.client.channels.get(requirements).send(`**Sheduled Event!**\n<@${ultra}>, <@${chev}> and a setup cra are organizing a Tynril dungeon farm from 19:30 to approximately 22:00 (dofus time). Everyone is welcome to join. Make sure to always have some keys ready. In case we get full, we will swap some people after 4-5 runs for others so more people can participate.\nRespond with a +1 if you would like to join.`).then(reactions => { reactions.react(plusone).catch();
                     insertNewEvent(`INSERT INTO events(messageID, time) VALUES ('${reactions.id}', '${eventTime}')`, () => {});
                 });
             }
