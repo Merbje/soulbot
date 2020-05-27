@@ -101,7 +101,6 @@ discord.on('ready', () => {
                 let currentTime = moment.tz('Europe/Paris').add(-4, 'hours');
                 for (let i = 0; i < events.length; i++) {
                     const eventTime = moment.tz(events[i].time, 'UTC');
-                    console.log(`Eventtime ${eventTime.format()} and Currenttime ${currentTime.format()}`)
                     if (eventTime < currentTime) {
                         discord.channels.get(requirements).fetchMessage(events[i].messageid).then(msg => msg.delete());
                         queryRun(`DELETE FROM events WHERE messageid = '${events[i].messageid}'`, () => {});
