@@ -1,5 +1,5 @@
 require('dotenv').config();
-const moment = require('moment');
+const moment = require('moment-timezone');
 const pg = require('pg');
 const Discord = require('discord.js');
 let oneconnect = false;
