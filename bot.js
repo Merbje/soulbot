@@ -85,6 +85,7 @@ discord.on('ready', () => {
                 let xxx = now.format('YYYY-MM-DD') + 'T20:30:00';
                 console.log(xxx);
                 const eventTime = moment.tz(xxx, 'Europe/Paris').tz('UTC').format('YYYY-MM-DD hh:mm:ss');
+                console.log(eventTime);
                 discord.channels.get(requirements).send(`__**Sheduled Event!**__\n<@${panda}> is organizing a **small soul session** from **20:30**(dofus time) till all the souls are gone. People that meet the requirements shown in the souls document *"Low lvl souls"* will have priority in joining.\nRespond with a <:plusone:674594462726357012> if you would like to join.\n${memberrole}${friendrole}`).then(reactions => { reactions.react(plusone).catch();
                     insertNewEvent(`INSERT INTO events(messageID, time) VALUES ('${reactions.id}', '${eventTime}')`, () => {});
                 });
