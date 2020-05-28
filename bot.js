@@ -565,6 +565,9 @@ discord.on('message', msg => {
 
 function resetSession() {
     previousComment = '';
+    sessionHost = '';
+    sessionDesc = '';
+    sessionTime = '';
 }
 
 function connectDB() {
