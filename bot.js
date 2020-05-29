@@ -491,7 +491,7 @@ discord.on('message', msg => {
                         "!deletesoul [user] [all:mob] [OPT: amount]** deletes a soul from another user\n**" +
                         "!addsoul [user] [mob] [amount]** adds or updates a soul from another user\n**" +
                         "!soulsperuser** displays all registered souls per user\n" +
-                        "!removed [inactive:kicked] [username] send kicked message to user and removes member rank"
+                        "**!removed [inactive:kicked] [username]** send kicked message to user and removes member rank"
                     ).then();
                 } else if (args[0] === 'removed') {
                     let privatemsg = msg.mentions.users.first();
