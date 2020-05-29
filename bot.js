@@ -557,13 +557,13 @@ discord.on('message', msg => {
                 for (let i = 0; i < args.length; i++) {
                     sessionDesc += args[i] + ' ';
                 }
-                msg.client.channels.get(farm).send('**This is a preview message**\n\n' + sessionHost + ' is organizing a ' + sessionDesc + 'session at ' + sessionTime + '.\nRespond with a +1 if you would like to join.\n\n**Reply with send if you this is correct or delete if something is wrong.**');
+                msg.client.channels.get(farm).send(`Excellent! Here's a summary of our event:\n\n`);
             } else if (previousComment === 'description' && sessionHost === '<@' + msg.author.id + '>') {
                 if (args[0].toLowerCase() === 'send') {
                     const now = moment.tz('Europe/Paris');
                     let eventFormat = now.format('YYYY-MM-DD') + 'T' + sessionTime + ':00';
                     const eventTime = moment.tz(eventFormat, 'Europe/Paris').tz('UTC').format('YYYY-MM-DD hh:mm:ss');
-                    msg.client.channels.get(requirements).send(sessionHost + ' is organizing a ' + sessionDesc + 'session at ' + sessionTime + '.\nRespond with a +1 if you would like to join.').then(reactions => {
+                    msg.client.channels.get(requirements).send(`${sessionHost} has just announced a farming event with the following description: ${sessionDesc}. The event will be taking place at ${sessionTime} Dofus time.\nIf you'd like to participate respond to this automated message with <:plusone:674594462726357012>`).then(reactions => {
                         reactions.react(plusone).catch();
                         insertNewEvent(`INSERT INTO events(messageID, time) VALUES ('${reactions.id}', '${eventTime}')`, () => {
                         });
@@ -574,7 +574,6 @@ discord.on('message', msg => {
                 }
             }
         }
-
 });
 
 function resetSession() {
