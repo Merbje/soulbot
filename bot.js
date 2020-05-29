@@ -30,6 +30,7 @@ const panda = process.env.PANDA;
 
 //Ranks
 const farmrole = process.env.FARMROLE;
+const member = process.env.MEMBER;
 const memberrole = '<@&' + process.env.MEMBER + '>';
 const friendrole = '<@&' + process.env.FRIEND + '>';
 
@@ -503,7 +504,7 @@ discord.on('message', msg => {
                     }
 
                     if (args[1].toLowerCase() === 'inactive' || args[1].toLowerCase() === 'kicked') {
-                        privatemsg.removeRole(memberrole).catch(console.error);
+                        privatemsg.removeRole(member).catch(console.error);
                         privatemsg.send(pm, {
                             files: [
                                 "./end.png"
