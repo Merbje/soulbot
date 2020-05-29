@@ -490,41 +490,48 @@ discord.on('message', msg => {
                         commands[4] + "** displays another users souls\n**" +
                         "!deletesoul [user] [all:mob] [OPT: amount]** deletes a soul from another user\n**" +
                         "!addsoul [user] [mob] [amount]** adds or updates a soul from another user\n**" +
-                        "!soulsperuser** displays all registered souls per user"
+                        "!soulsperuser** displays all registered souls per user\n" +
+                        "!removed [inactive:kicked] [username] send kicked message to user and removes member rank"
                     ).then();
                 } else if (args[0] === 'removed') {
                     let privatemsg = msg.mentions.users.first();
-                    let pm = ("Hey " + privatemsg + ",\n\nDue to your recent inactivity you have been removed from the guild as part of our policy. Your discord rank has been adjusted. If you plan on being more active and want to rejoin the guild feel free free to send an administrator or a recruitment officer a private message through discord.\n\nKind regards,\n\nBona Fide staff");
-                    privatemsg.send(pm, {
-                        files: [
-                            "./end.png"
-                        ]
-                    }).then();
-                    msg.react(vinkje).then();
-                } else if (args[0] === 'smallsouls') {
+                    let pm;
+                    if (args[1].toLowerCase() === 'inactive') {
+                        pm = ("Hey " + privatemsg + ",\n\nDue to your recent inactivity you have been removed from the guild as part of our policy. Your discord rank has been adjusted. If you plan on being more active and want to rejoin the guild feel free free to send an administrator or a recruitment officer a private message through discord.\n\nKind regards,\n\nBona Fide staff");
+                    } else if (args[1].toLowerCase() === 'kicked') {
+                        pm = (`Hey ${privatemsg},\n\nYou’re receiving this message because either you have been removed from the guild or we have taken notice of you taking the initiative to leave.\n\nWe’ve adjusted your discord rank to ‘Friend’, you’re still welcome to take part in our community and events and we encourage you to do so!\n\nIf you have any questions feel free to contact an Admin or Recruitment Officer.\n\nKind regards,\n\nBona Fide staff`)
+                    }
 
-                }
-            }
-            if (msg.channel.id === requirements) {
-                msg.member.removeRole(farmrole).catch(console.error);
-                switch (args[0]) {
-                    case "farm" :
-                        msg.react(vinkje).then();
-                        msg.author.send(farmmessage, {
+                    if (args[1].toLowerCase() === 'inactive' || args[1].toLowerCase() === 'kicked') {
+                        privatemsg.member.removeRole(memberrole).catch(console.error);
+                        privatemsg.send(pm, {
                             files: [
                                 "./end.png"
                             ]
                         }).then();
-                        break;
-                    case "eligible" :
-                        msg.member.addRole(farmrole).catch(console.error);
-                        msg.react(vinkje).then();
-                        break;
-                    default:
-                        msg.react("❓").then();
+                    }
+                    msg.react(vinkje).then();
                 }
-            }
-        }else {
+                if (msg.channel.id === requirements) {
+                    msg.member.removeRole(farmrole).catch(console.error);
+                    switch (args[0]) {
+                        case "farm" :
+                            msg.react(vinkje).then();
+                            msg.author.send(farmmessage, {
+                                files: [
+                                    "./end.png"
+                                ]
+                            }).then();
+                            break;
+                        case "eligible" :
+                            msg.member.addRole(farmrole).catch(console.error);
+                            msg.react(vinkje).then();
+                            break;
+                        default:
+                            msg.react("❓").then();
+                    }
+                }
+            } else {
                 msg.reply('There is a 1.5 second cooldown between commands').then();
             }
         }
@@ -535,12 +542,12 @@ discord.on('message', msg => {
                 resetSession();
                 sessionHost = '<@' + msg.author.id + '>';
                 previousComment = "session";
-                msg.client.channels.get(farm).send('Hey there! Let\'s set up a farming event and make the announcement! First off, when should we shedule the event? Reply with **now** or tell me four digits with a : in the middle to setup a custom time (example: 21:30).');
+                msg.client.channels.get(farm).send('Hey there! Let\'s set up a farming event and make the announcement! First off, when should we shedule the event? Reply with four digits with a : in the middle to setup a custom time (example: 21:30).');
 
-            } else if (previousComment === 'session' && args[0].match(/^\d\d:\d\d$/)) {
-                    previousComment = 'time';
-                    sessionTime = args[0];
-                    msg.client.channels.get(farm).send('Got it. What would u like the description of the event to be?');
+            } else if (previousComment === 'session' && args[0].match(/^\d\d:\d\d$/) && sessionHost === '<@' + msg.author.id + '>') {
+                previousComment = 'time';
+                sessionTime = args[0];
+                msg.client.channels.get(farm).send('Got it. What would u like the description of the event to be?');
             } else if (previousComment === 'time' && sessionHost === '<@' + msg.author.id + '>') {
                 previousComment = 'description'
                 for (let i = 0; i < args.length; i++) {
@@ -552,8 +559,10 @@ discord.on('message', msg => {
                     const now = moment.tz('Europe/Paris');
                     let eventFormat = now.format('YYYY-MM-DD') + 'T' + sessionTime + ':00';
                     const eventTime = moment.tz(eventFormat, 'Europe/Paris').tz('UTC').format('YYYY-MM-DD hh:mm:ss');
-                    msg.client.channels.get(requirements).send(sessionHost + ' is organizing a ' + sessionDesc + 'session at ' + sessionTime + '.\nRespond with a +1 if you would like to join.').then(reactions => { reactions.react(plusone).catch();
-                        insertNewEvent(`INSERT INTO events(messageID, time) VALUES ('${reactions.id}', '${eventTime}')`, () => {});
+                    msg.client.channels.get(requirements).send(sessionHost + ' is organizing a ' + sessionDesc + 'session at ' + sessionTime + '.\nRespond with a +1 if you would like to join.').then(reactions => {
+                        reactions.react(plusone).catch();
+                        insertNewEvent(`INSERT INTO events(messageID, time) VALUES ('${reactions.id}', '${eventTime}')`, () => {
+                        });
                     });
 
                 } else if (args[0].toLowerCase() === 'delete') {
@@ -561,6 +570,7 @@ discord.on('message', msg => {
                 }
             }
         }
+    }
 
 });
 
