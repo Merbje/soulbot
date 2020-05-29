@@ -494,7 +494,7 @@ discord.on('message', msg => {
                         "**!removed [inactive:kicked] [username]** send kicked message to user and removes member rank"
                     ).then();
                 } else if (args[0] === 'removed') {
-                    let privatemsg = msg.mentions.users.first();
+                    let privatemsg = msg.mentions.members.first();
                     let pm;
                     if (args[1].toLowerCase() === 'inactive') {
                         pm = ("Hey " + privatemsg + ",\n\nDue to your recent inactivity you have been removed from the guild as part of our policy. Your discord rank has been adjusted. If you plan on being more active and want to rejoin the guild feel free free to send an administrator or a recruitment officer a private message through discord.\n\nKind regards,\n\nBona Fide staff");
@@ -503,7 +503,7 @@ discord.on('message', msg => {
                     }
 
                     if (args[1].toLowerCase() === 'inactive' || args[1].toLowerCase() === 'kicked') {
-                        privatemsg.id.member.removeRole(memberrole).catch(console.error);
+                        privatemsg.removeRole(memberrole).catch(console.error);
                         privatemsg.send(pm, {
                             files: [
                                 "./end.png"
