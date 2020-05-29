@@ -96,7 +96,7 @@ discord.on('ready', () => {
                 const now = moment.tz('Europe/Paris');
                 let eventFormat = now.format('YYYY-MM-DD') + ' 20:00:00';
                 const eventTime = moment.tz(eventFormat, 'Europe/Paris').tz('UTC').format('YYYY-MM-DD HH:mm:ss');
-                discord.channels.get(requirements).send(`__**Sheduled Event!**__\n<@${ultra}>, <@${chev}> are organizing a **Tynril and BIG souls session** from **20:00** till approximately **22:00** (dofus time). People with souls that meet the requirements shown in the souls document *"Medium/Big souls"* will have priority in joining.\nRespond with a <:plusone:674594462726357012> if you would like to join.\n${memberrole}${friendrole}`).then(reactions => { reactions.react(plusone).catch();
+                discord.channels.get(requirements).send(`__**Sheduled Event!**__\n<@${ultra}>, <@${chev}> are organizing a **Tynril and BIG souls session** from **20:00** till approximately **22:00** (dofus time). People with souls that meet the requirements shown in the souls document *"Medium/Big souls"* will have priority in joining.\nRespond with a <:plusone:674594462726357012> if you would like to join.1`).then(reactions => { reactions.react(plusone).catch();
                     insertNewEvent(`INSERT INTO events(messageID, time) VALUES ('${reactions.id}', '${eventTime}')`, () => {});
                 });
             }
@@ -557,13 +557,13 @@ discord.on('message', msg => {
                 for (let i = 0; i < args.length; i++) {
                     sessionDesc += args[i] + ' ';
                 }
-                msg.client.channels.get(farm).send(`Excellent! Here's a summary of our event:\n\n`);
+                msg.client.channels.get(farm).send(`Excellent! Here's a summary of our event:\n\n${sessionHost} has just announced a farming event with the following description: **${sessionDesc}**. The event will be taking place at **${sessionTime}** Dofus time.\\nIf you'd like to participate respond to this automated message with <:plusone:674594462726357012>\n${memberrole}${friendrole}\n\nIf it's to your liking reply to me with **announce**, if you think we should make some adjustments reply with **cancel** and we will start over.`);
             } else if (previousComment === 'description' && sessionHost === '<@' + msg.author.id + '>') {
-                if (args[0].toLowerCase() === 'send') {
+                if (args[0].toLowerCase() === '') {
                     const now = moment.tz('Europe/Paris');
                     let eventFormat = now.format('YYYY-MM-DD') + 'T' + sessionTime + ':00';
                     const eventTime = moment.tz(eventFormat, 'Europe/Paris').tz('UTC').format('YYYY-MM-DD hh:mm:ss');
-                    msg.client.channels.get(requirements).send(`${sessionHost} has just announced a farming event with the following description: ${sessionDesc}. The event will be taking place at ${sessionTime} Dofus time.\nIf you'd like to participate respond to this automated message with <:plusone:674594462726357012>`).then(reactions => {
+                    msg.client.channels.get(requirements).send(`${sessionHost} has just announced a farming event with the following description: **${sessionDesc}**. The event will be taking place at **${sessionTime}** Dofus time.\nIf you'd like to participate respond to this automated message with <:plusone:674594462726357012>\n${memberrole}${friendrole}`).then(reactions => {
                         reactions.react(plusone).catch();
                         insertNewEvent(`INSERT INTO events(messageID, time) VALUES ('${reactions.id}', '${eventTime}')`, () => {
                         });
