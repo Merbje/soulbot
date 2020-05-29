@@ -515,6 +515,7 @@ discord.on('message', msg => {
                     }
                     msg.react(vinkje).then();
                 }
+            }
                 if (msg.channel.id === requirements) {
                     // msg.member.removeRole(farmrole).catch(console.error);
                     switch (args[0]) {
@@ -538,7 +539,6 @@ discord.on('message', msg => {
                 msg.reply('There is a 1.5 second cooldown between commands').then();
             }
         }
-    }
         if (msg.channel.id === farm && !msg.author.bot) {
             let args = msg.content.split(' ');
             console.log(previousComment);
