@@ -94,7 +94,7 @@ discord.on('ready', () => {
                 const now = moment.tz('Europe/Paris');
                 let eventFormat = now.format('YYYY-MM-DD') + ' 20:00:00';
                 const eventTime = moment.tz(eventFormat, 'Europe/Paris').tz('UTC').format('YYYY-MM-DD HH:mm:ss');
-                discord.channels.get(requirements).send(`__**Sheduled Event!**__\n<@${ultra}>, <@${chev}> are organizing a **Tynril and BIG souls session** from **20:00** till approximately **22:00** (dofus time). People with souls that meet the requirements shown in the souls document *"Medium/Big souls"* will have priority in joining.\nRespond with a <:plusone:674594462726357012> if you would like to join.`).then(reactions => { reactions.react(plusone).catch();
+                discord.channels.get(requirements).send(`__**Sheduled Event!**__\n<@${ultra}>, <@${chev}> are organizing a **Tynril and BIG souls session** from **20:00** till approximately **22:00** (dofus time). People with souls that meet the requirements shown in the souls document *"Medium/Big souls"* will have priority in joining.\nRespond with a <:plusone:674594462726357012> if you would like to join.\n${memberrole}${friendrole}`).then(reactions => { reactions.react(plusone).catch();
                     insertNewEvent(`INSERT INTO events(messageID, time) VALUES ('${reactions.id}', '${eventTime}')`, () => {});
                 });
             }
@@ -117,7 +117,7 @@ discord.on('message', msg => {
             oneconnect = true;
             setTimeout(function () {
                 oneconnect = false;
-            }, 2500);
+            }, 1500);
             let user = msg.author.username;
             if (msg.author.lastMessage.member.nickname !== null) {
                 user = msg.author.lastMessage.member.nickname;
@@ -525,7 +525,7 @@ discord.on('message', msg => {
                 }
             }
         }else {
-                msg.reply('There is a 2.5 second cooldown between commands').then();
+                msg.reply('There is a 1.5 second cooldown between commands').then();
             }
         }
         if (msg.channel.id === farm && !msg.author.bot) {
