@@ -503,7 +503,7 @@ discord.on('message', msg => {
                     }
 
                     if (args[1].toLowerCase() === 'inactive' || args[1].toLowerCase() === 'kicked') {
-                        privatemsg.member.removeRole(memberrole).catch(console.error);
+                        privatemsg.id.member.removeRole(memberrole).catch(console.error);
                         privatemsg.send(pm, {
                             files: [
                                 "./end.png"
