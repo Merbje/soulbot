@@ -541,14 +541,13 @@ discord.on('message', msg => {
         }
         if (msg.channel.id === farm && !msg.author.bot) {
             let args = msg.content.split(' ');
-            console.log(previousComment);
-            if (args[0] === '!session') {
+            if (args[0] === '!event') {
                 resetSession();
                 sessionHost = '<@' + msg.author.id + '>';
-                previousComment = "session";
+                previousComment = "event";
                 msg.client.channels.get(farm).send('Hey there! Let\'s set up a farming event and make the announcement! First off, when should we shedule the event? Reply with four digits with a : in the middle to setup a custom time (example: 21:30).');
 
-            } else if (previousComment === 'session' && args[0].match(/^\d\d:\d\d$/) && sessionHost === '<@' + msg.author.id + '>') {
+            } else if (previousComment === 'event' && args[0].match(/^\d\d:\d\d$/) && sessionHost === '<@' + msg.author.id + '>') {
                 previousComment = 'time';
                 sessionTime = args[0];
                 msg.client.channels.get(farm).send('Got it. What would u like the description of the event to be?');
