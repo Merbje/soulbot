@@ -590,15 +590,15 @@ Hi there! Ready to start using BonaBot, eh? Here's some info to get you started!
 __<#${general}> **commands**__
 **!farm** *starts the procedure of granting you access to the <#${farm}> channel*
 
-__<#${soulchannel}> **commands*__
+__<#${soulchannel}> **commands**__
 **!addsoul** [mob] [amount] *adds souls under your username to the BonaBot inventory*
 **!deletesoul** [all:mob] [OPT: amount] *removes souls under your username from the BonaBot inventory*
 **!mysouls** *displays Lists your current registered souls*
 **!moblist** *lists all available mob categories and their corresponding !addsoul tag*
 **!buyin** [small] [average] [big] [gigantic] *calculates a buyin based on your current registered souls (you must enter the current market prices for the different soulstones)*
 
-__<#${farm}> **commands*__
-**!event** *start to set up a customized announcement message for a farming event in the <#${eventchannel} channel*>
+__<#${farm}> **commands**__
+**!event** *start to set up a customized announcement message for a farming event in the <#${eventchannel}> channel*
 
 https://docs.google.com/spreadsheets/d/10PJIyhDvzenkKwRcTF1I8JjH9MbN9jlUILiy-fZvsOc/edit#gid=0
             `, { files: [
