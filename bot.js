@@ -556,7 +556,7 @@ discord.on('message', msg => {
                 for (let i = 0; i < args.length; i++) {
                     sessionDesc += ' ' + args[i];
                 }
-                msg.client.channels.get(farm).send(`Excellent! Here's a summary of our event:\n\n${sessionHost} has just announced a farming event with the following description: **${sessionDesc}**. The event will be taking place at **${sessionTime}** Dofus time.\nRespond to this automated message with <:plusone:674594462726357012>, if you would like to join.\n${memberrole}${friendrole}\n\nIf it's to your liking reply to me with **announce**, if you think we should make some adjustments reply with **cancel** and we will start over.`);
+                msg.client.channels.get(farm).send(`Excellent! Here's a summary of our event:\n\n${sessionHost} has just announced a farming event with the following description: **${sessionDesc}**. The event will be taking place at **${sessionTime}** Dofus time.\nRespond to this automated message with <:plusone:674594462726357012>, if you would like to join.\n@Member @Friend\n\nIf it's to your liking reply to me with **announce**, if you think we should make some adjustments reply with **cancel** and we will start over.`);
             } else if (previousComment === 'description' && sessionHost === '<@' + msg.author.id + '>') {
                 if (args[0].toLowerCase() === 'announce') {
                     const now = moment.tz('Europe/Paris');
