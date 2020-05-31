@@ -610,7 +610,15 @@ https://docs.google.com/spreadsheets/d/10PJIyhDvzenkKwRcTF1I8JjH9MbN9jlUILiy-fZv
             msg.react(vinkje).then();
         }
     } else if (msg.channel.type === "dm" && !msg.author.bot) {
-        msg.reply("Please use commands in the corresponding channels").then();
+        let args = msg.content.substring(1).split(' ');
+        switch (args[0]) {
+            case "eligible" :
+                msg.member.addRole(farmrole).catch(console.error);
+                msg.react(vinkje).then();
+                break;
+            default:
+                msg.reply("Please use commands in the corresponding channels").then();
+        }
     }
 });
 
