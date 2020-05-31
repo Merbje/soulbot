@@ -10,6 +10,7 @@ const discord = new Discord.Client();
 const jazzlounge = process.env.JAZZLOUNGE;
 const soulchannel = process.env.SOULCHANNEL;
 const farm = process.env.FARM;
+const general = process.env.GENERAL;
 const requirements = process.env.REQUIREMENTS;
 
 //Session
@@ -334,17 +335,7 @@ discord.on('message', msg => {
                         break;
                     //===================================================================//
                     case 'help' :
-                        msg.author.send("list of commands:\n**" +
-                            commands[0] + "** adds a soul or updates an already existing soul.\n**" +
-                            commands[1] + "** deletes souls\n**" +
-                            commands[2] + "** displays all your registered souls\n**" +
-                            commands[5] + "** displays the list of all the mobs we soul\n**" +
-                            commands[6] + "** calculates your buy in based on your souls (you must enter 4 prices)", {
-                            files: [
-                                "./end.png"
-                            ]
-                        }).then();
-                        msg.react(vinkje).then();
+                        help();
                         break;
                     default:
                         msg.react("❓").then();
@@ -575,7 +566,29 @@ discord.on('message', msg => {
                 }
             }
         }
+
+        function help() {
+            msg.author.send(`
+            Hi there! Ready to start using BonaBot, eh? Here's some info to get you started!
+            \n\n
+            *<#${general}> **commands***\n
+            **!farm** *starts the procedure of granting you access to the <#${farm}> channel*\n\n
+            *<#${soulchannel}> **commands***\\n
+            `).then();
+            msg.author.send("list of commands:\n**" +
+                commands[0] + "** adds a soul or updates an already existing soul.\n**" +
+                commands[1] + "** deletes souls\n**" +
+                commands[2] + "** displays all your registered souls\n**" +
+                commands[5] + "** displays the list of all the mobs we soul\n**" +
+                commands[6] + "** calculates your buy in based on your souls (you must enter 4 prices)", {
+                files: [
+                    "./end.png"
+                ]
+            }).then();
+            msg.react(vinkje).then();
+        }
 });
+
 
 function resetSession() {
     previousComment = '';
