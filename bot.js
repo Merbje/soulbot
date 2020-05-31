@@ -337,17 +337,18 @@ discord.on('message', msg => {
                             break;
                         //===================================================================//
                         case 'help' :
-                            msg.author.send("list of commands:\n**" +
-                                commands[0] + "** adds a soul or updates an already existing soul.\n**" +
-                                commands[1] + "** deletes souls\n**" +
-                                commands[2] + "** displays all your registered souls\n**" +
-                                commands[5] + "** displays the list of all the mobs we soul\n**" +
-                                commands[6] + "** calculates your buy in based on your souls (you must enter 4 prices)", {
-                                files: [
-                                    "./end.png"
-                                ]
-                            }).then();
-                            msg.react(vinkje).then();
+                            help();
+                            // msg.author.send("list of commands:\n**" +
+                            //     commands[0] + "** adds a soul or updates an already existing soul.\n**" +
+                            //     commands[1] + "** deletes souls\n**" +
+                            //     commands[2] + "** displays all your registered souls\n**" +
+                            //     commands[5] + "** displays the list of all the mobs we soul\n**" +
+                            //     commands[6] + "** calculates your buy in based on your souls (you must enter 4 prices)", {
+                            //     files: [
+                            //         "./end.png"
+                            //     ]
+                            // }).then();
+                            // msg.react(vinkje).then();
                             break;
                         default:
                             msg.react("❓").then();
@@ -519,8 +520,7 @@ discord.on('message', msg => {
                         msg.react(vinkje).then();
                     }
                 }
-                if (msg.channel.id === requirements) {
-                    // msg.member.removeRole(farmrole).catch(console.error);
+                if (msg.channel.id === general) {
                     switch (args[0]) {
                         case "help" :
                             help();
@@ -571,7 +571,7 @@ discord.on('message', msg => {
                     let eventFormat = now.format('YYYY-MM-DD') + 'T' + sessionTime + ':00';
                     const eventTime = moment.tz(eventFormat, 'Europe/Paris').tz('UTC').format('YYYY-MM-DD hh:mm:ss');
                     msg.react(vinkje).catch();
-                    msg.client.channels.get(requirements).send(`${sessionHost} has just announced a farming event with the following description:**${sessionDesc}**. The event will be taking place at **${sessionTime}** Dofus time.\nRespond to this automated message with <:plusone:674594462726357012>, if you would like to join.\n${memberrole}${friendrole}`).then(reactions => {
+                    msg.client.channels.get(requirements).send(`${sessionHost} has just announced a farming event with the following description:**${sessionDesc}**. The event will be taking place at **${sessionTime}** Dofus time.\nRespond to this automated message with <:plusone:674594462726357012>, if you would like to join.\n${memberrole} ${friendrole}`).then(reactions => {
                         reactions.react(plusone).catch();
                         insertNewEvent(`INSERT INTO events(messageID, time) VALUES ('${reactions.id}', '${eventTime}')`, () => {
                         });
@@ -610,7 +610,7 @@ https://docs.google.com/spreadsheets/d/10PJIyhDvzenkKwRcTF1I8JjH9MbN9jlUILiy-fZv
             msg.react(vinkje).then();
         }
     } else if (msg.channel.type === "dm" && !msg.author.bot) {
-        msg.reply("Please use the commands in the designated channels!").then();
+        msg.reply("Please use commands in the corresponding channels").then();
     }
 });
 
