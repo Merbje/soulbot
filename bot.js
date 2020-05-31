@@ -335,7 +335,17 @@ discord.on('message', msg => {
                         break;
                     //===================================================================//
                     case 'help' :
-                        help();
+                        msg.author.send("list of commands:\n**" +
+                            commands[0] + "** adds a soul or updates an already existing soul.\n**" +
+                            commands[1] + "** deletes souls\n**" +
+                            commands[2] + "** displays all your registered souls\n**" +
+                            commands[5] + "** displays the list of all the mobs we soul\n**" +
+                            commands[6] + "** calculates your buy in based on your souls (you must enter 4 prices)", {
+                            files: [
+                                "./end.png"
+                            ]
+                        }).then();
+                        msg.react(vinkje).then();
                         break;
                     default:
                         msg.react("❓").then();
