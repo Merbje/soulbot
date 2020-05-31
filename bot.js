@@ -571,7 +571,7 @@ discord.on('message', msg => {
                     let eventFormat = now.format('YYYY-MM-DD') + 'T' + sessionTime + ':00';
                     const eventTime = moment.tz(eventFormat, 'Europe/Paris').tz('UTC').format('YYYY-MM-DD hh:mm:ss');
                     msg.react(vinkje).catch();
-                    msg.client.channels.get(requirements).send(`${sessionHost} has just announced a farming event with the following description:**${sessionDesc}**. The event will be taking place at **${sessionTime}** Dofus time.\nRespond to this automated message with <:plusone:674594462726357012>, if you would like to join.\n${memberrole} ${friendrole}`).then(reactions => {
+                    msg.client.channels.get(eventchannel).send(`${sessionHost} has just announced a farming event with the following description:**${sessionDesc}**. The event will be taking place at **${sessionTime}** Dofus time.\nRespond to this automated message with <:plusone:674594462726357012>, if you would like to join.\n${memberrole} ${friendrole}`).then(reactions => {
                         reactions.react(plusone).catch();
                         insertNewEvent(`INSERT INTO events(messageID, time) VALUES ('${reactions.id}', '${eventTime}')`, () => {
                         });
