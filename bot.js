@@ -542,7 +542,9 @@ discord.on('message', msg => {
         }
         if (msg.channel.id === farm && !msg.author.bot) {
             let args = msg.content.split(' ');
-            if (args[0] === '!event') {
+            if (args[0] === '!help') {
+                help();
+            } else if (args[0] === '!event') {
                 resetSession();
                 sessionHost = '<@' + msg.author.id + '>';
                 previousComment = "event";
@@ -579,11 +581,11 @@ discord.on('message', msg => {
 
         function help() {
             msg.author.send(`
-            Hi there! Ready to start using BonaBot, eh? Here's some info to get you started!
-            \n\n
-            *<#${general}> **commands***\n
-            **!farm** *starts the procedure of granting you access to the <#${farm}> channel*\n\n
-            *<#${soulchannel}> **commands***\\n
+Hi there! Ready to start using BonaBot, eh? Here's some info to get you started!
+
+*<#${general}> **commands***
+**!farm** *starts the procedure of granting you access to the <#${farm}> channel*
+*<#${soulchannel}> **commands***
             `).then();
             msg.author.send("list of commands:\n**" +
                 commands[0] + "** adds a soul or updates an already existing soul.\n**" +
