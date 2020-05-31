@@ -613,10 +613,10 @@ https://docs.google.com/spreadsheets/d/10PJIyhDvzenkKwRcTF1I8JjH9MbN9jlUILiy-fZv
         let args = msg.content.substring(1).split(' ');
         console.log(args);
         switch (args[0]) {
-            case "eligible" :
-                msg.member.addRole(farmrole).catch(console.error);
-                msg.react(vinkje).then();
-                break;
+            // case "eligible" :
+            //     msg.member.addRole(farmrole).catch(console.error);
+            //     msg.react(vinkje).then();
+            //     break;
             default:
                 msg.reply("Please use commands in the corresponding channels").then();
         }
