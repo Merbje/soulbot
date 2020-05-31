@@ -609,7 +609,7 @@ https://docs.google.com/spreadsheets/d/10PJIyhDvzenkKwRcTF1I8JjH9MbN9jlUILiy-fZv
             }).then();
             msg.react(vinkje).then();
         }
-    } else if (msg.channel.type === "dm") {
+    } else if (msg.channel.type === "dm" && !msg.author.bot) {
         msg.reply("Please use the commands in the designated channels!").then();
     }
 });
