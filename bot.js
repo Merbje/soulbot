@@ -12,6 +12,7 @@ const soulchannel = process.env.SOULCHANNEL;
 const farm = process.env.FARM;
 const general = process.env.GENERAL;
 const requirements = process.env.REQUIREMENTS;
+const eventchannel = process.env.EVENTCHANNEL;
 
 //Session
 let sessionHost = '';
@@ -520,6 +521,9 @@ discord.on('message', msg => {
                 if (msg.channel.id === requirements) {
                     // msg.member.removeRole(farmrole).catch(console.error);
                     switch (args[0]) {
+                        case "help" :
+                            help();
+                            break;
                         case "farm" :
                             msg.react(vinkje).then();
                             msg.author.send(farmmessage, {
@@ -583,20 +587,23 @@ discord.on('message', msg => {
             msg.author.send(`
 Hi there! Ready to start using BonaBot, eh? Here's some info to get you started!
 
-*<#${general}> **commands***
+__<#${general}> **commands**__
 **!farm** *starts the procedure of granting you access to the <#${farm}> channel*
-*<#${soulchannel}> **commands***
-            `).then();
-            msg.author.send("list of commands:\n**" +
-                commands[0] + "** adds a soul or updates an already existing soul.\n**" +
-                commands[1] + "** deletes souls\n**" +
-                commands[2] + "** displays all your registered souls\n**" +
-                commands[5] + "** displays the list of all the mobs we soul\n**" +
-                commands[6] + "** calculates your buy in based on your souls (you must enter 4 prices)", {
-                files: [
-                    "./end.png"
-                ]
-            }).then();
+
+__<#${soulchannel}> **commands*__
+**!addsoul** [mob] [amount] *adds souls under your username to the BonaBot inventory*
+**!deletesoul** [all:mob] [OPT: amount] *removes souls under your username from the BonaBot inventory*
+**!mysouls** *displays Lists your current registered souls*
+**!moblist** *lists all available mob categories and their corresponding !addsoul tag*
+**!buyin** [small] [average] [big] [gigantic] *calculates a buyin based on your current registered souls (you must enter the current market prices for the different soulstones)*
+
+__<#${farm}> **commands*__
+**!event** *start to set up a customized announcement message for a farming event in the <#${eventchannel} channel*>
+
+https://docs.google.com/spreadsheets/d/10PJIyhDvzenkKwRcTF1I8JjH9MbN9jlUILiy-fZvsOc/edit#gid=0
+            `, { files: [
+                "./end.png"
+            ]}).then();
             msg.react(vinkje).then();
         }
 });
