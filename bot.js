@@ -545,7 +545,7 @@ discord.on('message', msg => {
                 resetSession();
                 sessionHost = '<@' + msg.author.id + '>';
                 previousComment = "event";
-                msg.client.channels.get(farm).send('Hey there! Let\'s set up a farming event and make the announcement! First off, when should we shedule the event? Reply with four digits with a : in the middle to setup a custom time (example: 21:30).');
+                msg.client.channels.get(farm).send('Hey there! Let\'s set up a farming event and make the announcement! First off, when should we shedule the event? Reply with a digital time format including a colon in the middle (example: 21:30).');
 
             } else if (previousComment === 'event' && (args[0].match(/^[0-1][0-9]:[0-5][0-9]$/) || args[0].match(/^[2][0-3]:[0-5][0-9]$/)) && sessionHost === '<@' + msg.author.id + '>') {
                 previousComment = 'time';
