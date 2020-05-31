@@ -116,408 +116,409 @@ discord.on('ready', () => {
 });
 
 discord.on('message', msg => {
-    if (msg.content.startsWith('!')) {
-        if (oneconnect === false) {
-            oneconnect = true;
-            setTimeout(function () {
-                oneconnect = false;
-            }, 1500);
-            let user = msg.author.username;
-            if (msg.author.lastMessage.member.nickname !== null) {
-                user = msg.author.lastMessage.member.nickname;
-            }
-            let args = msg.content.substring(1).split(' ');
+    if (msg.channel.type !== "dm") {
+        if (msg.content.startsWith('!')) {
+            if (oneconnect === false) {
+                oneconnect = true;
+                setTimeout(function () {
+                    oneconnect = false;
+                }, 1500);
+                let user = msg.author.username;
+                if (msg.author.lastMessage.member.nickname !== null) {
+                    user = msg.author.lastMessage.member.nickname;
+                }
+                let args = msg.content.substring(1).split(' ');
 
-            if (args[2] !== undefined) {
-                switch (args[2].toLowerCase()) {
-                    case 'forest':
-                    case 'cemetery':
-                    case "v'helley":
-                    case 'village':
-                    case 'rose':
-                    case 'beach':
-                    case 'king':
-                        args[1] = args[1] + ' ' + args[2];
-                        for (let i = 2; i < args.length; i++) {
-                            args[i] = args[i + 1];
+                if (args[2] !== undefined) {
+                    switch (args[2].toLowerCase()) {
+                        case 'forest':
+                        case 'cemetery':
+                        case "v'helley":
+                        case 'village':
+                        case 'rose':
+                        case 'beach':
+                        case 'king':
+                            args[1] = args[1] + ' ' + args[2];
+                            for (let i = 2; i < args.length; i++) {
+                                args[i] = args[i + 1];
+                            }
+                            break;
+                    }
+                }
+
+                if (args[1] !== undefined && args[0] !== 'viewsouls' && (args[0] !== 'deletesoul' || msg.channel.id !== '675785176667783179') && (args[0] !== 'addsoul' || msg.channel.id !== '675785176667783179')) {
+                    args[1] = args[1].toLowerCase();
+                }
+
+                for (let i = 1; i < args.length; i++) {
+                    switch (args[i]) {
+                        case 'demonic rose':
+                        case 'rose':
+                            args[i] = 'Demonic Rose';
+                            break;
+                        case 'astrub cemetery':
+                        case 'ouas':
+                            args[i] = 'Astrub Cemetery';
+                            break;
+                        case 'zoth':
+                        case 'canopy village':
+                            args[i] = 'Canopy Village';
+                            break;
+                        case 'craboral':
+                        case 'coral beach':
+                            args[i] = 'Coral Beach';
+                            break;
+                        case 'crab' :
+                            args[i] = 'Crab';
+                            break;
+                        case 'beaz' :
+                        case 'beaztinga' :
+                            args[i] = 'Beaztinga';
+                            break;
+                        case 'pandala' :
+                        case 'pandala forest' :
+                            args[i] = 'Pandala Forest';
+                            break;
+                        case 'weir' :
+                        case 'weirbwork' :
+                            args[i] = 'Weirbwork';
+                            break;
+                        case 'cemetery' :
+                        case 'primitive cemetery':
+                            args[i] = 'Primitive Cemetery';
+                            break;
+                        case 'agony' :
+                        case "agony v'helley" :
+                            args[i] = "Agony V''Helley";
+                            break;
+                        case 'croma' :
+                        case 'cromagmunk' :
+                            args[i] = 'Cromagmunk';
+                            break;
+                        case 'mopy' :
+                        case 'mopy king' :
+                            args[i] = 'Mopy King';
+                            break;
+                        case 'watcha' :
+                        case 'watchamatrich' :
+                            args[i] = 'Watchamatrich';
+                            break;
+                    }
+                }
+                if (msg.channel.id === soulchannel) {
+                    switch (args[0]) {
+                        //===================================================================//
+                        case 'addsoul':
+                        case 'add':
+                        case 'addsouls':
+                            if (verifyMob(args[1]) && verifyAmount(args[2])) {
+                                let check = args[2].split(',');
+                                args[2] = check[0];
+                                getSoulsPerUser(user, function (result) {
+                                    let dubbel = false;
+                                    for (let i = 0; i < result.length; i++) {
+                                        if (result[i]['soulmob'] === "Agony V'Helley") {
+                                            result[i]['soulmob'] = "Agony V''Helley";
+                                        }
+
+                                        if (result[i]['soulmob'] === args[1]) {
+                                            dubbel = true;
+                                        }
+                                    }
+                                    if (dubbel === false) {
+                                        postSoulsPerUser(user, args[1], args[2]);
+                                        msg.react(vinkje).then();
+                                    } else {
+                                        updateSoulByUser(user, args[1], args[2]);
+                                        msg.react(vinkje).then();
+                                    }
+                                });
+                            } else {
+                                msg.react(cross).then();
+                            }
+                            break;
+                        //===================================================================//
+                        case 'mysouls':
+                            getSoulsPerUser(user, function (result) {
+                                let bericht = 'you have the following souls:\n';
+                                for (let i = 0; i < result.length; i++) {
+                                    if (i === 0) {
+                                        bericht += '| '
+                                    }
+                                    let mob = '**' + result[i]['soulmob'] + '**';
+                                    let amount = result[i]['amount'];
+                                    bericht += mob + ' - ' + amount + ' | ';
+                                }
+                                msg.reply(bericht).then();
+                            });
+                            break;
+                        //===================================================================//
+                        case 'deletesoul':
+                        case 'delete':
+                        case 'deletesouls':
+                            let mob = '';
+                            if (args[1] !== undefined) {
+                                mob = args[1];
+                            }
+                            let amount = 0;
+                            try {
+                                amount = -parseInt(args[2]);
+                            } catch (TypeError) {
+                                msg.react(cross).then();
+                            }
+                            if (mob.toLowerCase() !== 'pola') {
+                                if (mob.toLowerCase() === 'all') {
+                                    deleteAllSoulsByUser(user);
+                                    msg.react(vinkje).then();
+                                } else if (verifyMob(mob) && !Number.isNaN(amount)) {
+                                    getSoulsPerUser(user, function (result) {
+                                        let waar = false;
+                                        for (let i = 0; i < result.length; i++) {
+                                            if (result[i]['soulmob'] === "Agony V'Helley") {
+                                                result[i]['soulmob'] = "Agony V''Helley";
+                                            }
+
+                                            if (result[i]['soulmob'] === mob) {
+                                                waar = true;
+                                            }
+                                        }
+                                        if (waar === true) {
+                                            updateSoulByUser(user, mob, amount);
+                                            if (mob === "Agony V''Helley") {
+                                                mob = "Agony V'Helley";
+                                            }
+                                            msg.react(vinkje).then();
+                                        } else {
+                                            msg.react(cross).then();
+                                        }
+                                    });
+                                } else if (verifyMob(mob)) {
+                                    deleteSoulByUser(user, mob);
+                                    if (mob === "Agony V''Helley") {
+                                        mob = "Agony V'Helley";
+                                    }
+                                    msg.react(vinkje).then();
+                                } else if (amount === 0) {
+                                    msg.react(cross).then();
+                                } else {
+                                    msg.react(cross).then();
+                                }
+
+                            } else {
+                                msg.reply("As Polarizing is getting kicked out of the guild, Pandabear rises to the throne!").then();
+                            }
+                            break;
+                        //===================================================================//
+                        case 'moblist':
+                            msg.reply(mobs).then();
+                            break;
+                        //===================================================================//
+                        case 'buyin':
+                            if (args.length === 5) {
+                                let buyin = 0;
+                                getAmountOfStones(user, function (result) {
+                                    for (let i = 0; i < result.length; i++) {
+                                        if (result[i]['stone'] === 'small') {
+                                            buyin += result[i]['sum'] * args[1];
+                                        } else if (result[i]['stone'] === 'average') {
+                                            buyin += result[i]['sum'] * args[2];
+                                        } else if (result[i]['stone'] === 'big') {
+                                            buyin += result[i]['sum'] * args[3];
+                                        } else if (result[i]['stone'] === 'gigantic') {
+                                            buyin += result[i]['sum'] * args[4];
+                                        }
+                                    }
+                                    buyin = buyin / 8;
+                                    msg.reply(buyin).then();
+                                });
+                            } else {
+                                msg.reply('wrong use of command, please consult !help').then();
+                            }
+                            break;
+                        //===================================================================//
+                        case 'help' :
+                            msg.author.send("list of commands:\n**" +
+                                commands[0] + "** adds a soul or updates an already existing soul.\n**" +
+                                commands[1] + "** deletes souls\n**" +
+                                commands[2] + "** displays all your registered souls\n**" +
+                                commands[5] + "** displays the list of all the mobs we soul\n**" +
+                                commands[6] + "** calculates your buy in based on your souls (you must enter 4 prices)", {
+                                files: [
+                                    "./end.png"
+                                ]
+                            }).then();
+                            msg.react(vinkje).then();
+                            break;
+                        default:
+                            msg.react("❓").then();
+                    }
+                }
+                if (msg.channel.id === jazzlounge) {
+                    let voorheteindebericht = 'these souls are available:\n';
+                    let bericht = '';
+                    user = args[1];
+                    let userreply = '';
+                    if (args[1] !== undefined) {
+                        userreply = user[0].toUpperCase() + user.substring(1, user.length);
+                    }
+                    if (args[0] === 'soulsperuser') {
+                        getAllSouls("SELECT * FROM userssouls ORDER BY username, soulmob", function (result) {
+                            for (let i = 0; i < result.length; i++) {
+                                let mob = result[i]['soulmob'];
+                                let amount = ' - ' + result[i]['amount'];
+                                let soulowner = result[i]['username'];
+                                let updatemessage = mob + amount + ' | ';
+                                if (i !== 0) {
+                                    if (soulowner !== result[i - 1]['username']) {
+                                        bericht += '\n\n' + soulowner + ':\n| ';
+                                    }
+                                    bericht += updatemessage;
+                                } else {
+                                    bericht += soulowner + ':\n| ';
+                                    bericht += updatemessage;
+                                }
+                            }
+                            bericht = voorheteindebericht + '```' + bericht + '```';
+                            msg.reply(bericht).then();
+                        });
+                    } else if (args[0] === 'allsouls') {
+                        getAllSouls("SELECT * FROM userssouls ORDER BY soulmob, username", function (result) {
+                            for (let i = 0; i < result.length; i++) {
+                                let mob = result[i]['soulmob'];
+                                let amount = ' - ' + result[i]['amount'];
+                                let soulowner = result[i]['username'];
+                                let updatemessage = soulowner + amount + ' | ';
+                                if (i !== 0) {
+                                    if (mob !== result[i - 1]['soulmob']) {
+                                        bericht += '\n\n' + mob + ':\n| ';
+                                    }
+                                    bericht += updatemessage;
+                                } else {
+                                    bericht += mob + ':\n| ';
+                                    bericht += updatemessage;
+                                }
+                            }
+                            bericht = voorheteindebericht + '```' + bericht + '```';
+                            msg.reply(bericht).then();
+                        });
+                    } else if (args[0] === 'viewsouls') {
+                        getSoulsPerUser(args[1], function (result) {
+                            let bericht = userreply + ' has the following souls:\n```';
+                            for (let i = 0; i < result.length; i++) {
+                                if (i === 0) {
+                                    bericht += '| '
+                                }
+                                let mob = result[i]['soulmob'];
+                                let amount = result[i]['amount'];
+                                bericht += mob + ' - ' + amount + ' | ';
+                            }
+                            bericht += '```';
+                            msg.reply(bericht).then();
+                        });
+                    } else if (args[0] === 'deletesoul') {
+                        let mob = '';
+                        if (args[2] !== undefined) {
+                            mob = args[2];
                         }
-                        break;
-                }
-            }
+                        let amount = 0;
+                        try {
+                            amount = -parseInt(args[3]);
+                        } catch (TypeError) {
+                            msg.react(cross).then();
+                        }
+                        if (mob.toLowerCase() === 'all') {
+                            deleteAllSoulsByUser(user);
+                            msg.react(vinkje).then();
+                        } else if (verifyMob(mob) && !Number.isNaN(amount)) {
+                            getSoulsPerUser(user, function (result) {
+                                let waar = false;
+                                for (let i = 0; i < result.length; i++) {
+                                    if (result[i]['soulmob'] === "Agony V'Helley") {
+                                        result[i]['soulmob'] = "Agony V''Helley";
+                                    }
 
-            if (args[1] !== undefined && args[0] !== 'viewsouls' && (args[0] !== 'deletesoul' || msg.channel.id !== '675785176667783179') && (args[0] !== 'addsoul' || msg.channel.id !== '675785176667783179')) {
-                args[1] = args[1].toLowerCase();
-            }
-
-            for (let i = 1; i < args.length; i++) {
-                switch (args[i]) {
-                    case 'demonic rose':
-                    case 'rose':
-                        args[i] = 'Demonic Rose';
-                        break;
-                    case 'astrub cemetery':
-                    case 'ouas':
-                        args[i] = 'Astrub Cemetery';
-                        break;
-                    case 'zoth':
-                    case 'canopy village':
-                        args[i] = 'Canopy Village';
-                        break;
-                    case 'craboral':
-                    case 'coral beach':
-                        args[i] = 'Coral Beach';
-                        break;
-                    case 'crab' :
-                        args[i] = 'Crab';
-                        break;
-                    case 'beaz' :
-                    case 'beaztinga' :
-                        args[i] = 'Beaztinga';
-                        break;
-                    case 'pandala' :
-                    case 'pandala forest' :
-                        args[i] = 'Pandala Forest';
-                        break;
-                    case 'weir' :
-                    case 'weirbwork' :
-                        args[i] = 'Weirbwork';
-                        break;
-                    case 'cemetery' :
-                    case 'primitive cemetery':
-                        args[i] = 'Primitive Cemetery';
-                        break;
-                    case 'agony' :
-                    case "agony v'helley" :
-                        args[i] = "Agony V''Helley";
-                        break;
-                    case 'croma' :
-                    case 'cromagmunk' :
-                        args[i] = 'Cromagmunk';
-                        break;
-                    case 'mopy' :
-                    case 'mopy king' :
-                        args[i] = 'Mopy King';
-                        break;
-                    case 'watcha' :
-                    case 'watchamatrich' :
-                        args[i] = 'Watchamatrich';
-                        break;
-                }
-            }
-            if (msg.channel.id === soulchannel) {
-                switch (args[0]) {
-                    //===================================================================//
-                    case 'addsoul':
-                    case 'add':
-                    case 'addsouls':
-                        if (verifyMob(args[1]) && verifyAmount(args[2])) {
-                            let check = args[2].split(',');
-                            args[2] = check[0];
+                                    if (result[i]['soulmob'] === mob) {
+                                        waar = true;
+                                    }
+                                }
+                                if (waar === true) {
+                                    updateSoulByUser(user, mob, amount);
+                                    if (mob === "Agony V''Helley") {
+                                        mob = "Agony V'Helley";
+                                    }
+                                    msg.react(vinkje).then();
+                                } else {
+                                    msg.react(cross).then();
+                                }
+                            });
+                        } else if (verifyMob(mob)) {
+                            deleteSoulByUser(user, mob);
+                            if (mob === "Agony V''Helley") {
+                                mob = "Agony V'Helley";
+                            }
+                            msg.react(vinkje).then();
+                        } else if (amount === 0) {
+                            msg.react(cross).then();
+                        } else {
+                            msg.react(cross).then();
+                        }
+                    } else if (args[0] === 'addsoul') {
+                        let mob = args[2];
+                        let amount = args[3];
+                        if (verifyMob(mob) && verifyAmount(amount)) {
+                            let check = amount.split(',');
+                            amount = check[0];
                             getSoulsPerUser(user, function (result) {
                                 let dubbel = false;
                                 for (let i = 0; i < result.length; i++) {
                                     if (result[i]['soulmob'] === "Agony V'Helley") {
                                         result[i]['soulmob'] = "Agony V''Helley";
                                     }
-
-                                    if (result[i]['soulmob'] === args[1]) {
+                                    if (result[i]['soulmob'] === mob) {
                                         dubbel = true;
                                     }
                                 }
                                 if (dubbel === false) {
-                                    postSoulsPerUser(user, args[1], args[2]);
+                                    postSoulsPerUser(user, mob, amount);
                                     msg.react(vinkje).then();
                                 } else {
-                                    updateSoulByUser(user, args[1], args[2]);
+                                    updateSoulByUser(user, mob, amount);
                                     msg.react(vinkje).then();
                                 }
                             });
                         } else {
                             msg.react(cross).then();
                         }
-                        break;
-                    //===================================================================//
-                    case 'mysouls':
-                        getSoulsPerUser(user, function (result) {
-                            let bericht = 'you have the following souls:\n';
-                            for (let i = 0; i < result.length; i++) {
-                                if (i === 0) {
-                                    bericht += '| '
-                                }
-                                let mob = '**' + result[i]['soulmob'] + '**';
-                                let amount = result[i]['amount'];
-                                bericht += mob + ' - ' + amount + ' | ';
-                            }
-                            msg.reply(bericht).then();
-                        });
-                        break;
-                    //===================================================================//
-                    case 'deletesoul':
-                    case 'delete':
-                    case 'deletesouls':
-                        let mob = '';
-                        if (args[1] !== undefined) {
-                            mob = args[1];
+                    } else if (args[0] === 'help') {
+                        msg.reply("list of MOD/ADMIN commands:\n**" +
+                            commands[3] + "** displays all registered souls\n**" +
+                            commands[4] + "** displays another users souls\n**" +
+                            "!deletesoul [user] [all:mob] [OPT: amount]** deletes a soul from another user\n**" +
+                            "!addsoul [user] [mob] [amount]** adds or updates a soul from another user\n**" +
+                            "!soulsperuser** displays all registered souls per user\n" +
+                            "**!removed [inactive:kicked] [username]** send kicked message to user and removes member rank"
+                        ).then();
+                    } else if (args[0] === 'removed') {
+                        let privatemsg = msg.mentions.members.first();
+                        let pm;
+                        if (args[1].toLowerCase() === 'inactive') {
+                            pm = ("Hey " + privatemsg + ",\n\nDue to your recent inactivity you have been removed from the guild as part of our policy. Your discord rank has been adjusted. If you plan on being more active and want to rejoin the guild feel free free to send an administrator or a recruitment officer a private message through discord.\n\nKind regards,\n\nBona Fide staff");
+                        } else if (args[1].toLowerCase() === 'kicked') {
+                            pm = (`Hey ${privatemsg},\n\nYou’re receiving this message because either you have been removed from the guild or we have taken notice of you taking the initiative to leave.\n\nWe’ve adjusted your discord rank to ‘Friend’, you’re still welcome to take part in our community and events and we encourage you to do so!\n\nIf you have any questions feel free to contact an Admin or Recruitment Officer.\n\nKind regards,\n\nBona Fide staff`)
                         }
-                        let amount = 0;
-                        try {
-                            amount = -parseInt(args[2]);
-                        } catch (TypeError) {
-                            msg.react(cross).then();
-                        }
-                        if (mob.toLowerCase() !== 'pola') {
-                            if (mob.toLowerCase() === 'all') {
-                                deleteAllSoulsByUser(user);
-                                msg.react(vinkje).then();
-                            } else if (verifyMob(mob) && !Number.isNaN(amount)) {
-                                getSoulsPerUser(user, function (result) {
-                                    let waar = false;
-                                    for (let i = 0; i < result.length; i++) {
-                                        if (result[i]['soulmob'] === "Agony V'Helley") {
-                                            result[i]['soulmob'] = "Agony V''Helley";
-                                        }
 
-                                        if (result[i]['soulmob'] === mob) {
-                                            waar = true;
-                                        }
-                                    }
-                                    if (waar === true) {
-                                        updateSoulByUser(user, mob, amount);
-                                        if (mob === "Agony V''Helley") {
-                                            mob = "Agony V'Helley";
-                                        }
-                                        msg.react(vinkje).then();
-                                    } else {
-                                        msg.react(cross).then();
-                                    }
-                                });
-                            } else if (verifyMob(mob)) {
-                                deleteSoulByUser(user, mob);
-                                if (mob === "Agony V''Helley") {
-                                    mob = "Agony V'Helley";
-                                }
-                                msg.react(vinkje).then();
-                            } else if (amount === 0) {
-                                msg.react(cross).then();
-                            } else {
-                                msg.react(cross).then();
-                            }
-
-                        } else {
-                            msg.reply("As Polarizing is getting kicked out of the guild, Pandabear rises to the throne!").then();
-                        }
-                        break;
-                    //===================================================================//
-                    case 'moblist':
-                        msg.reply(mobs).then();
-                        break;
-                    //===================================================================//
-                    case 'buyin':
-                        if (args.length === 5) {
-                            let buyin = 0;
-                            getAmountOfStones(user, function (result) {
-                                for (let i = 0; i < result.length; i++) {
-                                    if (result[i]['stone'] === 'small') {
-                                        buyin += result[i]['sum'] * args[1];
-                                    } else if (result[i]['stone'] === 'average') {
-                                        buyin += result[i]['sum'] * args[2];
-                                    } else if (result[i]['stone'] === 'big') {
-                                        buyin += result[i]['sum'] * args[3];
-                                    } else if (result[i]['stone'] === 'gigantic') {
-                                        buyin += result[i]['sum'] * args[4];
-                                    }
-                                }
-                                buyin = buyin / 8;
-                                msg.reply(buyin).then();
-                            });
-                        } else {
-                            msg.reply('wrong use of command, please consult !help').then();
-                        }
-                        break;
-                    //===================================================================//
-                    case 'help' :
-                        msg.author.send("list of commands:\n**" +
-                            commands[0] + "** adds a soul or updates an already existing soul.\n**" +
-                            commands[1] + "** deletes souls\n**" +
-                            commands[2] + "** displays all your registered souls\n**" +
-                            commands[5] + "** displays the list of all the mobs we soul\n**" +
-                            commands[6] + "** calculates your buy in based on your souls (you must enter 4 prices)", {
-                            files: [
-                                "./end.png"
-                            ]
-                        }).then();
-                        msg.react(vinkje).then();
-                        break;
-                    default:
-                        msg.react("❓").then();
-                }
-            }
-            if (msg.channel.id === jazzlounge) {
-                let voorheteindebericht = 'these souls are available:\n';
-                let bericht = '';
-                user = args[1];
-                let userreply = '';
-                if (args[1] !== undefined) {
-                    userreply = user[0].toUpperCase() + user.substring(1, user.length);
-                }
-                if (args[0] === 'soulsperuser') {
-                    getAllSouls("SELECT * FROM userssouls ORDER BY username, soulmob", function (result) {
-                        for (let i = 0; i < result.length; i++) {
-                            let mob = result[i]['soulmob'];
-                            let amount = ' - ' + result[i]['amount'];
-                            let soulowner = result[i]['username'];
-                            let updatemessage = mob + amount + ' | ';
-                            if (i !== 0) {
-                                if (soulowner !== result[i - 1]['username']) {
-                                    bericht += '\n\n' + soulowner + ':\n| ';
-                                }
-                                bericht += updatemessage;
-                            } else {
-                                bericht += soulowner + ':\n| ';
-                                bericht += updatemessage;
-                            }
-                        }
-                        bericht = voorheteindebericht + '```' + bericht + '```';
-                        msg.reply(bericht).then();
-                    });
-                } else if (args[0] === 'allsouls') {
-                    getAllSouls("SELECT * FROM userssouls ORDER BY soulmob, username", function (result) {
-                        for (let i = 0; i < result.length; i++) {
-                            let mob = result[i]['soulmob'];
-                            let amount = ' - ' + result[i]['amount'];
-                            let soulowner = result[i]['username'];
-                            let updatemessage = soulowner + amount + ' | ';
-                            if (i !== 0) {
-                                if (mob !== result[i - 1]['soulmob']) {
-                                    bericht += '\n\n' + mob + ':\n| ';
-                                }
-                                bericht += updatemessage;
-                            } else {
-                                bericht += mob + ':\n| ';
-                                bericht += updatemessage;
-                            }
-                        }
-                        bericht = voorheteindebericht + '```' + bericht + '```';
-                        msg.reply(bericht).then();
-                    });
-                } else if (args[0] === 'viewsouls') {
-                    getSoulsPerUser(args[1], function (result) {
-                        let bericht = userreply + ' has the following souls:\n```';
-                        for (let i = 0; i < result.length; i++) {
-                            if (i === 0) {
-                                bericht += '| '
-                            }
-                            let mob = result[i]['soulmob'];
-                            let amount = result[i]['amount'];
-                            bericht += mob + ' - ' + amount + ' | ';
-                        }
-                        bericht += '```';
-                        msg.reply(bericht).then();
-                    });
-                } else if (args[0] === 'deletesoul') {
-                    let mob = '';
-                    if (args[2] !== undefined) {
-                        mob = args[2];
-                    }
-                    let amount = 0;
-                    try {
-                        amount = -parseInt(args[3]);
-                    } catch (TypeError) {
-                        msg.react(cross).then();
-                    }
-                    if (mob.toLowerCase() === 'all') {
-                        deleteAllSoulsByUser(user);
-                        msg.react(vinkje).then();
-                    } else if (verifyMob(mob) && !Number.isNaN(amount)) {
-                        getSoulsPerUser(user, function (result) {
-                            let waar = false;
-                            for (let i = 0; i < result.length; i++) {
-                                if (result[i]['soulmob'] === "Agony V'Helley") {
-                                    result[i]['soulmob'] = "Agony V''Helley";
-                                }
-
-                                if (result[i]['soulmob'] === mob) {
-                                    waar = true;
-                                }
-                            }
-                            if (waar === true) {
-                                updateSoulByUser(user, mob, amount);
-                                if (mob === "Agony V''Helley") {
-                                    mob = "Agony V'Helley";
-                                }
-                                msg.react(vinkje).then();
-                            } else {
-                                msg.react(cross).then();
-                            }
-                        });
-                    } else if (verifyMob(mob)) {
-                        deleteSoulByUser(user, mob);
-                        if (mob === "Agony V''Helley") {
-                            mob = "Agony V'Helley";
+                        if (args[1].toLowerCase() === 'inactive' || args[1].toLowerCase() === 'kicked') {
+                            privatemsg.removeRole(member).catch(console.error);
+                            privatemsg.addRole(friend).catch(console.error);
+                            privatemsg.send(pm, {
+                                files: [
+                                    "./end.png"
+                                ]
+                            }).then();
                         }
                         msg.react(vinkje).then();
-                    } else if (amount === 0) {
-                        msg.react(cross).then();
-                    } else {
-                        msg.react(cross).then();
                     }
-                } else if (args[0] === 'addsoul') {
-                    let mob = args[2];
-                    let amount = args[3];
-                    if (verifyMob(mob) && verifyAmount(amount)) {
-                        let check = amount.split(',');
-                        amount = check[0];
-                        getSoulsPerUser(user, function (result) {
-                            let dubbel = false;
-                            for (let i = 0; i < result.length; i++) {
-                                if (result[i]['soulmob'] === "Agony V'Helley") {
-                                    result[i]['soulmob'] = "Agony V''Helley";
-                                }
-                                if (result[i]['soulmob'] === mob) {
-                                    dubbel = true;
-                                }
-                            }
-                            if (dubbel === false) {
-                                postSoulsPerUser(user, mob, amount);
-                                msg.react(vinkje).then();
-                            } else {
-                                updateSoulByUser(user, mob, amount);
-                                msg.react(vinkje).then();
-                            }
-                        });
-                    } else {
-                        msg.react(cross).then();
-                    }
-                } else if (args[0] === 'help') {
-                    msg.reply("list of MOD/ADMIN commands:\n**" +
-                        commands[3] + "** displays all registered souls\n**" +
-                        commands[4] + "** displays another users souls\n**" +
-                        "!deletesoul [user] [all:mob] [OPT: amount]** deletes a soul from another user\n**" +
-                        "!addsoul [user] [mob] [amount]** adds or updates a soul from another user\n**" +
-                        "!soulsperuser** displays all registered souls per user\n" +
-                        "**!removed [inactive:kicked] [username]** send kicked message to user and removes member rank"
-                    ).then();
-                } else if (args[0] === 'removed') {
-                    let privatemsg = msg.mentions.members.first();
-                    let pm;
-                    if (args[1].toLowerCase() === 'inactive') {
-                        pm = ("Hey " + privatemsg + ",\n\nDue to your recent inactivity you have been removed from the guild as part of our policy. Your discord rank has been adjusted. If you plan on being more active and want to rejoin the guild feel free free to send an administrator or a recruitment officer a private message through discord.\n\nKind regards,\n\nBona Fide staff");
-                    } else if (args[1].toLowerCase() === 'kicked') {
-                        pm = (`Hey ${privatemsg},\n\nYou’re receiving this message because either you have been removed from the guild or we have taken notice of you taking the initiative to leave.\n\nWe’ve adjusted your discord rank to ‘Friend’, you’re still welcome to take part in our community and events and we encourage you to do so!\n\nIf you have any questions feel free to contact an Admin or Recruitment Officer.\n\nKind regards,\n\nBona Fide staff`)
-                    }
-
-                    if (args[1].toLowerCase() === 'inactive' || args[1].toLowerCase() === 'kicked') {
-                        privatemsg.removeRole(member).catch(console.error);
-                        privatemsg.addRole(friend).catch(console.error);
-                        privatemsg.send(pm, {
-                            files: [
-                                "./end.png"
-                            ]
-                        }).then();
-                    }
-                    msg.react(vinkje).then();
                 }
-            }
                 if (msg.channel.id === requirements) {
                     // msg.member.removeRole(farmrole).catch(console.error);
                     switch (args[0]) {
@@ -601,11 +602,16 @@ __<#${farm}> **commands**__
 **!event** *start to set up a customized announcement message for a farming event in the <#${eventchannel}> channel*
 
 https://docs.google.com/spreadsheets/d/10PJIyhDvzenkKwRcTF1I8JjH9MbN9jlUILiy-fZvsOc/edit#gid=0
-            `, { files: [
-                "./end.png"
-            ]}).then();
+            `, {
+                files: [
+                    "./end.png"
+                ]
+            }).then();
             msg.react(vinkje).then();
         }
+    } else if (msg.channel.type === "dm") {
+        msg.reply("Please use the commands in the designated channels!").then();
+    }
 });
 
 
