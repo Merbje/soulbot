@@ -106,7 +106,7 @@ discord.on('ready', () => {
 
                 let currentTime = moment.tz('Europe/Paris').add(-4, 'hours');
                 for (let i = 0; i < events.length; i++) {
-                    console.log(discord.channels.get(eventchannel).fetchMessage(events[i].messageid).fetchUsers());
+                    console.log(discord.channels.get(eventchannel).fetchMessage(events[i].messageid).reaction.users);
                         // .then(themessage => {
                         //
                         // let MessageOBJ = themessage.reactions.find(r => r.name === plusone);
