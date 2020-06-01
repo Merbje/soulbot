@@ -103,10 +103,12 @@ discord.on('ready', () => {
                 });
             }
             queryRun('select * from events', (events) => {
+
                 let currentTime = moment.tz('Europe/Paris').add(-4, 'hours');
                 for (let i = 0; i < events.length; i++) {
                     const eventTime = moment.tz(events[i].time, 'UTC');
                     if (eventTime < currentTime) {
+                        console.log(discord.channels.get(eventchannel).fetchMessage(events[i].messageid).reactions);
                         discord.channels.get(eventchannel).fetchMessage(events[i].messageid).then(msg => msg.delete());
                         queryRun(`DELETE FROM events WHERE messageid = '${events[i].messageid}'`, () => {});
                     }
