@@ -76,7 +76,7 @@ discord.on('ready', () => {
     discord.user.setActivity('!help', {type: "LISTENING"});
     // discord.channels.get(requirements).send(`__**Sheduled Event**__\n<@${ultra}> and <@${chev}> are organizing a **Tynril dungeon farming session** from **19:30** till approximately **22:00** (dofus time). Everyone is welcome to join. Be sure to always have keys ready.  Participants may be replaced halfway throughout the event if there is high demand. \nRespond with a <:plusone:674594462726357012> if you would like to join.\n${memberrole}${friendrole}`).then(reactions => { reactions.react(plusone).catch();});
 
-        var dayMillseconds = 1000 * 5;
+        var dayMillseconds = 1000 * 60 * 5;
         setInterval(function(){
             if(moment.tz('UTC').day() === 1 && moment.tz('Europe/Paris').hour() === 10 && moment.tz('Europe/Paris').minute() < 5) {
                 const now = moment.tz('Europe/Paris');
@@ -106,7 +106,7 @@ discord.on('ready', () => {
 
                 let currentTime = moment.tz('Europe/Paris').add(-4, 'hours');
                 for (let i = 0; i < events.length; i++) {
-                    console.log(discord.channels.get(eventchannel).fetchMessage(events[i].messageid).emojis);
+                    // console.log(discord.channels.get(eventchannel).fetchMessage(events[i].messageid).emojis);
                         // .then(themessage => {
                         //
                         // let MessageOBJ = themessage.reactions.find(r => r.name === plusone);
