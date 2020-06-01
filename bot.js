@@ -611,7 +611,6 @@ https://docs.google.com/spreadsheets/d/10PJIyhDvzenkKwRcTF1I8JjH9MbN9jlUILiy-fZv
         }
     } else if (msg.channel.type === "dm" && !msg.author.bot) {
         let args = msg.content.substring(1).split(' ');
-        console.log(args);
         switch (args[0]) {
             // case "eligible" :
             //     msg.member.addRole(farmrole).catch(console.error);
