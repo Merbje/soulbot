@@ -114,10 +114,9 @@ discord.on('ready', () => {
                 }
             });
         }, dayMillseconds);
-});
-
-discord.on('messageReactionAdd', (reaction, user) => {
-    console.log('a reaction has been added');
+    discord.on('messageReactionAdd', (reaction, user) => {
+        console.log('a reaction has been added');
+    });
 });
 
 discord.on('message', msg => {
