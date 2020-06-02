@@ -121,7 +121,7 @@ discord.on('message', msg => {
 
         let MessageOBJ = themessage.reactions.find(r => r.name === plusone);
 
-        console.log(MessageOBJ.users);
+        console.log(MessageOBJ);
 
     });
     if (msg.channel.type !== "dm") {
