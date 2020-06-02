@@ -575,7 +575,7 @@ discord.on('message', msg => {
             } else if (previousComment === 'description' && sessionHost === '<@' + msg.author.id + '>') {
                 if (args[0].toLowerCase() === 'announce') {
                     const now = moment.tz('Europe/Paris');
-                    let eventFormat = now.format('YYYY-MM-DD') + 'T' + sessionTime + ':00';
+                    let eventFormat = now.format('YYYY-MM-DD') + ' ' + sessionTime + ':00';
                     const eventTime = moment.tz(eventFormat, 'Europe/Paris').tz('UTC').format('YYYY-MM-DD hh:mm:ss');
                     console.log(eventTime + " sessiontime: " + sessionTime);
                     msg.react(vinkje).catch();
