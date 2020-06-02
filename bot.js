@@ -144,7 +144,6 @@ discord.on('ready', () => {
                     }
                 }
             });
-            discord.channels.get(eventchannel).fetchMessages()
         }, dayMillseconds);
 });
 
