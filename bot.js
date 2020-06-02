@@ -117,14 +117,14 @@ discord.on('ready', () => {
 });
 
 discord.on('message', msg => {
-    msg.channel.fetchMessage('717267203631742977').then(themessage  => {
-
-        // let MessageOBJ = themessage.reactions.find(r => r.name === plusone);
-        console.log(themessage);
-        console.log(themessage.reactions);
-        console.log(themessage.reactions.find(plusone));
-
-    });
+    // msg.channel.fetchMessage('717267203631742977').then(themessage  => {
+    //
+    //     // let MessageOBJ = themessage.reactions.find(r => r.name === plusone);
+    //     console.log(themessage);
+    //     console.log(themessage.reactions);
+    //     console.log(themessage.reactions.find(name === plusone));
+    //
+    // });
     if (msg.channel.type !== "dm") {
         if (msg.content.startsWith('!')) {
             if (oneconnect === false) {
