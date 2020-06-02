@@ -88,9 +88,7 @@ discord.on('ready', () => {
             } else if(moment.tz('UTC').day() === 3 && moment.tz('Europe/Paris').hour() === 10 && moment.tz('Europe/Paris').minute() < 5) {
                 const now = moment.tz('Europe/Paris');
                 let eventFormat = now.format('YYYY-MM-DD') + ' 20:30:00';
-                console.log(eventFormat);
                 const eventTime = moment.tz(eventFormat, 'Europe/Paris').tz('UTC').format('YYYY-MM-DD HH:mm:ss');
-                console.log(eventTime);
                 discord.channels.get(eventchannel).send(`__**Sheduled Event!**__\n<@${panda}> is organizing a **small soul session** from **20:30**(dofus time) till all the souls are gone. People that meet the requirements shown in the souls document *"Low lvl souls"* will have priority in joining.\nRespond with <:plusone:674594462726357012> if you would like to join.\n${memberrole}${friendrole}`).then(reactions => { reactions.react(plusone).catch();
                     insertNewEvent(`INSERT INTO events(messageID, time) VALUES ('${reactions.id}', '${eventTime}')`, () => {});
                 });
@@ -108,8 +106,6 @@ discord.on('ready', () => {
                 for (let i = 0; i < events.length; i++) {
                     const eventTime = moment.tz(events[i].time, 'UTC');
                     if (eventTime < currentTime) {
-                        console.log(eventTime);
-                        console.log(currentTime);
                         discord.channels.get(eventchannel).fetchMessage(events[i].messageid).then(msg => msg.delete());
                         queryRun(`DELETE FROM events WHERE messageid = '${events[i].messageid}'`, () => {});
                     }
@@ -561,11 +557,7 @@ discord.on('message', msg => {
             } else if (previousComment === 'event' && (args[0].match(/^[0-1][0-9]:[0-5][0-9]$/) || args[0].match(/^[2][0-3]:[0-5][0-9]$/)) && sessionHost === '<@' + msg.author.id + '>') {
                 previousComment = 'time';
                 sessionTime = args[0];
-                const now = moment.tz('Europe/Paris');
-                let eventFormat = now.format('YYYY-MM-DD') + ' ' + sessionTime + ':00';
-                const eventTime = moment.tz(eventFormat).format('YYYY-MM-DD hh:mm:ss');
-                console.log(eventTime + " sessiontime: " + sessionTime + " eventFormat: " + eventFormat);
-                msg.client.channels.get(farm).send('Got it. What would u like the description of the event to be?');
+               msg.client.channels.get(farm).send('Got it. What would u like the description of the event to be?');
             } else if (previousComment === 'time' && sessionHost === '<@' + msg.author.id + '>') {
                 previousComment = 'description'
                 for (let i = 0; i < args.length; i++) {
@@ -576,8 +568,7 @@ discord.on('message', msg => {
                 if (args[0].toLowerCase() === 'announce') {
                     const now = moment.tz('Europe/Paris');
                     let eventFormat = now.format('YYYY-MM-DD') + ' ' + sessionTime + ':00';
-                    const eventTime = moment.tz(eventFormat, 'Europe/Paris').tz('UTC').format('YYYY-MM-DD hh:mm:ss');
-                    console.log(eventTime + " sessiontime: " + sessionTime);
+                    // const eventTime = moment.tz(eventFormat, 'Europe/Paris').tz('UTC').format('YYYY-MM-DD hh:mm:ss');
                     msg.react(vinkje).catch();
                     msg.client.channels.get(eventchannel).send(`${sessionHost} has just announced a farming event with the following description:**${sessionDesc}**. The event will be taking place at **${sessionTime}** Dofus time.\nRespond to this automated message with <:plusone:674594462726357012>, if you would like to join.\n${memberrole} ${friendrole}`).then(reactions => {
                         reactions.react(plusone).catch();
