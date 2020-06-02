@@ -120,7 +120,8 @@ discord.on('message', msg => {
     msg.channel.fetchMessage('717267203631742977').then(themessage  => {
 
         let MessageOBJ = themessage.reactions.find(r => r.name === plusone);
-
+        console.log(themessage);
+        console.log(themessage.reactions);
         console.log(MessageOBJ);
 
     });
