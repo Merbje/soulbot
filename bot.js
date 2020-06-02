@@ -71,37 +71,6 @@ const conString = process.env.APITOKEN;
 
 let client = new pg.Client(conString);
 
-// const events = {
-//     MESSAGE_REACTION_ADD: 'messageReactionAdd',
-// };
-//
-// //you dont need to modify any of this:
-// discord.on('raw', async event => {
-//     if (!events.hasOwnProperty(event.t)) return;
-//
-//     const { d: data } = event;
-//     const user = discord.users.get(data.user_id);
-//     const channel = discord.channels.get(data.channel_id) || await user.createDM();
-//
-//     if (channel.messages.has(data.message_id)) return;
-//
-//     const message = await channel.fetchMessage(data.message_id);
-//     const emojiKey = (data.emoji.id) ? `${data.emoji.name}:${data.emoji.id}` : data.emoji.name;
-//     const reaction = message.reactions.get(emojiKey);
-//     discord.emit(events[event.t], reaction, user);
-// })
-//
-// //change the chnl variable so it gets the channel you want, the server ID for the correct server and the name of the emoji:
-// discord.on('messageReactionAdd', async (reaction, user) => {
-//     let chnl= discord.channels.get(eventchannel);
-//     if(reaction.emoji.name === 'plusone') {
-//         let msgserver = discord.guilds.get(`673573138738446360`);
-//         let usr = await msgserver.fetchMember(user);
-//         console.log(reaction + ` ` + user)
-//     }
-// });
-
-
 discord.on('ready', () => {
     console.log('Logged in as soulBotForDofus!');
     discord.user.setActivity('!help', {type: "LISTENING"});
@@ -148,14 +117,6 @@ discord.on('ready', () => {
 });
 
 discord.on('message', msg => {
-    // msg.channel.fetchMessage('717267203631742977').then(themessage  => {
-    //
-    //     // let MessageOBJ = themessage.reactions.find(r => r.name === plusone);
-    //     console.log(themessage);
-    //     console.log(themessage.reactions);
-    //     console.log(themessage.reactions.find(name === plusone));
-    //
-    // });
     if (msg.channel.type !== "dm") {
         if (msg.content.startsWith('!')) {
             if (oneconnect === false) {
