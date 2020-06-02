@@ -106,13 +106,13 @@ discord.on('ready', () => {
 
                 let currentTime = moment.tz('Europe/Paris').add(-4, 'hours');
                 for (let i = 0; i < events.length; i++) {
-                    // console.log(discord.channels.get(eventchannel).fetchMessage(events[i].messageid).emojis);
-                        // .then(themessage => {
-                        //
-                        // let MessageOBJ = themessage.reactions.find(r => r.name === plusone);
-                        // MessageOBJ.fetchUsers().then(users => {
-                        //     console.log(users);
-                        // });
+                    message.channel.fetchMessage(events[i].messageid).then(themessage => {
+
+                        let MessageOBJ = themessage.reactions.find(r => r.name === plusone);
+
+                        console.log(MessageOBJ.users);
+
+                    });
                     const eventTime = moment.tz(events[i].time, 'UTC');
                     if (eventTime < currentTime) {
                         discord.channels.get(eventchannel).fetchMessage(events[i].messageid).then(msg => msg.delete());
