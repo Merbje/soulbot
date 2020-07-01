@@ -177,7 +177,7 @@ discord.on('message', msg => {
                             break;
                         case 'tofu':
                         case 'ingalsses\' fields':
-                            args[i] = "Ingalsses' Fields"
+                            args[i] = "Ingalsses'' Fields"
                             break;
                         case 'pandala' :
                         case 'pandala forest' :
