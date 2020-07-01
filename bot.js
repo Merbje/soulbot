@@ -62,7 +62,7 @@ const farmmessage = 'To ease the organization of farming groups we have a dedica
 //Lists
 const soulmobs = ['Crab', 'Beaztinga', 'Pandala Forest',
     'Weirbwork', 'Primitive Cemetery', "Agony V''Helley",
-    'Cromagmunk', 'Mopy King', 'Watchamatrich', 'Coral Beach', 'Canopy Village', 'Demonic Rose', 'Astrub Cemetery', "Ingalsses' Fields"];
+    'Cromagmunk', 'Mopy King', 'Watchamatrich', 'Coral Beach', 'Canopy Village', 'Demonic Rose', 'Astrub Cemetery', "Ingalsses'' Fields"];
 const mobs = 'the following mobs are allowed, between () is the shorter input:\n' +
     '| **Crab** (crab) | **Beaztinga** (beaz) | **Pandala Forest** (pandala) | **Weirbwork** (weir) | **Primitive Cemetery** (cemetery) | **Agony V\'Helley** (agony) ' +
     '| **Cromagmunk** (croma) | **Mopy King** (mopy) | **Watchamatrich** (watcha) | **Canopy Village** (zoth) | **Coral Beach** (craboral) | **Demonic Rose** (rose) | **Astrub Cemetery** (ouas) | **Ingalsses\' Fields** (tofu) |';
@@ -177,7 +177,7 @@ discord.on('message', msg => {
                             break;
                         case 'tofu':
                         case 'ingalsses\' fields':
-                            args[i] = "Ingalsses'' Fields"
+                            args[i] = "Ingalsses'' Fields";
                             break;
                         case 'pandala' :
                         case 'pandala forest' :
