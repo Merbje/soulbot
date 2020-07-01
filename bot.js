@@ -62,10 +62,10 @@ const farmmessage = 'To ease the organization of farming groups we have a dedica
 //Lists
 const soulmobs = ['Crab', 'Beaztinga', 'Pandala Forest',
     'Weirbwork', 'Primitive Cemetery', "Agony V''Helley",
-    'Cromagmunk', 'Mopy King', 'Watchamatrich', 'Coral Beach', 'Canopy Village', 'Demonic Rose', 'Astrub Cemetery', "Ingalsses'' Fields"];
+    'Cromagmunk', 'Mopy King', 'Watchamatrich', 'Coral Beach', 'Canopy Village', 'Demonic Rose', 'Astrub Cemetery', 'Tofu'];
 const mobs = 'the following mobs are allowed, between () is the shorter input:\n' +
     '| **Crab** (crab) | **Beaztinga** (beaz) | **Pandala Forest** (pandala) | **Weirbwork** (weir) | **Primitive Cemetery** (cemetery) | **Agony V\'Helley** (agony) ' +
-    '| **Cromagmunk** (croma) | **Mopy King** (mopy) | **Watchamatrich** (watcha) | **Canopy Village** (zoth) | **Coral Beach** (craboral) | **Demonic Rose** (rose) | **Astrub Cemetery** (ouas) | **Ingalsses\' Fields** (tofu) |';
+    '| **Cromagmunk** (croma) | **Mopy King** (mopy) | **Watchamatrich** (watcha) | **Canopy Village** (zoth) | **Coral Beach** (craboral) | **Demonic Rose** (rose) | **Astrub Cemetery** (ouas) | **Tofu** (tofu) |';
 const commands = ['!addsoul [mob] [amount]', '!deletesoul [all:mob] [OPT: amount]', '!mysouls', '!allsouls', '!viewsouls [user]', '!moblist', '!buyin [small] [average] [big] [gigantic]'];
 const conString = process.env.APITOKEN;
 
@@ -137,7 +137,6 @@ discord.on('message', msg => {
                         case 'rose':
                         case 'beach':
                         case 'king':
-                        case 'fields':
                             args[1] = args[1] + ' ' + args[2];
                             for (let i = 2; i < args.length; i++) {
                                 args[i] = args[i + 1];
@@ -176,8 +175,7 @@ discord.on('message', msg => {
                             args[i] = 'Beaztinga';
                             break;
                         case 'tofu':
-                        case 'ingalsses\' fields':
-                            args[i] = "Ingalsses'' Fields";
+                            args[i] = "Tofu";
                             break;
                         case 'pandala' :
                         case 'pandala forest' :
@@ -223,8 +221,6 @@ discord.on('message', msg => {
                                     for (let i = 0; i < result.length; i++) {
                                         if (result[i]['soulmob'] === "Agony V'Helley") {
                                             result[i]['soulmob'] = "Agony V''Helley";
-                                        } else if (result[i]['soulmob'] === "Ingalsses' Fields") {
-                                            result[i]['soulmob'] = "Ingalsses'' Fields";
                                         }
 
                                         if (result[i]['soulmob'] === args[1]) {
@@ -282,8 +278,6 @@ discord.on('message', msg => {
                                         for (let i = 0; i < result.length; i++) {
                                             if (result[i]['soulmob'] === "Agony V'Helley") {
                                                 result[i]['soulmob'] = "Agony V''Helley";
-                                            } else if (result[i]['soulmob'] === "Ingalsses' Fields") {
-                                                result[i]['soulmob'] = "Ingalsses'' Fields";
                                             }
 
                                             if (result[i]['soulmob'] === mob) {
@@ -294,8 +288,6 @@ discord.on('message', msg => {
                                             updateSoulByUser(user, mob, amount);
                                             if (mob === "Agony V''Helley") {
                                                 mob = "Agony V'Helley";
-                                            } else if (mob === "Ingalsses'' Fields") {
-                                                mob = "Ingalsses' Fields";
                                             }
                                             msg.react(vinkje).then();
                                         } else {
@@ -306,8 +298,6 @@ discord.on('message', msg => {
                                     deleteSoulByUser(user, mob);
                                     if (mob === "Agony V''Helley") {
                                         mob = "Agony V'Helley";
-                                    } else if (mob === "Ingalsses'' Fields") {
-                                        mob = "Ingalsses' Fields";
                                     }
                                     msg.react(vinkje).then();
                                 } else if (amount === 0) {
@@ -448,8 +438,6 @@ discord.on('message', msg => {
                                 for (let i = 0; i < result.length; i++) {
                                     if (result[i]['soulmob'] === "Agony V'Helley") {
                                         result[i]['soulmob'] = "Agony V''Helley";
-                                    } else if (result[i]['soulmob'] === "Ingalsses' Fields") {
-                                        result[i]['soulmob'] = "Ingalsses'' Fields";
                                     }
 
                                     if (result[i]['soulmob'] === mob) {
@@ -460,8 +448,6 @@ discord.on('message', msg => {
                                     updateSoulByUser(user, mob, amount);
                                     if (mob === "Agony V''Helley") {
                                         mob = "Agony V'Helley";
-                                    } else if (mob === "Ingalsses'' Fields") {
-                                        mob = "Ingalsses' Fields";
                                     }
                                     msg.react(vinkje).then();
                                 } else {
@@ -472,8 +458,6 @@ discord.on('message', msg => {
                             deleteSoulByUser(user, mob);
                             if (mob === "Agony V''Helley") {
                                 mob = "Agony V'Helley";
-                            } else if (mob === "Ingalsses'' Fields") {
-                                mob = "Ingalsses' Fields";
                             }
                             msg.react(vinkje).then();
                         } else if (amount === 0) {
@@ -492,8 +476,6 @@ discord.on('message', msg => {
                                 for (let i = 0; i < result.length; i++) {
                                     if (result[i]['soulmob'] === "Agony V'Helley") {
                                         result[i]['soulmob'] = "Agony V''Helley";
-                                    } else if (result[i]['soulmob'] === "Ingalsses' Fields") {
-                                        result[i]['soulmob'] = "Ingalsses'' Fields";
                                     }
 
                                     if (result[i]['soulmob'] === mob) {
