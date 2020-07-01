@@ -694,6 +694,7 @@ function queryRun(query, callback) {
         connectDB();
         disconnectDB();
     }
+    console.log(query);
     client.query(query,function (err, result){
         if (err) throw err;
         return callback(result['rows']);
