@@ -388,7 +388,7 @@ discord.on('message', msg => {
                                     bericht[berichtnmr] += updatemessage;
                                 }
                             }
-                            bericht[0] = voorheteindebericht + '```' + bericht[i] + '```';
+                            bericht[0] = voorheteindebericht + '```' + bericht[0] + '```';
                             for (let i = 1; i < bericht.length; i++) {
                                 bericht[i] = '```' + bericht[i] + '```';
                                 msg.reply(bericht[i]).then();
