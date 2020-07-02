@@ -398,7 +398,7 @@ discord.on('message', msg => {
                             msg.reply(bericht[0]).then();
                             for (let i = 1; i < bericht.length; i++) {
                                 bericht[i] = '```' + bericht[i] + '```';
-                                msg.reply(bericht[i]).then();
+                                msg.client.channels.get(msg.channel.id).send(bericht[i]).then();
                             }
                         });
                     } else if (args[0] === 'allsouls') {
