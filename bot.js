@@ -381,8 +381,8 @@ discord.on('message', msg => {
                                     }
                                     bericht[berichtnmr] += updatemessage;
                                 } else {
-                                    console.log(bericht[berichtnmr] += soulowner + ':\n| ');
-                                    console.log(bericht[berichtnmr] += updatemessage);
+                                    // console.log(bericht[berichtnmr] += soulowner + ':\n| ');
+                                    // console.log(bericht[berichtnmr] += updatemessage);
                                     bericht[berichtnmr] += soulowner + ':\n| ';
                                     bericht[berichtnmr] += updatemessage;
                                     peoplePerMessage++;
