@@ -357,7 +357,7 @@ discord.on('message', msg => {
                     }
                 }
                 if (msg.channel.id === jazzlounge || msg.channel.id === '707158336876838913') {
-                    let bericht;
+                    let bericht = '';
                     let berichtLang = [''];
                     let berichtnmr = 0;
                     let peoplePerMessage = 0;
