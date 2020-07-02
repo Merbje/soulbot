@@ -356,7 +356,7 @@ discord.on('message', msg => {
                             msg.react("❓").then();
                     }
                 }
-                if (msg.channel.id === jazzlounge) {
+                if (msg.channel.id === jazzlounge || msg.channel.id === '707158336876838913') {
                     let voorheteindebericht = 'these souls are available:\n';
                     let bericht = '';
                     user = args[1];
