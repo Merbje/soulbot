@@ -380,10 +380,9 @@ discord.on('message', msg => {
                                             berichtnmr++;
                                             bericht[berichtnmr] = '';
                                             peoplePerMessage = 0;
-                                        } else {
+                                        }
                                             bericht[berichtnmr] += '\n\n' + soulowner + ':\n| ';
                                             peoplePerMessage++;
-                                        }
                                     }
                                     bericht[berichtnmr] += updatemessage;
                                 } else {
