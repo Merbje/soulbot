@@ -379,13 +379,14 @@ discord.on('message', msg => {
                                 }
                                 if (i !== 0) {
                                     if (soulowner !== result[i - 1]['username']) {
-                                        bericht += '\n\n' + soulowner + ':\n| ';
+                                        bericht[berichtnmr] += '\n\n' + soulowner + ':\n| ';
                                         peoplePerMessage++;
                                     }
                                     bericht[berichtnmr] += updatemessage;
                                 } else {
                                     bericht[berichtnmr] += soulowner + ':\n| ';
                                     bericht[berichtnmr] += updatemessage;
+                                    peoplePerMessage++;
                                 }
                             }
                             console.log(bericht);
