@@ -135,14 +135,7 @@
       <workItem from="1593170859976" duration="192000" />
       <workItem from="1593171792967" duration="14000" />
       <workItem from="1593625925214" duration="2077000" />
-      <workItem from="1593677936995" duration="2501000" />
-    </task>
-    <task id="LOCAL-00332" summary="2">
-      <created>1591042950585</created>
-      <option name="number" value="00332" />
-      <option name="presentableId" value="LOCAL-00332" />
-      <option name="project" value="LOCAL" />
-      <updated>1591042950585</updated>
+      <workItem from="1593677936995" duration="2712000" />
     </task>
     <task id="LOCAL-00333" summary="2">
       <created>1591043407734</created>
@@ -480,7 +473,14 @@
       <option name="project" value="LOCAL" />
       <updated>1593680190818</updated>
     </task>
-    <option name="localTasksCounter" value="381" />
+    <task id="LOCAL-00381" summary="Rewriting soulsperuser to be under 2000 characters">
+      <created>1593680460208</created>
+      <option name="number" value="00381" />
+      <option name="presentableId" value="LOCAL-00381" />
+      <option name="project" value="LOCAL" />
+      <updated>1593680460208</updated>
+    </task>
+    <option name="localTasksCounter" value="382" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -536,11 +536,11 @@
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state width="936" height="282" key="GridCell.Tab.0.right/0.0.1920.1050@0.0.1920.1050" timestamp="1590669749881" />
-    <state x="954" y="29" key="Vcs.Push.Dialog.v2" timestamp="1593680192640">
+    <state x="954" y="29" key="Vcs.Push.Dialog.v2" timestamp="1593680461487">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="304" y="264" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1586597099379" />
-    <state x="954" y="29" key="Vcs.Push.Dialog.v2/0.0.1920.1050@0.0.1920.1050" timestamp="1593680192640" />
+    <state x="954" y="29" key="Vcs.Push.Dialog.v2/0.0.1920.1050@0.0.1920.1050" timestamp="1593680461487" />
     <state x="1245" y="449" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1591084616486">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>

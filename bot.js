@@ -376,8 +376,14 @@ discord.on('message', msg => {
                                 // console.log('mob = ' + mob + " amount = " + amount + ' soulowner = ' + soulowner + ' updatemessage = ' + updatemessage);
                                 if (peoplePerMessage !== 0) {
                                     if (soulowner !== result[i - 1]['username']) {
-                                        bericht[berichtnmr] += '\n\n' + soulowner + ':\n| ';
-                                        peoplePerMessage++;
+                                        if (peoplePerMessage === 19) {
+                                            berichtnmr++;
+                                            bericht[berichtnmr] = '';
+                                            peoplePerMessage = 0;
+                                        } else {
+                                            bericht[berichtnmr] += '\n\n' + soulowner + ':\n| ';
+                                            peoplePerMessage++;
+                                        }
                                     }
                                     bericht[berichtnmr] += updatemessage;
                                 } else {
@@ -386,11 +392,6 @@ discord.on('message', msg => {
                                     bericht[berichtnmr] += soulowner + ':\n| ';
                                     bericht[berichtnmr] += updatemessage;
                                     peoplePerMessage++;
-                                }
-                                if (peoplePerMessage === 19) {
-                                    berichtnmr++;
-                                    bericht[berichtnmr] = '';
-                                    peoplePerMessage = 0;
                                 }
                             }
                             // console.log(bericht);
