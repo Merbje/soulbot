@@ -373,11 +373,12 @@ discord.on('message', msg => {
                                 let amount = ' - ' + result[i]['amount'];
                                 let soulowner = result[i]['username'];
                                 let updatemessage = mob + amount + ' | ';
+                                console.log('mob = ' + mob + " amount = " + amount + ' soulowner = ' + soulowner + ' updatemessage = ' + updatemessage);
                                 if (peoplePerMessage === 19) {
                                     berichtnmr++;
                                     peoplePerMessage = 0;
                                 }
-                                if (i !== 0) {
+                                if (peoplePerMessage !== 0) {
                                     if (soulowner !== result[i - 1]['username']) {
                                         bericht[berichtnmr] += '\n\n' + soulowner + ':\n| ';
                                         peoplePerMessage++;
