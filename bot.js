@@ -102,7 +102,7 @@ discord.on('ready', () => {
             }
             queryRun('select * from events', (events) => {
 
-                let currentTime = moment.tz('Europe/Paris').add(-4, 'hours');
+                let currentTime = moment.tz('Europe/Paris').add(-2, 'hours');
                 for (let i = 0; i < events.length; i++) {
                     const eventTime = moment.tz(events[i].time, 'UTC');
                     if (eventTime < currentTime) {
@@ -373,7 +373,7 @@ discord.on('message', msg => {
                                 let amount = ' - ' + result[i]['amount'];
                                 let soulowner = result[i]['username'];
                                 let updatemessage = mob + amount + ' | ';
-                                console.log('mob = ' + mob + " amount = " + amount + ' soulowner = ' + soulowner + ' updatemessage = ' + updatemessage);
+                                // console.log('mob = ' + mob + " amount = " + amount + ' soulowner = ' + soulowner + ' updatemessage = ' + updatemessage);
                                 if (peoplePerMessage !== 0) {
                                     if (soulowner !== result[i - 1]['username']) {
                                         bericht[berichtnmr] += '\n\n' + soulowner + ':\n| ';
@@ -381,6 +381,8 @@ discord.on('message', msg => {
                                     }
                                     bericht[berichtnmr] += updatemessage;
                                 } else {
+                                    console.log(bericht[berichtnmr] += soulowner + ':\n| ');
+                                    console.log(bericht[berichtnmr] += updatemessage);
                                     bericht[berichtnmr] += soulowner + ':\n| ';
                                     bericht[berichtnmr] += updatemessage;
                                     peoplePerMessage++;
@@ -390,7 +392,7 @@ discord.on('message', msg => {
                                     peoplePerMessage = 0;
                                 }
                             }
-                            console.log(bericht);
+                            // console.log(bericht);
                             bericht[0] = voorheteindebericht + '```' + bericht[0] + '```';
                             msg.reply(bericht[0]).then();
                             for (let i = 1; i < bericht.length; i++) {
