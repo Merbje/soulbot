@@ -135,14 +135,7 @@
       <workItem from="1593170859976" duration="192000" />
       <workItem from="1593171792967" duration="14000" />
       <workItem from="1593625925214" duration="2077000" />
-      <workItem from="1593677936995" duration="1510000" />
-    </task>
-    <task id="LOCAL-00328" summary="2">
-      <created>1591042350326</created>
-      <option name="number" value="00328" />
-      <option name="presentableId" value="LOCAL-00328" />
-      <option name="project" value="LOCAL" />
-      <updated>1591042350326</updated>
+      <workItem from="1593677936995" duration="1671000" />
     </task>
     <task id="LOCAL-00329" summary="2">
       <created>1591042462343</created>
@@ -480,7 +473,14 @@
       <option name="project" value="LOCAL" />
       <updated>1593679154241</updated>
     </task>
-    <option name="localTasksCounter" value="377" />
+    <task id="LOCAL-00377" summary="Added tofu to list">
+      <created>1593679451426</created>
+      <option name="number" value="00377" />
+      <option name="presentableId" value="LOCAL-00377" />
+      <option name="project" value="LOCAL" />
+      <updated>1593679451426</updated>
+    </task>
+    <option name="localTasksCounter" value="378" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -535,11 +535,11 @@
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state width="936" height="282" key="GridCell.Tab.0.right/0.0.1920.1050@0.0.1920.1050" timestamp="1590669749881" />
-    <state x="954" y="29" key="Vcs.Push.Dialog.v2" timestamp="1593679156493">
+    <state x="954" y="29" key="Vcs.Push.Dialog.v2" timestamp="1593679452613">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="304" y="264" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1586597099379" />
-    <state x="954" y="29" key="Vcs.Push.Dialog.v2/0.0.1920.1050@0.0.1920.1050" timestamp="1593679156493" />
+    <state x="954" y="29" key="Vcs.Push.Dialog.v2/0.0.1920.1050@0.0.1920.1050" timestamp="1593679452613" />
     <state x="1245" y="449" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1591084616486">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
