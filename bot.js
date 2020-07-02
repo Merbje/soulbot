@@ -358,7 +358,7 @@ discord.on('message', msg => {
                 }
                 if (msg.channel.id === jazzlounge || msg.channel.id === '707158336876838913') {
                     let voorheteindebericht = 'these souls are available:\n';
-                    let bericht = [];
+                    let bericht = [''];
                     let berichtnmr = 0;
                     let peoplePerMessage = 0;
                     user = args[1];
@@ -389,6 +389,7 @@ discord.on('message', msg => {
                                 }
                                 if (peoplePerMessage === 19) {
                                     berichtnmr++;
+                                    bericht[berichtnmr] = '';
                                     peoplePerMessage = 0;
                                 }
                             }
