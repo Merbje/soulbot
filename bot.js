@@ -373,10 +373,9 @@ discord.on('message', msg => {
                                 let amount = ' - ' + result[i]['amount'];
                                 let soulowner = result[i]['username'];
                                 let updatemessage = mob + amount + ' | ';
-                                // console.log('mob = ' + mob + " amount = " + amount + ' soulowner = ' + soulowner + ' updatemessage = ' + updatemessage);
                                 if (peoplePerMessage !== 0) {
                                     if (soulowner !== result[i - 1]['username']) {
-                                        if (peoplePerMessage === 19) {
+                                        if (peoplePerMessage === 20) {
                                             berichtnmr++;
                                             bericht[berichtnmr] = '';
                                             peoplePerMessage = 0;
@@ -386,14 +385,11 @@ discord.on('message', msg => {
                                     }
                                     bericht[berichtnmr] += updatemessage;
                                 } else {
-                                    // console.log(bericht[berichtnmr] += soulowner + ':\n| ');
-                                    // console.log(bericht[berichtnmr] += updatemessage);
                                     bericht[berichtnmr] += soulowner + ':\n| ';
                                     bericht[berichtnmr] += updatemessage;
                                     peoplePerMessage++;
                                 }
                             }
-                            // console.log(bericht);
                             bericht[0] = voorheteindebericht + '```' + bericht[0] + '```';
                             msg.reply(bericht[0]).then();
                             for (let i = 1; i < bericht.length; i++) {
