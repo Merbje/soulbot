@@ -357,8 +357,8 @@ discord.on('message', msg => {
                     }
                 }
                 if (msg.channel.id === jazzlounge || msg.channel.id === '707158336876838913') {
-                    let voorheteindebericht = 'these souls are available:\n';
-                    let bericht = [''];
+                    let bericht;
+                    let berichtLang = [''];
                     let berichtnmr = 0;
                     let peoplePerMessage = 0;
                     user = args[1];
@@ -377,24 +377,22 @@ discord.on('message', msg => {
                                     if (soulowner !== result[i - 1]['username']) {
                                         if (peoplePerMessage === 20) {
                                             berichtnmr++;
-                                            bericht[berichtnmr] = '';
+                                            berichtLang[berichtnmr] = '';
                                             peoplePerMessage = 0;
                                         }
-                                            bericht[berichtnmr] += '\n\n' + soulowner + ':\n| ';
+                                            berichtLang[berichtnmr] += '\n\n' + soulowner + ':\n| ';
                                             peoplePerMessage++;
                                     }
-                                    bericht[berichtnmr] += updatemessage;
+                                    berichtLang[berichtnmr] += updatemessage;
                                 } else {
-                                    bericht[berichtnmr] += soulowner + ':\n| ';
-                                    bericht[berichtnmr] += updatemessage;
+                                    berichtLang[berichtnmr] += soulowner + ':\n| ';
+                                    berichtLang[berichtnmr] += updatemessage;
                                     peoplePerMessage++;
                                 }
                             }
-                            bericht[0] = voorheteindebericht + '```' + bericht[0] + '```';
-                            msg.reply(bericht[0]).then();
-                            for (let i = 1; i < bericht.length; i++) {
-                                bericht[i] = '```' + bericht[i] + '```';
-                                msg.client.channels.get(msg.channel.id).send(bericht[i]).then();
+                            for (let i = 0; i < berichtLang.length; i++) {
+                                berichtLang[i] = '```' + berichtLang[i] + '```';
+                                msg.client.channels.get(msg.channel.id).send(berichtLang[i]).then();
                             }
                         });
                     } else if (args[0] === 'allsouls') {
@@ -414,8 +412,8 @@ discord.on('message', msg => {
                                     bericht += updatemessage;
                                 }
                             }
-                            bericht = voorheteindebericht + '```' + bericht + '```';
-                            msg.reply(bericht).then();
+                            bericht = '```' + bericht + '```';
+                            msg.client.channels.get(msg.channel.id).send(bericht).then();
                         });
                     } else if (args[0] === 'viewsouls') {
                         getSoulsPerUser(args[1], function (result) {
