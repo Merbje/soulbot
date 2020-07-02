@@ -391,9 +391,10 @@ discord.on('message', msg => {
                             }
                             console.log(bericht);
                             bericht[0] = voorheteindebericht + '```' + bericht[0] + '```';
+                            msg.reply(bericht[0]).then();
                             for (let i = 1; i < bericht.length; i++) {
-                                // bericht[i] = '```' + bericht[i] + '```';
-                                // msg.reply(bericht[i]).then();
+                                bericht[i] = '```' + bericht[i] + '```';
+                                msg.reply(bericht[i]).then();
                             }
                         });
                     } else if (args[0] === 'allsouls') {
