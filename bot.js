@@ -358,7 +358,9 @@ discord.on('message', msg => {
                 }
                 if (msg.channel.id === jazzlounge || msg.channel.id === '707158336876838913') {
                     let voorheteindebericht = 'these souls are available:\n';
-                    let bericht = '';
+                    let bericht = [];
+                    let berichtnmr = 0;
+                    let peoplePerMessage = 0;
                     user = args[1];
                     let userreply = '';
                     if (args[1] !== undefined) {
@@ -371,18 +373,26 @@ discord.on('message', msg => {
                                 let amount = ' - ' + result[i]['amount'];
                                 let soulowner = result[i]['username'];
                                 let updatemessage = mob + amount + ' | ';
+                                if (peoplePerMessage === 19) {
+                                    berichtnmr++;
+                                    peoplePerMessage = 0;
+                                }
                                 if (i !== 0) {
                                     if (soulowner !== result[i - 1]['username']) {
                                         bericht += '\n\n' + soulowner + ':\n| ';
+                                        peoplePerMessage++;
                                     }
-                                    bericht += updatemessage;
+                                    bericht[berichtnmr] += updatemessage;
                                 } else {
-                                    bericht += soulowner + ':\n| ';
-                                    bericht += updatemessage;
+                                    bericht[berichtnmr] += soulowner + ':\n| ';
+                                    bericht[berichtnmr] += updatemessage;
                                 }
                             }
-                            bericht = voorheteindebericht + '```' + bericht + '```';
-                            msg.reply(bericht).then();
+                            bericht[0] = voorheteindebericht + '```' + bericht[i] + '```';
+                            for (let i = 1; i < bericht.length; i++) {
+                                bericht[i] = '```' + bericht[i] + '```';
+                                msg.reply(bericht[i]).then();
+                            }
                         });
                     } else if (args[0] === 'allsouls') {
                         getAllSouls("SELECT * FROM userssouls ORDER BY soulmob, username", function (result) {
