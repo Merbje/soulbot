@@ -597,9 +597,10 @@ discord.on('message', msg => {
             }
         } else if (msg.channel.id === tempchannel && !msg.author.bot) {
             let args = msg.content.split(' ');
+            console.log(args);
             switch (args[0]) {
                 case 'nickname':
-                    msg.member.setNickname(msg.content.replace('changeNick',args[1])).then();
+                    msg.member.setNickname(msg.content.replace('changeNick', args[1])).then();
             }
         }
 
