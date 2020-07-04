@@ -19,7 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e42c046e-9ff0-450a-a738-52dfa8574f55" name="Default Changelist" comment="Rewriting soulsperuser to be under 2000 characters">
+    <list default="true" id="e42c046e-9ff0-450a-a738-52dfa8574f55" name="Default Changelist" comment="Rewriting messaging">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bot.js" beforeDir="false" afterPath="$PROJECT_DIR$/bot.js" afterDir="false" />
     </list>
@@ -137,14 +137,7 @@
       <workItem from="1593171792967" duration="14000" />
       <workItem from="1593625925214" duration="2077000" />
       <workItem from="1593677936995" duration="5238000" />
-      <workItem from="1593847452462" duration="662000" />
-    </task>
-    <task id="LOCAL-00339" summary="2">
-      <created>1591044447805</created>
-      <option name="number" value="00339" />
-      <option name="presentableId" value="LOCAL-00339" />
-      <option name="project" value="LOCAL" />
-      <updated>1591044447806</updated>
+      <workItem from="1593847452462" duration="3875000" />
     </task>
     <task id="LOCAL-00340" summary="2">
       <created>1591044532562</created>
@@ -482,7 +475,14 @@
       <option name="project" value="LOCAL" />
       <updated>1593681628300</updated>
     </task>
-    <option name="localTasksCounter" value="388" />
+    <task id="LOCAL-00388" summary="Rewriting messaging">
+      <created>1593848398837</created>
+      <option name="number" value="00388" />
+      <option name="presentableId" value="LOCAL-00388" />
+      <option name="project" value="LOCAL" />
+      <updated>1593848398838</updated>
+    </task>
+    <option name="localTasksCounter" value="389" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -515,7 +515,8 @@
     <MESSAGE value="Changed hosts for sessions" />
     <MESSAGE value="Added tofu to list" />
     <MESSAGE value="Rewriting soulsperuser to be under 2000 characters" />
-    <option name="LAST_COMMIT_MESSAGE" value="Rewriting soulsperuser to be under 2000 characters" />
+    <MESSAGE value="Rewriting messaging" />
+    <option name="LAST_COMMIT_MESSAGE" value="Rewriting messaging" />
   </component>
   <component name="WindowStateProjectService">
     <state x="987" y="275" key="FileChooserDialogImpl" timestamp="1586687446270">
@@ -538,11 +539,11 @@
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state width="936" height="282" key="GridCell.Tab.0.right/0.0.1920.1050@0.0.1920.1050" timestamp="1590669749881" />
-    <state x="954" y="29" key="Vcs.Push.Dialog.v2" timestamp="1593681629306">
+    <state x="954" y="29" key="Vcs.Push.Dialog.v2" timestamp="1593848401351">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="304" y="264" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1586597099379" />
-    <state x="954" y="29" key="Vcs.Push.Dialog.v2/0.0.1920.1050@0.0.1920.1050" timestamp="1593681629306" />
+    <state x="954" y="29" key="Vcs.Push.Dialog.v2/0.0.1920.1050@0.0.1920.1050" timestamp="1593848401351" />
     <state x="1245" y="449" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1591084616486">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>

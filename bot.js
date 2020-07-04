@@ -11,8 +11,8 @@ const jazzlounge = process.env.JAZZLOUNGE;
 const soulchannel = process.env.SOULCHANNEL;
 const farm = process.env.FARM;
 const general = process.env.GENERAL;
-// const temp = process.env.REQUIREMENTS;
 const eventchannel = process.env.EVENTCHANNEL;
+const tempchannel = '707158336876838913';
 
 //Session
 let sessionHost = '';
@@ -26,7 +26,6 @@ const cross = process.env.CROSS;
 const plusone = process.env.PLUSONE;
 
 //People
-// const ultra = process.env.ULTRA;
 const chev = process.env.CHEV;
 const panda = process.env.PANDA;
 
@@ -596,7 +595,14 @@ discord.on('message', msg => {
                     resetSession();
                 }
             }
+        } else if (msg.channel.id === tempchannel && !msg.author.bot) {
+            let args = msg.content.split(' ');
+            switch (args[0]) {
+                case 'nickname':
+                    msg.member.setNickname(msg.content.replace('changeNick',args[1])).then();
+            }
         }
+
 
         function help() {
             msg.author.send(`
