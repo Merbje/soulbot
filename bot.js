@@ -600,7 +600,9 @@ discord.on('message', msg => {
             console.log(args);
             switch (args[0]) {
                 case 'nickname':
-                    msg.member.setNickname(args[1]).then();
+                    msg.member.setNickname(args[1]).then( hello => {
+                        msg.delete().then();
+                    });
             }
         }
 
