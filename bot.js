@@ -28,6 +28,7 @@ const plusone = process.env.PLUSONE;
 //People
 const chev = process.env.CHEV;
 const panda = process.env.PANDA;
+const drapht = process.env.DRAPHT;
 
 //Ranks
 const farmrole = process.env.FARMROLE;
@@ -81,7 +82,7 @@ discord.on('ready', () => {
                 const now = moment.tz('Europe/Paris');
                 let eventFormat = now.format('YYYY-MM-DD') + ' 19:30:00';
                 const eventTime = moment.tz(eventFormat, 'Europe/Paris').tz('UTC').format('YYYY-MM-DD HH:mm:ss');
-                discord.channels.get(eventchannel).send(`__**Sheduled Event**__\n<@${panda}> and <@${chev}> are organizing a **tynril dungeon farming session** from **19:30** until approximately **22:00** (dofus time). Everyone is welcome to join. Be sure to always have keys ready.  Participants may be replaced halfway throughout the event if there is high demand.\nRespond with <:plusone:674594462726357012> if you would like to join.\n${memberrole} ${friendrole}`).then(reactions => { reactions.react(plusone).catch();
+                discord.channels.get(eventchannel).send(`__**Sheduled Event**__\n<@${drapht}> and <@${panda}> are organizing a **tynril dungeon farming session** from **19:30** until approximately **22:00** (dofus time). Everyone is welcome to join. Be sure to always have keys ready.  Participants may be replaced halfway throughout the event if there is high demand.\nRespond with <:plusone:674594462726357012> if you would like to join.\n${memberrole} ${friendrole}`).then(reactions => { reactions.react(plusone).catch();
                     insertNewEvent(`INSERT INTO events(messageID, time) VALUES ('${reactions.id}', '${eventTime}')`, () => {});
                 });
             } else if(moment.tz('UTC').day() === 3 && moment.tz('Europe/Paris').hour() === 10 && moment.tz('Europe/Paris').minute() < 5) {
@@ -95,7 +96,7 @@ discord.on('ready', () => {
                 const now = moment.tz('Europe/Paris');
                 let eventFormat = now.format('YYYY-MM-DD') + ' 20:00:00';
                 const eventTime = moment.tz(eventFormat, 'Europe/Paris').tz('UTC').format('YYYY-MM-DD HH:mm:ss');
-                discord.channels.get(eventchannel).send(`__**Sheduled Event!**__\n<@${panda}> and <@${chev}> are organizing a **tynril and big souls session** from **20:00** until approximately **22:00** (dofus time). People with souls that meet the requirements shown in the souls document *"big souls"* will have priority in selection.\nRespond with <:plusone:674594462726357012> if you would like to join.\n${memberrole} ${friendrole}`).then(reactions => { reactions.react(plusone).catch();
+                discord.channels.get(eventchannel).send(`__**Sheduled Event!**__\n<@${drapht}> and <@${panda}> are organizing a **tynril and big souls session** from **20:00** until approximately **22:00** (dofus time). People with souls that meet the requirements shown in the souls document *"big souls"* will have priority in selection.\nRespond with <:plusone:674594462726357012> if you would like to join.\n${memberrole} ${friendrole}`).then(reactions => { reactions.react(plusone).catch();
                     insertNewEvent(`INSERT INTO events(messageID, time) VALUES ('${reactions.id}', '${eventTime}')`, () => {});
                 });
             }
