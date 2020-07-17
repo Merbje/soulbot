@@ -26,7 +26,7 @@ const cross = process.env.CROSS;
 const plusone = process.env.PLUSONE;
 
 //People
-const chev = process.env.CHEV;
+// const chev = process.env.CHEV;
 const panda = process.env.PANDA;
 const drapht = process.env.DRAPHT;
 
@@ -60,11 +60,11 @@ const farmmessage = 'To ease the organization of farming groups we have a dedica
 
 
 //Lists
-const soulmobs = ['Crab', 'Beaztinga', 'Pandala Forest',
+const soulmobs = ['Crab', 'Beaztinga',
     'Weirbwork', 'Primitive Cemetery', "Agony V''Helley",
     'Cromagmunk', 'Mopy King', 'Watchamatrich', 'Coral Beach', 'Canopy Village', 'Demonic Rose', 'Astrub Cemetery', 'Tofu'];
 const mobs = 'the following mobs are allowed, between () is the shorter input:\n' +
-    '| **Crab** (crab) | **Beaztinga** (beaz) | **Pandala Forest** (pandala) | **Weirbwork** (weir) | **Primitive Cemetery** (cemetery) | **Agony V\'Helley** (agony) ' +
+    '| **Crab** (crab) | **Beaztinga** (beaz) | **Weirbwork** (weir) | **Primitive Cemetery** (cemetery) | **Agony V\'Helley** (agony) ' +
     '| **Cromagmunk** (croma) | **Mopy King** (mopy) | **Watchamatrich** (watcha) | **Canopy Village** (zoth) | **Coral Beach** (craboral) | **Demonic Rose** (rose) | **Astrub Cemetery** (ouas) | **Tofu** (tofu) |';
 const commands = ['!addsoul [mob] [amount]', '!deletesoul [all:mob] [OPT: amount]', '!mysouls', '!allsouls', '!viewsouls [user]', '!moblist', '!buyin [small] [average] [big] [gigantic]'];
 const conString = process.env.APITOKEN;
@@ -130,7 +130,6 @@ discord.on('message', msg => {
 
                 if (args[2] !== undefined) {
                     switch (args[2].toLowerCase()) {
-                        case 'forest':
                         case 'cemetery':
                         case "v'helley":
                         case 'village':
@@ -176,10 +175,6 @@ discord.on('message', msg => {
                             break;
                         case 'tofu':
                             args[i] = "Tofu";
-                            break;
-                        case 'pandala' :
-                        case 'pandala forest' :
-                            args[i] = 'Pandala Forest';
                             break;
                         case 'weir' :
                         case 'weirbwork' :
@@ -708,9 +703,9 @@ function postSoulsPerUser(user, mob, amount) {
         let stone;
         if (mob === 'Mopy King') {
             stone = 'gigantic'
-        } else if (mob === 'Crab') {
+        } else if (mob === 'Crab' || mob === 'Tofu' || mob === 'Demonic Rose' || mob === 'Astrub Cemetery' || mob === 'Çoral Beach') {
             stone = 'small';
-        } else if (mob === 'Beaztinga' || mob === 'Pandala Forest' || mob === 'Weirbwork') {
+        } else if (mob === 'Beaztinga' || mob === 'Weirbwork') {
             stone = 'average';
         } else {
             stone = 'big';
