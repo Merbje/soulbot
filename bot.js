@@ -122,7 +122,7 @@ discord.on('message', msg => {
                 setTimeout(function () {
                     oneconnect = false;
                 }, 1500);
-                let user = msg.author.username;
+                var user = msg.author.username;
                 if (msg.author.lastMessage.member.nickname !== null) {
                     user = msg.author.lastMessage.member.nickname;
                 }
@@ -358,7 +358,7 @@ discord.on('message', msg => {
                     let peoplePerMessage = 0;
                     let userreply = '';
 
-                    let user = args[1];
+                    var user = args[1];
 
 
                         queryRun('SELECT DISTINCT username FROM userssouls ORDER BY username', function (result) {
