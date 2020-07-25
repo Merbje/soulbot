@@ -372,6 +372,7 @@ discord.on('message', msg => {
                         });
                     }
                     console.log(test);
+                    console.log(user);
                     if (args[1] !== undefined) {
                         userreply = user[0].toUpperCase() + user.substring(1, user.length);
                     }
@@ -607,7 +608,6 @@ discord.on('message', msg => {
             }
         } else if (msg.channel.id === tempchannel && !msg.author.bot) {
             let args = msg.content.split(' ');
-            console.log(args);
             switch (args[0]) {
                 case 'nickname':
                     msg.member.setNickname(args[1]).then( hello => {
