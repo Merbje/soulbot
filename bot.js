@@ -361,6 +361,13 @@ discord.on('message', msg => {
                     user = args[1];
                     queryRun('SELECT DISTINCT username FROM userssouls ORDER BY username', function (result) {
                         console.log(result);
+                        for (let i = 0; i < result.length; i++) {
+                            if (user.toLowerCase() === result[i]['username']) {
+                                user = result[i]['username'];
+                                break;
+                            }
+                        }
+                        console.log(user);
                     })
 
                     if (args[1] !== undefined) {
