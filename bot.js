@@ -359,12 +359,11 @@ discord.on('message', msg => {
                     let userreply = '';
 
                     user = args[1];
-                    queryRun('SELECT DISTINCT username FROM userssouls ORDER BY username', function (result) {
+                    user = queryRun('SELECT DISTINCT username FROM userssouls ORDER BY username', function (result) {
                         console.log(result);
                         for (let i = 0; i < result.length; i++) {
                             if (user.toLowerCase() === result[i]['username']) {
-                                user = result[i]['username'];
-                                break;
+                                return result[i]['username'];
                             }
                         }
                         console.log(user);
