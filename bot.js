@@ -356,8 +356,13 @@ discord.on('message', msg => {
                     let berichtLang = [''];
                     let berichtnmr = 0;
                     let peoplePerMessage = 0;
-                    user = args[1];
                     let userreply = '';
+
+                    user = args[1];
+                    queryRun('SELECT DISTINCT username FROM userssouls ORDER BY username', function (result) {
+                        console.log(result);
+                    })
+
                     if (args[1] !== undefined) {
                         userreply = user[0].toUpperCase() + user.substring(1, user.length);
                     }
@@ -692,7 +697,6 @@ function queryRun(query, callback) {
         connectDB();
         disconnectDB();
     }
-    console.log(query);
     client.query(query,function (err, result){
         if (err) throw err;
         return callback(result['rows']);
