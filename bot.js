@@ -359,15 +359,18 @@ discord.on('message', msg => {
                     let userreply = '';
 
                     user = args[1];
-                    let test = queryRun('SELECT DISTINCT username FROM userssouls ORDER BY username', function (result) {
-                        console.log(result);
-                        for (let i = 0; i < result.length; i++) {
-                            if (user.toLowerCase() === result[i]['username'].toLowerCase()) {
-                                return result[i]['username'];
+                    let test = function usernameCheck() {
+                        queryRun('SELECT DISTINCT username FROM userssouls ORDER BY username', function (result) {
+                            console.log(result);
+                            for (let i = 0; i < result.length; i++) {
+                                if (user.toLowerCase() === result[i]['username'].toLowerCase()) {
+                                    user = 'testtttt';
+                                    return result[i]['username'];
+                                }
                             }
-                        }
-                        return 'nomatchfound';
-                    });
+                            return 'nomatchfound';
+                        });
+                    }
                     console.log(test);
                     if (args[1] !== undefined) {
                         userreply = user[0].toUpperCase() + user.substring(1, user.length);
