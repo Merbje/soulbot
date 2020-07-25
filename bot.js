@@ -358,12 +358,13 @@ discord.on('message', msg => {
                     let peoplePerMessage = 0;
                     let userreply = '';
 
-                    user = args[1];
+                    let user = args[1];
+
+
                         queryRun('SELECT DISTINCT username FROM userssouls ORDER BY username', function (result) {
-                            console.log(result);
                             for (let i = 0; i < result.length; i++) {
                                 if (user.toLowerCase() === result[i]['username'].toLowerCase()) {
-                                    console.log('match!')
+                                    console.log('match!');
                                     user = 'testtttt';
                                 }
                             }
