@@ -122,7 +122,7 @@ discord.on('message', msg => {
                 setTimeout(function () {
                     oneconnect = false;
                 }, 1500);
-                var user = msg.author.username;
+                let user = msg.author.username;
                 if (msg.author.lastMessage.member.nickname !== null) {
                     user = msg.author.lastMessage.member.nickname;
                 }
@@ -358,18 +358,18 @@ discord.on('message', msg => {
                     let peoplePerMessage = 0;
                     let userreply = '';
 
-                    var user = args[1];
+                    user = args[1];
 
 
-                        queryRun('SELECT DISTINCT username FROM userssouls ORDER BY username', function (result) {
-                            for (let i = 0; i < result.length; i++) {
-                                if (user.toLowerCase() === result[i]['username'].toLowerCase()) {
-                                    console.log('match!');
-                                    user = 'testtttt';
-                                }
-                            }
-                        });
-                    console.log(user);
+                        // queryRun('SELECT DISTINCT username FROM userssouls ORDER BY username', function (result) {
+                        //     for (let i = 0; i < result.length; i++) {
+                        //         if (user.toLowerCase() === result[i]['username'].toLowerCase()) {
+                        //             console.log('match!');
+                        //             user = 'testtttt';
+                        //         }
+                        //     }
+                        // });
+                    // console.log(user);
                     if (args[1] !== undefined) {
                         userreply = user[0].toUpperCase() + user.substring(1, user.length);
                     }
