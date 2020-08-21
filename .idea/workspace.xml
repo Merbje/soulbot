@@ -19,9 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e42c046e-9ff0-450a-a738-52dfa8574f55" name="Default Changelist" comment="Rewriting messaging">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="e42c046e-9ff0-450a-a738-52dfa8574f55" name="Default Changelist" comment="Rewriting messaging" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -141,6 +139,7 @@
       <workItem from="1594974281653" duration="1817000" />
       <workItem from="1595659965471" duration="2563000" />
       <workItem from="1596565655717" duration="628000" />
+      <workItem from="1597921908991" duration="609000" />
     </task>
     <task id="LOCAL-00356" summary="2">
       <created>1591092789409</created>
