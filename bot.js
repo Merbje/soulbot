@@ -399,7 +399,9 @@ discord.on('message', msg => {
                             }
                             for (let i = 0; i < berichtLang.length; i++) {
                                 berichtLang[i] = '```' + berichtLang[i] + '```';
-                                msg.client.channels.get(msg.channel.id).send(berichtLang[i]).then();
+                                msg.author.send(berichtLang[i]).then();
+                                msg.react(vinkje).then();
+                                // msg.client.channels.get(msg.channel.id).send(berichtLang[i]).then();
                             }
                         });
                     } else if (args[0] === 'allsouls') {
