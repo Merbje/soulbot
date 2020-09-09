@@ -89,7 +89,7 @@ discord.on('ready', () => {
                 const now = moment.tz('Europe/Paris');
                 let eventFormat = now.format('YYYY-MM-DD') + ' 20:00:00';
                 const eventTime = moment.tz(eventFormat, 'Europe/Paris').tz('UTC').format('YYYY-MM-DD HH:mm:ss');
-                discord.channels.get(eventchannel).send(`__**Sheduled Event!**__\n<@${panda}> is organizing a **small soul session** from **20:00** until approximately **22:00** (dofus time). People that meet the requirements shown in the souls document *"small souls"* will have priority in selection.\nRespond with <:plusone:674594462726357012> if you would like to join.\n${memberrole} ${friendrole}`).then(reactions => { reactions.react(plusone).catch();
+                discord.channels.get(eventchannel).send(`__**Sheduled Event!**__\n<@${controller}> is organizing a **small soul session** from **20:00** until approximately **22:00** (dofus time). People that meet the requirements shown in the souls document *"small souls"* will have priority in selection.\nRespond with <:plusone:674594462726357012> if you would like to join.\n${memberrole} ${friendrole}`).then(reactions => { reactions.react(plusone).catch();
                     insertNewEvent(`INSERT INTO events(messageID, time) VALUES ('${reactions.id}', '${eventTime}')`, () => {});
                 });
             } else if(moment.tz('UTC').day() === 5 && moment.tz('Europe/Paris').hour() === 10 && moment.tz('Europe/Paris').minute() < 5) {

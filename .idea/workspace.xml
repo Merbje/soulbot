@@ -19,9 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e42c046e-9ff0-450a-a738-52dfa8574f55" name="Default Changelist" comment="Rewriting messaging">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="e42c046e-9ff0-450a-a738-52dfa8574f55" name="Default Changelist" comment="Rewriting messaging" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -147,13 +145,7 @@
       <workItem from="1598253336210" duration="680000" />
       <workItem from="1598256189078" duration="698000" />
       <workItem from="1598293949710" duration="351000" />
-    </task>
-    <task id="LOCAL-00358" summary="2">
-      <created>1591093054403</created>
-      <option name="number" value="00358" />
-      <option name="presentableId" value="LOCAL-00358" />
-      <option name="project" value="LOCAL" />
-      <updated>1591093054403</updated>
+      <workItem from="1598635789547" duration="814000" />
     </task>
     <task id="LOCAL-00359" summary="2">
       <created>1591093125150</created>
@@ -491,7 +483,14 @@
       <option name="project" value="LOCAL" />
       <updated>1598253413411</updated>
     </task>
-    <option name="localTasksCounter" value="407" />
+    <task id="LOCAL-00407" summary="Rewriting messaging">
+      <created>1598635996974</created>
+      <option name="number" value="00407" />
+      <option name="presentableId" value="LOCAL-00407" />
+      <option name="project" value="LOCAL" />
+      <updated>1598635996974</updated>
+    </task>
+    <option name="localTasksCounter" value="408" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -544,10 +543,11 @@
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state width="936" height="282" key="GridCell.Tab.0.right/0.0.1920.1050@0.0.1920.1050" timestamp="1590669749881" />
-    <state x="1272" y="39" key="Vcs.Push.Dialog.v2" timestamp="1598253415277">
-      <screen x="0" y="0" width="2560" height="1410" />
+    <state x="-966" y="378" key="Vcs.Push.Dialog.v2" timestamp="1598635998736">
+      <screen x="-1920" y="349" width="1920" height="1050" />
     </state>
     <state x="954" y="29" key="Vcs.Push.Dialog.v2/0.0.1920.1050@0.0.1920.1050" timestamp="1595662405634" />
+    <state x="-966" y="378" key="Vcs.Push.Dialog.v2/0.0.2560.1410/-1920.349.1920.1050@-1920.349.1920.1050" timestamp="1598635998736" />
     <state x="1272" y="39" key="Vcs.Push.Dialog.v2/0.0.2560.1410/-1920.349.1920.1050@0.0.2560.1410" timestamp="1598253415277" />
     <state x="1245" y="449" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1591084616486">
       <screen x="0" y="0" width="1920" height="1050" />
