@@ -123,8 +123,12 @@ discord.on('message', msg => {
                     oneconnect = false;
                 }, 1500);
                 let user = msg.author.username;
-                if (msg.author.lastMessage.member.nickname !== null) {
-                    user = msg.author.lastMessage.member.nickname;
+                try {
+                    if (msg.author.lastMessage.member.nickname !== null) {
+                        user = msg.author.lastMessage.member.nickname;
+                    }
+                } catch (e) {
+
                 }
                 let args = msg.content.substring(1).split(' ');
 
@@ -583,7 +587,7 @@ discord.on('message', msg => {
                 sessionTime = args[0];
                msg.client.channels.get(farm).send('Got it. What would u like the description of the event to be?');
             } else if (previousComment === 'time' && sessionHost === '<@' + msg.author.id + '>') {
-                previousComment = 'description'
+                previousComment = 'description';
                 for (let i = 0; i < args.length; i++) {
                     sessionDesc += ' ' + args[i];
                 }

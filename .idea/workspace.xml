@@ -21,6 +21,7 @@
   <component name="ChangeListManager">
     <list default="true" id="e42c046e-9ff0-450a-a738-52dfa8574f55" name="Default Changelist" comment="Rewriting messaging">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bot.js" beforeDir="false" afterPath="$PROJECT_DIR$/bot.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,6 +58,18 @@
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Gebruiker\WebstormProjects\soulbot\node_modules" />
     </key>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -148,9 +161,13 @@
       <workItem from="1598256189078" duration="698000" />
       <workItem from="1598293949710" duration="351000" />
       <workItem from="1598635789547" duration="814000" />
-      <workItem from="1599636888393" duration="194000" />
-      <workItem from="1602842583464" duration="679000" />
-      <workItem from="1603627580497" duration="10000" />
+    </task>
+    <task id="LOCAL-00359" summary="2">
+      <created>1591093125150</created>
+      <option name="number" value="00359" />
+      <option name="presentableId" value="LOCAL-00359" />
+      <option name="project" value="LOCAL" />
+      <updated>1591093125150</updated>
     </task>
     <task id="LOCAL-00360" summary="2">
       <created>1591093336926</created>
@@ -488,14 +505,7 @@
       <option name="project" value="LOCAL" />
       <updated>1598635996974</updated>
     </task>
-    <task id="LOCAL-00408" summary="Rewriting messaging">
-      <created>1599636927368</created>
-      <option name="number" value="00408" />
-      <option name="presentableId" value="LOCAL-00408" />
-      <option name="project" value="LOCAL" />
-      <updated>1599636927368</updated>
-    </task>
-    <option name="localTasksCounter" value="409" />
+    <option name="localTasksCounter" value="408" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -506,12 +516,13 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
@@ -532,15 +543,15 @@
     <option name="LAST_COMMIT_MESSAGE" value="Rewriting messaging" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="1272" y="39" key="Vcs.Push.Dialog.v2" timestamp="1599636930598">
-      <screen x="0" y="0" width="2560" height="1410" />
+    <state x="423" y="139" key="CommitChangelistDialog2" timestamp="1603982970298">
+      <screen x="0" y="23" width="1680" height="1027" />
+    </state>
+    <state x="423" y="139" key="CommitChangelistDialog2/0.23.1680.1027@0.23.1680.1027" timestamp="1603982970298" />
+    <state x="-966" y="378" key="Vcs.Push.Dialog.v2" timestamp="1598635998736">
+      <screen x="-1920" y="349" width="1920" height="1050" />
     </state>
     <state x="954" y="29" key="Vcs.Push.Dialog.v2/0.0.1920.1050@0.0.1920.1050" timestamp="1595662405634" />
     <state x="-966" y="378" key="Vcs.Push.Dialog.v2/0.0.2560.1410/-1920.349.1920.1050@-1920.349.1920.1050" timestamp="1598635998736" />
-    <state x="1272" y="39" key="Vcs.Push.Dialog.v2/0.0.2560.1410/-1920.349.1920.1050@0.0.2560.1410" timestamp="1599636930598" />
-    <state x="1245" y="449" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1591084616486">
-      <screen x="0" y="0" width="1920" height="1050" />
-    </state>
-    <state x="1245" y="449" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1050@0.0.1920.1050" timestamp="1591084616486" />
+    <state x="1272" y="39" key="Vcs.Push.Dialog.v2/0.0.2560.1410/-1920.349.1920.1050@0.0.2560.1410" timestamp="1598253415277" />
   </component>
 </project>
