@@ -529,7 +529,7 @@ discord.on('message', msg => {
                     } else if (args[0] === 'removed') {
                         let memberid = msg.mentions.users.first().id;
                         console.log(msg.mentions.users.first().id);
-                        let members = msg.guild.members.get(memberid);
+                        let members = Client.fetchUser(memberid);
                         console.log(members);
                         let privatemsg = msg.mentions.users.first();
                         let pm;
