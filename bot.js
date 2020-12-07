@@ -528,22 +528,23 @@ discord.on('message', msg => {
                         ).then();
                     } else if (args[0] === 'removed') {
                         let memberid = msg.mentions.users.first().id;
-                        console.log(msg.mentions.users.first().id);
+                        // console.log(msg.mentions.users.first().id);
                         let members = discord.users.find(user => user.id === memberid);
-                        console.log(members);
-                        let privatemsg = msg.mentions.users.first();
+
+                        // console.log(members);
+                        // let privatemsg = msg.mentions.users.first();
                         let pm;
                         if (args[1].toLowerCase() === 'inactive') {
-                            pm = ("Hey " + privatemsg + ",\n\nDue to your recent inactivity you have been removed from the guild as part of our policy. Your discord rank has been adjusted. If you plan on being more active and want to rejoin the guild feel free free to send an administrator or a recruitment officer a private message through discord.\n\nKind regards,\n\nBona Fide staff");
+                            pm = ("Hey " + members + ",\n\nDue to your recent inactivity you have been removed from the guild as part of our policy. Your discord rank has been adjusted. If you plan on being more active and want to rejoin the guild feel free free to send an administrator or a recruitment officer a private message through discord.\n\nKind regards,\n\nBona Fide staff");
                         } else if (args[1].toLowerCase() === 'kicked') {
-                            pm = (`Hey ${privatemsg},\n\nYou’re receiving this message because either you have been removed from the guild or we have taken notice of you taking the initiative to leave.\n\nWe’ve adjusted your discord rank to ‘Friend’, you’re still welcome to take part in our community and events and we encourage you to do so!\n\nIf you have any questions feel free to contact an Admin or Recruitment Officer.\n\nKind regards,\n\nBona Fide staff`)
+                            pm = (`Hey ${members},\n\nYou’re receiving this message because either you have been removed from the guild or we have taken notice of you taking the initiative to leave.\n\nWe’ve adjusted your discord rank to ‘Friend’, you’re still welcome to take part in our community and events and we encourage you to do so!\n\nIf you have any questions feel free to contact an Admin or Recruitment Officer.\n\nKind regards,\n\nBona Fide staff`)
                         }
 
                         if (args[1].toLowerCase() === 'inactive' || args[1].toLowerCase() === 'kicked') {
 
-                            privatemsg.removeRole(member).catch(console.error);
-                            privatemsg.addRole(friend).catch(console.error);
-                            privatemsg.send(pm, {
+                            members.removeRole(member).catch(console.error);
+                            members.addRole(friend).catch(console.error);
+                            members.send(pm, {
                                 files: [
                                     "./end.png"
                                 ]
