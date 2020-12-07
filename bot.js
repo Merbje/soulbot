@@ -527,7 +527,10 @@ discord.on('message', msg => {
                             "**!removed [inactive:kicked] [username]** send kicked message to user and removes member rank"
                         ).then();
                     } else if (args[0] === 'removed') {
-                        console.log(msg.mentions.users.first());
+                        let memberid = msg.mentions.users.first().id;
+                        console.log(msg.mentions.users.first().id);
+                        let members = msg.guild.members.get(memberid);
+                        console.log(members);
                         let privatemsg = msg.mentions.users.first();
                         let pm;
                         if (args[1].toLowerCase() === 'inactive') {
@@ -537,6 +540,7 @@ discord.on('message', msg => {
                         }
 
                         if (args[1].toLowerCase() === 'inactive' || args[1].toLowerCase() === 'kicked') {
+
                             privatemsg.removeRole(member).catch(console.error);
                             privatemsg.addRole(friend).catch(console.error);
                             privatemsg.send(pm, {
