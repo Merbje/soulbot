@@ -541,14 +541,15 @@ discord.on('message', msg => {
                         }
 
                         if (args[1].toLowerCase() === 'inactive' || args[1].toLowerCase() === 'kicked') {
-
-                            members.removeRole(member).catch(console.error);
-                            members.addRole(friend).catch(console.error);
                             members.send(pm, {
                                 files: [
                                     "./end.png"
                                 ]
                             }).then();
+                            members.roles.add(friend);
+                            members.roles.delete(member);
+                            // members.removeRole(member).catch(console.error);
+                            // members.addRole(friend).catch(console.error);
                         }
                         msg.react(vinkje).then();
                     }
