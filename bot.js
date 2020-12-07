@@ -527,7 +527,7 @@ discord.on('message', msg => {
                             "**!removed [inactive:kicked] [username]** send kicked message to user and removes member rank"
                         ).then();
                     } else if (args[0] === 'removed') {
-                        console.log(msg.mentions);
+                        console.log(msg.mentions.members, "\n\n======================\n\n", msg.mentions.users, "\n\n======================\n\n", msg.mentions.everyone);
                         let privatemsg = msg.mentions.members.first();
                         let pm;
                         if (args[1].toLowerCase() === 'inactive') {
