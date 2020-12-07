@@ -530,7 +530,7 @@ discord.on('message', msg => {
                         let memberid = msg.mentions.users.first().id;
                         // console.log(msg.mentions.users.first().id);
                         let members = discord.users.find(user => user.id === memberid);
-
+                        console.log(members, "\n\n============================\n\n" , members.roles , "\n\n============================\n\n")
                         // console.log(members);
                         // let privatemsg = msg.mentions.users.first();
                         let pm;
