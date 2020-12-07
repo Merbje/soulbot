@@ -19,10 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e42c046e-9ff0-450a-a738-52dfa8574f55" name="Default Changelist" comment="Rewriting messaging">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bot.js" beforeDir="false" afterPath="$PROJECT_DIR$/bot.js" afterDir="false" />
-    </list>
+    <list default="true" id="e42c046e-9ff0-450a-a738-52dfa8574f55" name="Default Changelist" comment="Rewriting messaging" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -153,21 +150,7 @@
       <workItem from="1605200248745" duration="654000" />
       <workItem from="1605985911656" duration="155000" />
       <workItem from="1606066232249" duration="600000" />
-      <workItem from="1607352895990" duration="2549000" />
-    </task>
-    <task id="LOCAL-00368" summary="Added tofu to list">
-      <created>1593626977778</created>
-      <option name="number" value="00368" />
-      <option name="presentableId" value="LOCAL-00368" />
-      <option name="project" value="LOCAL" />
-      <updated>1593626977778</updated>
-    </task>
-    <task id="LOCAL-00369" summary="Added tofu to list">
-      <created>1593627065053</created>
-      <option name="number" value="00369" />
-      <option name="presentableId" value="LOCAL-00369" />
-      <option name="project" value="LOCAL" />
-      <updated>1593627065054</updated>
+      <workItem from="1607352895990" duration="2878000" />
     </task>
     <task id="LOCAL-00370" summary="Added tofu to list">
       <created>1593627339616</created>
@@ -498,7 +481,21 @@
       <option name="project" value="LOCAL" />
       <updated>1607355274532</updated>
     </task>
-    <option name="localTasksCounter" value="417" />
+    <task id="LOCAL-00417" summary="Rewriting messaging">
+      <created>1607355453736</created>
+      <option name="number" value="00417" />
+      <option name="presentableId" value="LOCAL-00417" />
+      <option name="project" value="LOCAL" />
+      <updated>1607355453736</updated>
+    </task>
+    <task id="LOCAL-00418" summary="Rewriting messaging">
+      <created>1607355600698</created>
+      <option name="number" value="00418" />
+      <option name="presentableId" value="LOCAL-00418" />
+      <option name="project" value="LOCAL" />
+      <updated>1607355600698</updated>
+    </task>
+    <option name="localTasksCounter" value="419" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -539,11 +536,11 @@
       <screen x="0" y="23" width="1680" height="1027" />
     </state>
     <state x="423" y="139" key="CommitChangelistDialog2/0.23.1680.1027@0.23.1680.1027" timestamp="1603982970298" />
-    <state x="1272" y="39" key="Vcs.Push.Dialog.v2" timestamp="1607355275435">
+    <state x="1272" y="39" key="Vcs.Push.Dialog.v2" timestamp="1607355601872">
       <screen x="0" y="0" width="2560" height="1410" />
     </state>
     <state x="-966" y="378" key="Vcs.Push.Dialog.v2/0.0.2560.1410/-1920.349.1920.1050@-1920.349.1920.1050" timestamp="1604698256230" />
-    <state x="1272" y="39" key="Vcs.Push.Dialog.v2/0.0.2560.1410/-1920.349.1920.1050@0.0.2560.1410" timestamp="1607355275435" />
+    <state x="1272" y="39" key="Vcs.Push.Dialog.v2/0.0.2560.1410/-1920.349.1920.1050@0.0.2560.1410" timestamp="1607355601872" />
     <state x="-1151" y="788" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1604698244884">
       <screen x="-1920" y="349" width="1920" height="1050" />
     </state>
