@@ -536,8 +536,10 @@ discord.on('message', msg => {
                         }
 
                         if (args[1].toLowerCase() === 'inactive' || args[1].toLowerCase() === 'kicked') {
-                            privatemsg.removeRole(member).catch(console.error);
-                            privatemsg.addRole(friend).catch(console.error);
+                            privatemsg.roles.add(friend).catch(console.error);
+                            privatemsg.roles.delete(member).catch(console.error);
+                            // privatemsg.removeRole(member).catch(console.error);
+                            // privatemsg.addRole(friend).catch(console.error);
                             privatemsg.send(pm, {
                                 files: [
                                     "./end.png"

@@ -59,18 +59,6 @@
       <recent name="C:\Users\Gebruiker\WebstormProjects\soulbot\node_modules" />
     </key>
   </component>
-  <component name="ServiceViewManager">
-    <option name="viewStates">
-      <list>
-        <serviceView>
-          <treeState>
-            <expand />
-            <select />
-          </treeState>
-        </serviceView>
-      </list>
-    </option>
-  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -161,6 +149,11 @@
       <workItem from="1598256189078" duration="698000" />
       <workItem from="1598293949710" duration="351000" />
       <workItem from="1598635789547" duration="814000" />
+      <workItem from="1604745963315" duration="175000" />
+      <workItem from="1605200248745" duration="654000" />
+      <workItem from="1605985911656" duration="155000" />
+      <workItem from="1606066232249" duration="600000" />
+      <workItem from="1607352895990" duration="351000" />
     </task>
     <task id="LOCAL-00359" summary="2">
       <created>1591093125150</created>
@@ -516,13 +509,12 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State>
-              <option name="COLUMN_ORDER" />
-            </State>
+            <State />
           </value>
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
@@ -547,11 +539,14 @@
       <screen x="0" y="23" width="1680" height="1027" />
     </state>
     <state x="423" y="139" key="CommitChangelistDialog2/0.23.1680.1027@0.23.1680.1027" timestamp="1603982970298" />
-    <state x="-966" y="378" key="Vcs.Push.Dialog.v2" timestamp="1598635998736">
+    <state x="-966" y="378" key="Vcs.Push.Dialog.v2" timestamp="1604698256230">
       <screen x="-1920" y="349" width="1920" height="1050" />
     </state>
-    <state x="954" y="29" key="Vcs.Push.Dialog.v2/0.0.1920.1050@0.0.1920.1050" timestamp="1595662405634" />
-    <state x="-966" y="378" key="Vcs.Push.Dialog.v2/0.0.2560.1410/-1920.349.1920.1050@-1920.349.1920.1050" timestamp="1598635998736" />
+    <state x="-966" y="378" key="Vcs.Push.Dialog.v2/0.0.2560.1410/-1920.349.1920.1050@-1920.349.1920.1050" timestamp="1604698256230" />
     <state x="1272" y="39" key="Vcs.Push.Dialog.v2/0.0.2560.1410/-1920.349.1920.1050@0.0.2560.1410" timestamp="1598253415277" />
+    <state x="-1151" y="788" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1604698244884">
+      <screen x="-1920" y="349" width="1920" height="1050" />
+    </state>
+    <state x="-1151" y="788" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.2560.1410/-1920.349.1920.1050@-1920.349.1920.1050" timestamp="1604698244884" />
   </component>
 </project>
