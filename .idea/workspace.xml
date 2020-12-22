@@ -19,9 +19,8 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e42c046e-9ff0-450a-a738-52dfa8574f55" name="Default Changelist" comment="Rewriting messaging">
+    <list default="true" id="e42c046e-9ff0-450a-a738-52dfa8574f55" name="Default Changelist" comment="ge">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bot.js" beforeDir="false" afterPath="$PROJECT_DIR$/bot.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -153,21 +152,8 @@
       <workItem from="1605200248745" duration="654000" />
       <workItem from="1605985911656" duration="155000" />
       <workItem from="1606066232249" duration="600000" />
-      <workItem from="1607352895990" duration="3087000" />
-    </task>
-    <task id="LOCAL-00371" summary="Added tofu to list">
-      <created>1593678027876</created>
-      <option name="number" value="00371" />
-      <option name="presentableId" value="LOCAL-00371" />
-      <option name="project" value="LOCAL" />
-      <updated>1593678027877</updated>
-    </task>
-    <task id="LOCAL-00372" summary="Added tofu to list">
-      <created>1593678465947</created>
-      <option name="number" value="00372" />
-      <option name="presentableId" value="LOCAL-00372" />
-      <option name="project" value="LOCAL" />
-      <updated>1593678465947</updated>
+      <workItem from="1607352895990" duration="3756000" />
+      <workItem from="1607428763426" duration="786000" />
     </task>
     <task id="LOCAL-00373" summary="Added tofu to list">
       <created>1593678538403</created>
@@ -498,7 +484,21 @@
       <option name="project" value="LOCAL" />
       <updated>1607355812218</updated>
     </task>
-    <option name="localTasksCounter" value="420" />
+    <task id="LOCAL-00420" summary="ge">
+      <created>1607355995082</created>
+      <option name="number" value="00420" />
+      <option name="presentableId" value="LOCAL-00420" />
+      <option name="project" value="LOCAL" />
+      <updated>1607355995082</updated>
+    </task>
+    <task id="LOCAL-00421" summary="ge">
+      <created>1607356266818</created>
+      <option name="number" value="00421" />
+      <option name="presentableId" value="LOCAL-00421" />
+      <option name="project" value="LOCAL" />
+      <updated>1607356266818</updated>
+    </task>
+    <option name="localTasksCounter" value="422" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -532,18 +532,19 @@
     <MESSAGE value="Added tofu to list" />
     <MESSAGE value="Rewriting soulsperuser to be under 2000 characters" />
     <MESSAGE value="Rewriting messaging" />
-    <option name="LAST_COMMIT_MESSAGE" value="Rewriting messaging" />
+    <MESSAGE value="ge" />
+    <option name="LAST_COMMIT_MESSAGE" value="ge" />
   </component>
   <component name="WindowStateProjectService">
     <state x="423" y="139" key="CommitChangelistDialog2" timestamp="1603982970298">
       <screen x="0" y="23" width="1680" height="1027" />
     </state>
     <state x="423" y="139" key="CommitChangelistDialog2/0.23.1680.1027@0.23.1680.1027" timestamp="1603982970298" />
-    <state x="1272" y="39" key="Vcs.Push.Dialog.v2" timestamp="1607355815764">
+    <state x="1272" y="39" key="Vcs.Push.Dialog.v2" timestamp="1607356268015">
       <screen x="0" y="0" width="2560" height="1410" />
     </state>
     <state x="-966" y="378" key="Vcs.Push.Dialog.v2/0.0.2560.1410/-1920.349.1920.1050@-1920.349.1920.1050" timestamp="1604698256230" />
-    <state x="1272" y="39" key="Vcs.Push.Dialog.v2/0.0.2560.1410/-1920.349.1920.1050@0.0.2560.1410" timestamp="1607355815764" />
+    <state x="1272" y="39" key="Vcs.Push.Dialog.v2/0.0.2560.1410/-1920.349.1920.1050@0.0.2560.1410" timestamp="1607356268015" />
     <state x="-1151" y="788" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1604698244884">
       <screen x="-1920" y="349" width="1920" height="1050" />
     </state>
